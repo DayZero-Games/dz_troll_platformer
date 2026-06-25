@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using DZ.Core.Contracts;
 
-namespace DZ.Core.Services
+namespace DZ.Core.Runtime
 {
     public class SignalBus : ISignalBus
     {
