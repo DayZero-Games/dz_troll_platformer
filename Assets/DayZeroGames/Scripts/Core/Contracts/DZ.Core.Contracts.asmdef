@@ -1,6 +1,6 @@
 {
-    "name": "DayZero.Core.Contracts",
-    "rootNamespace": "DayZero.Core.Contracts",
+    "name": "DZ.Core.Contracts",
+    "rootNamespace": "DZ.Core.Contracts",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
