@@ -1,0 +1,16 @@
+{
+    "name": "DZ.Core.Services",
+    "rootNamespace": "DZ.Core.Services",
+    "references": [
+        "GUID:935830fe318a09f43b133505b3d22a15"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
