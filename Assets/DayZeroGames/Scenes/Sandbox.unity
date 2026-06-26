@@ -119,7 +119,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &262009049
+--- !u!1 &199182227
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,50 +127,51 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 262009051}
-  - component: {fileID: 262009050}
+  - component: {fileID: 199182229}
+  - component: {fileID: 199182228}
   m_Layer: 0
-  m_Name: RootLifetimeScope
+  m_Name: GameLifetimeScope
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &262009050
+--- !u!114 &199182228
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 262009049}
+  m_GameObject: {fileID: 199182227}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 739fa539257a2514ca09220a0054b52f, type: 3}
+  m_Script: {fileID: 11500000, guid: e3b6bd06df5f57a40bdd3d0b5d01c04f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: DZ.Core.Runtime::DZ.Core.Runtime.RootLifetimeScope
+  m_EditorClassIdentifier: DZ.Core.Runtime::DZ.Core.Runtime.GameLifetimeScope
   parentReference:
-    TypeName: 
+    TypeName: DZ.Core.Runtime.RootLifetimeScope
   autoRun: 1
   autoInjectGameObjects: []
   featureInstallers:
-  - {fileID: 943134420}
---- !u!4 &262009051
+  - {fileID: 0}
+  inputReaderSo: {fileID: 11400000, guid: 9cc9205df8772174ba0c7121e0c80386, type: 2}
+--- !u!4 &199182229
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 262009049}
+  m_GameObject: {fileID: 199182227}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 798669021}
+  - {fileID: 427388865}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &798669020
+--- !u!1 &427388864
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -178,7 +179,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 798669021}
+  - component: {fileID: 427388865}
   m_Layer: 0
   m_Name: FeatureInstallers
   m_TagString: Untagged
@@ -186,22 +187,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &798669021
+--- !u!4 &427388865
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 798669020}
+  m_GameObject: {fileID: 427388864}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 943134419}
-  - {fileID: 1145452176}
-  m_Father: {fileID: 262009051}
+  - {fileID: 1148460568}
+  m_Father: {fileID: 199182229}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &914567116
 GameObject:
@@ -212,7 +212,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 914567118}
-  - component: {fileID: 914567117}
+  - component: {fileID: 914567119}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -220,19 +220,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &914567117
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 914567116}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 483a19cd1982db54aaec22170396dce2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
-  playerHealth: 100
 --- !u!4 &914567118
 Transform:
   m_ObjectHideFlags: 0
@@ -248,7 +235,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &943134418
+--- !u!114 &914567119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 914567116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d98208d5606669342b19b8fbc2d5cf80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DZ.Core.Runtime::Player
+--- !u!1 &1148460567
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -256,87 +255,43 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 943134419}
-  - component: {fileID: 943134420}
+  - component: {fileID: 1148460568}
+  - component: {fileID: 1148460569}
   m_Layer: 0
-  m_Name: TestFeatureInstaller
+  m_Name: PlayerFeatureInstaller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &943134419
+--- !u!4 &1148460568
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 943134418}
+  m_GameObject: {fileID: 1148460567}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 798669021}
+  m_Father: {fileID: 427388865}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &943134420
+--- !u!114 &1148460569
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 943134418}
+  m_GameObject: {fileID: 1148460567}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8769b35bfdfd54c4ba3238d06bfaa24d, type: 3}
+  m_Script: {fileID: 11500000, guid: a99ed87da67c5b948b894e231ec1b69b, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TestFeatureInstaller
---- !u!1 &1145452175
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1145452176}
-  - component: {fileID: 1145452177}
-  m_Layer: 0
-  m_Name: playerFeatureInstaller
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1145452176
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1145452175}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 798669021}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1145452177
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1145452175}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 54b0523e24e11824ca0da6d1e57f5190, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerFeatureInstaller
-  playerHealth: {fileID: 914567117}
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.PlayerFeatureInstaller
+  player: {fileID: 914567119}
 --- !u!1 &1332603318
 GameObject:
   m_ObjectHideFlags: 0
@@ -434,5 +389,5 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1332603321}
-  - {fileID: 262009051}
+  - {fileID: 199182229}
   - {fileID: 914567118}
