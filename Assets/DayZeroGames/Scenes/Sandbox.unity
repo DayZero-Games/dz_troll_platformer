@@ -1100,8 +1100,7 @@ MonoBehaviour:
     TypeName: DZ.Core.Runtime.RootLifetimeScope
   autoRun: 1
   autoInjectGameObjects: []
-  featureInstallers:
-  - {fileID: 0}
+  featureInstallers: []
   inputReaderSo: {fileID: 11400000, guid: 9cc9205df8772174ba0c7121e0c80386, type: 2}
 --- !u!4 &199182229
 Transform:
@@ -8254,7 +8253,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.39607844, g: 0.23137255, b: 0.37254903, a: 0}
+  m_BackGroundColor: {r: 0.3773585, g: 0.21893913, b: 0.35472718, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
