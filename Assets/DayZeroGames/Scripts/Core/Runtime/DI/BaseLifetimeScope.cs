@@ -10,6 +10,8 @@ namespace DZ.Core.Runtime
 
         protected override void Configure(IContainerBuilder builder)
         {
+	        if (featureInstallers.Length == 0) return;
+	        
             foreach (var featureInstaller in featureInstallers)
             {
                 if (featureInstaller!=null)
@@ -18,7 +20,7 @@ namespace DZ.Core.Runtime
                 }
                 else
                 {
-                    Debug.LogWarning($"{featureInstaller.name} does not implement IFeatureInstaller interface");
+	                Debug.LogWarning("Feature Installer Not Found! Maybe you forgot to assign a feature installer?");
                 }
             }
         }
