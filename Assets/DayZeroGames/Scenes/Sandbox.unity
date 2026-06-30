@@ -247,7 +247,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a99ed87da67c5b948b894e231ec1b69b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.PlayerFeatureInstaller
-  player: {fileID: 0}
 --- !u!1 &1236568242
 GameObject:
   m_ObjectHideFlags: 0
@@ -568,8 +567,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b03aca6d99b67be4bab1529b1a1db3c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: DZ.Core::DZ.Core.AudioService
-  musicSource: {fileID: 0}
-  sfxSource: {fileID: 0}
+  musicSource: {fileID: 1582596637}
+  sfxSource: {fileID: 1236568244}
+  _audioLibrary: {fileID: 0}
 --- !u!4 &1461911947
 Transform:
   m_ObjectHideFlags: 0
