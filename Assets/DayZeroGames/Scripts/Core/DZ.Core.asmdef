@@ -1,10 +1,10 @@
 {
-    "name": "DZ.Core.Runtime",
-    "rootNamespace": "DZ.Core.Runtime",
+    "name": "DZ.Core",
+    "rootNamespace": "DZ.Core",
     "references": [
-        "GUID:935830fe318a09f43b133505b3d22a15",
+        "GUID:75469ad4d38634e559750d17036d5f7c",
         "GUID:b0214a6008ed146ff8f122a6a9c2f6cc",
-        "GUID:75469ad4d38634e559750d17036d5f7c"
+        "GUID:de13f8b1675b449e6a6af1cc0f7842ec"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
