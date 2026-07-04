@@ -6,8 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/DayZeroGames/Scenes/Bootstrap.unity
+    guid: 0fb6bd22daf9c6845bf96ce8fc2d270d
+  - enabled: 1
+    path: Assets/DayZeroGames/Scenes/MainMenu.unity
+    guid: 60b786e587f2ad8478151f68da0ab61d
+  - enabled: 1
+    path: Assets/DayZeroGames/Scenes/Gameplay.unity
+    guid: 3ac9c15cfbd0f564b9070ef1afba2de8
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: aa63b481422ce9348bf3308adfed5535, type: 3}
   m_UseUCBPForAssetBundles: 0
