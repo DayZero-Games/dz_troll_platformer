@@ -2,7 +2,7 @@ using VContainer.Unity;
 
 namespace DZ.Core
 {
-	public abstract class BootstrapEntryPoint : IStartable
+	public sealed class BootstrapEntryPoint : IStartable
 	{
 		public void Start()
 		{
