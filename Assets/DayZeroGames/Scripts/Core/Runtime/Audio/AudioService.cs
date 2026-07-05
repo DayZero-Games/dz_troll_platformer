@@ -1,9 +1,8 @@
 using DZ.Core.Contracts;
-using DZ.Core.Runtime;
 using UnityEngine;
 using VInspector;
 
-namespace DZ.Core
+namespace DZ.Core.Runtime
 {
 	public class AudioService : MonoBehaviour, IAudioService
 	{

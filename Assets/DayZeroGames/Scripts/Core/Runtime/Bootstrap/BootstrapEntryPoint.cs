@@ -1,6 +1,6 @@
 using VContainer.Unity;
 
-namespace DZ.Core
+namespace DZ.Core.Runtime
 {
 	public sealed class BootstrapEntryPoint : IStartable
 	{
