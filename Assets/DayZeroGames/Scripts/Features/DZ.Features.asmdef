@@ -1,0 +1,17 @@
+{
+    "name": "DZ.Features",
+    "rootNamespace": "DZ.Features",
+    "references": [
+        "GUID:116da2a2d92ccbf429289295182cebe5",
+        "GUID:b0214a6008ed146ff8f122a6a9c2f6cc"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
