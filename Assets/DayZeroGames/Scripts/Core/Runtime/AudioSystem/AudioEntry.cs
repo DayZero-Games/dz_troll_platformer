@@ -1,16 +1,9 @@
 using System;
+using DZ.Core.Contracts;
 using UnityEngine;
 
 namespace DZ.Core.Runtime
 {
-    [Serializable]
-    public enum AudioId
-    {
-        None,
-        Jump,
-        Death
-    }
-    
     [Serializable]
     public class AudioEntry 
     {
