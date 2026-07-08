@@ -31,6 +31,7 @@ namespace DZ.Core.Runtime
 			base.Configure(builder);
 
 			builder.Register<ISignalBus, SignalBus>(Lifetime.Singleton);
+			builder.Register<ISceneLoader, SceneLoader>(Lifetime.Singleton);
 			builder.RegisterInstance(_inputReader).As<IInputReader>();
 			builder.RegisterInstance(_audioLibrary).As<IAudioLibrary>();
 			builder.RegisterComponent(_audioService).As<IAudioService>();

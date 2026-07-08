@@ -2,7 +2,7 @@ namespace DZ.Core.Contracts
 {
 	public enum SceneId : short
 	{
-		BootStrap,
+		Bootstrap,
 		MainMenu,
 		Gameplay
 	}
