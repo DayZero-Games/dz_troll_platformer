@@ -1,4 +1,3 @@
-using System;
 using DZ.Core.Contracts;
 using UnityEngine;
 
@@ -6,8 +5,8 @@ namespace DZ.Features
 {
     public class PlayerIdleState : BaseState
     {
-        public PlayerIdleState(PlayerController playerController, PlayerStateMachine playerStateMachine, IInputReader inputReader) :
-        base(playerController, playerStateMachine, inputReader)
+        public PlayerIdleState(PlayerController playerController, PlayerAnimationController playerAnimationController, PlayerStateMachine playerStateMachine, IInputReader inputReader) :
+        base(playerController, playerAnimationController,playerStateMachine, inputReader)
         { }
 
         public override void Enter()
@@ -19,9 +18,14 @@ namespace DZ.Features
 
         public override void Update()
         {
-            Debug.Log("IdleState Update");
+            UpdateAnimation();
             HandlePlayerIdle();
             CheckForStateChange();
+        }
+
+        private void UpdateAnimation()
+        {
+            playerAnimationController.PlayMoveAnimation(inputReader.moveInput, playerController.IsGrounded);
         }
 
         private void HandlePlayerIdle()

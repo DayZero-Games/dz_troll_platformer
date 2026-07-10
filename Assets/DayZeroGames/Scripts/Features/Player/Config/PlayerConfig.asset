@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: PlayerConfig
   m_EditorClassIdentifier: DZ.Features::DZ.Features.PlayerConfigSo
   speed: 5
-  jumpForce: 5
-  fallMultiplier: 1
+  jumpForce: 10

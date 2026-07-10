@@ -9,9 +9,11 @@ namespace DZ.Features
         protected PlayerController playerController;
         protected PlayerStateMachine playerStateMachine;
         protected IInputReader inputReader;
-        public BaseState(PlayerController playerController, PlayerStateMachine playerStateMachine, IInputReader inputReader)
+        protected PlayerAnimationController playerAnimationController;
+        public BaseState(PlayerController playerController, PlayerAnimationController playerAnimationController, PlayerStateMachine playerStateMachine, IInputReader inputReader)
         {
             this.playerController = playerController;
+            this.playerAnimationController = playerAnimationController;
             this.playerStateMachine = playerStateMachine;
             this.inputReader = inputReader;
 

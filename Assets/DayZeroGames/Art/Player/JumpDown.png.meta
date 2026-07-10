@@ -1,16 +1,19 @@
 fileFormatVersion: 2
-guid: 357ba17a0dd092643891b4138cd089ee
+guid: a53872b48fd4c014a8e4d1053e4a04f1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 978942612559604503
-    second: PlayerIdle_0
+      213: 2223493852325686731
+    second: DZ_Character_fallD_0
   - first:
-      213: 3499389992042037492
-    second: PlayerIdle_1
+      213: 2874113781189812556
+    second: DZ_Character_fallD_1
   - first:
-      213: 6272215952258405886
-    second: PlayerIdle_2
+      213: 5138252816806428745
+    second: DZ_Character_fallD_2
+  - first:
+      213: 2097449362126855939
+    second: DZ_Character_fallD_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -119,67 +122,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlayerIdle_0
+      name: JumpDown_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 2
-        width: 17
-        height: 25
+        x: 0
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 71bab159e17e59d00800000000000000
-      internalID: 978942612559604503
+      spriteID: 9358b9cbc52a00b42884be05ea321db2
+      internalID: -1372857707
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerIdle_1
+      name: JumpDown_1
       rect:
         serializedVersion: 2
-        x: 39
-        y: 2
-        width: 17
-        height: 25
+        x: 32
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 4f0093e38a4509030800000000000000
-      internalID: 3499389992042037492
+      spriteID: 977d73a78321e684ba59d25072874be5
+      internalID: -710771
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerIdle_2
+      name: JumpDown_2
       rect:
         serializedVersion: 2
-        x: 71
-        y: 2
-        width: 17
-        height: 24
+        x: 64
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: ef596ec4d236b0750800000000000000
-      internalID: 6272215952258405886
+      spriteID: 61b628309503b474fada48845379cbd9
+      internalID: 333333009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpDown_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc775888a9c9649459395e23f7d35c12
+      internalID: 2076472587
       vertices: []
       indices: 
       edges: []
@@ -188,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 976d7f8b26ed3e04385cb53d4f121a6a
     internalID: 0
     vertices: []
     indices: 
@@ -196,11 +221,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      PlayerIdle_0: 978942612559604503
-      PlayerIdle_1: 3499389992042037492
-      PlayerIdle_2: 6272215952258405886
+      JumpDown_0: -1372857707
+      JumpDown_1: -710771
+      JumpDown_2: 333333009
+      JumpDown_3: 2076472587
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

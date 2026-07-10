@@ -1,4 +1,3 @@
-using System;
 using DZ.Core.Contracts;
 using UnityEngine;
 
@@ -6,20 +5,29 @@ namespace DZ.Features
 {
     public class PlayerJumpState : BaseState
     {
-        public PlayerJumpState(PlayerController playerController, PlayerStateMachine playerStateMachine, IInputReader inputReader) : base(playerController, playerStateMachine, inputReader)
+        private bool _hasLeftGround;
+
+        public PlayerJumpState(PlayerController playerController, PlayerAnimationController playerAnimationController ,PlayerStateMachine playerStateMachine, IInputReader inputReader) : base(playerController,playerAnimationController ,playerStateMachine, inputReader)
         {
         }
 
         public override void Enter()
         {
             Debug.Log("JumpState Enter");
+            _hasLeftGround = false;
             HandlePlayerJump();
         }
         public override void Update()
         {
-            
+            UpdateAnimation();
             CheckForStateChange();
         }
+
+        private void UpdateAnimation()
+        {
+            playerAnimationController.PlayJumpAnimation(playerController.PlayerRb.linearVelocityY,playerController.IsGrounded);
+        }
+
         public override void FixedUpdate()
         {
             playerController.MovePlayer(inputReader.moveInput);
@@ -31,7 +39,14 @@ namespace DZ.Features
 
         private void CheckForStateChange()
         {
-            if (!playerController.IsGrounded) return;
+            if (!playerController.IsGrounded)
+            {
+                _hasLeftGround = true;
+                return;
+            }
+
+            if (!_hasLeftGround) return;
+
             if (Mathf.Abs(inputReader.moveInput) > 0) playerStateMachine.ChangeState(playerController.RunState);
             else playerStateMachine.ChangeState(playerController.IdleState);
         }

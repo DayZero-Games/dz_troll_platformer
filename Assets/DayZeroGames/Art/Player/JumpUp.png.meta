@@ -1,13 +1,16 @@
 fileFormatVersion: 2
-guid: 8ef2ddbb75b0564498a830781ebfa6a2
+guid: 8f976789aa0659a4894bbad34748d9a6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 444702640956841479
-    second: PlayerJump_0
+      213: 8026103792098333507
+    second: DZ_Character_jump_0
   - first:
-      213: -7941400250425145444
-    second: PlayerJump_1
+      213: 6307952400047621713
+    second: DZ_Character_jump_1
+  - first:
+      213: 3323202415626532607
+    second: DZ_Character_jump_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -40,7 +43,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -54,7 +57,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -116,45 +119,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlayerJump_0
+      name: JumpUp_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 2
-        width: 17
-        height: 25
+        x: 0
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 70e19e022b6eb2600800000000000000
-      internalID: 444702640956841479
+      spriteID: 3a17bd43d56122544b4b78ee7dcce91d
+      internalID: 1467020281
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerJump_1
+      name: JumpUp_1
       rect:
         serializedVersion: 2
-        x: 37
-        y: 9
-        width: 21
-        height: 21
+        x: 32
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: c97063e2c8a7ac190800000000000000
-      internalID: -7941400250425145444
+      spriteID: f8c9ca3aee7f03b4c8ec6dca49bd47aa
+      internalID: 92575637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: JumpUp_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8404ca54aec236a4e912adf8538f073d
+      internalID: 763630529
       vertices: []
       indices: 
       edges: []
@@ -163,7 +188,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: a1172f438be95fb4caaf00d5861cfd4a
     internalID: 0
     vertices: []
     indices: 
@@ -171,10 +196,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      PlayerJump_0: 444702640956841479
-      PlayerJump_1: -7941400250425145444
+      JumpUp_0: 1467020281
+      JumpUp_1: 92575637
+      JumpUp_2: 763630529
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

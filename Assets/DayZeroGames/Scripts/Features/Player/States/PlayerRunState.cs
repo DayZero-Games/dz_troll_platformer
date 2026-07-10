@@ -1,4 +1,3 @@
-using System;
 using DZ.Core.Contracts;
 using UnityEngine;
 
@@ -6,8 +5,8 @@ namespace DZ.Features
 {
     public class PlayerRunState : BaseState
     {
-        public PlayerRunState(PlayerController playerController, PlayerStateMachine playerStateMachine, IInputReader inputReader) :
-        base(playerController, playerStateMachine, inputReader)
+        public PlayerRunState(PlayerController playerController, PlayerAnimationController playerAnimationController,PlayerStateMachine playerStateMachine, IInputReader inputReader) :
+        base(playerController, playerAnimationController,playerStateMachine, inputReader)
         { }
 
         public override void Enter()
@@ -15,10 +14,18 @@ namespace DZ.Features
             Debug.Log("RunState Enter");
             inputReader.OnJumpPerformed += HandlePlayerJump;
         }
+
         public override void Update()
         {
+            UpdateAnimation();
             CheckForStateChange();
         }
+
+        private void UpdateAnimation()
+        {
+            playerAnimationController.PlayMoveAnimation(inputReader.moveInput,playerController.IsGrounded);
+        }
+
         public override void FixedUpdate()
         {
             HandlePlayerRun();
@@ -50,8 +57,5 @@ namespace DZ.Features
                 playerStateMachine.ChangeState(playerController.IdleState);
             }
         }
-
-
-
     }
 }

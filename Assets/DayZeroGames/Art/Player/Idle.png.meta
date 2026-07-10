@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 6b8a97b6d61c92041872abaa80e4c278
+guid: 42affb57e0fd9fa4cacb1db110cc2375
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1683080842861646610
-    second: PlayerJumpDown_0
+      213: -3360748987621529219
+    second: DZ_Character_idle_0
   - first:
-      213: 350223540063621367
-    second: PlayerJumpDown_1
+      213: 3985583990069348333
+    second: DZ_Character_idle_1
   - first:
-      213: -3523877224027071143
-    second: PlayerJumpDown_2
+      213: -4160138377658215634
+    second: DZ_Character_idle_2
   - first:
-      213: 2890239512231899104
-    second: PlayerJumpDown_3
+      213: 4591212883520120863
+    second: DZ_Character_idle_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -60,7 +60,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -122,7 +122,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PlayerJumpDown_0
+      name: Idle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -135,16 +135,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 2139807fb118b5710800000000000000
-      internalID: 1683080842861646610
+      spriteID: 704927ee6dc4e484fbba22731318f934
+      internalID: 980773039
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerJumpDown_1
+      name: Idle_1
       rect:
         serializedVersion: 2
         x: 32
@@ -157,16 +157,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 7f0d871447e3cd400800000000000000
-      internalID: 350223540063621367
+      spriteID: 46931812a9bb4eb4ba9f42478e6832be
+      internalID: -187815023
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerJumpDown_2
+      name: Idle_2
       rect:
         serializedVersion: 2
         x: 64
@@ -179,16 +179,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 95dd6c5c55ca81fc0800000000000000
-      internalID: -3523877224027071143
+      spriteID: 1c2034374377d974f91c1964df31c9bb
+      internalID: -1843782129
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: PlayerJumpDown_3
+      name: Idle_3
       rect:
         serializedVersion: 2
         x: 96
@@ -201,10 +201,10 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 0ef6162f5813c1820800000000000000
-      internalID: 2890239512231899104
+      spriteID: 12fa4e7a839ae4a428e232195fc222e3
+      internalID: -165717374
       vertices: []
       indices: 
       edges: []
@@ -213,7 +213,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 53412fb18549927428ebdac9a2fd06b4
+    spriteID: df17325831cd3a943b9b8016bdde02c8
     internalID: 0
     vertices: []
     indices: 
@@ -225,10 +225,10 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      PlayerJumpDown_0: 1683080842861646610
-      PlayerJumpDown_1: 350223540063621367
-      PlayerJumpDown_2: -3523877224027071143
-      PlayerJumpDown_3: 2890239512231899104
+      Idle_0: 980773039
+      Idle_1: -187815023
+      Idle_2: -1843782129
+      Idle_3: -165717374
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

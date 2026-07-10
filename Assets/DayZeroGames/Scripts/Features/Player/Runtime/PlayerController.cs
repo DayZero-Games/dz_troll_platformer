@@ -1,17 +1,18 @@
-using System;
 using DZ.Core.Contracts;
 using UnityEngine;
 using VContainer;
 
 namespace DZ.Features
 {
+    [RequireComponent(typeof(Rigidbody2D))]
+    [RequireComponent(typeof(PlayerAnimationController))]
     public class PlayerController : MonoBehaviour
     {
         [Inject] private readonly IInputReader _inputReader;
 
         [Header("Player Settings")]
-        [SerializeField]
-        private PlayerConfigSo playerConfig;
+        [SerializeField] private PlayerConfigSo playerConfig;
+        [SerializeField] private PlayerAnimationController playerAnimationController;
 
         [Header("Ground Check Sensor Settings")]
         [SerializeField]
@@ -30,6 +31,7 @@ namespace DZ.Features
         private PlayerJumpState _jumpState;
 
         public bool IsGrounded => _isGrounded;
+        public Rigidbody2D PlayerRb => _playerRb;
         public PlayerIdleState IdleState => _idleState;
         public PlayerRunState RunState => _runState;
         public PlayerJumpState JumpState => _jumpState;
@@ -38,7 +40,7 @@ namespace DZ.Features
         private void Awake()
         {
             _playerRb = GetComponent<Rigidbody2D>();
-
+            playerAnimationController ??= GetComponent<PlayerAnimationController>();
         }
 
         private void Start()
@@ -61,9 +63,9 @@ namespace DZ.Features
         private void CreatePlayerStates()
         {
             _playerStateMachine = new PlayerStateMachine();
-            _idleState = new PlayerIdleState(this, _playerStateMachine, _inputReader);
-            _runState = new PlayerRunState(this, _playerStateMachine, _inputReader);
-            _jumpState = new PlayerJumpState(this, _playerStateMachine, _inputReader);
+            _idleState = new PlayerIdleState(this,playerAnimationController, _playerStateMachine, _inputReader);
+            _runState = new PlayerRunState(this,playerAnimationController ,_playerStateMachine, _inputReader);
+            _jumpState = new PlayerJumpState(this,playerAnimationController ,_playerStateMachine, _inputReader);
         }
 
         private void UpdateGroundCheck()
