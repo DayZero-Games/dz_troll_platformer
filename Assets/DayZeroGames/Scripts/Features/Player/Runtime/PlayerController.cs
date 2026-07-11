@@ -38,8 +38,7 @@ namespace DZ.Features
         public PlayerIdleState IdleState => _idleState;
         public PlayerRunState RunState => _runState;
         public PlayerJumpState JumpState => _jumpState;
-
-
+        
         private void Awake()
         {
             _playerRb = GetComponent<Rigidbody2D>();
@@ -48,6 +47,7 @@ namespace DZ.Features
 
         private void Start()
         {
+	        Debug.Log(_inputReader.moveInput);
             CreatePlayerStates();
             _playerStateMachine.Initialize(_idleState);
         }

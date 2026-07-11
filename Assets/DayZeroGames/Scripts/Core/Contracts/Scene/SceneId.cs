@@ -4,6 +4,7 @@ namespace DZ.Core.Contracts
 	{
 		Bootstrap,
 		MainMenu,
-		Gameplay
+		Gameplay,
+		Sandbox
 	}
 }

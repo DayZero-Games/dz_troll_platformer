@@ -16,7 +16,7 @@ namespace DZ.Core.Runtime
 		
 		public async UniTask StartAsync(CancellationToken cancellation = new CancellationToken())
 		{
-			await _sceneLoader.LoadAsync(SceneId.MainMenu);
+			await _sceneLoader.LoadAsync(SceneId.Sandbox);
 		}
 	}
 }

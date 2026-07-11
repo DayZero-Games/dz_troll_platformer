@@ -7,11 +7,10 @@
           <value>
             <TabSessionState>
               <option name="provider" value="codex" />
-              <option name="sessionId" value="019eff50-ad40-7590-bb3b-b6f620039716" />
-              <option name="cwd" value="$PROJECT_DIR$" />
+              <option name="sessionId" value="019f5190-0b6a-7e03-8080-69f55d596d66" />
+              <option name="cwd" value="D:\dayzero_games\dz_troll_platformer" />
               <option name="model" value="gpt-5.5" />
               <option name="permissionMode" value="bypassPermissions" />
-              <option name="reasoningEffort" value="high" />
             </TabSessionState>
           </value>
         </entry>
