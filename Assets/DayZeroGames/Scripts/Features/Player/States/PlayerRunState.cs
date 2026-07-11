@@ -13,6 +13,7 @@ namespace DZ.Features
         {
             Debug.Log("RunState Enter");
             inputReader.OnJumpPerformed += HandlePlayerJump;
+            playerAnimationController.PlayRunAnimation();
         }
 
         public override void Update()
@@ -23,7 +24,7 @@ namespace DZ.Features
 
         private void UpdateAnimation()
         {
-            playerAnimationController.PlayMoveAnimation(inputReader.moveInput,playerController.IsGrounded);
+            //playerAnimationController.PlayMoveAnimation(inputReader.moveInput,playerController.IsGrounded);
         }
 
         public override void FixedUpdate()
@@ -52,10 +53,12 @@ namespace DZ.Features
 
         private void CheckForStateChange()
         {
-            if (Mathf.Abs(inputReader.moveInput) <= 0.01f)
+            if (Mathf.Abs(inputReader.moveInput) <= 0.01f && playerController.IsGrounded)
             {
                 playerStateMachine.ChangeState(playerController.IdleState);
             }
+            if(!playerController.IsGrounded) playerStateMachine.ChangeState(playerController.JumpState);
+            
         }
     }
 }

@@ -6,6 +6,7 @@ namespace DZ.Features
     public class PlayerJumpState : BaseState
     {
         private bool _hasLeftGround;
+        private bool _isFalling;
 
         public PlayerJumpState(PlayerController playerController, PlayerAnimationController playerAnimationController ,PlayerStateMachine playerStateMachine, IInputReader inputReader) : base(playerController,playerAnimationController ,playerStateMachine, inputReader)
         {
@@ -15,7 +16,10 @@ namespace DZ.Features
         {
             Debug.Log("JumpState Enter");
             _hasLeftGround = false;
+            _isFalling = false;
             HandlePlayerJump();
+            playerAnimationController.PlayJumpUpAnimation();
+            
         }
         public override void Update()
         {
@@ -25,7 +29,11 @@ namespace DZ.Features
 
         private void UpdateAnimation()
         {
-            playerAnimationController.PlayJumpAnimation(playerController.PlayerRb.linearVelocityY,playerController.IsGrounded);
+            if (!_isFalling && playerController.PlayerRb.linearVelocityY < 0)
+            {
+                _isFalling = true;
+                playerAnimationController.PlayJumpDownAnimation();
+            }
         }
 
         public override void FixedUpdate()

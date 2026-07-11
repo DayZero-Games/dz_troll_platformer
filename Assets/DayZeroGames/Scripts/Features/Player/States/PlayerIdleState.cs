@@ -14,6 +14,7 @@ namespace DZ.Features
             Debug.Log("IdleState Enter");
             inputReader.OnJumpPerformed += HandlePlayerJump;
             playerController.StopMovingPlayer();
+            playerAnimationController.PlayIdleAnimation();
         }
 
         public override void Update()
@@ -25,7 +26,7 @@ namespace DZ.Features
 
         private void UpdateAnimation()
         {
-            playerAnimationController.PlayMoveAnimation(inputReader.moveInput, playerController.IsGrounded);
+           // playerAnimationController.PlayMoveAnimation(inputReader.moveInput, playerController.IsGrounded);
         }
 
         private void HandlePlayerIdle()

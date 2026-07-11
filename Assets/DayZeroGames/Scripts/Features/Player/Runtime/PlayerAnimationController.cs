@@ -5,36 +5,51 @@ namespace DZ.Features
     [RequireComponent(typeof(Animator))]
     public class PlayerAnimationController : MonoBehaviour
     {
-        private static readonly int MoveXHash = Animator.StringToHash("moveX");
-        private static readonly int MoveYHash = Animator.StringToHash("moveY");
-        private static readonly int IsGroundedHash = Animator.StringToHash("isGrounded");
-        private static readonly int DeadHash = Animator.StringToHash("dead");
+        private static readonly int Idle = Animator.StringToHash("Idle");
+        private static readonly int Run = Animator.StringToHash("Run");
+        private static readonly int JumpUp = Animator.StringToHash("JumpUp");
+        private static readonly int JumpDown = Animator.StringToHash("JumpDown");
+        private static readonly int Dead = Animator.StringToHash("Dead");
+
 
         private Animator _playerAnimator;
+        private int _currentHash;
 
         private void Awake()
         {
             _playerAnimator = GetComponent<Animator>();
         }
 
-        public void PlayMoveAnimation(float moveInput, bool isGrounded)
+        public void PlayIdleAnimation()
         {
-            _playerAnimator.SetInteger(MoveXHash, (int)Mathf.Abs(moveInput));
-            _playerAnimator.SetBool(IsGroundedHash, isGrounded);
+            ChangeAnimation(Idle);
         }
 
-        public void PlayJumpAnimation(float jumpInput, bool isGrounded)
+        public void PlayRunAnimation()
         {
-            _playerAnimator.SetInteger(MoveYHash, GetVerticalDirection(jumpInput, isGrounded));
-            _playerAnimator.SetBool(IsGroundedHash, isGrounded);
+            ChangeAnimation(Run);
         }
 
-        private int GetVerticalDirection(float verticalVelocity, bool isGrounded)
+        public void PlayJumpUpAnimation()
         {
-            if (isGrounded) return 0;
-            if (verticalVelocity > 0) return 1;
-            if (verticalVelocity < 0) return -1;
-            return 0;
+            ChangeAnimation(JumpUp);
+        }
+
+        public void PlayJumpDownAnimation()
+        {
+            ChangeAnimation(JumpDown);
+        }
+
+        public void PlayDeadAnimation()
+        {
+            ChangeAnimation(Dead);
+        }
+
+        private void ChangeAnimation(int stateHash)
+        {
+            if (_currentHash == stateHash) return;
+            _currentHash = stateHash;
+            _playerAnimator.CrossFadeInFixedTime(_currentHash,0f);
         }
     }
 }

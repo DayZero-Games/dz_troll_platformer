@@ -1,3 +1,4 @@
+using DZ.Core;
 using DZ.Core.Contracts;
 using UnityEngine;
 using VContainer;
@@ -6,7 +7,7 @@ namespace DZ.Features
 {
     [RequireComponent(typeof(Rigidbody2D))]
     [RequireComponent(typeof(PlayerAnimationController))]
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : MonoBehaviour,IPlayerController
     {
         [Inject] private readonly IInputReader _inputReader;
 
@@ -23,6 +24,7 @@ namespace DZ.Features
         private Rigidbody2D _playerRb;
         private bool _isFacingRight = true;
         private bool _isGrounded;
+        private bool _isDead;
 
         [Header("Player States")]
         private PlayerStateMachine _playerStateMachine;
@@ -31,6 +33,7 @@ namespace DZ.Features
         private PlayerJumpState _jumpState;
 
         public bool IsGrounded => _isGrounded;
+        public  bool IsDead => _isDead;
         public Rigidbody2D PlayerRb => _playerRb;
         public PlayerIdleState IdleState => _idleState;
         public PlayerRunState RunState => _runState;
@@ -97,6 +100,12 @@ namespace DZ.Features
             if (!_isGrounded) return;
             _playerRb.linearVelocityY = playerConfig.jumpForce;
         }
+
+        public void Die()
+        {
+            _isDead = true;
+        }
+        
 
         #region Gizmo
         public void OnDrawGizmos()
