@@ -1,6 +1,6 @@
-using DZ.Core.Runtime;
+using DZ.Core.Contracts;
 
-namespace DZ.Core
+namespace DZ.Core.Runtime
 {
     public interface IAudioLibrary
     {
