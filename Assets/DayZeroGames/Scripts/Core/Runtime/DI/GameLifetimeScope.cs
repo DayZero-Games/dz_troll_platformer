@@ -1,5 +1,6 @@
 using DZ.Core.Contracts;
 using VContainer;
+using VContainer.Unity;
 
 namespace DZ.Core.Runtime
 {
