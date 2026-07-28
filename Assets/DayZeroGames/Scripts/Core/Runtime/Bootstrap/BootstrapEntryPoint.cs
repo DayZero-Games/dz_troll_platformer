@@ -18,9 +18,7 @@ namespace DZ.Core.Runtime
 
 		public async UniTask StartAsync(CancellationToken cancellation = new CancellationToken())
 		{
-
 			if (_startScene == SceneId.Bootstrap) return;
-
 			await _sceneLoader.LoadAsync(_startScene, cancellation);
 		}
 	}

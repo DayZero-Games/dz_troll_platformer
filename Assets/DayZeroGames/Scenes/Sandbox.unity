@@ -7052,7 +7052,7 @@ Transform:
   m_GameObject: {fileID: 1938587514}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.041, y: -0.636, z: 0}
+  m_LocalPosition: {x: 0.041, y: -0.632, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7074,14 +7074,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1971443918
-Transform:
+--- !u!224 &1971443918
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1971443917}
-  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -7091,6 +7090,11 @@ Transform:
   - {fileID: 2823634747528471540}
   m_Father: {fileID: 720767812}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1992694974
 GameObject:
   m_ObjectHideFlags: 0
@@ -7321,10 +7325,10 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2125134854}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.91, y: -3.26, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -14.82, y: -3.26, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1938587515}
   m_Father: {fileID: 0}
@@ -7390,17 +7394,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.029772282, y: -0.00000011920929}
+  m_Offset: {x: -0.000039577484, y: -0.08203149}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
+    oldSize: {x: 1.6, y: 1.6}
     newSize: {x: 2, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.51469326, y: 1.395776}
+  m_Size: {x: 0.41819286, y: 1.0638103}
   m_EdgeRadius: 0
 --- !u!114 &2125134859
 MonoBehaviour:
@@ -7417,7 +7421,7 @@ MonoBehaviour:
   playerConfig: {fileID: 11400000, guid: 2ffb69ae499ad234ea0da51301b35cf5, type: 2}
   playerAnimationController: {fileID: 2125134861}
   groundCheckPos: {fileID: 1938587515}
-  checkRadius: 0.11
+  checkRadius: 0.08
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -7859,8 +7863,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.MovingPlatfrom
   _targetLocation: {x: 6, y: -2.52, z: 0}
-  _moveSpeed: 10
-  _waitAtTargetSeconds: 3
+  _moveSpeed: 15
+  _waitAtTargetSeconds: 2
 --- !u!1 &2823634747528471543 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8835053883904262993, guid: 138632f1dce2cb444bc5ad1035166b47, type: 3}
@@ -7924,17 +7928,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoorEntry
       objectReference: {fileID: 0}
+    - target: {fileID: 365125165406626354, guid: 13d99d95ab458ac4d8bd2b1089dfe36c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4439661202563067311, guid: 13d99d95ab458ac4d8bd2b1089dfe36c, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8964916867418506507, guid: 13d99d95ab458ac4d8bd2b1089dfe36c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.89566
+      value: -15.93
       objectReference: {fileID: 0}
     - target: {fileID: 8964916867418506507, guid: 13d99d95ab458ac4d8bd2b1089dfe36c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.49213
+      value: -3.28
       objectReference: {fileID: 0}
     - target: {fileID: 8964916867418506507, guid: 13d99d95ab458ac4d8bd2b1089dfe36c, type: 3}
       propertyPath: m_LocalPosition.z
