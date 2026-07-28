@@ -25,6 +25,7 @@ namespace DZ.Features
         {
             UpdateAnimation();
             CheckForStateChange();
+           
         }
 
         private void UpdateAnimation()
@@ -39,6 +40,7 @@ namespace DZ.Features
         public override void FixedUpdate()
         {
             playerController.MovePlayer(inputReader.moveInput);
+            playerController.ApplyFallMultiplier();
         }
         public override void Exit()
         {

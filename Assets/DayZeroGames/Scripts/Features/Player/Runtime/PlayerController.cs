@@ -101,6 +101,12 @@ namespace DZ.Features
             _playerRb.linearVelocityY = playerConfig.jumpForce;
         }
 
+        public void ApplyFallMultiplier()
+        {
+            if(_playerRb.linearVelocityY>=0f) return;
+            _playerRb.linearVelocityY += Physics2D.gravity.y*_playerRb.gravityScale*playerConfig.fallMultiplier*Time.fixedDeltaTime;
+        }
+
         public void Die()
         {
             _isDead = true;
