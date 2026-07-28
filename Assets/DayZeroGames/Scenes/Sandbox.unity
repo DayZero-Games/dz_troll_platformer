@@ -6751,6 +6751,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 720767812}
+  - component: {fileID: 720767813}
   m_Layer: 0
   m_Name: Level1
   m_TagString: Untagged
@@ -6780,6 +6781,23 @@ Transform:
   - {fileID: 1971443918}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &720767813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720767811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0cecaa1380754b49a69ac3d1b70c797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DZ.Core::DZ.Core.LevelLifetimeScope
+  parentReference:
+    TypeName: DZ.Core.Runtime.GameLifetimeScope
+  autoRun: 1
+  autoInjectGameObjects: []
+  featureInstallers: []
 --- !u!1 &871509845
 GameObject:
   m_ObjectHideFlags: 0
@@ -7164,7 +7182,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59fa82caa13bb614baba05e5515f32b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.MovingPlatformTrigger
-  _movingPlatfrom: {fileID: 2823634747528471542}
+  _obstacleActions:
+  - {fileID: 2823634747528471542}
   _maxTriggerCount: 1
   _playerTag: Player
 --- !u!1 &2059399535
