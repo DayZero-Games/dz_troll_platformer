@@ -5,7 +5,8 @@ namespace DZ.Features
 {
     public class PlayerDeadState:BaseState
     {
-        public PlayerDeadState(PlayerController playerController, PlayerAnimationController playerAnimationController, PlayerStateMachine playerStateMachine, IInputReader inputReader) : base(playerController, playerAnimationController, playerStateMachine, inputReader)
+        public PlayerDeadState(PlayerController playerController, PlayerAnimationController playerAnimationController, PlayerStateMachine playerStateMachine, IInputReader inputReader) :
+         base(playerController, playerAnimationController, playerStateMachine, inputReader)
         {
         }
 
@@ -15,6 +16,8 @@ namespace DZ.Features
             playerAnimationController.PlayDeadAnimation();
             playerController.PlayerRb.linearVelocityX = 0f;
             playerController.Die();
+            
+
         }
 
         public override void Exit()

@@ -1,6 +1,7 @@
 using DZ.Core;
 using DZ.Core.Contracts;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using VContainer;
 
 namespace DZ.Features
@@ -22,6 +23,9 @@ namespace DZ.Features
         [SerializeField]private Vector2 _groundCheckSize = new Vector2(0.5f,1f);
         [SerializeField] private LayerMask groundLayer;
 
+        [Header("CameraShaker")]
+        [SerializeField] private CameraShaker cameraShaker;
+
         private Rigidbody2D _playerRb;
         private bool _isFacingRight = true;
         private bool _isGrounded;
@@ -32,6 +36,7 @@ namespace DZ.Features
         private PlayerIdleState _idleState;
         private PlayerRunState _runState;
         private PlayerJumpState _jumpState;
+        private PlayerDeadState _deadState;
 
         public bool IsGrounded => _isGrounded;
         public bool IsDead => _isDead;
@@ -39,6 +44,7 @@ namespace DZ.Features
         public PlayerIdleState IdleState => _idleState;
         public PlayerRunState RunState => _runState;
         public PlayerJumpState JumpState => _jumpState;
+        public PlayerDeadState DeadState => _deadState;
 
         private void Awake()
         {
@@ -70,6 +76,7 @@ namespace DZ.Features
             _idleState = new PlayerIdleState(this, playerAnimationController, _playerStateMachine, _inputReader);
             _runState = new PlayerRunState(this, playerAnimationController, _playerStateMachine, _inputReader);
             _jumpState = new PlayerJumpState(this, playerAnimationController, _playerStateMachine, _inputReader);
+            _deadState  = new PlayerDeadState(this,playerAnimationController,_playerStateMachine,_inputReader);
         }
 
         private void UpdateGroundCheck()
@@ -112,6 +119,23 @@ namespace DZ.Features
         public void Die()
         {
             _isDead = true;
+        }
+
+        private void OnTriggerEnter2D(Collider2D other)
+        {
+            if(_playerStateMachine == null || _isDead) return;
+             if(other.gameObject.CompareTag("Obstacles"))
+            {
+                _playerStateMachine.ChangeState(DeadState);
+                cameraShaker.Shake(CameraShakeType.Bump);
+                Debug.Log("Player Dead");
+                Invoke(nameof(RestartGame),1f);
+            }
+        }
+
+        private void RestartGame()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
 

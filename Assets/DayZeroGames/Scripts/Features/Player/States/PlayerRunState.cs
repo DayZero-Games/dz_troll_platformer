@@ -13,7 +13,7 @@ namespace DZ.Features
 
 		public override void Enter()
 		{
-			Debug.Log("RunState Enter");
+			//Debug.Log("RunState Enter");
 			inputReader.OnJumpPerformed += HandlePlayerJump;
 			playerAnimationController.PlayRunAnimation();
 		}
@@ -30,7 +30,7 @@ namespace DZ.Features
 
 		public override void Exit()
 		{
-			Debug.Log("RunState Exit");
+			//Debug.Log("RunState Exit");
 			inputReader.OnJumpPerformed -= HandlePlayerJump;
 		}
 
