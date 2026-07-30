@@ -1,10 +1,12 @@
+using System.Threading;
 using Cysharp.Threading.Tasks;
 
 namespace DZ.Core.Contracts
 {
 	public interface ISceneLoader
 	{
-		public void Load(SceneId sceneId);
-		public UniTask LoadAsync(SceneId sceneId);
+		bool IsSceneLoaded(SceneId sceneId);	
+		UniTask LoadAsync(SceneId sceneId, CancellationToken cancellation=default);
+		UniTask UnloadAsync(SceneId sceneId, CancellationToken cancellation=default);
 	}
 }

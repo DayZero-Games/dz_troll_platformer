@@ -7,5 +7,6 @@ namespace DZ.Features
     {
         public float speed;
         public float jumpForce;
+        public float fallMultiplier;
     }
 }

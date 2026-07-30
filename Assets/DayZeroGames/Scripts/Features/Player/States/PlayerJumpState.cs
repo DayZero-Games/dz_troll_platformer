@@ -14,7 +14,7 @@ namespace DZ.Features
 
         public override void Enter()
         {
-            Debug.Log("JumpState Enter");
+           // Debug.Log("JumpState Enter");
             _hasLeftGround = false;
             _isFalling = false;
             HandlePlayerJump();
@@ -25,6 +25,7 @@ namespace DZ.Features
         {
             UpdateAnimation();
             CheckForStateChange();
+           
         }
 
         private void UpdateAnimation()
@@ -39,10 +40,11 @@ namespace DZ.Features
         public override void FixedUpdate()
         {
             playerController.MovePlayer(inputReader.moveInput);
+            playerController.ApplyFallMultiplier();
         }
         public override void Exit()
         {
-            Debug.Log("JumpState Exit");
+           // Debug.Log("JumpState Exit");
         }
 
         private void CheckForStateChange()

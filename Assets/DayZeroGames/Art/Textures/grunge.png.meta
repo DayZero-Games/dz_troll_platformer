@@ -1,0 +1,767 @@
+fileFormatVersion: 2
+guid: 8dcf649bc6e7aa9429ebce936dae93ad
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 9189955389590334186
+    second: grunge_0
+  - first:
+      213: -7188003574693785358
+    second: grunge_1
+  - first:
+      213: 3992541262659330424
+    second: grunge_2
+  - first:
+      213: 4269104228535532441
+    second: grunge_3
+  - first:
+      213: 7809957820835430741
+    second: grunge_4
+  - first:
+      213: -7124305794955229686
+    second: grunge_5
+  - first:
+      213: -5805414672388004184
+    second: grunge_6
+  - first:
+      213: 8203018032062809926
+    second: grunge_7
+  - first:
+      213: 2141692807287752970
+    second: grunge_8
+  - first:
+      213: -5618165861574705465
+    second: grunge_9
+  - first:
+      213: -137911225227560445
+    second: grunge_10
+  - first:
+      213: 8034393148203724078
+    second: grunge_11
+  - first:
+      213: 6772408112560499759
+    second: grunge_12
+  - first:
+      213: -1204373060085768070
+    second: grunge_13
+  - first:
+      213: 2127443149982241785
+    second: grunge_14
+  - first:
+      213: 6207187423667389848
+    second: grunge_15
+  - first:
+      213: 1393152574740516168
+    second: grunge_16
+  - first:
+      213: 3660631497033011404
+    second: grunge_17
+  - first:
+      213: 3646570643880703837
+    second: grunge_18
+  - first:
+      213: -2640873958499858297
+    second: grunge_19
+  - first:
+      213: 4947407577689605088
+    second: grunge_20
+  - first:
+      213: 5595204656009049571
+    second: grunge_21
+  - first:
+      213: -9155528203852418647
+    second: grunge_22
+  - first:
+      213: 928856786937392141
+    second: grunge_23
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: grunge_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1169
+        height: 1080
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aeae7328cb7498f70800000000000000
+      internalID: 9189955389590334186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grunge_1
+      rect:
+        serializedVersion: 2
+        x: 1191
+        y: 1067
+        width: 31
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f0932e15d41f3c90800000000000000
+      internalID: -7188003574693785358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grunge_2
+      rect:
+        serializedVersion: 2
+        x: 1353
+        y: 754
+        width: 193
+        height: 326
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87126efff1b586730800000000000000
+      internalID: 3992541262659330424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grunge_3
+      rect:
+        serializedVersion: 2
+        x: 1422
+        y: 885
+        width: 174
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99b7afa5da7ee3b30800000000000000
+      internalID: 4269104228535532441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grunge_4
+      rect:
+        serializedVersion: 2
+        x: 1569
+        y: 1053
+        width: 35
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5510ea5524b826c60800000000000000
+      internalID: 7809957820835430741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grunge_5
+      rect:
+        serializedVersion: 2
+        x: 1639
+        y: 789
+        width: 77
+        height: 291
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a06cf6c20a1612d90800000000000000
+      internalID: -7124305794955229686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grunge_6
+      rect:
+        serializedVersion: 2
+        x: 1203
+        y: 1028
+        width: 22
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a6e8762d160f6fa0800000000000000
+      internalID: -5805414672388004184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grunge_7
+      rect:
+        serializedVersion: 2
+        x: 1222
+        y: 924
+        width: 83
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6474a3f4079f6d170800000000000000
+      internalID: 8203018032062809926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grunge_8
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 949
+        width: 34
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a094564d242d8bd10800000000000000
+      internalID: 2141692807287752970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grunge_9
+      rect:
+        serializedVersion: 2
+        x: 1805
+        y: 930
+        width: 45
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cefc9b4ae34802b0800000000000000
+      internalID: -5618165861574705465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grunge_10
+      rect:
+        serializedVersion: 2
+        x: 1136
+        y: 302
+        width: 422
+        height: 617
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30ab5c9a87a061ef0800000000000000
+      internalID: -137911225227560445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grunge_11
+      rect:
+        serializedVersion: 2
+        x: 1238
+        y: 911
+        width: 16
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2de3801006ef7f60800000000000000
+      internalID: 8034393148203724078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grunge_12
+      rect:
+        serializedVersion: 2
+        x: 1803
+        y: 899
+        width: 15
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2c642feb4d6cfd50800000000000000
+      internalID: 6772408112560499759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grunge_13
+      rect:
+        serializedVersion: 2
+        x: 1779
+        y: 454
+        width: 52
+        height: 443
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a70a9883515394fe0800000000000000
+      internalID: -1204373060085768070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grunge_14
+      rect:
+        serializedVersion: 2
+        x: 1853
+        y: 834
+        width: 29
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f39782f542368d10800000000000000
+      internalID: 2127443149982241785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grunge_15
+      rect:
+        serializedVersion: 2
+        x: 1545
+        y: 722
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89587f1231c542650800000000000000
+      internalID: 6207187423667389848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grunge_16
+      rect:
+        serializedVersion: 2
+        x: 1627
+        y: 712
+        width: 53
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84d445fa2e8755310800000000000000
+      internalID: 1393152574740516168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grunge_17
+      rect:
+        serializedVersion: 2
+        x: 1096
+        y: 114
+        width: 174
+        height: 188
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc05242a3fc2dc230800000000000000
+      internalID: 3660631497033011404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grunge_18
+      rect:
+        serializedVersion: 2
+        x: 1131
+        y: 216
+        width: 274
+        height: 361
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5770e42ea83b9230800000000000000
+      internalID: 3646570643880703837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grunge_19
+      rect:
+        serializedVersion: 2
+        x: 1469
+        y: 0
+        width: 451
+        height: 721
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 788490f602bb95bd0800000000000000
+      internalID: -2640873958499858297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grunge_20
+      rect:
+        serializedVersion: 2
+        x: 1135
+        y: 0
+        width: 145
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e3c34bbaf8b8a440800000000000000
+      internalID: 4947407577689605088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grunge_21
+      rect:
+        serializedVersion: 2
+        x: 1270
+        y: 139
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e5f70f6df826ad40800000000000000
+      internalID: 5595204656009049571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grunge_22
+      rect:
+        serializedVersion: 2
+        x: 1381
+        y: 148
+        width: 72
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a17e4e4b9701f080800000000000000
+      internalID: -9155528203852418647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grunge_23
+      rect:
+        serializedVersion: 2
+        x: 1272
+        y: 50
+        width: 86
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0c2d909356f3ec00800000000000000
+      internalID: 928856786937392141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      grunge_0: 9189955389590334186
+      grunge_1: -7188003574693785358
+      grunge_10: -137911225227560445
+      grunge_11: 8034393148203724078
+      grunge_12: 6772408112560499759
+      grunge_13: -1204373060085768070
+      grunge_14: 2127443149982241785
+      grunge_15: 6207187423667389848
+      grunge_16: 1393152574740516168
+      grunge_17: 3660631497033011404
+      grunge_18: 3646570643880703837
+      grunge_19: -2640873958499858297
+      grunge_2: 3992541262659330424
+      grunge_20: 4947407577689605088
+      grunge_21: 5595204656009049571
+      grunge_22: -9155528203852418647
+      grunge_23: 928856786937392141
+      grunge_3: 4269104228535532441
+      grunge_4: 7809957820835430741
+      grunge_5: -7124305794955229686
+      grunge_6: -5805414672388004184
+      grunge_7: 8203018032062809926
+      grunge_8: 2141692807287752970
+      grunge_9: -5618165861574705465
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

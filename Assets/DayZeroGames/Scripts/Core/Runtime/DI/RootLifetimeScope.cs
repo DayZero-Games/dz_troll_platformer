@@ -7,24 +7,15 @@ namespace DZ.Core.Runtime
 {
 	public class RootLifetimeScope : BaseLifetimeScope
 	{
-		private static RootLifetimeScope _instance;
-		
+
 		[SerializeField] private InputReaderSo _inputReader;
 		[SerializeField] private AudioLibrarySo _audioLibrary;
 		[SerializeField] private AudioService _audioService;
+		[SerializeField] private ScreenFader _fader;
+		[SerializeField] private SceneId _startScene = SceneId.MainMenu;
 
-		protected override void Awake()
-		{
-			if (_instance != null)
-			{
-				Destroy(gameObject);
-				return;
-			}
-
-			_instance = this;
-			DontDestroyOnLoad(gameObject);
-			base.Awake();
-		}
+		[Tooltip("Scene loaded additively once the root container is up. Bootstrap = load nothing.")]
+		protected override LifetimeScope FindParent() => null;
 
 		protected override void Configure(IContainerBuilder builder)
 		{
@@ -35,8 +26,9 @@ namespace DZ.Core.Runtime
 			builder.RegisterInstance(_inputReader).As<IInputReader>();
 			builder.RegisterInstance(_audioLibrary).As<IAudioLibrary>();
 			builder.RegisterComponent(_audioService).As<IAudioService>();
+			builder.RegisterComponent(_fader).As<IScreenFader>();
 
-			builder.RegisterEntryPoint<BootstrapEntryPoint>();
+			builder.RegisterEntryPoint<BootstrapEntryPoint>().WithParameter(_startScene);
 		}
 	}
 }
