@@ -11,6 +11,7 @@ namespace DZ.Features
     public class PlayerController : MonoBehaviour, IPlayerController
     {
         [Inject] private readonly IInputReader _inputReader;
+        [Inject] private readonly ISignalBus _signalBus;
 
         [Header("Player Settings")]
         [SerializeField] private PlayerConfigSo playerConfig;
@@ -128,15 +129,23 @@ namespace DZ.Features
             {
                 _playerStateMachine.ChangeState(DeadState);
                 cameraShaker.Shake(CameraShakeType.Bump);
+                _signalBus.Publish(new PlayerDiedSignal());
                 Debug.Log("Player Dead");
-                Invoke(nameof(RestartGame),1f);
             }
         }
 
-        private void RestartGame()
+        public void TeleportTo(Vector3 position)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            _playerRb.linearVelocity = Vector2.zero;
+            _playerRb.angularVelocity = 0f;
+            _playerRb.position = position;
+            
+            Physics2D.SyncTransforms();
+            _isDead = false;
+            
+            _playerStateMachine.Initialize(_idleState);
         }
+        
 
 
         #region Gizmo

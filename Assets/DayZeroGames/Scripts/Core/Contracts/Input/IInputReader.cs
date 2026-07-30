@@ -6,7 +6,5 @@ namespace DZ.Core.Contracts
     {
         public event Action OnJumpPerformed;
         public float moveInput { get;}
-        public void LockInput();
-        
     }
 }

@@ -34,13 +34,5 @@ namespace DZ.Core.Runtime
         {
             if(context.performed) OnJumpPerformed?.Invoke();
         }
-
-        public void LockInput()
-        {
-            _inputAction.Disable();
-        }
-
-
-
     }
 }

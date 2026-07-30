@@ -6,7 +6,7 @@ using DZ.Core;
 using PrimeTween;
 using UnityEngine;
 
-namespace DZ.Features
+namespace DZ.Core
 {
     public class ScreenFader : MonoBehaviour, IScreenFader
     {
