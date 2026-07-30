@@ -7,7 +7,7 @@ namespace DZ.Features
 {
     [RequireComponent(typeof(Rigidbody2D))]
     [RequireComponent(typeof(PlayerAnimationController))]
-    public class PlayerController : MonoBehaviour,IPlayerController
+    public class PlayerController : MonoBehaviour, IPlayerController
     {
         [Inject] private readonly IInputReader _inputReader;
 
@@ -19,6 +19,7 @@ namespace DZ.Features
         [SerializeField]
         private Transform groundCheckPos;
         [SerializeField] private float checkRadius;
+        [SerializeField]private Vector2 _groundCheckSize = new Vector2(0.5f,1f);
         [SerializeField] private LayerMask groundLayer;
 
         private Rigidbody2D _playerRb;
@@ -33,12 +34,12 @@ namespace DZ.Features
         private PlayerJumpState _jumpState;
 
         public bool IsGrounded => _isGrounded;
-        public  bool IsDead => _isDead;
+        public bool IsDead => _isDead;
         public Rigidbody2D PlayerRb => _playerRb;
         public PlayerIdleState IdleState => _idleState;
         public PlayerRunState RunState => _runState;
         public PlayerJumpState JumpState => _jumpState;
-        
+
         private void Awake()
         {
             _playerRb = GetComponent<Rigidbody2D>();
@@ -47,33 +48,34 @@ namespace DZ.Features
 
         private void Start()
         {
-	        Debug.Log(_inputReader.moveInput);
+            Debug.Log(_inputReader.moveInput);
             CreatePlayerStates();
             _playerStateMachine.Initialize(_idleState);
         }
 
         private void Update()
         {
-            UpdateGroundCheck();
             _playerStateMachine.Update();
         }
 
         private void FixedUpdate()
         {
+            UpdateGroundCheck();
             _playerStateMachine.FixedUpdate();
         }
 
         private void CreatePlayerStates()
         {
             _playerStateMachine = new PlayerStateMachine();
-            _idleState = new PlayerIdleState(this,playerAnimationController, _playerStateMachine, _inputReader);
-            _runState = new PlayerRunState(this,playerAnimationController ,_playerStateMachine, _inputReader);
-            _jumpState = new PlayerJumpState(this,playerAnimationController ,_playerStateMachine, _inputReader);
+            _idleState = new PlayerIdleState(this, playerAnimationController, _playerStateMachine, _inputReader);
+            _runState = new PlayerRunState(this, playerAnimationController, _playerStateMachine, _inputReader);
+            _jumpState = new PlayerJumpState(this, playerAnimationController, _playerStateMachine, _inputReader);
         }
 
         private void UpdateGroundCheck()
         {
-            _isGrounded = Physics2D.OverlapCircle(groundCheckPos.position, checkRadius, groundLayer);
+           // _isGrounded = Physics2D.OverlapCircle(groundCheckPos.position, checkRadius, groundLayer);
+            _isGrounded = Physics2D.OverlapBox(groundCheckPos.position,_groundCheckSize,0f,groundLayer);
         }
 
         private void FlipPlayer(float moveInput)
@@ -103,22 +105,23 @@ namespace DZ.Features
 
         public void ApplyFallMultiplier()
         {
-            if(_playerRb.linearVelocityY>=0f) return;
-            _playerRb.linearVelocityY += Physics2D.gravity.y*_playerRb.gravityScale*playerConfig.fallMultiplier*Time.fixedDeltaTime;
+            if (_playerRb.linearVelocityY >= 0f) return;
+            _playerRb.linearVelocityY += Physics2D.gravity.y * _playerRb.gravityScale * playerConfig.fallMultiplier * Time.fixedDeltaTime;
         }
 
         public void Die()
         {
             _isDead = true;
         }
-        
+
 
         #region Gizmo
         public void OnDrawGizmos()
         {
             if (groundCheckPos == null) return;
             Gizmos.color = _isGrounded ? Color.green : Color.red;
-            Gizmos.DrawWireSphere(groundCheckPos.position, checkRadius);
+            //Gizmos.DrawWireSphere(groundCheckPos.position, checkRadius);
+            Gizmos.DrawCube(groundCheckPos.position,_groundCheckSize);
         }
         #endregion
     }

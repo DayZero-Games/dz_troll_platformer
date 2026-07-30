@@ -52,6 +52,7 @@ namespace DZ.Features
 			if (Mathf.Abs(inputReader.moveInput) <= 0.01f && playerController.IsGrounded)
 			{
 				playerStateMachine.ChangeState(playerController.IdleState);
+				return;
 			}
 
 			if (!playerController.IsGrounded) playerStateMachine.ChangeState(playerController.JumpState);
