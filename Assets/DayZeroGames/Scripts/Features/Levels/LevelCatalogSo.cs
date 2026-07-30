@@ -1,4 +1,3 @@
-using System.Data.SqlTypes;
 using UnityEngine;
 
 namespace DZ.Features
@@ -15,12 +14,12 @@ namespace DZ.Features
 
 
 
-    [CreateAssetMenu(fileName = "LevelCatalogueSO", menuName = "DayZeroGames/Level Catalogue")]
+    [CreateAssetMenu(fileName = "LevelCatalogSo", menuName = "DayZeroGames/Level Catalog")]
     public class LevelCatalogSo : ScriptableObject
     {
-        private LevelEntry[] _levels;
+        [SerializeField] private LevelEntry[] _levels;
         public int Count => _levels.Length;
-        public bool HasLevel(int index) => index>0 && index <_levels.Length;
-        public LevelEntry GetLevel(int index)=> _levels[index];
+        public bool HasLevel(int index) => index >= 0 && index < _levels.Length;
+        public LevelEntry GetLevel(int index) => _levels[index];
     }
 }
