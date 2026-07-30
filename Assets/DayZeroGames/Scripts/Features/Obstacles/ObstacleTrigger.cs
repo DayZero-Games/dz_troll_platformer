@@ -43,10 +43,13 @@ namespace DZ.Features
             }
             finally
             {
-                _isRunning = false;
-                if (_triggerCount >= _maxTriggerCount)
+                if (this != null)
                 {
-                    gameObject.SetActive(false);
+                    _isRunning = false;
+                    if (_triggerCount >= _maxTriggerCount)
+                    {
+                        gameObject.SetActive(false);
+                    }
                 }
             }
         }
