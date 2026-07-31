@@ -15,5 +15,7 @@ MonoBehaviour:
   _levels:
   - _id: Level_1
     _levelPrefab: {fileID: 6675257277896442661, guid: 958fbfeb68e8259448c479ee2af4af1a, type: 3}
+  - _id: Level_1
+    _levelPrefab: {fileID: 6675257277896442661, guid: 958fbfeb68e8259448c479ee2af4af1a, type: 3}
   - _id: Level_2
     _levelPrefab: {fileID: 4792437445240121166, guid: 939507e712ff2d74982b5d8987ff2bfa, type: 3}
