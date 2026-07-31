@@ -594,7 +594,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelFeatureInstaller
   _levelCatalogSo: {fileID: 11400000, guid: 5bb560d857abd67459626eecbe545fb8, type: 2}
   _levelRoot: {fileID: 1825668991}
-  _startLevelIndex: 0
+  _startLevel: 2
 --- !u!1 &1825668990
 GameObject:
   m_ObjectHideFlags: 0

@@ -64,10 +64,9 @@ namespace DZ.Features
                 if (_doorAnimator != null) _doorAnimator.SetTrigger(CloseHash);
                 await UniTask.Delay(TimeSpan.FromSeconds(_doorCloseDuration), cancellationToken: ct);
 
-                // 4. cover the screen, then hand off to the flow controller
-                // await _fader.FadeToBlackAsync(cancellation: ct);
-
-                _signalBus.Publish(new LevelCompletedSignal(0));
+                // 4. hand off to the flow controller, which owns the fade and knows
+                //    which catalog index this level actually is.
+                _signalBus.Publish(new LevelExitReachedSignal());
             }
             catch (OperationCanceledException)
             {

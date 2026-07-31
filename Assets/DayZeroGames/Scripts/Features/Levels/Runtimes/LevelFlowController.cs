@@ -18,13 +18,13 @@ namespace DZ.Features
         private readonly PlayerController _playerController;
         private readonly LevelCatalogSo _levelCatalogSo;
         private readonly Transform _levelRoot;
-        private readonly int _startLevelIndex;
+        private readonly int _startLvlIndex;
 
         private readonly CancellationTokenSource _cts = new CancellationTokenSource();
 
         private GameObject _currentLevel;
-        private LevelContext _currentContext;
-        private int _currentIndex = -1;
+        private LevelContext _currentLvlContext;
+        private int _currentLvlIndex = -1;
         private bool _isTransitioning;
 
         public LevelFlowController(
@@ -34,7 +34,7 @@ namespace DZ.Features
             PlayerController playerController,
             LevelCatalogSo levelCatalogSo,
             Transform levelRoot,
-            int startLevelIndex)
+            int startLevel)
         {
             _fader = fader;
             _signalBus = signalBus;
@@ -42,22 +42,22 @@ namespace DZ.Features
             _playerController = playerController;
             _levelCatalogSo = levelCatalogSo;
             _levelRoot = levelRoot;
-            _startLevelIndex = startLevelIndex;
+            _startLvlIndex = startLevel-1;
         }
 
         public async UniTask StartAsync(CancellationToken cancellation = new CancellationToken())
         {
-            _signalBus.Subscribe<LevelCompletedSignal>(OnLevelCompleted);
+            _signalBus.Subscribe<LevelExitReachedSignal>(OnLevelExitReached);
             _signalBus.Subscribe<PlayerDiedSignal>(OnPlayerDied);
 
             // Nothing is loaded yet — don't let the player run around behind the boot fade.
             _playerController.LockPlayer();
 
-            await LoadLevelAsync(_startLevelIndex, _cts.Token);
+            await LoadLevelAsync(_startLvlIndex, _cts.Token);
         }
 
         private void OnPlayerDied(PlayerDiedSignal signal) => RetryLevelAsync().Forget();
-        private void OnLevelCompleted(LevelCompletedSignal obj) => AdvanceLevelAsync().Forget();
+        private void OnLevelExitReached(LevelExitReachedSignal signal) => AdvanceLevelAsync().Forget();
 
         private async UniTask LoadLevelAsync(int index, CancellationToken cancellation)
         {
@@ -84,21 +84,21 @@ namespace DZ.Features
 
                 var definition = _levelCatalogSo.GetLevel(index);
                 _currentLevel = _objectResolver.Instantiate(definition.LevelPrefab, _levelRoot);
-                _currentContext = _currentLevel.GetComponent<LevelContext>();
+                _currentLvlContext = _currentLevel.GetComponent<LevelContext>();
 
-                if (_currentContext == null)
+                if (_currentLvlContext == null)
                 {
                     Debug.LogError($"Level {index} has no {nameof(LevelContext)} component");
                     return;
                 }
 
-                _playerController.TeleportTo(_currentContext.SpawnPoint.position);
+                _playerController.TeleportTo(_currentLvlContext.SpawnPoint.position);
 
                 // Let the new hierarchy run its Awake/Start before we place the player.
                 await UniTask.NextFrame(cancellation);
 
 
-                _currentIndex = index;
+                _currentLvlIndex = index;
                 _signalBus.Publish(new LevelReadySignal(index));
 
                 await _fader.FadeFromBlackAsync(cancellation);
@@ -120,28 +120,53 @@ namespace DZ.Features
             if (_currentLevel == null) return;
             Object.Destroy(_currentLevel);
             _currentLevel = null;
-            _currentContext = null;
+            _currentLvlContext = null;
         }
 
         private async UniTaskVoid AdvanceLevelAsync()
         {
-            var nextLevel = _currentIndex + 1;
+            // The door only reports that an exit was reached. Stamping the index is ours,
+            // and it has to happen before _currentIndex moves on to the next level.
+            _signalBus.Publish(new LevelCompletedSignal(_currentLvlIndex));
+
+            var nextLevel = _currentLvlIndex + 1;
             if (!_levelCatalogSo.HasLevel(nextLevel))
             {
-                Debug.LogWarning($"No Level at index {nextLevel}");
+                await CompleteGameAsync();
                 return;
             }
+
             await LoadLevelAsync(nextLevel, _cts.Token);
+        }
+
+        /// <summary>
+        /// The door sequence leaves the player invisible and locked, so we cannot just stop —
+        /// that strands the game on a finished level with no way out.
+        /// </summary>
+        private async UniTask CompleteGameAsync()
+        {
+            Debug.Log($"All {_levelCatalogSo.Count} levels complete.");
+
+            try
+            {
+                await _fader.FadeToBlackAsync(_cts.Token);
+            }
+            catch (OperationCanceledException)
+            {
+                return;
+            }
+
+            _signalBus.Publish(new GameCompletedSignal());
         }
 
         private async UniTaskVoid RetryLevelAsync()
         {
-            await LoadLevelAsync(_currentIndex, _cts.Token);
+            await LoadLevelAsync(_currentLvlIndex, _cts.Token);
         }
 
         public void Dispose()
         {
-            _signalBus.Unsubscribe<LevelCompletedSignal>(OnLevelCompleted);
+            _signalBus.Unsubscribe<LevelExitReachedSignal>(OnLevelExitReached);
             _signalBus.Unsubscribe<PlayerDiedSignal>(OnPlayerDied);
             _cts.Cancel();
             _cts.Dispose();
