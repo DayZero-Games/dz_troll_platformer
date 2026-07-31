@@ -1,4 +1,3 @@
-using DZ.Core.Contracts;
 using UnityEngine;
 
 namespace DZ.Features
@@ -8,7 +7,7 @@ namespace DZ.Features
         private bool _hasLeftGround;
         private bool _isFalling;
 
-        public PlayerJumpState(PlayerController playerController, PlayerAnimationController playerAnimationController ,PlayerStateMachine playerStateMachine, IInputReader inputReader) : base(playerController,playerAnimationController ,playerStateMachine, inputReader)
+        public PlayerJumpState(PlayerContext ctx) : base(ctx)
         {
         }
 

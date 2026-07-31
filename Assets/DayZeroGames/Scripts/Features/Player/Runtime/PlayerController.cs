@@ -11,21 +11,20 @@ namespace DZ.Features
     public class PlayerController : MonoBehaviour, IPlayerController
     {
         [Inject] private readonly IInputReader _inputReader;
+        [Inject] private readonly IAudioService _audioService;
         [Inject] private readonly ISignalBus _signalBus;
 
         [Header("Player Settings")]
         [SerializeField] private PlayerConfigSo playerConfig;
         [SerializeField] private PlayerAnimationController playerAnimationController;
+        [SerializeField] private SpriteRenderer _spriteRenderer;
 
         [Header("Ground Check Sensor Settings")]
         [SerializeField]
         private Transform groundCheckPos;
         [SerializeField] private float checkRadius;
-        [SerializeField]private Vector2 _groundCheckSize = new Vector2(0.5f,1f);
+        [SerializeField] private Vector2 _groundCheckSize = new Vector2(0.5f, 1f);
         [SerializeField] private LayerMask groundLayer;
-
-        [Header("CameraShaker")]
-        [SerializeField] private CameraShaker cameraShaker;
 
         private Rigidbody2D _playerRb;
         private bool _isFacingRight = true;
@@ -38,26 +37,37 @@ namespace DZ.Features
         private PlayerRunState _runState;
         private PlayerJumpState _jumpState;
         private PlayerDeadState _deadState;
+        private PlayerLockedState _lockedState;
 
         public bool IsGrounded => _isGrounded;
         public bool IsDead => _isDead;
+        public bool IsLocked => _playerStateMachine.CurrentState == _lockedState;
         public Rigidbody2D PlayerRb => _playerRb;
+        public SpriteRenderer SpriteRenderer => _spriteRenderer;
         public PlayerIdleState IdleState => _idleState;
         public PlayerRunState RunState => _runState;
         public PlayerJumpState JumpState => _jumpState;
         public PlayerDeadState DeadState => _deadState;
+        public PlayerLockedState LockedState => _lockedState;
 
         private void Awake()
         {
             _playerRb = GetComponent<Rigidbody2D>();
             playerAnimationController ??= GetComponent<PlayerAnimationController>();
+
+            // Built in Awake so entry points can lock the player before our Start runs.
+            // Constructing the states touches no other component, so it is order-safe.
+            CreatePlayerStates();
         }
 
         private void Start()
         {
-            Debug.Log(_inputReader.moveInput);
-            CreatePlayerStates();
-            _playerStateMachine.Initialize(_idleState);
+            // VContainer's LifetimeScope has execution order -5000, so LevelFlowController
+            // may already have locked us by now. Only fall back to idle if it hasn't.
+            if (_playerStateMachine.CurrentState == null)
+            {
+                _playerStateMachine.Initialize(_idleState);
+            }
         }
 
         private void Update()
@@ -74,16 +84,23 @@ namespace DZ.Features
         private void CreatePlayerStates()
         {
             _playerStateMachine = new PlayerStateMachine();
-            _idleState = new PlayerIdleState(this, playerAnimationController, _playerStateMachine, _inputReader);
-            _runState = new PlayerRunState(this, playerAnimationController, _playerStateMachine, _inputReader);
-            _jumpState = new PlayerJumpState(this, playerAnimationController, _playerStateMachine, _inputReader);
-            _deadState  = new PlayerDeadState(this,playerAnimationController,_playerStateMachine,_inputReader);
+
+            var context = new PlayerContext(this, playerAnimationController, _playerStateMachine, _inputReader,_audioService,_signalBus);
+
+            _idleState = new PlayerIdleState(context);
+            _runState = new PlayerRunState(context);
+            _jumpState = new PlayerJumpState(context);
+            _deadState = new PlayerDeadState(context);
+            _lockedState = new PlayerLockedState(context);
         }
+        public void LockPlayer() => _playerStateMachine.ChangeState(_lockedState);
+
+        public void UnlockPlayer() => _playerStateMachine.ChangeState(_idleState);
 
         private void UpdateGroundCheck()
         {
-           // _isGrounded = Physics2D.OverlapCircle(groundCheckPos.position, checkRadius, groundLayer);
-            _isGrounded = Physics2D.OverlapBox(groundCheckPos.position,_groundCheckSize,0f,groundLayer);
+            // _isGrounded = Physics2D.OverlapCircle(groundCheckPos.position, checkRadius, groundLayer);
+            _isGrounded = Physics2D.OverlapBox(groundCheckPos.position, _groundCheckSize, 0f, groundLayer);
         }
 
         private void FlipPlayer(float moveInput)
@@ -124,13 +141,10 @@ namespace DZ.Features
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if(_playerStateMachine == null || _isDead) return;
-             if(other.gameObject.CompareTag("Obstacles"))
+            if (_playerStateMachine == null || _isDead || IsLocked) return;
+            if (other.gameObject.CompareTag("Obstacles"))
             {
                 _playerStateMachine.ChangeState(DeadState);
-                cameraShaker.Shake(CameraShakeType.Bump);
-                _signalBus.Publish(new PlayerDiedSignal());
-                Debug.Log("Player Dead");
             }
         }
 
@@ -139,13 +153,20 @@ namespace DZ.Features
             _playerRb.linearVelocity = Vector2.zero;
             _playerRb.angularVelocity = 0f;
             _playerRb.position = position;
-            
+            transform.position = position;
+
             Physics2D.SyncTransforms();
             _isDead = false;
-            
-            _playerStateMachine.Initialize(_idleState);
+
+            RestoreSpriteAlpha();
         }
-        
+        private void RestoreSpriteAlpha()
+        {
+            var c = _spriteRenderer.color;
+            c.a = 1f;
+            _spriteRenderer.color = c;
+        }
+
 
 
         #region Gizmo
@@ -154,7 +175,7 @@ namespace DZ.Features
             if (groundCheckPos == null) return;
             Gizmos.color = _isGrounded ? Color.green : Color.red;
             //Gizmos.DrawWireSphere(groundCheckPos.position, checkRadius);
-            Gizmos.DrawCube(groundCheckPos.position,_groundCheckSize);
+            Gizmos.DrawCube(groundCheckPos.position, _groundCheckSize);
         }
         #endregion
     }
