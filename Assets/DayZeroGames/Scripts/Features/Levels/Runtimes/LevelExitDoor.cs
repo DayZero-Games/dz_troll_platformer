@@ -19,9 +19,9 @@ namespace DZ.Features
         [SerializeField] private string _playerTag = "Player";
 
         [Header("Timing")]
-        [SerializeField] private float _walkInDuration = 0.1f;
+        [SerializeField] private float _walkInDuration = 0.2f;
         [SerializeField] private float _playerFadeDuration = 0.3f;
-        [SerializeField] private float _doorCloseDuration = 0.6f;
+        [SerializeField] private float _doorCloseDuration = 1f;
 
         private static readonly int CloseHash = Animator.StringToHash("Close");
         private bool _isRunning;
@@ -50,22 +50,18 @@ namespace DZ.Features
                 // FixedUpdate, which would fight the position tween below.
                 player.LockPlayer();
 
-                // 1. slide the player into the doorway
+                //Bring Player To Door
                 await Tween.Position(player.transform, _entryAnchor.position,
                                      _walkInDuration, Ease.OutQuad)
                            .ToUniTask().AttachExternalCancellation(ct);
-
-                // 2. fade the player out
+                //Fade Player
                 await Tween.Alpha(player.SpriteRenderer, 0f,
                                   _playerFadeDuration, Ease.InQuad)
                            .ToUniTask().AttachExternalCancellation(ct);
-
-                // 3. close the door
+                //Play Door Close Anim
                 if (_doorAnimator != null) _doorAnimator.SetTrigger(CloseHash);
                 await UniTask.Delay(TimeSpan.FromSeconds(_doorCloseDuration), cancellationToken: ct);
 
-                // 4. hand off to the flow controller, which owns the fade and knows
-                //    which catalog index this level actually is.
                 _signalBus.Publish(new LevelExitReachedSignal());
             }
             catch (OperationCanceledException)
