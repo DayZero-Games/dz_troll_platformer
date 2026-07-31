@@ -1,22 +1,28 @@
 using DZ.Core;
 using DZ.Core.Contracts;
-using UnityEngine;
 
 namespace DZ.Features
 {
     public abstract class BaseState : IState
     {
-        protected PlayerController playerController;
-        protected PlayerStateMachine playerStateMachine;
-        protected IInputReader inputReader;
-        protected PlayerAnimationController playerAnimationController;
-        public BaseState(PlayerController playerController, PlayerAnimationController playerAnimationController, PlayerStateMachine playerStateMachine, IInputReader inputReader)
-        {
-            this.playerController = playerController;
-            this.playerAnimationController = playerAnimationController;
-            this.playerStateMachine = playerStateMachine;
-            this.inputReader = inputReader;
+        protected readonly PlayerContext ctx;
 
+        protected readonly PlayerController playerController;
+        protected readonly PlayerAnimationController playerAnimationController;
+        protected readonly PlayerStateMachine playerStateMachine;
+        protected readonly IInputReader inputReader;
+        protected readonly IAudioService audioService;
+        protected readonly ISignalBus signalBus;
+
+        protected BaseState(PlayerContext ctx)
+        {
+            this.ctx = ctx;
+            playerController = ctx.Controller;
+            playerAnimationController = ctx.Animation;
+            playerStateMachine = ctx.StateMachine;
+            inputReader = ctx.Input;
+            audioService = ctx.AudioService;
+            signalBus = ctx.SignalBus;
         }
 
         public virtual void Enter() { }

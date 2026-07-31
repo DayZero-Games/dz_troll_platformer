@@ -1,13 +1,10 @@
-using DZ.Core.Contracts;
 using UnityEngine;
 
 namespace DZ.Features
 {
 	public class PlayerRunState : BaseState
 	{
-		public PlayerRunState(PlayerController playerController, PlayerAnimationController playerAnimationController,
-			PlayerStateMachine playerStateMachine, IInputReader inputReader) :
-			base(playerController, playerAnimationController, playerStateMachine, inputReader)
+		public PlayerRunState(PlayerContext ctx) : base(ctx)
 		{
 		}
 

@@ -1,3 +1,4 @@
+using DZ.Core;
 using DZ.Core.Contracts;
 using UnityEngine;
 
@@ -5,8 +6,7 @@ namespace DZ.Features
 {
     public class PlayerDeadState:BaseState
     {
-        public PlayerDeadState(PlayerController playerController, PlayerAnimationController playerAnimationController, PlayerStateMachine playerStateMachine, IInputReader inputReader) :
-         base(playerController, playerAnimationController, playerStateMachine, inputReader)
+        public PlayerDeadState(PlayerContext ctx) : base(ctx)
         {
         }
 
@@ -15,9 +15,9 @@ namespace DZ.Features
             Debug.Log("Entered PlayerDeadState");
             playerAnimationController.PlayDeadAnimation();
             playerController.PlayerRb.linearVelocityX = 0f;
+            audioService.PlaySfx(AudioId.Death);
             playerController.Die();
-            
-
+            signalBus.Publish(new PlayerDiedSignal());
         }
 
         public override void Exit()
