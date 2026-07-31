@@ -11,6 +11,7 @@ namespace DZ.Features
     public class PlayerController : MonoBehaviour, IPlayerController
     {
         [Inject] private readonly IInputReader _inputReader;
+        [Inject] private readonly IAudioService _audioService;
         [Inject] private readonly ISignalBus _signalBus;
 
         [Header("Player Settings")]
@@ -92,12 +93,6 @@ namespace DZ.Features
             _deadState = new PlayerDeadState(this, playerAnimationController, _playerStateMachine, _inputReader);
             _lockedState = new PlayerLockedState(this, playerAnimationController, _playerStateMachine, _inputReader);
         }
-
-        /// <summary>
-        /// Hand control to the game — level transitions, the exit-door sequence, respawn.
-        /// Going through ChangeState guarantees the outgoing state's Exit() runs, which is
-        /// what unsubscribes it from the input reader.
-        /// </summary>
         public void LockPlayer() => _playerStateMachine.ChangeState(_lockedState);
 
         public void UnlockPlayer() => _playerStateMachine.ChangeState(_idleState);
@@ -146,22 +141,18 @@ namespace DZ.Features
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            // Locked means the game is driving us through a transition — dying there would
-            // fire PlayerDiedSignal into a load that is already in flight.
             if (_playerStateMachine == null || _isDead || IsLocked) return;
             if (other.gameObject.CompareTag("Obstacles"))
             {
                 _playerStateMachine.ChangeState(DeadState);
                 cameraShaker.Shake(CameraShakeType.Bump);
                 _signalBus.Publish(new PlayerDiedSignal());
+                _audioService.PlaySfx(AudioId.Death);
+                
                 Debug.Log("Player Dead");
             }
         }
 
-        /// <summary>
-        /// Caller is expected to have called <see cref="LockPlayer"/> first — this only
-        /// moves the player, it deliberately does not touch the state machine.
-        /// </summary>
         public void TeleportTo(Vector3 position)
         {
             _playerRb.linearVelocity = Vector2.zero;
