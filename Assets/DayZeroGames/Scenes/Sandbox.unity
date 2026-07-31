@@ -200,6 +200,7 @@ MonoBehaviour:
   featureInstallers:
   - {fileID: 193271932}
   - {fileID: 1593104762}
+  - {fileID: 1851728722}
 --- !u!4 &199182229
 Transform:
   m_ObjectHideFlags: 0
@@ -247,6 +248,7 @@ Transform:
   m_Children:
   - {fileID: 193271931}
   - {fileID: 1593104761}
+  - {fileID: 1851728721}
   m_Father: {fileID: 199182229}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &531387024
@@ -262,7 +264,6 @@ GameObject:
   - component: {fileID: 531387027}
   - component: {fileID: 531387026}
   - component: {fileID: 531387025}
-  - component: {fileID: 531387030}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: Untagged
@@ -412,142 +413,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &531387030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 531387024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4999abbc9588a44a924741ff9eaa1e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.CameraShaker
-  _shakeTarget: {fileID: 0}
-  _camera: {fileID: 531387028}
-  _bump:
-    strength: {x: 0.1, y: 0.2, z: 0}
-    duration: 0.3
-    frequency: 30
-    enableFalloff: 1
-    falloffEase: 0
-    strengthOverTime:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    asymmetry: 0
-    easeBetweenShakes: 0
-    cycles: 1
-    startDelay: 0
-    endDelay: 0
-    useUnscaledTime: 0
-    _useFixedUpdate: 0
-    _updateType: 0
-  _impact:
-    strength: {x: 0.35, y: 0.35, z: 0}
-    duration: 0.35
-    frequency: 16
-    enableFalloff: 1
-    falloffEase: 0
-    strengthOverTime:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    asymmetry: 0
-    easeBetweenShakes: 0
-    cycles: 1
-    startDelay: 0
-    endDelay: 0
-    useUnscaledTime: 0
-    _useFixedUpdate: 0
-    _updateType: 0
-  _impactRoll:
-    strength: {x: 0, y: 0, z: 2.5}
-    duration: 0.35
-    frequency: 14
-    enableFalloff: 1
-    falloffEase: 0
-    strengthOverTime:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    asymmetry: 0
-    easeBetweenShakes: 0
-    cycles: 1
-    startDelay: 0
-    endDelay: 0
-    useUnscaledTime: 0
-    _useFixedUpdate: 0
-    _updateType: 0
-  _explosion:
-    strength: {x: 0.9, y: 0.9, z: 0}
-    duration: 0.8
-    frequency: 9
-    enableFalloff: 1
-    falloffEase: 0
-    strengthOverTime:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    asymmetry: 0
-    easeBetweenShakes: 6
-    cycles: 1
-    startDelay: 0
-    endDelay: 0
-    useUnscaledTime: 0
-    _useFixedUpdate: 0
-    _updateType: 0
-  _rumble:
-    strength: {x: 0.05, y: 0.05, z: 0}
-    duration: 1.5
-    frequency: 30
-    enableFalloff: 0
-    falloffEase: 0
-    strengthOverTime:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    asymmetry: 0
-    easeBetweenShakes: 0
-    cycles: 1
-    startDelay: 0
-    endDelay: 0
-    useUnscaledTime: 0
-    _useFixedUpdate: 0
-    _updateType: 0
-  _deathRoll:
-    strength: {x: 0, y: 0, z: 6}
-    duration: 0.9
-    frequency: 6
-    enableFalloff: 1
-    falloffEase: 0
-    strengthOverTime:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    asymmetry: 0
-    easeBetweenShakes: 0
-    cycles: 1
-    startDelay: 0
-    endDelay: 0
-    useUnscaledTime: 0
-    _useFixedUpdate: 0
-    _updateType: 0
-  _zoomPunch: 0.6
-  _zoomDuration: 0.3
 --- !u!1 &1593104760
 GameObject:
   m_ObjectHideFlags: 0
@@ -594,7 +459,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelFeatureInstaller
   _levelCatalogSo: {fileID: 11400000, guid: 5bb560d857abd67459626eecbe545fb8, type: 2}
   _levelRoot: {fileID: 1825668991}
-  _startLevel: 2
+  _startLevel: 1
 --- !u!1 &1825668990
 GameObject:
   m_ObjectHideFlags: 0
@@ -626,6 +491,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1851728720
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1851728721}
+  - component: {fileID: 1851728722}
+  m_Layer: 0
+  m_Name: CameraFeatureInstaller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1851728721
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1851728720}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 427388865}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1851728722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1851728720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e7eedb7bd70cb4449fbd596a2f0c1ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.CameraFeatureInstaller
+  _shakeTarget: {fileID: 531387029}
+  _cameraConfig: {fileID: 11400000, guid: 66f386cb060d3ed4ba4d78aaf7e32eea, type: 2}
 --- !u!1 &1938587514
 GameObject:
   m_ObjectHideFlags: 0
@@ -848,7 +759,6 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
-  cameraShaker: {fileID: 531387030}
 --- !u!95 &2125134860
 Animator:
   serializedVersion: 7

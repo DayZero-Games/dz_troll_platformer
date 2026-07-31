@@ -26,9 +26,6 @@ namespace DZ.Features
         [SerializeField] private Vector2 _groundCheckSize = new Vector2(0.5f, 1f);
         [SerializeField] private LayerMask groundLayer;
 
-        [Header("CameraShaker")]
-        [SerializeField] private CameraShaker cameraShaker;
-
         private Rigidbody2D _playerRb;
         private bool _isFacingRight = true;
         private bool _isGrounded;
@@ -148,7 +145,6 @@ namespace DZ.Features
             if (other.gameObject.CompareTag("Obstacles"))
             {
                 _playerStateMachine.ChangeState(DeadState);
-                cameraShaker.Shake(CameraShakeType.Bump);
             }
         }
 
