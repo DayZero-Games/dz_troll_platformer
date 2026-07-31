@@ -841,6 +841,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: DZ.Features::DZ.Features.PlayerController
   playerConfig: {fileID: 11400000, guid: 2ffb69ae499ad234ea0da51301b35cf5, type: 2}
   playerAnimationController: {fileID: 2125134861}
+  _spriteRenderer: {fileID: 2125134855}
   groundCheckPos: {fileID: 1938587515}
   checkRadius: 0.08
   _groundCheckSize: {x: 0.4, y: 0.01}

@@ -308,57 +308,6 @@ Transform:
   - {fileID: 8898293435588160638}
   m_Father: {fileID: 1794727382711475659}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1045644078603596267
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2773122714410046893}
-  - component: {fileID: 5078762748370370241}
-  m_Layer: 0
-  m_Name: LevelLifetimeScope
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2773122714410046893
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1045644078603596267}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 8002779861966009497}
-  m_Father: {fileID: 3157400853565282981}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5078762748370370241
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1045644078603596267}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0cecaa1380754b49a69ac3d1b70c797, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DZ.Core::DZ.Core.LevelLifetimeScope
-  parentReference:
-    TypeName: DZ.Core.Runtime.GameLifetimeScope
-  autoRun: 1
-  autoInjectGameObjects: []
-  featureInstallers:
-  - {fileID: 7396404491543743481}
 --- !u!1 &1435230646609745082
 GameObject:
   m_ObjectHideFlags: 0
@@ -1159,7 +1108,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6897411b625e4b4f987b597b23b118e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelExitDoor
+  _doorAnimator: {fileID: 0}
+  _entryAnchor: {fileID: 0}
   _playerTag: Player
+  _walkInDuration: 0.1
+  _playerFadeDuration: 0.3
+  _doorCloseDuration: 0.6
 --- !u!1 &3095369576813169483
 GameObject:
   m_ObjectHideFlags: 0
@@ -1531,51 +1485,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.5625, y: 0.625}
   m_EdgeRadius: 0
---- !u!1 &4141615506279002978
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8002779861966009497}
-  - component: {fileID: 7396404491543743481}
-  m_Layer: 0
-  m_Name: LevelWiseFeature
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8002779861966009497
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4141615506279002978}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2773122714410046893}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7396404491543743481
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4141615506279002978}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc623e77492a3294a9ebce436bc94855, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelWiseFeature
-  _exitDoor: {fileID: 1309496641395631572}
 --- !u!1 &4313636192266473341
 GameObject:
   m_ObjectHideFlags: 0
@@ -3046,7 +2955,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2773122714410046893}
   - {fileID: 3052758178404771775}
   - {fileID: 1794727382711475659}
   - {fileID: 1706178306803743724}

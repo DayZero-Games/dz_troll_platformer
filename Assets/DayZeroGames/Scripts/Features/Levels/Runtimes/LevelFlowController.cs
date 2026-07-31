@@ -1,6 +1,5 @@
 using System;
 using System.Threading;
-using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using DZ.Core;
 using DZ.Core.Contracts;
@@ -50,19 +49,22 @@ namespace DZ.Features
         {
             _signalBus.Subscribe<LevelCompletedSignal>(OnLevelCompleted);
             _signalBus.Subscribe<PlayerDiedSignal>(OnPlayerDied);
-            //subscriber to level completed signal.
-            //subscribe to playerDied signal.
-            await LoadLevelAsync(_startLevelIndex,cancellation);
+
+            // Nothing is loaded yet — don't let the player run around behind the boot fade.
+            _playerController.LockPlayer();
+
+            await LoadLevelAsync(_startLevelIndex, _cts.Token);
         }
 
         private void OnPlayerDied(PlayerDiedSignal signal) => RetryLevelAsync().Forget();
         private void OnLevelCompleted(LevelCompletedSignal obj) => AdvanceLevelAsync().Forget();
 
-        private async Task LoadLevelAsync(int index, CancellationToken cancellation)
+        private async UniTask LoadLevelAsync(int index, CancellationToken cancellation)
         {
             if (!_levelCatalogSo.HasLevel(index))
             {
                 Debug.LogWarning($"No Level at index {index}");
+                return;
             }
 
             if (_isTransitioning) return;
@@ -70,7 +72,14 @@ namespace DZ.Features
 
             try
             {
+                _signalBus.Publish(new LevelLoadStartedSignal(index));
+
                 await _fader.FadeToBlackAsync(cancellation);
+
+                // Lock before the level is destroyed — a simulating player would fall
+                // the moment its ground is unloaded.
+                _playerController.LockPlayer();
+
                 UnloadCurrentLevel();
 
                 var definition = _levelCatalogSo.GetLevel(index);
@@ -83,18 +92,22 @@ namespace DZ.Features
                     return;
                 }
 
-                await UniTask.NextFrame(cancellation);
-               // _playerController.EnterCutScene();
                 _playerController.TeleportTo(_currentContext.SpawnPoint.position);
+
+                // Let the new hierarchy run its Awake/Start before we place the player.
+                await UniTask.NextFrame(cancellation);
+
+
                 _currentIndex = index;
-                _signalBus.Publish(new LevelReadySignal());
-                 await _fader.FadeFromBlackAsync(cancellation);
-                // _playerController.ExitCutScene();
+                _signalBus.Publish(new LevelReadySignal(index));
+
+                await _fader.FadeFromBlackAsync(cancellation);
+
+                _playerController.UnlockPlayer();
             }
-            catch (Exception e)
+            catch (OperationCanceledException)
             {
-                Console.WriteLine(e);
-                throw;
+                // Scope torn down mid-transition; the finally below is all the cleanup needed.
             }
             finally
             {
