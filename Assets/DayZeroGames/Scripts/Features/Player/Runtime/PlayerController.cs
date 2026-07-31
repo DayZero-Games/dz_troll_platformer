@@ -87,11 +87,14 @@ namespace DZ.Features
         private void CreatePlayerStates()
         {
             _playerStateMachine = new PlayerStateMachine();
-            _idleState = new PlayerIdleState(this, playerAnimationController, _playerStateMachine, _inputReader);
-            _runState = new PlayerRunState(this, playerAnimationController, _playerStateMachine, _inputReader);
-            _jumpState = new PlayerJumpState(this, playerAnimationController, _playerStateMachine, _inputReader);
-            _deadState = new PlayerDeadState(this, playerAnimationController, _playerStateMachine, _inputReader);
-            _lockedState = new PlayerLockedState(this, playerAnimationController, _playerStateMachine, _inputReader);
+
+            var context = new PlayerContext(this, playerAnimationController, _playerStateMachine, _inputReader,_audioService,_signalBus);
+
+            _idleState = new PlayerIdleState(context);
+            _runState = new PlayerRunState(context);
+            _jumpState = new PlayerJumpState(context);
+            _deadState = new PlayerDeadState(context);
+            _lockedState = new PlayerLockedState(context);
         }
         public void LockPlayer() => _playerStateMachine.ChangeState(_lockedState);
 
@@ -146,10 +149,6 @@ namespace DZ.Features
             {
                 _playerStateMachine.ChangeState(DeadState);
                 cameraShaker.Shake(CameraShakeType.Bump);
-                _signalBus.Publish(new PlayerDiedSignal());
-                _audioService.PlaySfx(AudioId.Death);
-                
-                Debug.Log("Player Dead");
             }
         }
 

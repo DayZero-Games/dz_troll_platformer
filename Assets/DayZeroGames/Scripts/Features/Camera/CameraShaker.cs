@@ -1,5 +1,7 @@
+using DZ.Core.Contracts;
 using PrimeTween;
 using UnityEngine;
+using VContainer;
 
 namespace DZ.Features
 {
@@ -15,6 +17,7 @@ namespace DZ.Features
     [RequireComponent(typeof(Camera))]
     public class CameraShaker : MonoBehaviour
     {
+
         [Header("Targets")]
         [Tooltip("Transform to shake. Leave empty to use this object. " +
                  "Must NOT be a transform a follow script writes to.")]
