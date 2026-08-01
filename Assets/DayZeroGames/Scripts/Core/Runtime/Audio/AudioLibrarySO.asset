@@ -13,5 +13,9 @@ MonoBehaviour:
   m_Name: AudioLibrarySO
   m_EditorClassIdentifier: DZ.Core.Runtime::DZ.Core.Runtime.AudioLibrarySo
   audioEntries:
-  - audioId: 2
+  - audioId: 1
+    clip: {fileID: 8300000, guid: e155f42ffe86a4c348e6f0a22d517747, type: 3}
+    volume: 0.5
+  - audioId: 3
     clip: {fileID: 8300000, guid: 80ca4773e2027024aa5386b4278b65aa, type: 3}
+    volume: 1

@@ -6,6 +6,7 @@ namespace DZ.Core.Contracts
 	public enum AudioId : short
 	{
 		None,
+		BackgroundMusic,
 		Jump,
 		Death
 	}

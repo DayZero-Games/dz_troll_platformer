@@ -1,3 +1,4 @@
+using System;
 using DZ.Core.Contracts;
 using UnityEngine;
 using VInspector;
@@ -15,10 +16,20 @@ namespace DZ.Core.Runtime
 		//TODO Use Audio Library Interface Here and initialize the IAudioLibrary from Vinspector. Use COnstructor. 
 		//private IAudioLibrary _audioLibrary;
 
+
+		private void Start()
+		{
+			PlayMusic(AudioId.BackgroundMusic);
+		}
+
 		public void PlaySfx(AudioId audioId)
 		{
-			if (!_audioLibrary.TryGet(audioId, out var audioEntry)) return;
-			sfxSource.PlayOneShot(audioEntry.clip);
+			if (!_audioLibrary.TryGet(audioId, out var audioEntry))
+			{
+				Debug.Log($"{audioId} not found");
+				return;
+			}
+			sfxSource.PlayOneShot(audioEntry.clip, audioEntry.volume);
 		}
 
 		public void PlayMusic(AudioId audioId)
@@ -27,6 +38,7 @@ namespace DZ.Core.Runtime
 
 			musicSource.Stop();
 			musicSource.clip = audioEntry.clip;
+			musicSource.volume = audioEntry.volume;
 			musicSource.Play();
 		}
 
