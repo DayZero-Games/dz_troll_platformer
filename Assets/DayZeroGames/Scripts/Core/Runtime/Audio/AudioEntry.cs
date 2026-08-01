@@ -9,6 +9,6 @@ namespace DZ.Core.Runtime
     {
         public AudioId audioId;
         public AudioClip clip;
-        public float volume;
+        [Range(0,1)]public float volume;
     }
 }
