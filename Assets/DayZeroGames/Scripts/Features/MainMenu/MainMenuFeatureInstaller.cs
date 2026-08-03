@@ -1,19 +1,17 @@
+using DZ.Core.Runtime;
 using UnityEngine;
+using VContainer;
+using VContainer.Unity;
 
 namespace DZ.Features
 {
-    public class MainMenuFeatureInstaller : MonoBehaviour
+    public class MainMenuFeatureInstaller : BaseFeatureInstaller
     {
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
+        [SerializeField] private MainMenuView mainMenuView;
+        public override void Register(IContainerBuilder containerBuilder)
         {
-        
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-        
+            containerBuilder.RegisterComponent(mainMenuView);
+            containerBuilder.RegisterEntryPoint<MainMenuController>().WithParameter(mainMenuView);
         }
     }
 }

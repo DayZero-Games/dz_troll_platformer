@@ -50,5 +50,22 @@ namespace DZ.Core.Runtime
             }
             await unloadOperation.ToUniTask(cancellationToken: cancellation);
         }
+
+        public async UniTask SwitchSceneAsync(SceneId fromSceneId, SceneId toSceneId, CancellationToken cancellation = default)
+        {
+            if (IsSceneLoaded(toSceneId))
+            {
+                Debug.LogWarning($"Already in Scene {toSceneId}");
+                return;
+            }
+            await LoadAsync(toSceneId, cancellation);
+            
+            var loadedScene = SceneManager.GetSceneByName(toSceneId.ToString());
+            if (loadedScene.isLoaded)
+            {
+                SceneManager.SetActiveScene(loadedScene);
+            }
+            await UnloadAsync(fromSceneId, cancellation);
+        }
     }
 }

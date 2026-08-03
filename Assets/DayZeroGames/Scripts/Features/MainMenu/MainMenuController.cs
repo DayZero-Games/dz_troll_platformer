@@ -1,14 +1,26 @@
+using System.Threading;
+using DZ.Core.Contracts;
 using UnityEngine;
+using VContainer;
+using VContainer.Unity;
 
 namespace DZ.Features
 {
-    public class MainMenuController
+    public class MainMenuController : IStartable
     {
-        private MainMenuView _mainMenuView;
-        public MainMenuController(MainMenuView mainMenuView)
+        private readonly ISceneLoader _sceneLoader;
+        private readonly MainMenuView _mainMenuView;
+
+        public MainMenuController( ISceneLoader sceneLoader,MainMenuView mainMenuView)
         {
+            Debug.Log("MainMenuController");
             _mainMenuView = mainMenuView;
-            
+            _sceneLoader = sceneLoader;
+        }
+
+        public void Start()
+        {
+            Debug.Log("MainMenuController started");
             _mainMenuView.playButton.onClick.AddListener(OnPlayButtonClicked);
             _mainMenuView.musicButton.onClick.AddListener(ToggleMusic);
             _mainMenuView.sfxButton.onClick.AddListener(ToggleSfx);
@@ -26,6 +38,8 @@ namespace DZ.Features
 
         private void OnPlayButtonClicked()
         {
+            Debug.Log("Loading SandBox Scene");
+            _sceneLoader.SwitchSceneAsync(SceneId.MainMenu,SceneId.Sandbox, new CancellationToken());
             //_mainMenuView.ShowLevelSelection();
         }
     }

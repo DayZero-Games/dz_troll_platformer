@@ -25,8 +25,6 @@ namespace DZ.Core.Runtime
 			builder.Register<ISceneLoader, SceneLoader>(Lifetime.Singleton);
 			builder.RegisterInstance(_inputReader).As<IInputReader>();
 			builder.RegisterInstance(_audioLibrary).As<IAudioLibrary>();
-			
-		
 
 			builder.RegisterEntryPoint<BootstrapEntryPoint>().WithParameter(_startScene);
 		}
