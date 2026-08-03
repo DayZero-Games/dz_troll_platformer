@@ -1,20 +1,17 @@
 using System;
 using DZ.Core.Contracts;
 using UnityEngine;
-using VInspector;
+using VContainer;
 
-namespace DZ.Core.Runtime
+namespace DZ.Features
 {
 	public class AudioService : MonoBehaviour, IAudioService
 	{
-		[Header("AudioSources")] [SerializeField]
-		private AudioSource musicSource;
-
+		[Inject] private readonly IAudioLibrary _audioLibrary;
+		
+		[Header("AudioSources")]
+		[SerializeField] private AudioSource musicSource;
 		[SerializeField] private AudioSource sfxSource;
-
-		[SerializeField] private AudioLibrarySo _audioLibrary;
-		//TODO Use Audio Library Interface Here and initialize the IAudioLibrary from Vinspector. Use COnstructor. 
-		//private IAudioLibrary _audioLibrary;
 
 
 		private void Start()

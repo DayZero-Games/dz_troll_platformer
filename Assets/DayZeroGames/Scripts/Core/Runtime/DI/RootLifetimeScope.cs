@@ -10,8 +10,8 @@ namespace DZ.Core.Runtime
 
 		[SerializeField] private InputReaderSo _inputReader;
 		[SerializeField] private AudioLibrarySo _audioLibrary;
-		[SerializeField] private AudioService _audioService;
-		[SerializeField] private ScreenFader _fader;
+		
+		
 		[SerializeField] private SceneId _startScene = SceneId.MainMenu;
 
 		[Tooltip("Scene loaded additively once the root container is up. Bootstrap = load nothing.")]
@@ -25,8 +25,8 @@ namespace DZ.Core.Runtime
 			builder.Register<ISceneLoader, SceneLoader>(Lifetime.Singleton);
 			builder.RegisterInstance(_inputReader).As<IInputReader>();
 			builder.RegisterInstance(_audioLibrary).As<IAudioLibrary>();
-			builder.RegisterComponent(_audioService).As<IAudioService>();
-			builder.RegisterComponent(_fader).As<IScreenFader>();
+			
+		
 
 			builder.RegisterEntryPoint<BootstrapEntryPoint>().WithParameter(_startScene);
 		}
