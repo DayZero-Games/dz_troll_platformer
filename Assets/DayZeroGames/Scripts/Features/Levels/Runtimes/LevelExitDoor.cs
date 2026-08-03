@@ -12,14 +12,15 @@ namespace DZ.Features
     public class LevelExitDoor : MonoBehaviour
     {
         [Inject] private readonly ISignalBus _signalBus;
-        [Header("Refrences")]
-        [SerializeField] private Animator _doorAnimator;
-        [Tooltip("Where the player lines up before fading out. Child of the door.")]
-        [SerializeField] private Transform _entryAnchor;
+        [Inject] private readonly IAudioService _audioService;
+        [Header("Refrences")] [SerializeField] private Animator _doorAnimator;
+
+        [Tooltip("Where the player lines up before fading out. Child of the door.")] [SerializeField]
+        private Transform _entryAnchor;
+
         [SerializeField] private string _playerTag = "Player";
 
-        [Header("Timing")]
-        [SerializeField] private float _walkInDuration = 0.2f;
+        [Header("Timing")] [SerializeField] private float _walkInDuration = 0.2f;
         [SerializeField] private float _playerFadeDuration = 0.3f;
         [SerializeField] private float _doorCloseDuration = 1f;
 
@@ -49,20 +50,21 @@ namespace DZ.Features
                 // Must come first: the movement states drive linearVelocity every
                 // FixedUpdate, which would fight the position tween below.
                 player.LockPlayer();
-
+                _signalBus.Publish(new LevelExitReachedSignal());
+                _audioService.PlaySfx(AudioId.ExitDoorReached);
                 //Bring Player To Door
                 await Tween.Position(player.transform, _entryAnchor.position,
-                                     _walkInDuration, Ease.OutQuad)
-                           .ToUniTask().AttachExternalCancellation(ct);
+                        _walkInDuration, Ease.OutQuad)
+                    .ToUniTask().AttachExternalCancellation(ct);
                 //Fade Player
                 await Tween.Alpha(player.SpriteRenderer, 0f,
-                                  _playerFadeDuration, Ease.InQuad)
-                           .ToUniTask().AttachExternalCancellation(ct);
+                        _playerFadeDuration, Ease.InQuad)
+                    .ToUniTask().AttachExternalCancellation(ct);
                 //Play Door Close Anim
                 if (_doorAnimator != null) _doorAnimator.SetTrigger(CloseHash);
                 await UniTask.Delay(TimeSpan.FromSeconds(_doorCloseDuration), cancellationToken: ct);
-
-                _signalBus.Publish(new LevelExitReachedSignal());
+                
+                _signalBus.Publish(new RequestNextLevelSignal());
             }
             catch (OperationCanceledException)
             {

@@ -43,13 +43,17 @@ namespace DZ.Features
             _isReady = true;
 
             _signalBus.Subscribe<PlayerDiedSignal>(OnPlayerDied);
+            _signalBus.Subscribe<LevelExitReachedSignal>(ShakeScreen);
         }
+
+        private void ShakeScreen(LevelExitReachedSignal obj) => Shake();
 
         public void Dispose()
         {
             if (!_isReady) return;
 
             _signalBus.Unsubscribe<PlayerDiedSignal>(OnPlayerDied);
+            _signalBus.Unsubscribe<LevelExitReachedSignal>(ShakeScreen);
             if (_positionTween.isAlive) _positionTween.Stop();
         }
 

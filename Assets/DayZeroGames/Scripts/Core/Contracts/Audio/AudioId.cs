@@ -7,7 +7,7 @@ namespace DZ.Core.Contracts
 	{
 		None,
 		BackgroundMusic,
-		Jump,
-		Death
+		Death,
+		ExitDoorReached
 	}
 }

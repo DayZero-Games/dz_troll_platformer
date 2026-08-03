@@ -46,11 +46,5 @@ namespace DZ.Core.Runtime
 		{
 			musicSource.Stop();
 		}
-
-		[Button("Test Sound")]
-		public void TestSound()
-		{
-			PlaySfx(AudioId.Jump);
-		}
 	}
 }

@@ -47,7 +47,7 @@ namespace DZ.Features
 
         public async UniTask StartAsync(CancellationToken cancellation = new CancellationToken())
         {
-            _signalBus.Subscribe<LevelExitReachedSignal>(OnLevelExitReached);
+            _signalBus.Subscribe<RequestNextLevelSignal>(OnNextLevelRequested);
             _signalBus.Subscribe<PlayerDiedSignal>(OnPlayerDied);
 
             // Nothing is loaded yet — don't let the player run around behind the boot fade.
@@ -57,7 +57,7 @@ namespace DZ.Features
         }
 
         private void OnPlayerDied(PlayerDiedSignal signal) => RetryLevelAsync().Forget();
-        private void OnLevelExitReached(LevelExitReachedSignal signal) => AdvanceLevelAsync().Forget();
+        private void OnNextLevelRequested(RequestNextLevelSignal signal) => AdvanceLevelAsync().Forget();
 
         private async UniTask LoadLevelAsync(int index, CancellationToken cancellation)
         {
@@ -128,6 +128,7 @@ namespace DZ.Features
             // The door only reports that an exit was reached. Stamping the index is ours,
             // and it has to happen before _currentIndex moves on to the next level.
             _signalBus.Publish(new LevelCompletedSignal(_currentLvlIndex));
+            
 
             var nextLevel = _currentLvlIndex + 1;
             if (!_levelCatalogSo.HasLevel(nextLevel))
@@ -166,7 +167,7 @@ namespace DZ.Features
 
         public void Dispose()
         {
-            _signalBus.Unsubscribe<LevelExitReachedSignal>(OnLevelExitReached);
+            _signalBus.Unsubscribe<RequestNextLevelSignal>(OnNextLevelRequested);
             _signalBus.Unsubscribe<PlayerDiedSignal>(OnPlayerDied);
             _cts.Cancel();
             _cts.Dispose();
