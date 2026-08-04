@@ -9,7 +9,7 @@ namespace DZ.Features
     {
          [SerializeField] private CanvasGroup _mainPanel;
         [SerializeField] private CanvasGroup _levelSelectionPanel;
-        [SerializeField] private float _fadeDuration = 0.3f;
+        [SerializeField] private float _fadeDuration = 0.2f;
 
         private void Awake()
         {
