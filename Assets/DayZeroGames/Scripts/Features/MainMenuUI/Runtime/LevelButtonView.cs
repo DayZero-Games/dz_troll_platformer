@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 namespace DZ.Features
 {
-    [RequireComponent(typeof(Button))]
     public class LevelButtonView : MonoBehaviour
     {
         [SerializeField] private Button _button;
@@ -19,7 +18,10 @@ namespace DZ.Features
         public void Bind(int levelIndex, string label, bool unlocked, Action<int> onClicked)
         {
 
-            if (_button == null) _button = GetComponent<Button>();
+            if (_button == null)
+            {
+                Debug.LogError($"{nameof(LevelButtonView)}.{nameof(Bind)}: button is null");
+            }
 
             if (!_listenerHooked)
             {
