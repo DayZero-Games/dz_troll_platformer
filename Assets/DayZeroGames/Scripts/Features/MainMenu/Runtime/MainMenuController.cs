@@ -10,9 +10,6 @@ namespace DZ.Features
         private readonly MainPanelView _view;
         private readonly IAudioService _audioService;
 
-        private bool _musicOn = true;
-        private bool _sfxOn = true;
-
         public MainMenuController(MainMenuView router, MainPanelView view, IAudioService audioService)
         {
             _router = router;
@@ -26,27 +23,24 @@ namespace DZ.Features
             _view.MusicButton.onClick.AddListener(ToggleMusic);
             _view.SfxButton.onClick.AddListener(ToggleSfx);
 
-            _view.SetMusicIcon(_musicOn);
-            _view.SetSfxIcon(_sfxOn);
+            _view.SetMusicIcon(_audioService.MusicEnabled);
+            _view.SetSfxIcon(_audioService.SfxEnabled);
         }
 
         private void OnPlayClicked() => _router.ShowLevelSelection();
 
         private void ToggleMusic()
         {
-            _musicOn = !_musicOn;
-
-            if (_musicOn) _audioService.PlayMusic(AudioId.BackgroundMusic);
-            else _audioService.StopMusic();
-
-            _view.SetMusicIcon(_musicOn);
+            var _musicEnabled = !_audioService.MusicEnabled;
+            _audioService.SetMusicEnabled(_musicEnabled);
+            _view.SetMusicIcon(_musicEnabled);
         }
 
         private void ToggleSfx()
         {
-            _sfxOn = !_sfxOn;
-            _view.SetSfxIcon(_sfxOn);
-        }
+            var _sfxEnabled = !_audioService.SfxEnabled;
+            _audioService.SetSfxEnabled(_sfxEnabled);
+            _view.SetSfxIcon(_sfxEnabled);       }
 
         public void Dispose()
         {

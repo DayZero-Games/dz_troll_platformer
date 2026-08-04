@@ -16,6 +16,7 @@ namespace DZ.Features
         private readonly LevelSelectionView _view;
         private readonly LevelCatalogSo _levelCatalog;
         private readonly ILevelSelection _levelSelection;
+        private readonly ILevelProgress _levelProgress;
         private readonly ISceneLoader _sceneLoader;
 
         private readonly List<LevelButtonView> _levelButtons = new List<LevelButtonView>();
@@ -28,12 +29,14 @@ namespace DZ.Features
             LevelSelectionView view,
             LevelCatalogSo levelCatalog,
             ILevelSelection levelSelection,
+            ILevelProgress levelProgress,
             ISceneLoader sceneLoader)
         {
             _router = router;
             _view = view;
             _levelCatalog = levelCatalog;
             _levelSelection = levelSelection;
+            _levelProgress = levelProgress;
             _sceneLoader = sceneLoader;
         }
 
@@ -67,7 +70,7 @@ namespace DZ.Features
         }
 
         // Everything is open for now. Plug save data in here when progression lands.
-        private bool IsUnlocked(int levelIndex) => true;
+        private bool IsUnlocked(int levelIndex) => _levelProgress.IsUnlocked(levelIndex);
 
         private void OnBackClicked() => _router.ShowMainPanel();
 

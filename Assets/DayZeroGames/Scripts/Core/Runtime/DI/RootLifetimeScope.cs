@@ -24,11 +24,13 @@ namespace DZ.Core.Runtime
 			builder.Register<ISignalBus, SignalBus>(Lifetime.Singleton);
 			builder.Register<ISceneLoader, SceneLoader>(Lifetime.Singleton);
 			builder.Register<ILevelSelection, LevelSelection>(Lifetime.Singleton);
+			builder.Register<IPlayerPrefsSaveService, PlayerPrefsSaveService>(Lifetime.Singleton);
 			builder.RegisterInstance(_levelCatalog);
 			builder.RegisterInstance(_inputReader).As<IInputReader>();
 			builder.RegisterInstance(_audioLibrary).As<IAudioLibrary>();
 			
 			builder.RegisterEntryPoint<BootstrapEntryPoint>().WithParameter(_startScene);
+			builder.RegisterEntryPoint<LevelProgressService>();
 		}
 	}
 }
