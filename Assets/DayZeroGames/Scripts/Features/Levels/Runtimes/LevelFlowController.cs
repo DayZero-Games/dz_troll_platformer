@@ -78,8 +78,6 @@ namespace DZ.Features
 
                 await _fader.FadeToBlackAsync(cancellation);
 
-                // Lock before the level is destroyed — a simulating player would fall
-                // the moment its ground is unloaded.
                 _playerController.LockPlayer();
 
                 UnloadCurrentLevel();
@@ -127,8 +125,6 @@ namespace DZ.Features
 
         private async UniTaskVoid AdvanceLevelAsync()
         {
-            // The door only reports that an exit was reached. Stamping the index is ours,
-            // and it has to happen before _currentIndex moves on to the next level.
             _signalBus.Publish(new LevelCompletedSignal(_currentLvlIndex));
             
 
@@ -142,10 +138,6 @@ namespace DZ.Features
             await LoadLevelAsync(nextLevel, _cts.Token);
         }
 
-        /// <summary>
-        /// The door sequence leaves the player invisible and locked, so we cannot just stop —
-        /// that strands the game on a finished level with no way out.
-        /// </summary>
         private async UniTask CompleteGameAsync()
         {
             Debug.Log($"All {_levelCatalogSo.Count} levels complete.");

@@ -10,6 +10,13 @@ namespace DZ.Core.Runtime
 {
     public sealed class SceneLoader : ISceneLoader
     {
+        private readonly IScreenFader _screenFader;
+
+        public SceneLoader(IScreenFader screenFader)
+        {
+            _screenFader = screenFader;
+        }
+
         public bool IsSceneLoaded(SceneId sceneId)
         {
             var scene = SceneManager.GetSceneByName(sceneId.ToString());
@@ -57,6 +64,10 @@ namespace DZ.Core.Runtime
             {
                 Debug.LogWarning($"Already in Scene {toSceneId}");
                 return;
+            }
+            if(!_screenFader.IsCovered)
+            {
+                await _screenFader.FadeToBlackAsync(cancellation);
             }
             await LoadAsync(toSceneId, cancellation);
             

@@ -1,4 +1,7 @@
 using System;
+using System.Threading;
+using Cysharp.Threading.Tasks;
+using DZ.Core;
 using DZ.Core.Contracts;
 using VContainer.Unity;
 
@@ -9,12 +12,15 @@ namespace DZ.Features
         private readonly MainMenuView _router;
         private readonly MainPanelView _view;
         private readonly IAudioService _audioService;
+        private readonly IScreenFader _screenFader;
+        private readonly CancellationTokenSource _cts = new CancellationTokenSource();
 
-        public MainMenuController(MainMenuView router, MainPanelView view, IAudioService audioService)
+        public MainMenuController(MainMenuView router, MainPanelView view, IAudioService audioService, IScreenFader screenFader)
         {
             _router = router;
             _view = view;
             _audioService = audioService;
+            _screenFader = screenFader;
         }
 
         public void Start()
@@ -25,6 +31,8 @@ namespace DZ.Features
 
             _view.SetMusicIcon(_audioService.MusicEnabled);
             _view.SetSfxIcon(_audioService.SfxEnabled);
+
+            _screenFader.FadeFromBlackAsync(_cts.Token).Forget();
         }
 
         private void OnPlayClicked() => _router.ShowLevelSelection();
@@ -47,6 +55,8 @@ namespace DZ.Features
             _view.PlayButton.onClick.RemoveListener(OnPlayClicked);
             _view.MusicButton.onClick.RemoveListener(ToggleMusic);
             _view.SfxButton.onClick.RemoveListener(ToggleSfx);
+            _cts.Cancel();
+            _cts.Dispose();
         }
     }
 }
