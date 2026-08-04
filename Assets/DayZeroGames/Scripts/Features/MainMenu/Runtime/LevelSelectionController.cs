@@ -72,7 +72,7 @@ namespace DZ.Features
         // Everything is open for now. Plug save data in here when progression lands.
         private bool IsUnlocked(int levelIndex) => _levelProgress.IsUnlocked(levelIndex);
 
-        private void OnBackClicked() => _router.ShowMainPanel();
+        private void OnBackClicked() => _router.ShowMainPanelAsync();
 
         private void OnLevelClicked(int levelIndex)
         {

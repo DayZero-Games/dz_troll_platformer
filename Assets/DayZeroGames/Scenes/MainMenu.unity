@@ -1718,6 +1718,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1450105610}
   - component: {fileID: 1450105611}
+  - component: {fileID: 1450105612}
   m_Layer: 5
   m_Name: LevelSelectionPanel
   m_TagString: Untagged
@@ -1761,6 +1762,18 @@ MonoBehaviour:
   _gridRoot: {fileID: 1351097919}
   _levelButtonPrefab: {fileID: 3923423805753349735, guid: 8ad20adb61f775e478025c0463422088, type: 3}
   _backButton: {fileID: 1154538815}
+--- !u!225 &1450105612
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1450105609}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1462768536
 GameObject:
   m_ObjectHideFlags: 0
@@ -1921,6 +1934,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1635649224}
   - component: {fileID: 1635649225}
+  - component: {fileID: 1635649226}
   m_Layer: 5
   m_Name: MainPanel
   m_TagString: Untagged
@@ -1970,6 +1984,18 @@ MonoBehaviour:
   _musicOffIcon: {fileID: 1573629535}
   _sfxOnIcon: {fileID: 997697487}
   _sfxOffIcon: {fileID: 670052866}
+--- !u!225 &1635649226
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1635649223}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1651671736
 GameObject:
   m_ObjectHideFlags: 0
@@ -2052,8 +2078,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 251e17ac03341a24d9ae7051da44a570, type: 3}
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.MainMenuView
-  _mainPanel: {fileID: 1635649223}
-  _levelSelectionPanel: {fileID: 1450105609}
+  _mainPanel: {fileID: 1635649226}
+  _levelSelectionPanel: {fileID: 1450105612}
+  _fadeDuration: 0.3
 --- !u!1 &1757807457
 GameObject:
   m_ObjectHideFlags: 0

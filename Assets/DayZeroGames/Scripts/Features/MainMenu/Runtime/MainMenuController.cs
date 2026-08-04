@@ -35,7 +35,7 @@ namespace DZ.Features
             _screenFader.FadeFromBlackAsync(_cts.Token).Forget();
         }
 
-        private void OnPlayClicked() => _router.ShowLevelSelection();
+        private void OnPlayClicked() => _router.ShowLevelSelectionAsync(_cts.Token);
 
         private void ToggleMusic()
         {

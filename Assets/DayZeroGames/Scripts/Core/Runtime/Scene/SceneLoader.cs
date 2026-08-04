@@ -30,6 +30,11 @@ namespace DZ.Core.Runtime
                 Debug.LogWarning($"Scene {sceneId} is already loaded.");
                 return;
             }
+
+            if (!_screenFader.IsCovered)
+            {
+                await _screenFader.FadeToBlackAsync(cancellation);
+            }
             var loadOperation = SceneManager.LoadSceneAsync(sceneId.ToString(), LoadSceneMode.Additive);
             if (loadOperation == null)
             {
@@ -43,7 +48,7 @@ namespace DZ.Core.Runtime
 
         public async UniTask UnloadAsync(SceneId sceneId, CancellationToken cancellation = default)
         {
-            if(!IsSceneLoaded(sceneId))
+            if (!IsSceneLoaded(sceneId))
             {
                 Debug.LogWarning($"Scene {sceneId} is not loaded.");
                 return;
@@ -65,12 +70,8 @@ namespace DZ.Core.Runtime
                 Debug.LogWarning($"Already in Scene {toSceneId}");
                 return;
             }
-            if(!_screenFader.IsCovered)
-            {
-                await _screenFader.FadeToBlackAsync(cancellation);
-            }
             await LoadAsync(toSceneId, cancellation);
-            
+
             var loadedScene = SceneManager.GetSceneByName(toSceneId.ToString());
             if (loadedScene.isLoaded)
             {
