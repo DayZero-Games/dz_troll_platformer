@@ -17,8 +17,8 @@ namespace DZ.Features
         private readonly IObjectResolver _objectResolver;
         private readonly PlayerController _playerController;
         private readonly LevelCatalogSo _levelCatalogSo;
+        private readonly ILevelSelection _levelSelection;
         private readonly Transform _levelRoot;
-        private readonly int _startLvlIndex;
 
         private readonly CancellationTokenSource _cts = new CancellationTokenSource();
 
@@ -33,16 +33,16 @@ namespace DZ.Features
             IObjectResolver objectResolver,
             PlayerController playerController,
             LevelCatalogSo levelCatalogSo,
-            Transform levelRoot,
-            int startLevel)
+            ILevelSelection levelSelection,
+            Transform levelRoot)
         {
             _fader = fader;
             _signalBus = signalBus;
             _objectResolver = objectResolver;
             _playerController = playerController;
             _levelCatalogSo = levelCatalogSo;
+            _levelSelection = levelSelection;
             _levelRoot = levelRoot;
-            _startLvlIndex = startLevel-1;
         }
 
         public async UniTask StartAsync(CancellationToken cancellation = new CancellationToken())
@@ -50,10 +50,12 @@ namespace DZ.Features
             _signalBus.Subscribe<RequestNextLevelSignal>(OnNextLevelRequested);
             _signalBus.Subscribe<PlayerDiedSignal>(OnPlayerDied);
 
-            // Nothing is loaded yet — don't let the player run around behind the boot fade.
             _playerController.LockPlayer();
 
-            await LoadLevelAsync(_startLvlIndex, _cts.Token);
+            var startIndex = _levelSelection.HasSelection ? _levelSelection.SelectedIndex : 0;
+            _levelSelection.Clear();
+
+            await LoadLevelAsync(startIndex, _cts.Token);
         }
 
         private void OnPlayerDied(PlayerDiedSignal signal) => RetryLevelAsync().Forget();

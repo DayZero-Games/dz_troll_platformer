@@ -7,15 +7,11 @@ namespace DZ.Features
 {
     public class LevelFeatureInstaller : BaseFeatureInstaller
     {
-        [SerializeField] private LevelCatalogSo _levelCatalogSo;
         [SerializeField] private Transform _levelRoot;
-        [SerializeField] private int _startLevel;
         public override void Register(IContainerBuilder containerBuilder)
         {
-            containerBuilder.RegisterInstance(_levelCatalogSo);
             containerBuilder.RegisterEntryPoint<LevelFlowController>()
-                .WithParameter(_levelRoot)
-                .WithParameter(_startLevel);
+                .WithParameter(_levelRoot);
 
         }
     }
