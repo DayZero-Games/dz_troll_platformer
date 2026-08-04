@@ -1,19 +1,13 @@
+using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace DZ.Features
 {
     public class GameplayView : MonoBehaviour
     {
-        // Start is called once before the first execution of Update after the MonoBehaviour is created
-        void Start()
-        {
+        [SerializeField] private Button backButton;
         
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-        
-        }
+        public Button BackButton => backButton;
     }
 }
