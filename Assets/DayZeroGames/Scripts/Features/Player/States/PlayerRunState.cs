@@ -1,19 +1,16 @@
-using DZ.Core.Contracts;
 using UnityEngine;
 
 namespace DZ.Features
 {
 	public class PlayerRunState : BaseState
 	{
-		public PlayerRunState(PlayerController playerController, PlayerAnimationController playerAnimationController,
-			PlayerStateMachine playerStateMachine, IInputReader inputReader) :
-			base(playerController, playerAnimationController, playerStateMachine, inputReader)
+		public PlayerRunState(PlayerContext ctx) : base(ctx)
 		{
 		}
 
 		public override void Enter()
 		{
-			Debug.Log("RunState Enter");
+			//Debug.Log("RunState Enter");
 			inputReader.OnJumpPerformed += HandlePlayerJump;
 			playerAnimationController.PlayRunAnimation();
 		}
@@ -30,7 +27,7 @@ namespace DZ.Features
 
 		public override void Exit()
 		{
-			Debug.Log("RunState Exit");
+			//Debug.Log("RunState Exit");
 			inputReader.OnJumpPerformed -= HandlePlayerJump;
 		}
 
@@ -52,6 +49,7 @@ namespace DZ.Features
 			if (Mathf.Abs(inputReader.moveInput) <= 0.01f && playerController.IsGrounded)
 			{
 				playerStateMachine.ChangeState(playerController.IdleState);
+				return;
 			}
 
 			if (!playerController.IsGrounded) playerStateMachine.ChangeState(playerController.JumpState);

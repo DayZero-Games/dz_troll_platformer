@@ -63,7 +63,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 16
@@ -150,7 +150,7 @@ TextureImporter:
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 27, y: 7, z: 18, w: 8}
       customData: 
       outline: []
       physicsShape: []
@@ -172,7 +172,7 @@ TextureImporter:
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 15, y: 7, z: 14, w: 8}
       customData: 
       outline: []
       physicsShape: []
@@ -194,7 +194,7 @@ TextureImporter:
         height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 22, y: 13, z: 23, w: 17}
       customData: 
       outline: []
       physicsShape: []
@@ -216,7 +216,7 @@ TextureImporter:
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 22, y: 6, z: 22, w: 6}
       customData: 
       outline: []
       physicsShape: []
@@ -238,7 +238,7 @@ TextureImporter:
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 7, y: 8, z: 7, w: 7}
       customData: 
       outline: []
       physicsShape: []
@@ -260,7 +260,7 @@ TextureImporter:
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 7, y: 7, z: 7, w: 7}
       customData: 
       outline: []
       physicsShape: []

@@ -1,19 +1,16 @@
-using DZ.Core.Contracts;
 using UnityEngine;
 
 namespace DZ.Features
 {
 	public class PlayerIdleState : BaseState
 	{
-		public PlayerIdleState(PlayerController playerController, PlayerAnimationController playerAnimationController,
-			PlayerStateMachine playerStateMachine, IInputReader inputReader) :
-			base(playerController, playerAnimationController, playerStateMachine, inputReader)
+		public PlayerIdleState(PlayerContext ctx) : base(ctx)
 		{
 		}
 
 		public override void Enter()
 		{
-			Debug.Log("IdleState Enter");
+			//Debug.Log("IdleState Enter");
 			inputReader.OnJumpPerformed += HandlePlayerJump;
 			playerController.StopMovingPlayer();
 			playerAnimationController.PlayIdleAnimation();
@@ -24,6 +21,10 @@ namespace DZ.Features
 			HandlePlayerIdle();
 			CheckForStateChange();
 		}
+        public override void FixedUpdate()
+        {
+            playerController.StopMovingPlayer();
+        }
 
 		private void HandlePlayerIdle()
 		{
@@ -49,7 +50,7 @@ namespace DZ.Features
 		public override void Exit()
 		{
 			inputReader.OnJumpPerformed -= HandlePlayerJump;
-			Debug.Log("IdleState Exit");
+			//Debug.Log("IdleState Exit");
 		}
 	}
 }
