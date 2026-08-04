@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace DZ.Features
+namespace DZ.Core
 {
     [System.Serializable]
     public sealed class LevelEntry

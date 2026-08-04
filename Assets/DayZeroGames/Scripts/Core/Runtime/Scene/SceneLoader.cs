@@ -10,6 +10,13 @@ namespace DZ.Core.Runtime
 {
     public sealed class SceneLoader : ISceneLoader
     {
+        private readonly IScreenFader _screenFader;
+
+        public SceneLoader(IScreenFader screenFader)
+        {
+            _screenFader = screenFader;
+        }
+
         public bool IsSceneLoaded(SceneId sceneId)
         {
             var scene = SceneManager.GetSceneByName(sceneId.ToString());
@@ -22,6 +29,11 @@ namespace DZ.Core.Runtime
             {
                 Debug.LogWarning($"Scene {sceneId} is already loaded.");
                 return;
+            }
+
+            if (!_screenFader.IsCovered)
+            {
+                await _screenFader.FadeToBlackAsync(cancellation);
             }
             var loadOperation = SceneManager.LoadSceneAsync(sceneId.ToString(), LoadSceneMode.Additive);
             if (loadOperation == null)
@@ -36,7 +48,7 @@ namespace DZ.Core.Runtime
 
         public async UniTask UnloadAsync(SceneId sceneId, CancellationToken cancellation = default)
         {
-            if(!IsSceneLoaded(sceneId))
+            if (!IsSceneLoaded(sceneId))
             {
                 Debug.LogWarning($"Scene {sceneId} is not loaded.");
                 return;
@@ -49,6 +61,23 @@ namespace DZ.Core.Runtime
                     "Make sure it is included in the Build Settings.");
             }
             await unloadOperation.ToUniTask(cancellationToken: cancellation);
+        }
+
+        public async UniTask SwitchSceneAsync(SceneId fromSceneId, SceneId toSceneId, CancellationToken cancellation = default)
+        {
+            if (IsSceneLoaded(toSceneId))
+            {
+                Debug.LogWarning($"Already in Scene {toSceneId}");
+                return;
+            }
+            await LoadAsync(toSceneId, cancellation);
+
+            var loadedScene = SceneManager.GetSceneByName(toSceneId.ToString());
+            if (loadedScene.isLoaded)
+            {
+                SceneManager.SetActiveScene(loadedScene);
+            }
+            await UnloadAsync(fromSceneId, cancellation);
         }
     }
 }
