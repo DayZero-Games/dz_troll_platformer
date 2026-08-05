@@ -35,7 +35,7 @@ namespace DZ.Features
             _view.SetSfxIcon(_audioService.SfxEnabled);
 
             _screenFader.FadeFromBlackAsync(_cts.Token).Forget();
-           // _adService.ShowBanner();
+            _adService.ShowBanner();
         }
 
         private void OnPlayClicked() => _router.ShowLevelSelectionAsync(_cts.Token);

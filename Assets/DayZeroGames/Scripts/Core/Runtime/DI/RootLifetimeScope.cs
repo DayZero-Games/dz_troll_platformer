@@ -1,4 +1,5 @@
 using DZ.Core.Contracts;
+using TMPro;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
@@ -21,7 +22,7 @@ namespace DZ.Core.Runtime
 		protected override void Configure(IContainerBuilder builder)
 		{
 			base.Configure(builder);
-			
+			Application.targetFrameRate = 60;
 			builder.RegisterInstance(_levelCatalog);
 			builder.RegisterInstance(_inputReader).As<IInputReader>();
 			builder.RegisterInstance(_audioLibrary).As<IAudioLibrary>();
