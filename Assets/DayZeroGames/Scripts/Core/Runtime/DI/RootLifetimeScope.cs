@@ -11,6 +11,7 @@ namespace DZ.Core.Runtime
 		[SerializeField] private InputReaderSo _inputReader;
 		[SerializeField] private AudioLibrarySo _audioLibrary;
 		[SerializeField] private LevelCatalogSo _levelCatalog;
+		[SerializeField] private AdsSettingsSo _adsSettings;
 		
 		[SerializeField] private SceneId _startScene = SceneId.MainMenu;
 
@@ -20,14 +21,17 @@ namespace DZ.Core.Runtime
 		protected override void Configure(IContainerBuilder builder)
 		{
 			base.Configure(builder);
+			
+			builder.RegisterInstance(_levelCatalog);
+			builder.RegisterInstance(_inputReader).As<IInputReader>();
+			builder.RegisterInstance(_audioLibrary).As<IAudioLibrary>();
+			builder.RegisterInstance(_adsSettings);
 
 			builder.Register<ISignalBus, SignalBus>(Lifetime.Singleton);
 			builder.Register<ISceneLoader, SceneLoader>(Lifetime.Singleton);
 			builder.Register<ILevelSelection, LevelSelection>(Lifetime.Singleton);
 			builder.Register<IPlayerPrefsSaveService, PlayerPrefsSaveService>(Lifetime.Singleton);
-			builder.RegisterInstance(_levelCatalog);
-			builder.RegisterInstance(_inputReader).As<IInputReader>();
-			builder.RegisterInstance(_audioLibrary).As<IAudioLibrary>();
+			builder.Register<IAdService, AdServiceProvider>(Lifetime.Singleton);
 			
 			builder.RegisterEntryPoint<BootstrapEntryPoint>().WithParameter(_startScene);
 			builder.RegisterEntryPoint<LevelProgressService>();

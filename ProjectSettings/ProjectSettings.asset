@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DayZeroGames
-  productName: Troll Platformer
+  productName: Plummet
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -500,6 +500,9 @@ PlayerSettings:
   - m_BuildTarget: Android
     m_StaticBatching: 1
     m_DynamicBatching: 0
+  - m_BuildTarget: iPhone
+    m_StaticBatching: 1
+    m_DynamicBatching: 0
   m_BuildTargetShaderSettings: []
   m_BuildTargetGraphicsJobs: []
   m_BuildTargetGraphicsJobMode: []
@@ -894,8 +897,8 @@ PlayerSettings:
   cloudProjectId: 923290dc-910b-4b73-b0fe-0d4771523781
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: dz_troll_platformer 2026-06-24_23-33-18
-  organizationId: unity_90ce31aed8ed718a71cb
+  projectName: dz_troll_platformer
+  organizationId: maushamneupane2060
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}

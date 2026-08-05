@@ -887,6 +887,7 @@ MonoBehaviour:
   _inputReader: {fileID: 11400000, guid: 9cc9205df8772174ba0c7121e0c80386, type: 2}
   _audioLibrary: {fileID: 11400000, guid: 1bb61c6cf667eb941a61c00492d4fe89, type: 2}
   _levelCatalog: {fileID: 11400000, guid: 5bb560d857abd67459626eecbe545fb8, type: 2}
+  _adsSettings: {fileID: 11400000, guid: 57250c6b574f84749803fe78c3154bb9, type: 2}
   _startScene: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
