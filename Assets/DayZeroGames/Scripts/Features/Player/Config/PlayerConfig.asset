@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cbfed0898f3ab641ad40ea1baca7b21, type: 3}
   m_Name: PlayerConfig
   m_EditorClassIdentifier: DZ.Features::DZ.Features.PlayerConfigSo
-  speed: 5
+  speed: 6
   jumpForce: 12
-  fallMultiplier: 0.5
+  fallMultiplier: 1

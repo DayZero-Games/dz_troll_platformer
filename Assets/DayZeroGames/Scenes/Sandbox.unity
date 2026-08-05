@@ -949,6 +949,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2803340365151125983, guid: fb2ad73120a39ec40841f305ba1c62f1, type: 3}
+      propertyPath: _groundCheckSize.y
+      value: 0.07
+      objectReference: {fileID: 0}
     - target: {fileID: 3164718813476863421, guid: fb2ad73120a39ec40841f305ba1c62f1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -10.43
