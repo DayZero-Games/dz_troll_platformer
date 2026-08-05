@@ -21,7 +21,6 @@ namespace DZ.Core.Runtime
 		protected override void Configure(IContainerBuilder builder)
 		{
 			base.Configure(builder);
-
 			
 			builder.RegisterInstance(_levelCatalog);
 			builder.RegisterInstance(_inputReader).As<IInputReader>();
@@ -33,8 +32,6 @@ namespace DZ.Core.Runtime
 			builder.Register<ILevelSelection, LevelSelection>(Lifetime.Singleton);
 			builder.Register<IPlayerPrefsSaveService, PlayerPrefsSaveService>(Lifetime.Singleton);
 			builder.Register<IAdService, AdServiceProvider>(Lifetime.Singleton);
-
-
 			
 			builder.RegisterEntryPoint<BootstrapEntryPoint>().WithParameter(_startScene);
 			builder.RegisterEntryPoint<LevelProgressService>();

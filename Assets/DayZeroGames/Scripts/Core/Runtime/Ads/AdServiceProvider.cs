@@ -12,6 +12,7 @@ namespace DZ.Core
         private BannerView _bannerView;
         private InterstitialAd _interstitialAd;
         private RewardedAd _rewardedAd;
+
         // Callbacks
         private Action _onInterstitialClosed;
         private Action<bool> _onRewardProcessed;
@@ -20,6 +21,7 @@ namespace DZ.Core
         {
             _adsSettings = adsSettings;
         }
+        void IInitializable.Initialize() => Initialize();
 
         public void Initialize()
         {
@@ -31,7 +33,7 @@ namespace DZ.Core
                 LoadRewarded();
             });
         }
-        void IInitializable.Initialize() => Initialize();
+
         private AdRequest CreateAdRequest()
         {
             return new AdRequest();
@@ -67,10 +69,10 @@ namespace DZ.Core
                 if (error != null || ad == null) return;
                 _interstitialAd = ad;
                 _interstitialAd.OnAdFullScreenContentClosed += () =>
-     {
-         _onInterstitialClosed?.Invoke();
-         LoadInterstitial(); // Auto-reload next ad
-     };
+                {
+                    _onInterstitialClosed?.Invoke();
+                    LoadInterstitial(); // Auto-reload next ad
+                };
             });
         }
         public bool IsInterstitialReady() => _interstitialAd != null && _interstitialAd.CanShowAd();
@@ -102,9 +104,9 @@ namespace DZ.Core
                 if (error != null || ad == null) return;
                 _rewardedAd = ad;
                 _rewardedAd.OnAdFullScreenContentClosed += () =>
-     {
-                LoadRewarded(); // Auto-reload
-            };
+                {
+                    LoadRewarded();
+                };
             });
         }
         public bool IsRewardedReady() => _rewardedAd != null && _rewardedAd.CanShowAd();
@@ -116,9 +118,9 @@ namespace DZ.Core
                 _rewardedAd.Show((Reward reward) =>
                 {
                     _onRewardProcessed?.Invoke(true);
-                    _onRewardProcessed = null; // Clear callback
+                    _onRewardProcessed = null; 
                 });
-                // Handle closure without reward via separate event if needed
+                
             }
             else
             {
@@ -130,8 +132,8 @@ namespace DZ.Core
         {
             _bannerView?.Destroy();
             _interstitialAd?.Destroy();
-        _rewardedAd?.Destroy();
+            _rewardedAd?.Destroy();
         }
-    
+
     }
 }
