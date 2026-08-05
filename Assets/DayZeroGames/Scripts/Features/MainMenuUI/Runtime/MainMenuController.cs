@@ -13,14 +13,16 @@ namespace DZ.Features
         private readonly MainPanelView _view;
         private readonly IAudioService _audioService;
         private readonly IScreenFader _screenFader;
+        private readonly IAdService _adService;
         private readonly CancellationTokenSource _cts = new CancellationTokenSource();
 
-        public MainMenuController(MainMenuView router, MainPanelView view, IAudioService audioService, IScreenFader screenFader)
+        public MainMenuController(MainMenuView router, MainPanelView view, IAudioService audioService, IScreenFader screenFader, IAdService adService)
         {
             _router = router;
             _view = view;
             _audioService = audioService;
             _screenFader = screenFader;
+            _adService = adService;
         }
 
         public void Start()
@@ -33,6 +35,7 @@ namespace DZ.Features
             _view.SetSfxIcon(_audioService.SfxEnabled);
 
             _screenFader.FadeFromBlackAsync(_cts.Token).Forget();
+            _adService.ShowBanner();
         }
 
         private void OnPlayClicked() => _router.ShowLevelSelectionAsync(_cts.Token);
