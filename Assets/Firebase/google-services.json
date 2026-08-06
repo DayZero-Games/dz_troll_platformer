@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1055066911176",
+    "project_id": "dz-plummet",
+    "storage_bucket": "dz-plummet.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1055066911176:android:5ce8d92f7aa23bba39d0fd",
+        "android_client_info": {
+          "package_name": "com.dayzerogames.plummet"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLuVmNRYduf9CdfMLTK5_6F7T1QMa4HKc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
