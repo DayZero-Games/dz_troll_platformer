@@ -924,9 +924,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.08925751
+    x: 0
     y: 0
-    width: 0.821485
+    width: 1
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -1588,11 +1588,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3164718813476863421, guid: fb2ad73120a39ec40841f305ba1c62f1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.43
+      value: -12.7
       objectReference: {fileID: 0}
     - target: {fileID: 3164718813476863421, guid: fb2ad73120a39ec40841f305ba1c62f1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.39
+      value: -3.3600001
       objectReference: {fileID: 0}
     - target: {fileID: 3164718813476863421, guid: fb2ad73120a39ec40841f305ba1c62f1, type: 3}
       propertyPath: m_LocalPosition.z

@@ -14,15 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelCatalogSo
   _levels:
   - _id: Lvl_1
+    _levelPrefab: {fileID: 6981172178524845610, guid: e9f53b1ced177384d8a7826708b16bcc, type: 3}
+  - _id: Lvl_2
     _levelPrefab: {fileID: 6675257277896442661, guid: 958fbfeb68e8259448c479ee2af4af1a, type: 3}
   - _id: Lvl_2
-    _levelPrefab: {fileID: 4792437445240121166, guid: 939507e712ff2d74982b5d8987ff2bfa, type: 3}
+    _levelPrefab: {fileID: 5406958507526208453, guid: 6f414dc49b072084599bfdb16d721fbe, type: 3}
   - _id: Lvl_2
-    _levelPrefab: {fileID: 4792437445240121166, guid: 939507e712ff2d74982b5d8987ff2bfa, type: 3}
+    _levelPrefab: {fileID: 5498686329064102111, guid: 01f4a2d4f20dc314f8bfead0fab2ff44, type: 3}
   - _id: Lvl_2
-    _levelPrefab: {fileID: 4792437445240121166, guid: 939507e712ff2d74982b5d8987ff2bfa, type: 3}
-  - _id: Lvl_2
-    _levelPrefab: {fileID: 4792437445240121166, guid: 939507e712ff2d74982b5d8987ff2bfa, type: 3}
+    _levelPrefab: {fileID: 676422856498034382, guid: 041ed76d68ab55741a08cb26a2bea830, type: 3}
   - _id: Lvl_2
     _levelPrefab: {fileID: 4792437445240121166, guid: 939507e712ff2d74982b5d8987ff2bfa, type: 3}
   - _id: Lvl_2
