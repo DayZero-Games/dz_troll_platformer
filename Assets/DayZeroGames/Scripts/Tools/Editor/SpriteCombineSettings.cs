@@ -16,6 +16,7 @@ namespace DZ.Tools
         public int MaxSize = DefaultMaxSize;
         public TextureImporterCompression Compression = TextureImporterCompression.Uncompressed;
         public bool IncludeInactiveChildren = false;
+        public bool GenerateCollider = false;
         public bool DeactivateCombinedChildren = true;
         public bool DestroyCombinedChildren = false;
 
