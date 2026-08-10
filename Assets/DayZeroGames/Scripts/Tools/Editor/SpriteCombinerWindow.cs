@@ -40,6 +40,10 @@ namespace DZ.Tools
                                          "switches its sources off, so re-baking a group needs this ticked " +
                                          "or the children turned back on.");
 
+        private static readonly GUIContent GenerateColliderLabel = new GUIContent(
+            "Generate Collider", "Add or resize a BoxCollider2D on the parent GameObject that receives the " +
+                                 "combined sprite.");
+
         private static readonly GUIContent DeactivateLabel = new GUIContent(
             "Deactivate Combined Children", "Switch the source objects off once they are baked in. Leaving " +
                                             "them on draws the group twice and saves no draw calls.");
@@ -111,6 +115,9 @@ namespace DZ.Tools
 
             settings.IncludeInactiveChildren =
                 EditorGUILayout.Toggle(IncludeInactiveLabel, settings.IncludeInactiveChildren);
+
+            settings.GenerateCollider =
+                EditorGUILayout.Toggle(GenerateColliderLabel, settings.GenerateCollider);
 
             using (new EditorGUI.DisabledScope(settings.DestroyCombinedChildren))
             {

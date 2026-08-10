@@ -7,10 +7,6 @@ namespace DZ.Tools
 {
     public static class SpriteCombineBaker
     {
-        private const int Margin = 1;
-
-        private const int CompressionBlock = 4;
-
         private const int MinTextureSize = 32;
         private const int MaxTextureSize = 16384;
 
@@ -67,6 +63,16 @@ namespace DZ.Tools
                 Restore(uncompressed);
                 EditorUtility.ClearProgressBar();
             }
+
+            if (!TryTrimTransparentEdges(pixels, layout, out pixels, out layout))
+            {
+                report.Error = "The source sprites produced a fully transparent combined image.";
+                return report;
+            }
+
+            report.Width = layout.Width;
+            report.Height = layout.Height;
+            report.PixelsPerUnit = layout.PixelsPerUnit;
 
             if (!TryWriteTexture(assetPath, pixels, layout, settings, out Sprite sprite, out string error))
             {
@@ -286,8 +292,8 @@ namespace DZ.Tools
                 return false;
             }
 
-            int width = Mathf.CeilToInt(size.x * ppu) + Margin * 2;
-            int height = Mathf.CeilToInt(size.y * ppu) + Margin * 2;
+            int width = Mathf.Max(1, Mathf.CeilToInt(size.x * ppu));
+            int height = Mathf.Max(1, Mathf.CeilToInt(size.y * ppu));
 
             if (width > maxSize || height > maxSize)
             {
@@ -295,18 +301,11 @@ namespace DZ.Tools
                 report.Warnings.Add($"{width}x{height} exceeds the {maxSize} px Max Size, so pixels per unit was " +
                                     $"dropped from {ppu:0.##} to {fitted:0.##}. The bake will be softer than the sources.");
                 ppu = fitted;
-                width = Mathf.Min(maxSize, Mathf.CeilToInt(size.x * ppu) + Margin * 2);
-                height = Mathf.Min(maxSize, Mathf.CeilToInt(size.y * ppu) + Margin * 2);
+                width = Mathf.Min(maxSize, Mathf.Max(1, Mathf.CeilToInt(size.x * ppu)));
+                height = Mathf.Min(maxSize, Mathf.Max(1, Mathf.CeilToInt(size.y * ppu)));
             }
 
-            width = AlignUp(width, CompressionBlock);
-            height = AlignUp(height, CompressionBlock);
-
-            var origin = new Vector2(
-                min.x - (width - size.x * ppu) * 0.5f / ppu,
-                min.y - (height - size.y * ppu) * 0.5f / ppu);
-
-            layout = new Layout(origin, ppu, width, height);
+            layout = new Layout(min, ppu, width, height);
             return true;
         }
 
@@ -522,6 +521,51 @@ namespace DZ.Tools
             return result;
         }
 
+        private static bool TryTrimTransparentEdges(Color32[] pixels, Layout layout,
+            out Color32[] trimmed, out Layout trimmedLayout)
+        {
+            trimmed = pixels;
+            trimmedLayout = layout;
+
+            int minX = layout.Width;
+            int minY = layout.Height;
+            int maxX = -1;
+            int maxY = -1;
+
+            for (int y = 0; y < layout.Height; y++)
+            {
+                int row = y * layout.Width;
+                for (int x = 0; x < layout.Width; x++)
+                {
+                    if (pixels[row + x].a == 0) continue;
+
+                    minX = Mathf.Min(minX, x);
+                    minY = Mathf.Min(minY, y);
+                    maxX = Mathf.Max(maxX, x);
+                    maxY = Mathf.Max(maxY, y);
+                }
+            }
+
+            if (maxX < minX || maxY < minY) return false;
+
+            int width = maxX - minX + 1;
+            int height = maxY - minY + 1;
+            if (minX == 0 && minY == 0 && width == layout.Width && height == layout.Height) return true;
+
+            trimmed = new Color32[width * height];
+            for (int y = 0; y < height; y++)
+            {
+                System.Array.Copy(pixels, (minY + y) * layout.Width + minX, trimmed, y * width, width);
+            }
+
+            trimmedLayout = new Layout(
+                layout.Origin + new Vector2(minX / layout.PixelsPerUnit, minY / layout.PixelsPerUnit),
+                layout.PixelsPerUnit,
+                width,
+                height);
+            return true;
+        }
+
         private static Color32[] ReadPixels(Texture2D texture)
         {
             if (texture.isReadable) return texture.GetPixels32();
@@ -659,10 +703,21 @@ namespace DZ.Tools
             target.sortingOrder = front.Renderer.sortingOrder;
 
             CenterPivot(parent, layout);
+            if (settings.GenerateCollider) ApplyCollider(host, layout);
 
             DisposeOfSources(entries, settings);
 
             Undo.CollapseUndoOperations(group);
+        }
+
+        private static void ApplyCollider(GameObject host, Layout layout)
+        {
+            BoxCollider2D collider = host.GetComponent<BoxCollider2D>();
+            if (collider == null) collider = Undo.AddComponent<BoxCollider2D>(host);
+
+            Undo.RecordObject(collider, "Combine Sprites");
+            collider.offset = Vector2.zero;
+            collider.size = layout.SizeInUnits;
         }
 
         private static void DisposeOfSources(List<Entry> entries, SpriteCombineSettings settings)
@@ -752,8 +807,6 @@ namespace DZ.Tools
             yield return max;
             yield return new Vector2(min.x, max.y);
         }
-
-        private static int AlignUp(int value, int multiple) => (value + multiple - 1) / multiple * multiple;
 
         private static float Determinant2D(Matrix4x4 m) => m.m00 * m.m11 - m.m01 * m.m10;
 
