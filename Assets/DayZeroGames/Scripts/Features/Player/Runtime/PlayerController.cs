@@ -1,3 +1,4 @@
+using System;
 using DZ.Core;
 using DZ.Core.Contracts;
 using UnityEngine;
@@ -167,6 +168,10 @@ namespace DZ.Features
             _spriteRenderer.color = c;
         }
 
+        public void OnDestroy()
+        {
+            _playerStateMachine.ShutDown();
+        }
 
 
         #region Gizmo
