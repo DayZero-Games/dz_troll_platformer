@@ -1,9 +1,7 @@
 {
     "name": "DZ.Tools.Editor",
     "rootNamespace": "DZ.Tools",
-    "references": [
-        "DZ.Tools"
-    ],
+    "references": [],
     "includePlatforms": [
         "Editor"
     ],

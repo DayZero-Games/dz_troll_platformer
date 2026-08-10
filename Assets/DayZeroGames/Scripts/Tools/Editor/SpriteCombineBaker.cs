@@ -302,7 +302,11 @@ namespace DZ.Tools
             width = AlignUp(width, CompressionBlock);
             height = AlignUp(height, CompressionBlock);
 
-            layout = new Layout(new Vector2(min.x - Margin / ppu, min.y - Margin / ppu), ppu, width, height);
+            var origin = new Vector2(
+                min.x - (width - size.x * ppu) * 0.5f / ppu,
+                min.y - (height - size.y * ppu) * 0.5f / ppu);
+
+            layout = new Layout(origin, ppu, width, height);
             return true;
         }
 
@@ -611,7 +615,7 @@ namespace DZ.Tools
             importer.spriteImportMode = SpriteImportMode.Single;
             importer.alphaIsTransparency = true;
             importer.npotScale = TextureImporterNPOTScale.None;
-            importer.textureCompression = ToImporterCompression(settings.Compression);
+            importer.textureCompression = settings.Compression;
             importer.filterMode = settings.Filter;
             importer.maxTextureSize = ClampSize(settings);
 
@@ -719,17 +723,6 @@ namespace DZ.Tools
 
         private static int ClampSize(SpriteCombineSettings settings) =>
             Mathf.Clamp(Mathf.NextPowerOfTwo(Mathf.Max(1, settings.MaxSize)), MinTextureSize, MaxTextureSize);
-
-        private static TextureImporterCompression ToImporterCompression(SpriteCombineCompression compression)
-        {
-            switch (compression)
-            {
-                case SpriteCombineCompression.LowQuality: return TextureImporterCompression.CompressedLQ;
-                case SpriteCombineCompression.NormalQuality: return TextureImporterCompression.Compressed;
-                case SpriteCombineCompression.HighQuality: return TextureImporterCompression.CompressedHQ;
-                default: return TextureImporterCompression.Uncompressed;
-            }
-        }
 
         private static bool IsCompressed(Texture2D texture)
         {
