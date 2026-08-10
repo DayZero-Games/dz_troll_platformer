@@ -34,16 +34,21 @@ namespace DZ.Features
             if (_isRunning || _hasActivated) return false;
 
             _hasActivated = true;
-            ExecuteActionsAsync(cancellation).Forget();
+            var linkedCancellation = CancellationTokenSource.CreateLinkedTokenSource(
+                cancellation,
+                this.GetCancellationTokenOnDestroy());
+
+            ExecuteActionsAsync(linkedCancellation).Forget();
             return true;
         }
 
-        private async UniTask ExecuteActionsAsync(CancellationToken cancellation)
+        private async UniTask ExecuteActionsAsync(CancellationTokenSource cancellationSource)
         {
             _isRunning = true;
 
             try
             {
+                var cancellation = cancellationSource.Token;
                 if (_executionMode == ActionExecutionMode.Sequential)
                     await ExecuteSequentiallyAsync(cancellation);
                 else
@@ -51,10 +56,12 @@ namespace DZ.Features
             }
             catch (OperationCanceledException)
             {
-                Debug.LogWarning($"{name}: obstacle action execution was canceled.", this);
+                // Expected when the level/controller is destroyed while an action is running.
             }
             finally
             {
+                cancellationSource.Dispose();
+
                 if (this != null)
                 {
                     _isRunning = false;
