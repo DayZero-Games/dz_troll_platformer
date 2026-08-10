@@ -179,10 +179,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59fa82caa13bb614baba05e5515f32b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleTrigger
-  _obstacleActions:
-  - {fileID: 7074149808698135211}
-  _maxTriggerCount: 1
   _playerTag: Player
+  _disableColliderAfterSuccessfulActivation: 0
+  _controllers: []
 --- !u!1 &986372841524272315
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,6 +428,37 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &1362793065237705926
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8689581521335851411}
+  m_Layer: 0
+  m_Name: ObstacleController1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8689581521335851411
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362793065237705926}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 355478868123729549}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1508465239446772563
 GameObject:
   m_ObjectHideFlags: 0
@@ -1306,7 +1336,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5354958063861155562}
+  m_Father: {fileID: 1604546961672689976}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3882070759748842939
 GameObject:
@@ -1317,7 +1347,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 831267030181889824}
-  - component: {fileID: 7313618937960611797}
   - component: {fileID: 1095217785244389683}
   - component: {fileID: 2204361621011882931}
   m_Layer: 0
@@ -1342,22 +1371,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7739996296869367780}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7313618937960611797
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3882070759748842939}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 096844c3f668b7d4780c9a696c3c3bbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.MovingPlatformAction
-  _targetPoint: {fileID: 2397988775711994238}
-  _moveSpeed: 20
-  _waitAtTargetSeconds: 3
-  _shouldReturn: 0
 --- !u!212 &1095217785244389683
 SpriteRenderer:
   serializedVersion: 2
@@ -1472,9 +1485,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4179676558496362076}
-  - component: {fileID: 4956610143824748332}
   - component: {fileID: 6959713744792316651}
   - component: {fileID: 4971478826975166621}
+  - component: {fileID: 5421950542711459572}
   m_Layer: 0
   m_Name: FakePlatform
   m_TagString: Obstacles
@@ -1495,24 +1508,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5354958063861155562}
+  m_Father: {fileID: 1604546961672689976}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4956610143824748332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4513573878278440330}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 096844c3f668b7d4780c9a696c3c3bbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.MovingPlatformAction
-  _targetPoint: {fileID: 5492343592171384183}
-  _moveSpeed: 20
-  _waitAtTargetSeconds: 3
-  _shouldReturn: 0
 --- !u!212 &6959713744792316651
 SpriteRenderer:
   serializedVersion: 2
@@ -1618,6 +1615,21 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2.0545554, y: 2.0685153}
   m_EdgeRadius: 0
+--- !u!114 &5421950542711459572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4513573878278440330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df7fafedef4a48c782036747b0318e0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.MoveToPointAction
+  _targetPoint: {fileID: 0}
+  _moveSpeed: 10
+  _startDelaySeconds: 0
 --- !u!1 &4529408885643889434
 GameObject:
   m_ObjectHideFlags: 0
@@ -1647,9 +1659,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5685156044139236845}
-  - {fileID: 4179676558496362076}
-  - {fileID: 5492343592171384183}
+  - {fileID: 355478868123729549}
+  - {fileID: 1604546961672689976}
   m_Father: {fileID: 7683994688765743901}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4664453557758530912
@@ -2175,10 +2186,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59fa82caa13bb614baba05e5515f32b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleTrigger
-  _obstacleActions:
-  - {fileID: 8460996967895934253}
-  _maxTriggerCount: 1
   _playerTag: Player
+  _disableColliderAfterSuccessfulActivation: 0
+  _controllers: []
 --- !u!1 &5669198485102013843
 GameObject:
   m_ObjectHideFlags: 0
@@ -18955,6 +18965,40 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7739996296869367780}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6541849195964337213
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1604546961672689976}
+  m_Layer: 0
+  m_Name: Actions
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1604546961672689976
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6541849195964337213}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5685156044139236845}
+  - {fileID: 4179676558496362076}
+  - {fileID: 5492343592171384183}
+  m_Father: {fileID: 5354958063861155562}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6646504737178232286
 GameObject:
   m_ObjectHideFlags: 0
@@ -18986,7 +19030,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.9125, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5354958063861155562}
+  m_Father: {fileID: 1604546961672689976}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &3610574252290100975
 BoxCollider2D:
@@ -19046,10 +19090,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59fa82caa13bb614baba05e5515f32b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleTrigger
-  _obstacleActions:
-  - {fileID: 4956610143824748332}
-  _maxTriggerCount: 1
   _playerTag: Player
+  _disableColliderAfterSuccessfulActivation: 0
+  _controllers: []
 --- !u!1 &6650683751044758164
 GameObject:
   m_ObjectHideFlags: 0
@@ -19141,10 +19184,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59fa82caa13bb614baba05e5515f32b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleTrigger
-  _obstacleActions:
-  - {fileID: 1706104685449848250}
-  _maxTriggerCount: 1
   _playerTag: Player
+  _disableColliderAfterSuccessfulActivation: 0
+  _controllers: []
 --- !u!1 &6764638886862575469
 GameObject:
   m_ObjectHideFlags: 0
@@ -19154,7 +19196,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 755651274206571902}
-  - component: {fileID: 6198368034935612657}
   - component: {fileID: 627957191634341009}
   - component: {fileID: 4075668436959569152}
   m_Layer: 0
@@ -19179,22 +19220,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5264295743639309172}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6198368034935612657
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6764638886862575469}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 096844c3f668b7d4780c9a696c3c3bbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.MovingPlatformAction
-  _targetPoint: {fileID: 3259676868887882971}
-  _moveSpeed: 20
-  _waitAtTargetSeconds: 3
-  _shouldReturn: 0
 --- !u!212 &627957191634341009
 SpriteRenderer:
   serializedVersion: 2
@@ -19309,7 +19334,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8705114714533949303}
-  - component: {fileID: 1706104685449848250}
   - component: {fileID: 8977516782388104761}
   - component: {fileID: 7962298101852145994}
   m_Layer: 0
@@ -19334,22 +19358,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 974542861362435261}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1706104685449848250
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7456853333047120880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 096844c3f668b7d4780c9a696c3c3bbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.MovingPlatformAction
-  _targetPoint: {fileID: 8976774935858040331}
-  _moveSpeed: 20
-  _waitAtTargetSeconds: 3
-  _shouldReturn: 0
 --- !u!212 &8977516782388104761
 SpriteRenderer:
   serializedVersion: 2
@@ -19455,6 +19463,37 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2.25, y: 2.25}
   m_EdgeRadius: 0
+--- !u!1 &7807697819291297605
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8998804869518584407}
+  m_Layer: 0
+  m_Name: ObstacleController1 (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8998804869518584407
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7807697819291297605}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 355478868123729549}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7922455325534084235
 GameObject:
   m_ObjectHideFlags: 0
@@ -19578,10 +19617,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59fa82caa13bb614baba05e5515f32b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleTrigger
-  _obstacleActions:
-  - {fileID: 6198368034935612657}
-  _maxTriggerCount: 1
   _playerTag: Player
+  _disableColliderAfterSuccessfulActivation: 0
+  _controllers: []
 --- !u!1 &8219062739589879075
 GameObject:
   m_ObjectHideFlags: 0
@@ -19673,10 +19711,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59fa82caa13bb614baba05e5515f32b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleTrigger
-  _obstacleActions:
-  - {fileID: 7313618937960611797}
-  _maxTriggerCount: 1
   _playerTag: Player
+  _disableColliderAfterSuccessfulActivation: 0
+  _controllers: []
 --- !u!1 &8300895334770788115
 GameObject:
   m_ObjectHideFlags: 0
@@ -19723,6 +19760,39 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
+--- !u!1 &8334274640069888073
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 355478868123729549}
+  m_Layer: 0
+  m_Name: Controllers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &355478868123729549
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8334274640069888073}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8689581521335851411}
+  - {fileID: 8998804869518584407}
+  m_Father: {fileID: 5354958063861155562}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8450359989249820556
 GameObject:
   m_ObjectHideFlags: 0
@@ -19732,7 +19802,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3304941163040747416}
-  - component: {fileID: 7074149808698135211}
   - component: {fileID: 5488721597350476940}
   - component: {fileID: 5289148033912693794}
   m_Layer: 0
@@ -19757,22 +19826,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4250111746630176635}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7074149808698135211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8450359989249820556}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 096844c3f668b7d4780c9a696c3c3bbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.MovingPlatformAction
-  _targetPoint: {fileID: 3382274356191624483}
-  _moveSpeed: 20
-  _waitAtTargetSeconds: 3
-  _shouldReturn: 0
 --- !u!212 &5488721597350476940
 SpriteRenderer:
   serializedVersion: 2
@@ -19887,7 +19940,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4715882125893086809}
-  - component: {fileID: 8460996967895934253}
   - component: {fileID: 4199789518218957628}
   m_Layer: 0
   m_Name: FakePlatform
@@ -19911,22 +19963,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7578918319526744389}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8460996967895934253
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8644883049127190470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 096844c3f668b7d4780c9a696c3c3bbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.MovingPlatformAction
-  _targetPoint: {fileID: 3738226346636127981}
-  _moveSpeed: 10
-  _waitAtTargetSeconds: 3
-  _shouldReturn: 0
 --- !u!212 &4199789518218957628
 SpriteRenderer:
   serializedVersion: 2
