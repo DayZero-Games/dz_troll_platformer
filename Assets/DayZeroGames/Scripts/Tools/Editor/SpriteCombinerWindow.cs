@@ -3,10 +3,6 @@ using UnityEngine;
 
 namespace DZ.Tools
 {
-    /// <summary>
-    /// The same bake as the SpriteCombiner inspector, driven from a window so a group can be combined by
-    /// dropping in the parent - the component is only added when Combine is actually pressed.
-    /// </summary>
     public class SpriteCombinerWindow : EditorWindow
     {
         private Transform _parent;
@@ -33,14 +29,12 @@ namespace DZ.Tools
             window.Show();
         }
 
-        /// <summary>Adopts whatever the object is already set up with, so the window never contradicts the
-        /// inspector of the same object.</summary>
         private void SetParent(Transform parent)
         {
             _parent = parent;
 
             var existing = parent != null ? parent.GetComponent<SpriteCombiner>() : null;
-            _settings.CopyFrom(existing != null ? existing.Settings : new SpriteCombineSettings());
+            if (existing != null) _settings.CopyFrom(existing.Settings);
         }
 
         private void OnGUI()
@@ -51,7 +45,6 @@ namespace DZ.Tools
                 _parent, typeof(Transform), true);
             if (EditorGUI.EndChangeCheck()) SetParent(picked);
 
-            // No owner: these settings are the window's own until Combine copies them onto the component.
             SpriteCombinerGui.DrawSettings(_settings, _parent != null ? _parent.name : string.Empty, null);
 
             if (Event.current.type == EventType.Layout)
@@ -70,14 +63,15 @@ namespace DZ.Tools
 
         private void Combine()
         {
-            // The bake stores its output on the component, so the window and the inspector stay in step.
-            var combiner = _parent.GetComponent<SpriteCombiner>();
-            if (combiner == null) combiner = Undo.AddComponent<SpriteCombiner>(_parent.gameObject);
+            var existing = _parent.GetComponent<SpriteCombiner>();
+            if (existing != null)
+            {
+                Undo.RecordObject(existing, "Combine Sprites");
+                existing.Settings.CopyFrom(_settings);
+                EditorUtility.SetDirty(existing);
+            }
 
-            Undo.RecordObject(combiner, "Combine Sprites");
-            combiner.Settings.CopyFrom(_settings);
-
-            SpriteCombinerGui.ReportResult(SpriteCombineBaker.Combine(combiner), _parent);
+            SpriteCombinerGui.ReportResult(SpriteCombineBaker.Combine(_parent, _settings), _parent);
         }
     }
 }

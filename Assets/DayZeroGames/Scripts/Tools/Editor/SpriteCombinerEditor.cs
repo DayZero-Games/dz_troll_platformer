@@ -14,7 +14,6 @@ namespace DZ.Tools
 
             SpriteCombinerGui.DrawSettings(combiner.Settings, combiner.name, combiner);
 
-            // Recomputing on Layout only keeps the preview stable for the rest of the frame's events.
             if (Event.current.type == EventType.Layout)
                 _preview = SpriteCombineBaker.Preview(combiner.transform, combiner.Settings);
 
@@ -25,12 +24,22 @@ namespace DZ.Tools
             using (new EditorGUI.DisabledScope(_preview == null || !_preview.Success))
             {
                 if (GUILayout.Button("Combine", GUILayout.Height(30f)))
-                    SpriteCombinerGui.ReportResult(SpriteCombineBaker.Combine(combiner), combiner.transform);
+                {
+                    SpriteCombinerGui.ReportResult(
+                        SpriteCombineBaker.Combine(combiner.transform, combiner.Settings), combiner.transform);
+                }
+            }
+
+            EditorGUILayout.Space();
+
+            if (GUILayout.Button("Remove Script", GUILayout.Height(30f)))
+            {
+                Undo.DestroyObjectImmediate(combiner);
+                GUIUtility.ExitGUI();
             }
         }
     }
 
-    /// <summary>Shared bits between the inspector and the window.</summary>
     internal static class SpriteCombinerGui
     {
         private static readonly int[] MaxSizes = { 512, 1024, 2048, 4096, 8192 };
@@ -42,9 +51,17 @@ namespace DZ.Tools
         };
 
         private static readonly GUIContent IncludeInactiveLabel = new GUIContent(
-            "Include Inactive Children", "Whether children that are switched off are baked in. Objects a " +
-                                         "previous Combine switched off are always baked, so re-baking a " +
-                                         "group keeps working either way.");
+            "Include Inactive Children", "Whether children that are switched off are baked in. Combining " +
+                                         "switches its sources off, so re-baking a group needs this ticked " +
+                                         "or the children turned back on.");
+
+        private static readonly GUIContent DeactivateLabel = new GUIContent(
+            "Deactivate Combined Children", "Switch the source objects off once they are baked in. Leaving " +
+                                            "them on draws the group twice and saves no draw calls.");
+
+        private static readonly GUIContent DestroyLabel = new GUIContent(
+            "Destroy Combined Children", "Delete the source objects once they are baked in. Undo brings " +
+                                         "them back; a re-bake cannot.");
 
         private static readonly GUIContent OutputFolderLabel = new GUIContent(
             "Output Folder", "Project folder the combined image is saved to. Must be inside Assets.");
@@ -60,20 +77,18 @@ namespace DZ.Tools
             "Max Size", "Largest the combined image may get. A group too big for it is baked at a lower " +
                         "pixel density rather than being cut off.");
 
+        private static readonly GUIContent CompressionLabel = new GUIContent(
+            "Compression", "Compression for the combined image. None keeps it pixel-exact but costs 4 bytes " +
+                           "a pixel in memory - 16 MB at 2048x2048 - which is worth weighing on mobile. The " +
+                           "sources are always read uncompressed either way.");
+
         private static GUIContent _folderIcon;
 
         private static GUIContent FolderIcon => _folderIcon ?? (_folderIcon = new GUIContent(
             EditorGUIUtility.IconContent("Folder Icon").image, "Pick a folder inside the project."));
 
-        /// <summary>
-        /// Draws the bake settings. Pass the object storing them, if there is one, and every edit is
-        /// recorded for undo and marked dirty - including the folder picker, which ends the GUI pass early
-        /// and so has to see to itself.
-        /// </summary>
         public static void DrawSettings(SpriteCombineSettings settings, string objectName, Object owner)
         {
-            // Snapshotting every pass is cheap and only turns into an undo entry when a control actually
-            // changes something, which keeps the settings undoable without a SerializedProperty for each.
             if (owner != null) Undo.RecordObject(owner, "Sprite Combiner Settings");
 
             EditorGUI.BeginChangeCheck();
@@ -83,9 +98,20 @@ namespace DZ.Tools
 
             settings.Filter = (FilterMode)EditorGUILayout.EnumPopup(FilterLabel, settings.Filter);
             settings.MaxSize = EditorGUILayout.IntPopup(MaxSizeLabel, settings.MaxSize, MaxSizeLabels, MaxSizes);
+            settings.Compression = (SpriteCombineCompression)EditorGUILayout.EnumPopup(
+                CompressionLabel, settings.Compression);
 
             settings.IncludeInactiveChildren =
                 EditorGUILayout.Toggle(IncludeInactiveLabel, settings.IncludeInactiveChildren);
+
+            using (new EditorGUI.DisabledScope(settings.DestroyCombinedChildren))
+            {
+                settings.DeactivateCombinedChildren =
+                    EditorGUILayout.Toggle(DeactivateLabel, settings.DeactivateCombinedChildren);
+            }
+
+            settings.DestroyCombinedChildren =
+                EditorGUILayout.Toggle(DestroyLabel, settings.DestroyCombinedChildren);
 
             if (EditorGUI.EndChangeCheck() && owner != null) EditorUtility.SetDirty(owner);
         }
@@ -100,8 +126,6 @@ namespace DZ.Tools
                     GUILayout.Width(26f), GUILayout.Height(EditorGUIUtility.singleLineHeight));
             }
 
-            // The row is closed off before the panel opens and the rest of the pass is abandoned - a modal
-            // window part way through a layout leaves IMGUI counting controls it never got to draw.
             if (!pick) return;
             PickFolder(settings, owner);
             GUIUtility.ExitGUI();
@@ -129,14 +153,9 @@ namespace DZ.Tools
             settings.OutputFolder = folder;
             if (owner != null) EditorUtility.SetDirty(owner);
 
-            // The text field holds the old string as its edit buffer until it loses focus.
             GUI.FocusControl(null);
         }
 
-        /// <summary>
-        /// Shows the object's name until something else is typed, and stores nothing while it matches - so
-        /// the usual case needs no input and a rename carries the image name with it.
-        /// </summary>
         private static void DrawFileName(SpriteCombineSettings settings, string objectName)
         {
             string shown = settings.ResolveFileName(objectName);
@@ -172,7 +191,7 @@ namespace DZ.Tools
         {
             if (!result.Success)
             {
-                Debug.LogError($"Sprite Combiner: {result.Error}", parent);
+                if (!result.Cancelled) Debug.LogError($"Sprite Combiner: {result.Error}", parent);
                 return;
             }
 
