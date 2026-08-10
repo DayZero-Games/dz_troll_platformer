@@ -1,4 +1,6 @@
 using System;
+using System.Threading;
+using Cysharp.Threading.Tasks;
 using DZ.Core;
 using DZ.Core.Contracts;
 using PrimeTween;
@@ -7,14 +9,7 @@ using VContainer.Unity;
 
 namespace DZ.Features
 {
-    /// <summary>
-    /// Shakes the camera in response to gameplay signals.
-    ///
-    /// Plain C# — the container owns the lifetime, so Start/Dispose stand in for
-    /// Awake/OnDisable. Nothing holds a direct reference to this; it reacts to the
-    /// signal bus, which is why any future death path shakes without extra wiring.
-    /// </summary>
-    public sealed class CameraShaker : IStartable, IDisposable
+    public sealed class CameraShaker : ICameraShaker, IStartable, IDisposable
     {
         private readonly ISignalBus _signalBus;
         private readonly Transform _shakeTarget;
@@ -23,6 +18,7 @@ namespace DZ.Features
         private Tween _positionTween;
         private Vector3 _baseLocalPosition;
         private bool _isReady;
+        private int _shakeVersion;
 
         public CameraShaker(ISignalBus signalBus, Transform shakeTarget, CameraShakeConfigSo config)
         {
@@ -54,18 +50,54 @@ namespace DZ.Features
 
             _signalBus.Unsubscribe<PlayerDiedSignal>(OnPlayerDied);
             _signalBus.Unsubscribe<LevelExitReachedSignal>(ShakeScreen);
-            if (_positionTween.isAlive) _positionTween.Stop();
+            _shakeVersion++;
+            StopActiveShake(false);
         }
 
         private void OnPlayerDied(PlayerDiedSignal signal) => Shake();
 
-        public void Shake()
+        public async UniTask ShakeAsync(ShakeSettings shakeSettings, CancellationToken cancellation = default)
         {
             if (!_isReady) return;
-            if (_positionTween.isAlive) _positionTween.Stop();
-            _shakeTarget.localPosition = _baseLocalPosition;
+            cancellation.ThrowIfCancellationRequested();
 
-            _positionTween = Tween.ShakeLocalPosition(_shakeTarget, _config.Bump);
+            var shakeVersion = ++_shakeVersion;
+            StopActiveShake(true);
+            _positionTween = Tween.ShakeLocalPosition(_shakeTarget, shakeSettings);
+
+            try
+            {
+                await _positionTween.ToUniTask().AttachExternalCancellation(cancellation);
+            }
+            catch (OperationCanceledException) when (!cancellation.IsCancellationRequested)
+            {
+                if (shakeVersion == _shakeVersion) StopActiveShake(true);
+            }
+            catch (OperationCanceledException)
+            {
+                if (shakeVersion == _shakeVersion) StopActiveShake(true);
+                throw;
+            }
+            finally
+            {
+                if (shakeVersion == _shakeVersion) StopActiveShake(true);
+            }
+        }
+
+        private void Shake()
+        {
+            if (_config == null) return;
+            ShakeAsync(_config.Bump).Forget();
+        }
+
+        private void StopActiveShake(bool restorePosition)
+        {
+            if (_positionTween.isAlive) _positionTween.Stop();
+
+            if (restorePosition && _shakeTarget != null)
+            {
+                _shakeTarget.localPosition = _baseLocalPosition;
+            }
         }
     }
 }

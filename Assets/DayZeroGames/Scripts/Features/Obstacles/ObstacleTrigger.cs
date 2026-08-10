@@ -1,5 +1,3 @@
-using System;
-using System.Threading;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
@@ -8,50 +6,44 @@ namespace DZ.Features
     [RequireComponent(typeof(Collider2D))]
     public class ObstacleTrigger : MonoBehaviour
     {
-        [SerializeField] private ObstacleAction[] _obstacleActions;
-        [SerializeField] private int _maxTriggerCount = 1;
         [SerializeField] private string _playerTag = "Player";
+        [SerializeField] private bool _disableColliderAfterSuccessfulActivation;
+        [SerializeField] private ObstacleController[] _controllers;
 
-        private int _triggerCount;
-        private bool _isRunning;
+        private Collider2D _triggerCollider;
 
-        void Awake()
+        private void Awake()
         {
-            GetComponent<Collider2D>().isTrigger = true;
+            _triggerCollider = GetComponent<Collider2D>();
+            _triggerCollider.isTrigger = true;
+
+            if ((_controllers == null || _controllers.Length == 0) &&
+                TryGetComponent(out ObstacleController controller))
+            {
+                _controllers = new[] { controller };
+            }
+
+            if (_controllers == null || _controllers.Length == 0)
+            {
+                Debug.LogWarning($"{name}: no obstacle controllers assigned.", this);
+            }
         }
+
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (_isRunning || _triggerCount >= _maxTriggerCount || !other.CompareTag(_playerTag)) return;
-            ExecuteObstacleActionsAsync(this.GetCancellationTokenOnDestroy()).Forget();
-        }
+            if (!other.CompareTag(_playerTag)) return;
+            if (_controllers == null) return;
 
-        private async UniTask ExecuteObstacleActionsAsync(CancellationToken cancellation)
-        {
-            _isRunning = true;
-            _triggerCount++;
+            var activatedAnyController = false;
+            var cancellation = this.GetCancellationTokenOnDestroy();
+            foreach (var controller in _controllers)
+            {
+                if (controller == null) continue;
+                activatedAnyController |= controller.TryActivate(cancellation);
+            }
 
-            try
-            {
-                foreach (var action in _obstacleActions)
-                {
-                    if (action != null) await action.ExecuteActionAsync(cancellation);
-                }
-            }
-            catch (OperationCanceledException)
-            {
-                Debug.LogWarning("Obstacle actions execution was canceled.");
-            }
-            finally
-            {
-                if (this != null)
-                {
-                    _isRunning = false;
-                    if (_triggerCount >= _maxTriggerCount)
-                    {
-                        gameObject.SetActive(false);
-                    }
-                }
-            }
+            if (activatedAnyController && _disableColliderAfterSuccessfulActivation && _triggerCollider != null)
+                _triggerCollider.enabled = false;
         }
     }
 }
