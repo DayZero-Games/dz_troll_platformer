@@ -30,5 +30,11 @@ namespace DZ.Features
             currentState?.FixedUpdate();
         }
 
+        public void ShutDown()
+        {
+            currentState?.Exit();
+            currentState = null;
+        }
+
     }
 }
