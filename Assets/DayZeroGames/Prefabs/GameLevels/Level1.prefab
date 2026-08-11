@@ -1428,10 +1428,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59fa82caa13bb614baba05e5515f32b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleTrigger
-  _obstacleActions:
-  - {fileID: 4207705896300542140}
-  _maxTriggerCount: 1
   _playerTag: Player
+  _disableColliderAfterSuccessfulActivation: 1
+  _controllers:
+  - {fileID: 1998773792637489303}
 --- !u!1 &4019584148720961010
 GameObject:
   m_ObjectHideFlags: 0
@@ -2833,6 +2833,7 @@ GameObject:
   - component: {fileID: 2172569074290923672}
   - component: {fileID: 5555843214017013152}
   - component: {fileID: 4207705896300542140}
+  - component: {fileID: 5150714615566555136}
   - component: {fileID: 3926922925045520123}
   m_Layer: 8
   m_Name: Visual
@@ -2851,7 +2852,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 3.61}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4355013559759760618}
@@ -2924,13 +2925,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 5897475439678359183}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 096844c3f668b7d4780c9a696c3c3bbd, type: 3}
+  m_Script: {fileID: 11500000, guid: df7fafedef4a48c782036747b0318e0f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.MovingPlatformAction
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.MoveToPointAction
   _targetPoint: {fileID: 7945922001301811119}
   _moveSpeed: 10
-  _waitAtTargetSeconds: 2
-  _shouldReturn: 1
+  _startDelaySeconds: 0
+--- !u!114 &5150714615566555136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5897475439678359183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b85cf721f904f7bbc5dbcc74c280e30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.ReturnBackAction
+  _moveSpeed: 10
 --- !u!61 &3926922925045520123
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3436,6 +3449,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4355013559759760618}
+  - component: {fileID: 1998773792637489303}
   m_Layer: 0
   m_Name: PlatformMedium1 (1)
   m_TagString: Untagged
@@ -3461,6 +3475,22 @@ Transform:
   - {fileID: 7945922001301811119}
   m_Father: {fileID: 1706178306803743724}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1998773792637489303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6959307234326405219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
+  _executionMode: 0
+  _obstacleActions:
+  - {fileID: 4207705896300542140}
+  - {fileID: 5150714615566555136}
 --- !u!1 &7380831883257629882
 GameObject:
   m_ObjectHideFlags: 0
@@ -20858,7 +20888,7 @@ TilemapRenderer:
   m_SortingOrder: 2
   m_MaskInteraction: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
+  m_ChunkCullingBounds: {x: 0.5, y: 0.5, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
