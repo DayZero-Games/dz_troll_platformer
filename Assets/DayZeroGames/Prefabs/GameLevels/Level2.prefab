@@ -408,6 +408,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: DZ.Features::DZ.Features.MoveToPointAction
   _targetPoint: {fileID: 8853697758302586691}
   _moveSpeed: 15
+  _startDelaySeconds: 0
 --- !u!61 &4617154241626898292
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -504,6 +505,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: DZ.Features::DZ.Features.MoveToPointAction
   _targetPoint: {fileID: 5899127446176854715}
   _moveSpeed: 15
+  _startDelaySeconds: 0
 --- !u!1 &964815190769837645
 GameObject:
   m_ObjectHideFlags: 0
@@ -3257,6 +3259,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: DZ.Features::DZ.Features.MoveToPointAction
   _targetPoint: {fileID: 3332897516344511736}
   _moveSpeed: 10
+  _startDelaySeconds: 0
 --- !u!61 &1900297160108700219
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6182,6 +6185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: DZ.Features::DZ.Features.MoveToPointAction
   _targetPoint: {fileID: 6318982944430004916}
   _moveSpeed: 10
+  _startDelaySeconds: 0
 --- !u!114 &1940330885695313920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6795,6 +6799,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: DZ.Features::DZ.Features.MoveToPointAction
   _targetPoint: {fileID: 3946015108213825370}
   _moveSpeed: 15
+  _startDelaySeconds: 0
 --- !u!1 &7182999362731183111
 GameObject:
   m_ObjectHideFlags: 0
@@ -27644,6 +27649,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: DZ.Features::DZ.Features.MoveToPointAction
   _targetPoint: {fileID: 2162086279727303957}
   _moveSpeed: 20
+  _startDelaySeconds: 0
 --- !u!1 &8524792719704170828
 GameObject:
   m_ObjectHideFlags: 0
