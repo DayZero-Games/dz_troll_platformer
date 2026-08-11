@@ -938,7 +938,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cbebecd0ec07e84e9882d561acdce27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.FPSCounter
-  _fpsText: {fileID: 1101300209}
 --- !u!1 &1806769720
 GameObject:
   m_ObjectHideFlags: 0
