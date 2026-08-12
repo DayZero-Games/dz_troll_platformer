@@ -15,7 +15,7 @@ namespace DZ.Features
         [Inject] private readonly IAudioService _audioService;
         [Header("Refrences")] [SerializeField] private Animator _doorAnimator;
 
-        [Tooltip("Where the player lines up before fading out. Child of the door.")] [SerializeField]
+        [Tooltip("Where the player lines up before fading out. Child of the door.")]
         private Transform _entryAnchor;
 
         [SerializeField] private string _playerTag = "Player";

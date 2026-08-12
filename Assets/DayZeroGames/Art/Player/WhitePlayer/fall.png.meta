@@ -1,16 +1,13 @@
 fileFormatVersion: 2
-guid: 84055ee6686d03c4d82a2428495fcf78
+guid: 8de092cc7e161534884591e005695366
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4768056025269125899
-    second: door_parts_0
+      213: -6732294965104032732
+    second: fall_0
   - first:
-      213: -5476194725612998563
-    second: door_parts_1
-  - first:
-      213: -4810390204676109059
-    second: door_parts_2
+      213: -8269792095265539674
+    second: fall_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -57,7 +54,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 20
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -115,30 +112,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: iOS
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: door_parts_0
+      name: fall_0
       rect:
         serializedVersion: 2
-        x: 3
+        x: 0
         y: 0
-        width: 10
-        height: 21
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,42 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b03c35751b98b2240800000000000000
-      internalID: 4768056025269125899
+      spriteID: 424c2d106651292a0800000000000000
+      internalID: -6732294965104032732
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: door_parts_1
-      rect:
-        serializedVersion: 2
-        x: 19
-        y: 0
-        width: 10
-        height: 21
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: d5038f249e5a004b0800000000000000
-      internalID: -5476194725612998563
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: door_parts_2
+      name: fall_1
       rect:
         serializedVersion: 2
         x: 32
         y: 0
-        width: 16
-        height: 24
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -191,8 +153,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dfc034b689f0e3db0800000000000000
-      internalID: -4810390204676109059
+      spriteID: 6a93d5397ebcb3d80800000000000000
+      internalID: -8269792095265539674
       vertices: []
       indices: 
       edges: []
@@ -201,7 +163,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 01edc6150325b1642924460a6996824d
+    spriteID: 41ff2a2cc81c0424583a65743281a7a1
     internalID: 0
     vertices: []
     indices: 
@@ -210,14 +172,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries:
-      - key: SpriteEditor.SliceOnImport
-        value: True
       - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":true,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":16.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      door_parts_0: 4768056025269125899
-      door_parts_1: -5476194725612998563
-      door_parts_2: -4810390204676109059
+      fall_0: -6732294965104032732
+      fall_1: -8269792095265539674
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
