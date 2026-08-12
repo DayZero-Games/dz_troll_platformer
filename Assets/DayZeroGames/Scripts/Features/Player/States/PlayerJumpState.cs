@@ -13,7 +13,7 @@ namespace DZ.Features
 
         public override void Enter()
         {
-           // Debug.Log("JumpState Enter");
+           
             _hasLeftGround = false;
             _isFalling = false;
             HandlePlayerJump();
@@ -43,7 +43,7 @@ namespace DZ.Features
         }
         public override void Exit()
         {
-           // Debug.Log("JumpState Exit");
+           
         }
 
         private void CheckForStateChange()

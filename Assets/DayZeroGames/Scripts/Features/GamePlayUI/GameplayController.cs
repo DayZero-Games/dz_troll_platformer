@@ -35,7 +35,7 @@ namespace DZ.Features
             }
             catch (OperationCanceledException)
             {
-                // Menu scope torn down mid-switch; nothing to clean up.
+                
             }
         }
 

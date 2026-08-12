@@ -94,7 +94,7 @@ namespace DZ.Features
 
                 _playerController.TeleportTo(_currentLvlContext.SpawnPoint.position);
 
-                // Let the new hierarchy run its Awake/Start before we place the player.
+                
                 await UniTask.NextFrame(cancellation);
 
 
@@ -107,7 +107,7 @@ namespace DZ.Features
             }
             catch (OperationCanceledException)
             {
-                // Scope torn down mid-transition; the finally below is all the cleanup needed.
+                
             }
             finally
             {

@@ -47,20 +47,20 @@ namespace DZ.Features
 
             try
             {
-                // Must come first: the movement states drive linearVelocity every
-                // FixedUpdate, which would fight the position tween below.
+                
+                
                 player.LockPlayer();
                 _signalBus.Publish(new LevelExitReachedSignal());
                 _audioService.PlaySfx(AudioId.ExitDoorReached);
-                //Bring Player To Door
+                
                 await Tween.Position(player.transform, _entryAnchor.position,
                         _walkInDuration, Ease.OutQuad)
                     .ToUniTask().AttachExternalCancellation(ct);
-                //Fade Player
+                
                 await Tween.Alpha(player.SpriteRenderer, 0f,
                         _playerFadeDuration, Ease.InQuad)
                     .ToUniTask().AttachExternalCancellation(ct);
-                //Play Door Close Anim
+                
                 if (_doorAnimator != null) _doorAnimator.SetTrigger(CloseHash);
                 await UniTask.Delay(TimeSpan.FromSeconds(_doorCloseDuration), cancellationToken: ct);
                 
@@ -68,7 +68,7 @@ namespace DZ.Features
             }
             catch (OperationCanceledException)
             {
-                // level torn down mid-sequence
+                
             }
             finally
             {

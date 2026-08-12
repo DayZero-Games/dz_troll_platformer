@@ -10,7 +10,7 @@ namespace DZ.Features
 
 		public override void Enter()
 		{
-			//Debug.Log("IdleState Enter");
+			
 			inputReader.OnJumpPerformed += HandlePlayerJump;
 			playerController.StopMovingPlayer();
 			playerAnimationController.PlayIdleAnimation();
@@ -28,7 +28,7 @@ namespace DZ.Features
 
 		private void HandlePlayerIdle()
 		{
-			// Player is idle, no movement logic needed here
+			
 		}
 
 		private void HandlePlayerJump()
@@ -50,7 +50,7 @@ namespace DZ.Features
 		public override void Exit()
 		{
 			inputReader.OnJumpPerformed -= HandlePlayerJump;
-			//Debug.Log("IdleState Exit");
+			
 		}
 	}
 }

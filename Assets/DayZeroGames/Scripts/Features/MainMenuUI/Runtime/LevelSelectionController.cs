@@ -69,7 +69,7 @@ namespace DZ.Features
             }
         }
 
-        // Everything is open for now. Plug save data in here when progression lands.
+        
         private bool IsUnlocked(int levelIndex) => _levelProgress.IsUnlocked(levelIndex);
 
         private void OnBackClicked() => _router.ShowMainPanelAsync();
@@ -86,7 +86,7 @@ namespace DZ.Features
 
             _isLoading = true;
 
-            // Written before the switch starts, so the gameplay scope reads it on Awake.
+            
             _levelSelection.SelectLevel(levelIndex);
             LoadGameplayAsync().Forget();
         }
@@ -99,7 +99,7 @@ namespace DZ.Features
             }
             catch (OperationCanceledException)
             {
-                // Menu scope torn down mid-switch; nothing to clean up.
+                
             }
         }
 

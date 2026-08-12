@@ -56,7 +56,7 @@ namespace DZ.Features
             }
             catch (OperationCanceledException)
             {
-                // Expected when the level/controller is destroyed while an action is running.
+                
             }
             finally
             {

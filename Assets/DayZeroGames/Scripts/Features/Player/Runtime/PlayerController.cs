@@ -56,15 +56,15 @@ namespace DZ.Features
             _playerRb = GetComponent<Rigidbody2D>();
             playerAnimationController ??= GetComponent<PlayerAnimationController>();
 
-            // Built in Awake so entry points can lock the player before our Start runs.
-            // Constructing the states touches no other component, so it is order-safe.
+            
+            
             CreatePlayerStates();
         }
 
         private void Start()
         {
-            // VContainer's LifetimeScope has execution order -5000, so LevelFlowController
-            // may already have locked us by now. Only fall back to idle if it hasn't.
+            
+            
             if (_playerStateMachine.CurrentState == null)
             {
                 _playerStateMachine.Initialize(_idleState);
@@ -100,7 +100,7 @@ namespace DZ.Features
 
         private void UpdateGroundCheck()
         {
-            // _isGrounded = Physics2D.OverlapCircle(groundCheckPos.position, checkRadius, groundLayer);
+            
             _isGrounded = Physics2D.OverlapBox(groundCheckPos.position, _groundCheckSize, 0f, groundLayer);
         }
 
@@ -179,7 +179,7 @@ namespace DZ.Features
         {
             if (groundCheckPos == null) return;
             Gizmos.color = _isGrounded ? Color.green : Color.red;
-            //Gizmos.DrawWireSphere(groundCheckPos.position, checkRadius);
+            
             Gizmos.DrawCube(groundCheckPos.position, _groundCheckSize);
         }
         #endregion

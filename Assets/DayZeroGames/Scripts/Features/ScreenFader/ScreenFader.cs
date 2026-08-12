@@ -41,7 +41,7 @@ namespace DZ.Features
             }
             catch (OperationCanceledException)
             {
-                // fall through — finally still lands us on the target alpha
+                
             }
             finally
             {

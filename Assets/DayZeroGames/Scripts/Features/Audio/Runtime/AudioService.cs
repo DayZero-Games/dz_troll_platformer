@@ -15,8 +15,8 @@ namespace DZ.Features
 		[SerializeField] private AudioSource musicSource;
 		[SerializeField] private AudioSource sfxSource;
 
-		//this is just to remember what music was playing when we toggle music on/off.
-		//Useful when there are multiple music tracks. else not required.
+		
+		
 		private AudioId _currentMusic = AudioId.None;
 
 		public bool MusicEnabled { get; private set; } = true;

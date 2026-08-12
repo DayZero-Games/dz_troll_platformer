@@ -33,7 +33,7 @@ namespace DZ.Core
                     {
                         Debug.Log("Firebase Analytics initialized successfully.");
                     }
-                    // Flush pending events queued during initialization
+                    
                     lock (_pendingEvents)
                     {
                         while (_pendingEvents.Count > 0)
@@ -152,7 +152,7 @@ namespace DZ.Core
         }
         public void Dispose()
         {
-            // Cleanup if required
+            
         }
     }
 
