@@ -889,7 +889,6 @@ MonoBehaviour:
   _levelCatalog: {fileID: 11400000, guid: 5bb560d857abd67459626eecbe545fb8, type: 2}
   _adsSettings: {fileID: 11400000, guid: 57250c6b574f84749803fe78c3154bb9, type: 2}
   _analyticsSettings: {fileID: 11400000, guid: 16cac68358689d2449e0dda73006dbed, type: 2}
-  _iapSettings: {fileID: 11400000, guid: 10917700c1d4e264aa9205bc32a93ee8, type: 2}
   _startScene: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

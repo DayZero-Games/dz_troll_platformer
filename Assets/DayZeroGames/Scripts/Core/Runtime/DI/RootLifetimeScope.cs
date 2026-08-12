@@ -14,7 +14,6 @@ namespace DZ.Core.Runtime
 		[SerializeField] private LevelCatalogSo _levelCatalog;
 		[SerializeField] private AdsSettingsSo _adsSettings;
 		[SerializeField] private AnalyticsSettingsSo _analyticsSettings;
-		[SerializeField] private IAPSettingsSo _iapSettings;
 		
 		[SerializeField] private SceneId _startScene = SceneId.MainMenu;
 
@@ -30,15 +29,11 @@ namespace DZ.Core.Runtime
 			builder.RegisterInstance(_audioLibrary).As<IAudioLibrary>();
 			builder.RegisterInstance(_adsSettings);
 			builder.RegisterInstance(_analyticsSettings);
-			builder.RegisterInstance(_iapSettings);
 
 			builder.Register<ISignalBus, SignalBus>(Lifetime.Singleton);
 			builder.Register<ISceneLoader, SceneLoader>(Lifetime.Singleton);
 			builder.Register<ILevelSelection, LevelSelection>(Lifetime.Singleton);
 			builder.Register<IPlayerPrefsSaveService, PlayerPrefsSaveService>(Lifetime.Singleton);
-			// AsImplementedInterfaces so VContainer also picks these up as IInitializable —
-			// registering them only as the service interface means Initialize() never runs.
-			builder.Register<IAPServiceProvider>(Lifetime.Singleton).AsImplementedInterfaces();
 			builder.Register<AdServiceProvider>(Lifetime.Singleton).AsImplementedInterfaces();
 			builder.Register<IAnalyticsService, AnalyticsServiceProvider>(Lifetime.Singleton);
 			

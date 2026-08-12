@@ -21,8 +21,6 @@ namespace DZ.Features
             containerBuilder.RegisterEntryPoint<LevelSelectionController>()
                 .WithParameter(_mainMenuView)
                 .WithParameter(_levelSelectionView);
-            containerBuilder.RegisterEntryPoint<NoAdsController>()
-                .WithParameter(_mainPanelView);
         }
     }
 }
