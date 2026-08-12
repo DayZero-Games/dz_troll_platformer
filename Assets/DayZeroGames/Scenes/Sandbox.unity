@@ -925,9 +925,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.08425926
-    width: 0.35625002
-    height: 0.35625
+    y: 0.086111106
+    width: 0.33802086
+    height: 0.33802083
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -1661,18 +1661,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2803340365151125983, guid: fb2ad73120a39ec40841f305ba1c62f1, type: 3}
-      propertyPath: _groundCheckSize.y
-      value: 0.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 2803340365151125983, guid: fb2ad73120a39ec40841f305ba1c62f1, type: 3}
-      propertyPath: groundLayer.m_Bits
-      value: 320
-      objectReference: {fileID: 0}
-    - target: {fileID: 2805941211758845142, guid: fb2ad73120a39ec40841f305ba1c62f1, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.574
-      objectReference: {fileID: 0}
     - target: {fileID: 3164718813476863421, guid: fb2ad73120a39ec40841f305ba1c62f1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -14.71
@@ -1713,41 +1701,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3590568223900673044, guid: fb2ad73120a39ec40841f305ba1c62f1, type: 3}
-      propertyPath: m_Size.x
-      value: 0.40764236
-      objectReference: {fileID: 0}
-    - target: {fileID: 3590568223900673044, guid: fb2ad73120a39ec40841f305ba1c62f1, type: 3}
-      propertyPath: m_Size.y
-      value: 1.0495088
-      objectReference: {fileID: 0}
-    - target: {fileID: 3590568223900673044, guid: fb2ad73120a39ec40841f305ba1c62f1, type: 3}
-      propertyPath: m_Offset.x
-      value: 0.0006942749
-      objectReference: {fileID: 0}
-    - target: {fileID: 3590568223900673044, guid: fb2ad73120a39ec40841f305ba1c62f1, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.027208924
-      objectReference: {fileID: 0}
     - target: {fileID: 7077454614102112278, guid: fb2ad73120a39ec40841f305ba1c62f1, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 8072763141290307729, guid: fb2ad73120a39ec40841f305ba1c62f1, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: e5ebfe64a07a4fd45840bfa361d2295b, type: 3}
-    - target: {fileID: 8072763141290307729, guid: fb2ad73120a39ec40841f305ba1c62f1, type: 3}
-      propertyPath: m_SortingLayer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8072763141290307729, guid: fb2ad73120a39ec40841f305ba1c62f1, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8072763141290307729, guid: fb2ad73120a39ec40841f305ba1c62f1, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -1190964091
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

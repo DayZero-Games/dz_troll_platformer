@@ -83,11 +83,11 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: -1535441471
+  m_SortingLayerID: -1190964091
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 980773039, guid: 42affb57e0fd9fa4cacb1db110cc2375, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e5ebfe64a07a4fd45840bfa361d2295b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -131,7 +131,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.000039577484, y: -0.08203149}
+  m_Offset: {x: 0.0006942749, y: -0.027208924}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -141,7 +141,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.41819286, y: 1.0638103}
+  m_Size: {x: 0.40764236, y: 1.0495088}
   m_EdgeRadius: 0
 --- !u!50 &1649520265376600708
 Rigidbody2D:
@@ -209,10 +209,10 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 8072763141290307729}
   groundCheckPos: {fileID: 2805941211758845142}
   checkRadius: 0.08
-  _groundCheckSize: {x: 0.4, y: 0.07}
+  _groundCheckSize: {x: 0.4, y: 0.08}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 320
 --- !u!114 &4050614614611036776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,7 +250,7 @@ Transform:
   m_GameObject: {fileID: 8405430762713606092}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.619, z: 0}
+  m_LocalPosition: {x: 0, y: -0.574, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

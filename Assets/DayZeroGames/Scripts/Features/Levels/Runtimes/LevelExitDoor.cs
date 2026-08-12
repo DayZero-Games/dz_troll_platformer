@@ -5,6 +5,7 @@ using DZ.Core;
 using DZ.Core.Contracts;
 using PrimeTween;
 using UnityEngine;
+using UnityEngine.Serialization;
 using VContainer;
 
 namespace DZ.Features
@@ -15,8 +16,8 @@ namespace DZ.Features
         [Inject] private readonly IAudioService _audioService;
         [Header("Refrences")] [SerializeField] private Animator _doorAnimator;
 
-        [Tooltip("Where the player lines up before fading out. Child of the door.")]
-        private Transform _entryAnchor;
+        [Tooltip("Where the player lines up before fading out. Child of the door.")][SerializeField]
+        private Transform _playerExitAnchor;
 
         [SerializeField] private string _playerTag = "Player";
 
@@ -31,7 +32,7 @@ namespace DZ.Features
         private void Awake()
         {
             GetComponent<Collider2D>().isTrigger = true;
-            if (_entryAnchor == null) _entryAnchor = transform;
+            if (_playerExitAnchor == null) _playerExitAnchor = transform;
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -53,7 +54,7 @@ namespace DZ.Features
                 _signalBus.Publish(new LevelExitReachedSignal());
                 _audioService.PlaySfx(AudioId.ExitDoorReached);
                 
-                await Tween.Position(player.transform, _entryAnchor.position,
+                await Tween.Position(player.transform, _playerExitAnchor.position,
                         _walkInDuration, Ease.OutQuad)
                     .ToUniTask().AttachExternalCancellation(ct);
                 
