@@ -38,7 +38,7 @@ MonoBehaviour:
   - _id: Lvl_2
     _levelPrefab: {fileID: 1190405531593851579, guid: ea6bc9a8916712642a6ff41d679ee51e, type: 3}
   - _id: Lvl_2
-    _levelPrefab: {fileID: 4792437445240121166, guid: 939507e712ff2d74982b5d8987ff2bfa, type: 3}
+    _levelPrefab: {fileID: 2401146401479816148, guid: ebd775e914c8f5b49a384d1b7d994d3d, type: 3}
   - _id: Lvl_2
     _levelPrefab: {fileID: 4792437445240121166, guid: 939507e712ff2d74982b5d8987ff2bfa, type: 3}
   - _id: Lvl_2
