@@ -41,7 +41,13 @@ namespace DZ.Features
 
 		private void CheckForStateChange()
 		{
-			if (Mathf.Abs(inputReader.moveInput) > 0)
+			if (!playerController.IsGrounded)
+			{
+				playerStateMachine.ChangeState(playerController.JumpState);
+				return;
+			}
+
+			if (Mathf.Abs(inputReader.moveInput) > 0.01f)
 			{
 				playerStateMachine.ChangeState(playerController.RunState);
 			}

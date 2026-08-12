@@ -54,9 +54,9 @@ namespace DZ.Features
                 return;
             }
 
-            if (!_hasLeftGround) return;
+            if (!_hasLeftGround || !_isFalling) return;
 
-            if (Mathf.Abs(inputReader.moveInput) > 0) playerStateMachine.ChangeState(playerController.RunState);
+            if (Mathf.Abs(inputReader.moveInput) > 0.01f) playerStateMachine.ChangeState(playerController.RunState);
             else playerStateMachine.ChangeState(playerController.IdleState);
         }
 
