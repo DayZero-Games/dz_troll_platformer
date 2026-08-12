@@ -18422,8 +18422,8 @@ Transform:
   m_GameObject: {fileID: 5424833381343140555}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.47999954, y: -5.48, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.47999954, y: -4.91, z: 0}
+  m_LocalScale: {x: 1, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8096951932909106059}
@@ -19085,6 +19085,8 @@ MonoBehaviour:
   - {fileID: 7736044337649767053}
   - {fileID: 5649782141319866957}
   - {fileID: 4882718585068001633}
+  - {fileID: 5649782141319866957}
+  - {fileID: 2447788604512006692}
 --- !u!1 &8368043014859570104
 GameObject:
   m_ObjectHideFlags: 0
@@ -19130,6 +19132,7 @@ GameObject:
   - component: {fileID: 7736044337649767053}
   - component: {fileID: 5649782141319866957}
   - component: {fileID: 4882718585068001633}
+  - component: {fileID: 2447788604512006692}
   m_Layer: 8
   m_Name: Platform
   m_TagString: Untagged
@@ -19270,7 +19273,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.MoveToPointAction
   _targetPoint: {fileID: 3343892169667201781}
-  _moveSpeed: 2
+  _moveSpeed: 15
   _startDelaySeconds: 0
 --- !u!114 &5649782141319866957
 MonoBehaviour:
@@ -19300,6 +19303,18 @@ MonoBehaviour:
   _targetPoint: {fileID: 6103399382466111463}
   _moveSpeed: 2
   _startDelaySeconds: 0
+--- !u!114 &2447788604512006692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8921703387951738735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5bc7a9aacc9479d962ffb8da1829762, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.DisableObjectAction
 --- !u!1 &9195232151451151357
 GameObject:
   m_ObjectHideFlags: 0

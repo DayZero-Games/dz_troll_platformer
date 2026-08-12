@@ -18189,6 +18189,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FakePlatformRC2 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5531150145629767157, guid: 6dabff2a8631d1f40ade49d06cd42dad, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8591127531174195208, guid: 6dabff2a8631d1f40ade49d06cd42dad, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.5200005
@@ -18250,6 +18254,10 @@ PrefabInstance:
     - target: {fileID: 266486873419218424, guid: 6dabff2a8631d1f40ade49d06cd42dad, type: 3}
       propertyPath: m_Name
       value: FakePlatformRC2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5531150145629767157, guid: 6dabff2a8631d1f40ade49d06cd42dad, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8591127531174195208, guid: 6dabff2a8631d1f40ade49d06cd42dad, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18361,6 +18369,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -11.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8133002374156298940, guid: 24fbf2caa01b6df49a9288d80a6c7ba8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18382,6 +18394,10 @@ PrefabInstance:
     - target: {fileID: 266486873419218424, guid: 6dabff2a8631d1f40ade49d06cd42dad, type: 3}
       propertyPath: m_Name
       value: FakePlatformRC2 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5531150145629767157, guid: 6dabff2a8631d1f40ade49d06cd42dad, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8591127531174195208, guid: 6dabff2a8631d1f40ade49d06cd42dad, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18445,6 +18461,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FakePlatformRC2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5531150145629767157, guid: 6dabff2a8631d1f40ade49d06cd42dad, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8591127531174195208, guid: 6dabff2a8631d1f40ade49d06cd42dad, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.52
@@ -18506,6 +18526,14 @@ PrefabInstance:
     - target: {fileID: 266486873419218424, guid: 6dabff2a8631d1f40ade49d06cd42dad, type: 3}
       propertyPath: m_Name
       value: FakePlatformRC2 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5531150145629767157, guid: 6dabff2a8631d1f40ade49d06cd42dad, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8326252227923294991, guid: 6dabff2a8631d1f40ade49d06cd42dad, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.96
       objectReference: {fileID: 0}
     - target: {fileID: 8591127531174195208, guid: 6dabff2a8631d1f40ade49d06cd42dad, type: 3}
       propertyPath: m_LocalPosition.x
