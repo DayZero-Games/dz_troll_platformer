@@ -34,6 +34,10 @@ namespace DZ.Features.EditorTools
             "A GameObject that already has ObstacleAction components on it. " +
             "Objects without any are rejected.");
 
+        private static readonly GUIContent RemoveGroupLabel = new(
+            "×",
+            "Remove this performer block. The action components stay on the GameObject.");
+
         private readonly List<PerformerGroup> _groups = new();
 
         // Performers added from the top field that have no linked action yet. They cannot live in the
@@ -45,6 +49,7 @@ namespace DZ.Features.EditorTools
         private ReorderableList _groupList;
         private string _cachedSignature;
         private GameObject _pendingPerformer;
+        private PerformerGroup _groupPendingRemoval;
         private string _addMessage;
         private MessageType _addMessageType = MessageType.None;
 
@@ -82,6 +87,12 @@ namespace DZ.Features.EditorTools
                 MessageType.None);
 
             _groupList.DoLayoutList();
+
+            if (_groupPendingRemoval != null)
+            {
+                RemoveGroup(_groupPendingRemoval);
+                _groupPendingRemoval = null;
+            }
 
             serializedObject.ApplyModifiedProperties();
         }
@@ -160,6 +171,25 @@ namespace DZ.Features.EditorTools
             ClearMessage();
             _pendingPerformer = null;
             GUI.FocusControl(null);
+        }
+
+        // Unlinks the whole block from the controller. The components are left on the performer.
+        private void RemoveGroup(PerformerGroup group)
+        {
+            _pendingPerformers.Remove(group.Performer);
+
+            if (group.Actions.Count == 0)
+            {
+                _cachedSignature = null;
+                Repaint();
+                return;
+            }
+
+            _groups.Remove(group);
+            _groupList.index = -1;
+
+            WriteBackFlatArray();
+            Repaint();
         }
 
         private void ClearMessage()
@@ -305,25 +335,17 @@ namespace DZ.Features.EditorTools
             var group = _groups[index];
             var y = rect.y + ElementPadding;
 
-            var dismissWidth = group.IsPending ? DismissButtonWidth + Spacing : 0f;
-
             using (new EditorGUI.DisabledScope(true))
             {
                 EditorGUI.ObjectField(
-                    new Rect(rect.x, y, rect.width - dismissWidth, LineHeight),
+                    new Rect(rect.x, y, rect.width - DismissButtonWidth - Spacing, LineHeight),
                     "Performer", group.Performer, typeof(GameObject), true);
             }
 
-            if (group.IsPending)
-            {
-                var dismissRect = new Rect(rect.xMax - DismissButtonWidth, y, DismissButtonWidth, LineHeight);
-                if (GUI.Button(dismissRect, "×"))
-                {
-                    _pendingPerformers.Remove(group.Performer);
-                    _cachedSignature = null;
-                    Repaint();
-                }
-            }
+            var dismissRect = new Rect(rect.xMax - DismissButtonWidth, y, DismissButtonWidth, LineHeight);
+
+            // Deferred: removing a block mid-draw would mutate the list the inner ReorderableList is bound to.
+            if (GUI.Button(dismissRect, RemoveGroupLabel)) _groupPendingRemoval = group;
 
             y += LineHeight + Spacing;
             group.List.DoList(new Rect(rect.x, y, rect.width, group.List.GetHeight()));
