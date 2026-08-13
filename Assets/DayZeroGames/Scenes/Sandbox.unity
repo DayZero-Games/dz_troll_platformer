@@ -925,9 +925,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: 0.086111106
-    width: 0.33802086
-    height: 0.33802083
+    y: 0
+    width: 1
+    height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
@@ -1662,12 +1662,24 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3164718813476863421, guid: fb2ad73120a39ec40841f305ba1c62f1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3164718813476863421, guid: fb2ad73120a39ec40841f305ba1c62f1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3164718813476863421, guid: fb2ad73120a39ec40841f305ba1c62f1, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3164718813476863421, guid: fb2ad73120a39ec40841f305ba1c62f1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.71
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3164718813476863421, guid: fb2ad73120a39ec40841f305ba1c62f1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.39
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3164718813476863421, guid: fb2ad73120a39ec40841f305ba1c62f1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1701,9 +1713,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3164718813476863421, guid: fb2ad73120a39ec40841f305ba1c62f1, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7077454614102112278, guid: fb2ad73120a39ec40841f305ba1c62f1, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 8072763141290307729, guid: fb2ad73120a39ec40841f305ba1c62f1, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8072763141290307729, guid: fb2ad73120a39ec40841f305ba1c62f1, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8072763141290307729, guid: fb2ad73120a39ec40841f305ba1c62f1, type: 3}
+      propertyPath: m_Color.r
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

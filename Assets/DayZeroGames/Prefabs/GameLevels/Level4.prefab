@@ -1,5 +1,152 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &217944886170324896
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 9223372036854775807, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
+  m_PrefabInstance: {fileID: 8343058523896335730}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8917867379283882958}
+  - component: {fileID: 2427172819628018635}
+  m_Layer: 0
+  m_Name: Placeholder for referenced MonoBehaviour in Prefab instance (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8917867379283882958
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 9223372036854775806, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
+  m_PrefabInstance: {fileID: 8343058523896335730}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 217944886170324896}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4410364146645549310}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2427172819628018635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 5937841455292450489, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
+  m_PrefabInstance: {fileID: 8343058523896335730}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 217944886170324896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
+  _executionMode: 0
+  _performers: []
+  references:
+    version: 2
+    RefIds: []
+--- !u!1 &374399269450267810
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 9223372036854775807, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
+  m_PrefabInstance: {fileID: 4709186322947600580}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1255553003442575874}
+  - component: {fileID: 1386289915668526717}
+  m_Layer: 0
+  m_Name: Placeholder for referenced MonoBehaviour in Prefab instance (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1255553003442575874
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 9223372036854775806, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
+  m_PrefabInstance: {fileID: 4709186322947600580}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374399269450267810}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1127827726596898120}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1386289915668526717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 5937841455292450489, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
+  m_PrefabInstance: {fileID: 4709186322947600580}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 374399269450267810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
+  _executionMode: 0
+  _performers: []
+  references:
+    version: 2
+    RefIds: []
+--- !u!1 &506835631609581400
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 9223372036854775807, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
+  m_PrefabInstance: {fileID: 1780766808587238179}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2769024236261570563}
+  - component: {fileID: 5391370251393727898}
+  m_Layer: 0
+  m_Name: Placeholder for referenced MonoBehaviour in Prefab instance (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2769024236261570563
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 9223372036854775806, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
+  m_PrefabInstance: {fileID: 1780766808587238179}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 506835631609581400}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6217835764091877039}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5391370251393727898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 5937841455292450489, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
+  m_PrefabInstance: {fileID: 1780766808587238179}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 506835631609581400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
+  _executionMode: 0
+  _performers: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &581871209970508794
 GameObject:
   m_ObjectHideFlags: 0
@@ -135,7 +282,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1.5}
+    oldSize: {x: 1, y: 2}
     newSize: {x: 1, y: 1.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -156,7 +303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelExitDoor
   _doorAnimator: {fileID: 3406042059142453151}
-  _entryAnchor: {fileID: 0}
+  _playerExitAnchor: {fileID: 0}
   _playerTag: Player
   _walkInDuration: 0.2
   _playerFadeDuration: 0.3
@@ -242,6 +389,136 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &1191475847987082979
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 9223372036854775807, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
+  m_PrefabInstance: {fileID: 6812103241104447746}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 859676064459349319}
+  - component: {fileID: 931682832996818875}
+  m_Layer: 0
+  m_Name: Placeholder for referenced MonoBehaviour in Prefab instance (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &859676064459349319
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 9223372036854775806, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
+  m_PrefabInstance: {fileID: 6812103241104447746}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191475847987082979}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1186081243752486030}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &931682832996818875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 5937841455292450489, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
+  m_PrefabInstance: {fileID: 6812103241104447746}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191475847987082979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
+  _executionMode: 0
+  _performers: []
+  references:
+    version: 2
+    RefIds: []
+--- !u!1 &2229385499229474276
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 7601337203634572894, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
+  m_PrefabInstance: {fileID: 6803685963701259305}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1195478115287433637}
+  m_Layer: 0
+  m_Name: 'FakePlatformCol2 (8) (Missing Prefab with guid: 4fbc5cc32444339419809b3373217b9f)'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1195478115287433637
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 5691632202594356620, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
+  m_PrefabInstance: {fileID: 6803685963701259305}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2229385499229474276}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 12, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 636021721881441137}
+  m_Father: {fileID: 1556849246654958266}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2319992762039529810
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 9223372036854775807, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
+  m_PrefabInstance: {fileID: 1210325736641733236}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4196111109204781762}
+  - component: {fileID: 4804359555792282829}
+  m_Layer: 0
+  m_Name: Placeholder for referenced MonoBehaviour in Prefab instance (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4196111109204781762
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 9223372036854775806, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
+  m_PrefabInstance: {fileID: 1210325736641733236}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2319992762039529810}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6788980232893542392}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4804359555792282829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 5937841455292450489, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
+  m_PrefabInstance: {fileID: 1210325736641733236}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2319992762039529810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
+  _executionMode: 0
+  _performers: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &2964008209137524791
 GameObject:
   m_ObjectHideFlags: 0
@@ -14356,6 +14633,87 @@ CompositeCollider2D:
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
   m_CompositeGameObject: {fileID: 2964008209137524791}
+--- !u!1 &2991131137950139839
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 9223372036854775807, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
+  m_PrefabInstance: {fileID: 795784742035857936}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3108448140589273340}
+  - component: {fileID: 6443597005589750953}
+  m_Layer: 0
+  m_Name: Placeholder for referenced MonoBehaviour in Prefab instance (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3108448140589273340
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 9223372036854775806, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
+  m_PrefabInstance: {fileID: 795784742035857936}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2991131137950139839}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5041655901379276700}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6443597005589750953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 5937841455292450489, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
+  m_PrefabInstance: {fileID: 795784742035857936}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2991131137950139839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
+  _executionMode: 0
+  _performers: []
+  references:
+    version: 2
+    RefIds: []
+--- !u!1 &4258477835809719209
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 7601337203634572894, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
+  m_PrefabInstance: {fileID: 4709186322947600580}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1127827726596898120}
+  m_Layer: 0
+  m_Name: 'FakePlatformCol2 (10) (Missing Prefab with guid: 4fbc5cc32444339419809b3373217b9f)'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1127827726596898120
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 5691632202594356620, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
+  m_PrefabInstance: {fileID: 4709186322947600580}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4258477835809719209}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 16, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1255553003442575874}
+  m_Father: {fileID: 1556849246654958266}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4701103907180259184
 GameObject:
   m_ObjectHideFlags: 0
@@ -14413,6 +14771,73 @@ MonoBehaviour:
   m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
   _executionMode: 1
   _performers: []
+  references:
+    version: 2
+    RefIds: []
+--- !u!1 &4731240269547212015
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 7601337203634572894, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
+  m_PrefabInstance: {fileID: 7359081620720722828}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2944238063412686336}
+  m_Layer: 0
+  m_Name: 'FakePlatformCol2 (3) (Missing Prefab with guid: 4fbc5cc32444339419809b3373217b9f)'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2944238063412686336
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 5691632202594356620, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
+  m_PrefabInstance: {fileID: 7359081620720722828}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4731240269547212015}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3763734409532378909}
+  m_Father: {fileID: 1556849246654958266}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5041461174599965395
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 7601337203634572894, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
+  m_PrefabInstance: {fileID: 1780766808587238179}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6217835764091877039}
+  m_Layer: 0
+  m_Name: 'FakePlatformCol2 (5) (Missing Prefab with guid: 4fbc5cc32444339419809b3373217b9f)'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6217835764091877039
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 5691632202594356620, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
+  m_PrefabInstance: {fileID: 1780766808587238179}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5041461174599965395}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2769024236261570563}
+  m_Father: {fileID: 1556849246654958266}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5053976807960332478
 GameObject:
   m_ObjectHideFlags: 0
@@ -14459,6 +14884,55 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
+--- !u!1 &5104737376013011022
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 9223372036854775807, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
+  m_PrefabInstance: {fileID: 2219343192717929721}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8135485568688632351}
+  - component: {fileID: 5524724562939980352}
+  m_Layer: 0
+  m_Name: Placeholder for referenced MonoBehaviour in Prefab instance (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8135485568688632351
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 9223372036854775806, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
+  m_PrefabInstance: {fileID: 2219343192717929721}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5104737376013011022}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5778133393618084213}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5524724562939980352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 5937841455292450489, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
+  m_PrefabInstance: {fileID: 2219343192717929721}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5104737376013011022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
+  _executionMode: 0
+  _performers: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &5498686329064102111
 GameObject:
   m_ObjectHideFlags: 0
@@ -14507,7 +14981,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelContext
   _SpawnPoint: {fileID: 6726192053092558982}
-  _exitDoor: {fileID: 6799596743477444535}
 --- !u!1 &5679971038842624199
 GameObject:
   m_ObjectHideFlags: 0
@@ -14539,6 +15012,87 @@ Transform:
   m_Children:
   - {fileID: 7759243375951195222}
   m_Father: {fileID: 3742707572476032514}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6001022087395290222
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 9223372036854775807, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
+  m_PrefabInstance: {fileID: 7359081620720722828}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3763734409532378909}
+  - component: {fileID: 3767198319619712309}
+  m_Layer: 0
+  m_Name: Placeholder for referenced MonoBehaviour in Prefab instance (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3763734409532378909
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 9223372036854775806, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
+  m_PrefabInstance: {fileID: 7359081620720722828}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6001022087395290222}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2944238063412686336}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3767198319619712309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 5937841455292450489, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
+  m_PrefabInstance: {fileID: 7359081620720722828}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6001022087395290222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
+  _executionMode: 0
+  _performers: []
+  references:
+    version: 2
+    RefIds: []
+--- !u!1 &6057896068849192657
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 7601337203634572894, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
+  m_PrefabInstance: {fileID: 8343058523896335730}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4410364146645549310}
+  m_Layer: 0
+  m_Name: 'FakePlatformCol2 (2) (Missing Prefab with guid: 4fbc5cc32444339419809b3373217b9f)'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4410364146645549310
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 5691632202594356620, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
+  m_PrefabInstance: {fileID: 8343058523896335730}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6057896068849192657}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8917867379283882958}
+  m_Father: {fileID: 1556849246654958266}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6347816074920551937
 GameObject:
@@ -15481,6 +16035,69 @@ Transform:
   - {fileID: 5915490198250865610}
   m_Father: {fileID: 3742707572476032514}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7545905957727310751
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 7601337203634572894, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
+  m_PrefabInstance: {fileID: 3063097819885995137}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7241491787156261133}
+  m_Layer: 0
+  m_Name: 'FakePlatformCol2 (Missing Prefab with guid: 4fbc5cc32444339419809b3373217b9f)'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7241491787156261133
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 5691632202594356620, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
+  m_PrefabInstance: {fileID: 3063097819885995137}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7545905957727310751}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1556849246654958266}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7691398300757162965
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 7601337203634572894, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
+  m_PrefabInstance: {fileID: 2219343192717929721}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5778133393618084213}
+  m_Layer: 0
+  m_Name: 'FakePlatformCol2 (7) (Missing Prefab with guid: 4fbc5cc32444339419809b3373217b9f)'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5778133393618084213
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 5691632202594356620, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
+  m_PrefabInstance: {fileID: 2219343192717929721}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7691398300757162965}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8135485568688632351}
+  m_Father: {fileID: 1556849246654958266}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7761889106079380238
 GameObject:
   m_ObjectHideFlags: 0
@@ -15605,6 +16222,232 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &7798840814283194017
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 7601337203634572894, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
+  m_PrefabInstance: {fileID: 1210325736641733236}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6788980232893542392}
+  m_Layer: 0
+  m_Name: 'FakePlatformCol2 (1) (Missing Prefab with guid: 4fbc5cc32444339419809b3373217b9f)'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6788980232893542392
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 5691632202594356620, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
+  m_PrefabInstance: {fileID: 1210325736641733236}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7798840814283194017}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4196111109204781762}
+  m_Father: {fileID: 1556849246654958266}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8000893482376296352
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 9223372036854775807, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
+  m_PrefabInstance: {fileID: 4912959628210883178}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3382967076695564435}
+  - component: {fileID: 1605856074887580883}
+  m_Layer: 0
+  m_Name: Placeholder for referenced MonoBehaviour in Prefab instance (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3382967076695564435
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 9223372036854775806, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
+  m_PrefabInstance: {fileID: 4912959628210883178}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8000893482376296352}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 779944712023295974}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1605856074887580883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 5937841455292450489, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
+  m_PrefabInstance: {fileID: 4912959628210883178}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8000893482376296352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
+  _executionMode: 0
+  _performers: []
+  references:
+    version: 2
+    RefIds: []
+--- !u!1 &8210683091364638153
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 7601337203634572894, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
+  m_PrefabInstance: {fileID: 4912959628210883178}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 779944712023295974}
+  m_Layer: 0
+  m_Name: 'FakePlatformCol2 (4) (Missing Prefab with guid: 4fbc5cc32444339419809b3373217b9f)'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &779944712023295974
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 5691632202594356620, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
+  m_PrefabInstance: {fileID: 4912959628210883178}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8210683091364638153}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3382967076695564435}
+  m_Father: {fileID: 1556849246654958266}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8412003215482922137
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 9223372036854775807, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
+  m_PrefabInstance: {fileID: 6803685963701259305}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 636021721881441137}
+  - component: {fileID: 868349211541899920}
+  m_Layer: 0
+  m_Name: Placeholder for referenced MonoBehaviour in Prefab instance (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &636021721881441137
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 9223372036854775806, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
+  m_PrefabInstance: {fileID: 6803685963701259305}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8412003215482922137}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1195478115287433637}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &868349211541899920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 5937841455292450489, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
+  m_PrefabInstance: {fileID: 6803685963701259305}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8412003215482922137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
+  _executionMode: 0
+  _performers: []
+  references:
+    version: 2
+    RefIds: []
+--- !u!1 &8807177746053845551
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 7601337203634572894, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
+  m_PrefabInstance: {fileID: 795784742035857936}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5041655901379276700}
+  m_Layer: 0
+  m_Name: 'FakePlatformCol2 (6) (Missing Prefab with guid: 4fbc5cc32444339419809b3373217b9f)'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5041655901379276700
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 5691632202594356620, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
+  m_PrefabInstance: {fileID: 795784742035857936}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8807177746053845551}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3108448140589273340}
+  m_Father: {fileID: 1556849246654958266}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &9046738547651670659
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 7601337203634572894, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
+  m_PrefabInstance: {fileID: 6812103241104447746}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1186081243752486030}
+  m_Layer: 0
+  m_Name: 'FakePlatformCol2 (9) (Missing Prefab with guid: 4fbc5cc32444339419809b3373217b9f)'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1186081243752486030
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 5691632202594356620, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
+  m_PrefabInstance: {fileID: 6812103241104447746}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9046738547651670659}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 14, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 859676064459349319}
+  m_Father: {fileID: 1556849246654958266}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &795784742035857936
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15671,22 +16514,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
---- !u!4 &5041655901379276700 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5691632202594356620, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
-  m_PrefabInstance: {fileID: 795784742035857936}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &6443597005589750953 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5937841455292450489, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
-  m_PrefabInstance: {fileID: 795784742035857936}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
 --- !u!1001 &1210325736641733236
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15753,22 +16580,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
---- !u!114 &4804359555792282829 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5937841455292450489, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
-  m_PrefabInstance: {fileID: 1210325736641733236}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
---- !u!4 &6788980232893542392 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5691632202594356620, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
-  m_PrefabInstance: {fileID: 1210325736641733236}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1780766808587238179
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15835,22 +16646,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
---- !u!114 &5391370251393727898 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5937841455292450489, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
-  m_PrefabInstance: {fileID: 1780766808587238179}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
---- !u!4 &6217835764091877039 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5691632202594356620, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
-  m_PrefabInstance: {fileID: 1780766808587238179}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2219343192717929721
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15917,22 +16712,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
---- !u!114 &5524724562939980352 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5937841455292450489, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
-  m_PrefabInstance: {fileID: 2219343192717929721}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
---- !u!4 &5778133393618084213 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5691632202594356620, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
-  m_PrefabInstance: {fileID: 2219343192717929721}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3063097819885995137
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16038,11 +16817,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
---- !u!4 &7241491787156261133 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5691632202594356620, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
-  m_PrefabInstance: {fileID: 3063097819885995137}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4709186322947600580
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16109,22 +16883,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
---- !u!4 &1127827726596898120 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5691632202594356620, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
-  m_PrefabInstance: {fileID: 4709186322947600580}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1386289915668526717 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5937841455292450489, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
-  m_PrefabInstance: {fileID: 4709186322947600580}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
 --- !u!1001 &4912959628210883178
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16190,22 +16948,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
---- !u!4 &779944712023295974 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5691632202594356620, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
-  m_PrefabInstance: {fileID: 4912959628210883178}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1605856074887580883 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5937841455292450489, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
-  m_PrefabInstance: {fileID: 4912959628210883178}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
 --- !u!1001 &6803685963701259305
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16272,22 +17014,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
---- !u!114 &868349211541899920 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5937841455292450489, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
-  m_PrefabInstance: {fileID: 6803685963701259305}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
---- !u!4 &1195478115287433637 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5691632202594356620, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
-  m_PrefabInstance: {fileID: 6803685963701259305}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6812103241104447746
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16354,22 +17080,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
---- !u!114 &931682832996818875 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5937841455292450489, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
-  m_PrefabInstance: {fileID: 6812103241104447746}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
---- !u!4 &1186081243752486030 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5691632202594356620, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
-  m_PrefabInstance: {fileID: 6812103241104447746}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7359081620720722828
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16436,22 +17146,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
---- !u!4 &2944238063412686336 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5691632202594356620, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
-  m_PrefabInstance: {fileID: 7359081620720722828}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &3767198319619712309 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5937841455292450489, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
-  m_PrefabInstance: {fileID: 7359081620720722828}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
 --- !u!1001 &8343058523896335730
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16518,19 +17212,3 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
---- !u!114 &2427172819628018635 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5937841455292450489, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
-  m_PrefabInstance: {fileID: 8343058523896335730}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
---- !u!4 &4410364146645549310 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5691632202594356620, guid: 4fbc5cc32444339419809b3373217b9f, type: 3}
-  m_PrefabInstance: {fileID: 8343058523896335730}
-  m_PrefabAsset: {fileID: 0}
