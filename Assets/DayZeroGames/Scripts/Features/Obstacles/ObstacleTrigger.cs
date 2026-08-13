@@ -7,7 +7,7 @@ namespace DZ.Features
     public class ObstacleTrigger : MonoBehaviour
     {
         [SerializeField] private string _playerTag = "Player";
-        [SerializeField] private bool _disableColliderAfterSuccessfulActivation;
+        [SerializeField] private bool _disableColliderAfterSuccessfulActivation = true;
         [SerializeField] private ObstacleController[] _controllers;
 
         private Collider2D _triggerCollider;

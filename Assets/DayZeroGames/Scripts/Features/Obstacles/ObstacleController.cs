@@ -83,13 +83,46 @@ namespace DZ.Features
         {
             if (_obstacleActions == null) return;
 
-            var actionTasks = new List<UniTask>(_obstacleActions.Length);
+            var performerOrder = new List<GameObject>();
+            var actionsByPerformer = new Dictionary<GameObject, List<ObstacleAction>>();
+
             foreach (var action in _obstacleActions)
             {
-                if (action != null) actionTasks.Add(action.ExecuteActionAsync(cancellation));
+                if (action == null) continue;
+
+                var performer = action.gameObject;
+                if (performer == null) continue;
+
+                if (!actionsByPerformer.TryGetValue(performer, out var performerActions))
+                {
+                    performerActions = new List<ObstacleAction>();
+                    actionsByPerformer.Add(performer, performerActions);
+                    performerOrder.Add(performer);
+                }
+
+                performerActions.Add(action);
             }
 
-            await UniTask.WhenAll(actionTasks);
+            var performerTasks = new List<UniTask>(performerOrder.Count);
+            foreach (var performer in performerOrder)
+            {
+                performerTasks.Add(ExecutePerformerActionsSequentiallyAsync(
+                    actionsByPerformer[performer],
+                    cancellation));
+            }
+
+            if (performerTasks.Count > 0)
+                await UniTask.WhenAll(performerTasks);
+        }
+
+        private static async UniTask ExecutePerformerActionsSequentiallyAsync(
+            List<ObstacleAction> actions,
+            CancellationToken cancellation)
+        {
+            foreach (var action in actions)
+            {
+                if (action != null) await action.ExecuteActionAsync(cancellation);
+            }
         }
     }
 }

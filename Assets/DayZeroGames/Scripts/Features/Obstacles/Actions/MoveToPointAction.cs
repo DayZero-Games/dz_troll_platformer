@@ -1,4 +1,3 @@
-using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
@@ -13,7 +12,6 @@ namespace DZ.Features
         [SerializeField] private Transform[] _targetPoints;
 
         [SerializeField, Min(0.01f)] private float _moveSpeed = 10f;
-        [SerializeField, Min(0f)] private float _startDelaySeconds;
 
         private void Awake()
         {
@@ -42,9 +40,6 @@ namespace DZ.Features
         public override async UniTask ExecuteActionAsync(CancellationToken cancellation = default)
         {
             if (_targetPoints == null || _targetPoints.Length == 0) return;
-
-            if (_startDelaySeconds > 0f)
-                await UniTask.Delay(TimeSpan.FromSeconds(_startDelaySeconds), cancellationToken: cancellation);
 
             foreach (var targetPoint in _targetPoints)
             {
@@ -83,11 +78,10 @@ namespace DZ.Features
         {
             if (_targetPoints == null || _targetPoints.Length == 0) return "⚠ MoveTo → no points";
 
-            var delaySuffix = _startDelaySeconds > 0f ? $" · +{_startDelaySeconds:0.##}s delay" : string.Empty;
             var route = DescribeRoute(out var hasMissingPoint);
             var warningPrefix = hasMissingPoint ? "⚠ " : string.Empty;
 
-            return $"{warningPrefix}MoveTo → {route} @ {_moveSpeed:0.##}{delaySuffix}";
+            return $"{warningPrefix}MoveTo → {route} @ {_moveSpeed:0.##}";
         }
 
         private string DescribeRoute(out bool hasMissingPoint)

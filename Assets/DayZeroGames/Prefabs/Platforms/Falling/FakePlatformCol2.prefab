@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1474114393715152163}
-  - component: {fileID: 5937841455292450489}
   m_Layer: 6
   m_Name: Controller
   m_TagString: Untagged
@@ -32,22 +31,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5691632202594356620}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5937841455292450489
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1524443921239339584}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
-  _executionMode: 0
-  _obstacleActions:
-  - {fileID: 2386881475039882030}
-  - {fileID: 4355753764783590154}
 --- !u!1 &5014179030272653190
 GameObject:
   m_ObjectHideFlags: 0
@@ -173,7 +156,7 @@ MonoBehaviour:
   _playerTag: Player
   _disableColliderAfterSuccessfulActivation: 1
   _controllers:
-  - {fileID: 5937841455292450489}
+  - {fileID: 0}
 --- !u!1 &7601337203634572894
 GameObject:
   m_ObjectHideFlags: 0
