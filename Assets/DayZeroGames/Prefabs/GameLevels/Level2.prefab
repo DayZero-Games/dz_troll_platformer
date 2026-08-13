@@ -460,7 +460,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1.5}
+    oldSize: {x: 1, y: 2}
     newSize: {x: 1, y: 1.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -481,7 +481,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelExitDoor
   _doorAnimator: {fileID: 8335349644999718172}
-  _entryAnchor: {fileID: 0}
+  _playerExitAnchor: {fileID: 0}
   _playerTag: Player
   _walkInDuration: 0.2
   _playerFadeDuration: 0.3
@@ -1349,7 +1349,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelContext
   _SpawnPoint: {fileID: 8005886091875963139}
-  _exitDoor: {fileID: 689689750529414504}
 --- !u!1 &6924427490893606239
 GameObject:
   m_ObjectHideFlags: 0
@@ -18475,7 +18474,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ReturningPlatform
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6805271297432678243, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
+    - {fileID: 3861738440288393680, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
+    - {fileID: 161850100612491759, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

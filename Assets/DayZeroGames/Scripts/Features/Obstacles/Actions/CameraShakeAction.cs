@@ -1,12 +1,12 @@
+using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
-using DZ.Core.Contracts;
 using PrimeTween;
 using UnityEngine;
-using VContainer;
 
 namespace DZ.Features
 {
+    [Serializable]
     public class CameraShakeAction : ObstacleAction
     {
         [SerializeField] private CameraShakeConfigSo _shakeConfig;
@@ -17,33 +17,27 @@ namespace DZ.Features
             duration: 0.18f,
             frequency: 22f);
 
-        private ICameraShaker _cameraShaker;
-
-        [Inject]
-        private void Construct(ICameraShaker cameraShaker)
-        {
-            _cameraShaker = cameraShaker;
-        }
-
-        public override async UniTask ExecuteActionAsync(CancellationToken cancellation = default)
+        public override async UniTask ExecuteActionAsync(
+            ObstacleActionContext context,
+            CancellationToken cancellation = default)
         {
             cancellation.ThrowIfCancellationRequested();
 
-            if (_cameraShaker == null)
+            if (context.CameraShaker == null)
             {
-                Debug.LogError($"{name}: no camera shaker injected.", this);
+                Debug.LogError($"{context.PerformerName}: no camera shaker available.", context.Performer);
                 return;
             }
 
-            await _cameraShaker.ShakeAsync(ShakeSettings, cancellation);
+            await context.CameraShaker.ShakeAsync(ShakeSettings, cancellation);
         }
 
         private ShakeSettings ShakeSettings => _shakeConfig != null ? _shakeConfig.Bump : _fallbackShake;
 
 #if UNITY_EDITOR
         public override string Describe() => _shakeConfig != null
-            ? $"Shake → {_shakeConfig.name}"
-            : $"Shake → fallback {_fallbackShake.duration:0.##}s";
+            ? $"Shake -> {_shakeConfig.name}"
+            : $"Shake -> fallback {_fallbackShake.duration:0.##}s";
 #endif
     }
 }

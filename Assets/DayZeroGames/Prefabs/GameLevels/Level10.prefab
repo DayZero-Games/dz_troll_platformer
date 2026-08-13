@@ -45,9 +45,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
   _executionMode: 0
-  _obstacleActions:
-  - {fileID: 2919220815158133783}
-  - {fileID: 8064675214839526499}
+  _performers:
+  - _performer: {fileID: 6710058951568002921}
+    _actions:
+    - rid: 1000000000000000000
+    - rid: 1000000000000000001
+  references:
+    version: 2
+    RefIds:
+    - rid: 1000000000000000000
+      type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _targetPoints:
+        - {fileID: 3424211202881120148}
+        _moveSpeed: 20
+    - rid: 1000000000000000001
+      type: {class: DisableObjectAction, ns: DZ.Features, asm: DZ.Features}
+      data: 
 --- !u!1 &2073766538402975268
 GameObject:
   m_ObjectHideFlags: 0
@@ -922,10 +936,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
   _executionMode: 0
-  _obstacleActions:
-  - {fileID: 338109292821679163}
-  - {fileID: 6257880284800400827}
-  - {fileID: 2103727009632248213}
+  _performers:
+  - _performer: {fileID: 7081870521043289490}
+    _actions:
+    - rid: 1000000000000000002
+    - rid: 1000000000000000003
+    - rid: 1000000000000000004
+  references:
+    version: 2
+    RefIds:
+    - rid: 1000000000000000002
+      type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _targetPoints:
+        - {fileID: 3882098284249984565}
+        _moveSpeed: 20
+    - rid: 1000000000000000003
+      type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _targetPoints:
+        - {fileID: 6473596818935145739}
+        _moveSpeed: 5
+    - rid: 1000000000000000004
+      type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _targetPoints:
+        - {fileID: 6128700201232703947}
+        _moveSpeed: 1
 --- !u!1 &6101972139116097345
 GameObject:
   m_ObjectHideFlags: 0
@@ -1032,8 +1069,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6466242419356804287}
   - component: {fileID: 227531086142316552}
-  - component: {fileID: 2919220815158133783}
-  - component: {fileID: 8064675214839526499}
   - component: {fileID: 1303337251291642356}
   m_Layer: 0
   m_Name: FakePlatform
@@ -1116,34 +1151,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &2919220815158133783
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6710058951568002921}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df7fafedef4a48c782036747b0318e0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.MoveToPointAction
-  _targetPoints:
-  - {fileID: 3424211202881120148}
-  _moveSpeed: 20
-  _startDelaySeconds: 0
---- !u!114 &8064675214839526499
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6710058951568002921}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5bc7a9aacc9479d962ffb8da1829762, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.DisableObjectAction
 --- !u!61 &1303337251291642356
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1233,11 +1240,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2131270557423750428}
   - component: {fileID: 8303266789500587719}
-  - component: {fileID: 338109292821679163}
-  - component: {fileID: 8033629782731065767}
   - component: {fileID: 4411221936674081203}
-  - component: {fileID: 6257880284800400827}
-  - component: {fileID: 2103727009632248213}
   m_Layer: 6
   m_Name: FakePlatform
   m_TagString: Untagged
@@ -1319,34 +1322,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &338109292821679163
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7081870521043289490}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df7fafedef4a48c782036747b0318e0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.MoveToPointAction
-  _targetPoints:
-  - {fileID: 3882098284249984565}
-  _moveSpeed: 20
-  _startDelaySeconds: 0
---- !u!114 &8033629782731065767
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7081870521043289490}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5bc7a9aacc9479d962ffb8da1829762, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.DisableObjectAction
 --- !u!61 &4411221936674081203
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1393,38 +1368,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 3, y: 2}
   m_EdgeRadius: 0
---- !u!114 &6257880284800400827
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7081870521043289490}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df7fafedef4a48c782036747b0318e0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.MoveToPointAction
-  _targetPoints:
-  - {fileID: 6473596818935145739}
-  _moveSpeed: 5
-  _startDelaySeconds: 0
---- !u!114 &2103727009632248213
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7081870521043289490}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df7fafedef4a48c782036747b0318e0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.MoveToPointAction
-  _targetPoints:
-  - {fileID: 6128700201232703947}
-  _moveSpeed: 1
-  _startDelaySeconds: 0
 --- !u!1 &7780877946039794729
 GameObject:
   m_ObjectHideFlags: 0

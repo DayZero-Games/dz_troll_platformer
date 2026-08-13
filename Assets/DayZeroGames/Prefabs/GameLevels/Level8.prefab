@@ -367,7 +367,6 @@ GameObject:
   - component: {fileID: 524008294871738314}
   - component: {fileID: 8925940434014287262}
   - component: {fileID: 5643178917079666242}
-  - component: {fileID: 8329706342597064814}
   m_Layer: 9
   m_Name: spikes_2 (1)
   m_TagString: Obstacles
@@ -495,22 +494,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.5625, y: 0.625}
   m_EdgeRadius: 0
---- !u!114 &8329706342597064814
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2389500287580594540}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df7fafedef4a48c782036747b0318e0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.MoveToPointAction
-  _targetPoints:
-  - {fileID: 4588218227830921794}
-  _moveSpeed: 15
-  _startDelaySeconds: 0
 --- !u!1 &3112374260916303302
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,8 +570,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
   _executionMode: 0
-  _obstacleActions:
-  - {fileID: 8329706342597064814}
+  _performers:
+  - _performer: {fileID: 2389500287580594540}
+    _actions:
+    - rid: 1000000000000000000
+  references:
+    version: 2
+    RefIds:
+    - rid: 1000000000000000000
+      type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _targetPoints:
+        - {fileID: 4588218227830921794}
+        _moveSpeed: 15
 --- !u!1 &3363661240991531413
 GameObject:
   m_ObjectHideFlags: 0
@@ -631,7 +625,6 @@ GameObject:
   - component: {fileID: 1865247266606772267}
   - component: {fileID: 7054535128444917357}
   - component: {fileID: 8395489007813661986}
-  - component: {fileID: 3691244814366448865}
   m_Layer: 0
   m_Name: MovingSpike
   m_TagString: Obstacles
@@ -759,22 +752,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 4.5, y: 0.625}
   m_EdgeRadius: 0
---- !u!114 &3691244814366448865
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3596867609570687481}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df7fafedef4a48c782036747b0318e0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.MoveToPointAction
-  _targetPoints:
-  - {fileID: 2615062500479555539}
-  _moveSpeed: 10
-  _startDelaySeconds: 0
 --- !u!1 &4853134893509637939
 GameObject:
   m_ObjectHideFlags: 0
@@ -19045,8 +19022,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
   _executionMode: 0
-  _obstacleActions:
-  - {fileID: 3691244814366448865}
+  _performers:
+  - _performer: {fileID: 3596867609570687481}
+    _actions:
+    - rid: 1000000000000000001
+  references:
+    version: 2
+    RefIds:
+    - rid: 1000000000000000001
+      type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _targetPoints:
+        - {fileID: 2615062500479555539}
+        _moveSpeed: 10
 --- !u!1 &8211826460266476394
 GameObject:
   m_ObjectHideFlags: 0

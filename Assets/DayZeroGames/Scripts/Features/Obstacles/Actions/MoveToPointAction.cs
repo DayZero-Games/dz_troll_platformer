@@ -1,87 +1,124 @@
+using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 namespace DZ.Features
 {
+    [Serializable]
     public class MoveToPointAction : ObstacleAction
     {
         private const float ArrivalDistance = 0.001f;
 
-        [Tooltip("Empty GameObjects to travel through, in order. The object stops at the last one.")]
+        [Tooltip("Empty GameObjects to travel through, in order. The performer stops at the last one.")]
         [SerializeField] private Transform[] _targetPoints;
 
         [SerializeField, Min(0.01f)] private float _moveSpeed = 10f;
 
-        private void Awake()
+        public override async UniTask ExecuteActionAsync(
+            ObstacleActionContext context,
+            CancellationToken cancellation = default)
         {
+            if (!context.HasPerformer) return;
             if (_targetPoints == null || _targetPoints.Length == 0)
             {
-                Debug.LogError($"{name}: no target points assigned.", this);
+                Debug.LogError($"{context.PerformerName}: no target points assigned.", context.Performer);
                 return;
             }
 
-            foreach (var targetPoint in _targetPoints)
-            {
-                if (targetPoint == null)
-                {
-                    Debug.LogError($"{name}: a target point is missing.", this);
-                    continue;
-                }
-
-                if (targetPoint.IsChildOf(transform))
-                {
-                    Debug.LogError(
-                        $"{name}: target point '{targetPoint.name}' is a child of this action object.", this);
-                }
-            }
-        }
-
-        public override async UniTask ExecuteActionAsync(CancellationToken cancellation = default)
-        {
-            if (_targetPoints == null || _targetPoints.Length == 0) return;
+            ValidateTargetPoints(context);
 
             foreach (var targetPoint in _targetPoints)
             {
                 if (targetPoint == null) continue;
-                
-                await MoveToAsync(WorldToAttachedParentLocal(targetPoint.position), cancellation);
+
+                await MoveToAsync(
+                    context.Transform,
+                    WorldToAttachedParentLocal(context.Transform, targetPoint.position),
+                    cancellation);
             }
         }
 
-        private Vector3 WorldToAttachedParentLocal(Vector3 worldPosition)
+        private void ValidateTargetPoints(ObstacleActionContext context)
         {
-            var attachedParent = transform.parent;
+            var performerTransform = context.Transform;
+            foreach (var targetPoint in _targetPoints)
+            {
+                if (targetPoint == null)
+                {
+                    Debug.LogError($"{context.PerformerName}: a target point is missing.", context.Performer);
+                    continue;
+                }
+
+                if (performerTransform != null && targetPoint.IsChildOf(performerTransform))
+                {
+                    Debug.LogError(
+                        $"{context.PerformerName}: target point '{targetPoint.name}' is a child of the performer.",
+                        context.Performer);
+                }
+            }
+        }
+
+        private static Vector3 WorldToAttachedParentLocal(Transform performerTransform, Vector3 worldPosition)
+        {
+            var attachedParent = performerTransform != null ? performerTransform.parent : null;
             return attachedParent != null ? attachedParent.InverseTransformPoint(worldPosition) : worldPosition;
         }
 
-        private async UniTask MoveToAsync(Vector3 localDestination, CancellationToken cancellation)
+        private async UniTask MoveToAsync(
+            Transform performerTransform,
+            Vector3 localDestination,
+            CancellationToken cancellation)
         {
+            if (performerTransform == null) return;
+
             var speed = Mathf.Max(0.01f, _moveSpeed);
             var sqrArrivalDistance = ArrivalDistance * ArrivalDistance;
 
-            while ((transform.localPosition - localDestination).sqrMagnitude > sqrArrivalDistance)
+            while (performerTransform != null &&
+                   (performerTransform.localPosition - localDestination).sqrMagnitude > sqrArrivalDistance)
             {
-                transform.localPosition = Vector3.MoveTowards(
-                    transform.localPosition,
+                performerTransform.localPosition = Vector3.MoveTowards(
+                    performerTransform.localPosition,
                     localDestination,
                     speed * Time.deltaTime);
 
                 await UniTask.Yield(PlayerLoopTiming.Update, cancellation);
             }
 
-            transform.localPosition = localDestination;
+            if (performerTransform != null)
+                performerTransform.localPosition = localDestination;
         }
 
 #if UNITY_EDITOR
         public override string Describe()
         {
-            if (_targetPoints == null || _targetPoints.Length == 0) return "⚠ MoveTo → no points";
+            if (_targetPoints == null || _targetPoints.Length == 0) return "MoveTo -> no points";
 
             var route = DescribeRoute(out var hasMissingPoint);
-            var warningPrefix = hasMissingPoint ? "⚠ " : string.Empty;
+            var warningPrefix = hasMissingPoint ? "Missing: " : string.Empty;
 
-            return $"{warningPrefix}MoveTo → {route} @ {_moveSpeed:0.##}";
+            return $"{warningPrefix}MoveTo -> {route} @ {_moveSpeed:0.##}";
+        }
+
+        public override void DrawGizmos(ObstacleActionContext context)
+        {
+            if (!context.HasPerformer || _targetPoints == null || _targetPoints.Length == 0) return;
+
+            var performerTransform = context.Transform;
+            if (performerTransform == null) return;
+
+            Gizmos.color = Color.cyan;
+            var legStart = performerTransform.position;
+
+            foreach (var targetPoint in _targetPoints)
+            {
+                if (targetPoint == null) continue;
+
+                Gizmos.DrawLine(legStart, targetPoint.position);
+                Gizmos.DrawWireCube(targetPoint.position, performerTransform.lossyScale);
+                legStart = targetPoint.position;
+            }
         }
 
         private string DescribeRoute(out bool hasMissingPoint)
@@ -97,28 +134,11 @@ namespace DZ.Features
 
             var lastName = NameOf(_targetPoints[^1]);
             return _targetPoints.Length == 2
-                ? $"{firstName} → {lastName}"
-                : $"{firstName} ⋯ {lastName} ({_targetPoints.Length} pts)";
+                ? $"{firstName} -> {lastName}"
+                : $"{firstName} ... {lastName} ({_targetPoints.Length} pts)";
         }
 
         private static string NameOf(Transform targetPoint) => targetPoint != null ? targetPoint.name : "missing";
-
-        private void OnDrawGizmosSelected()
-        {
-            if (_targetPoints == null || _targetPoints.Length == 0) return;
-
-            Gizmos.color = Color.cyan;
-            var legStart = transform.position;
-
-            foreach (var targetPoint in _targetPoints)
-            {
-                if (targetPoint == null) continue;
-
-                Gizmos.DrawLine(legStart, targetPoint.position);
-                Gizmos.DrawWireCube(targetPoint.position, transform.lossyScale);
-                legStart = targetPoint.position;
-            }
-        }
 #endif
     }
 }

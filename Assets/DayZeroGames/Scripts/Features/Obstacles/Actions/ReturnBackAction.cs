@@ -1,47 +1,51 @@
+using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 namespace DZ.Features
 {
+    [Serializable]
     public class ReturnBackAction : ObstacleAction
     {
         private const float ArrivalDistance = 0.001f;
 
         [SerializeField, Min(0.01f)] private float _moveSpeed = 10f;
 
-        private Vector3 _originalLocalPosition;
-
-        private void Awake()
+        public override async UniTask ExecuteActionAsync(
+            ObstacleActionContext context,
+            CancellationToken cancellation = default)
         {
-            _originalLocalPosition = transform.localPosition;
+            await MoveToAsync(context.Transform, context.InitialLocalPosition, cancellation);
         }
 
-        public override async UniTask ExecuteActionAsync(CancellationToken cancellation = default)
+        private async UniTask MoveToAsync(
+            Transform performerTransform,
+            Vector3 localDestination,
+            CancellationToken cancellation)
         {
-            await MoveToAsync(_originalLocalPosition, cancellation);
-        }
+            if (performerTransform == null) return;
 
-        private async UniTask MoveToAsync(Vector3 localDestination, CancellationToken cancellation)
-        {
             var speed = Mathf.Max(0.01f, _moveSpeed);
             var sqrArrivalDistance = ArrivalDistance * ArrivalDistance;
 
-            while ((transform.localPosition - localDestination).sqrMagnitude > sqrArrivalDistance)
+            while (performerTransform != null &&
+                   (performerTransform.localPosition - localDestination).sqrMagnitude > sqrArrivalDistance)
             {
-                transform.localPosition = Vector3.MoveTowards(
-                    transform.localPosition,
+                performerTransform.localPosition = Vector3.MoveTowards(
+                    performerTransform.localPosition,
                     localDestination,
                     speed * Time.deltaTime);
 
                 await UniTask.Yield(PlayerLoopTiming.Update, cancellation);
             }
 
-            transform.localPosition = localDestination;
+            if (performerTransform != null)
+                performerTransform.localPosition = localDestination;
         }
 
 #if UNITY_EDITOR
-        public override string Describe() => $"ReturnTo → start @ {_moveSpeed:0.##}";
+        public override string Describe() => $"ReturnTo -> start @ {_moveSpeed:0.##}";
 #endif
     }
 }

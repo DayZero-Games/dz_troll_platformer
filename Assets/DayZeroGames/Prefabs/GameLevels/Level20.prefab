@@ -311,7 +311,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1247220117633756998}
   - component: {fileID: 5298899448764546904}
-  - component: {fileID: 4114441753575000899}
   - component: {fileID: 4617154241626898292}
   m_Layer: 9
   m_Name: spikes_2 (1)
@@ -394,21 +393,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &4114441753575000899
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 675703203190659393}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22d4b16768b37e34fb35b1936cb562ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.MovingSpikeAction
-  _targetPoints:
-  - {fileID: 8853697758302586691}
-  _moveSpeed: 15
 --- !u!61 &4617154241626898292
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -464,7 +448,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2617733938345354273}
-  - component: {fileID: 5588295804052541456}
   m_Layer: 0
   m_Name: FakePlatform
   m_TagString: Untagged
@@ -491,23 +474,6 @@ Transform:
   - {fileID: 2423950032024258351}
   m_Father: {fileID: 9214565773045907440}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5588295804052541456
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 720577133339870014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 096844c3f668b7d4780c9a696c3c3bbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.MovingPlatformAction
-  _targetPoints:
-  - {fileID: 5899127446176854715}
-  _moveSpeed: 15
-  _waitAtTargetSeconds: 1
-  _shouldReturn: 0
 --- !u!1 &964815190769837645
 GameObject:
   m_ObjectHideFlags: 0
@@ -723,6 +689,7 @@ GameObject:
   - component: {fileID: 5768140554338371646}
   - component: {fileID: 4086915926819202276}
   - component: {fileID: 8692860540711880008}
+  - component: {fileID: 5275943085743600583}
   m_Layer: 0
   m_Name: Platfrom Trigger
   m_TagString: Untagged
@@ -803,10 +770,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59fa82caa13bb614baba05e5515f32b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleTrigger
-  _obstacleActions:
-  - {fileID: 1217085763035735839}
-  _maxTriggerCount: 1
   _playerTag: Player
+  _disableColliderAfterSuccessfulActivation: 1
+  _controllers:
+  - {fileID: 5275943085743600583}
+--- !u!114 &5275943085743600583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1078800364449940838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
+  _executionMode: 0
+  _performers:
+  - _performer: {fileID: 6807486807109621815}
+    _actions:
+    - rid: 1000000000000000000
+    - rid: 1000000000000000001
+    - rid: 1000000000000000002
+  references:
+    version: 2
+    RefIds:
+    - rid: 1000000000000000000
+      type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _targetPoints:
+        - {fileID: 6318982944430004916}
+        _moveSpeed: 10
+    - rid: 1000000000000000001
+      type: {class: WaitAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _durationSeconds: 1
+    - rid: 1000000000000000002
+      type: {class: ReturnBackAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _moveSpeed: 10
 --- !u!1 &1120502406877553452
 GameObject:
   m_ObjectHideFlags: 0
@@ -1677,6 +1680,7 @@ GameObject:
   - component: {fileID: 3850232968197220641}
   - component: {fileID: 4149448137943684400}
   - component: {fileID: 510163411933293193}
+  - component: {fileID: 5486140497624517471}
   m_Layer: 0
   m_Name: SpikeTrigger
   m_TagString: Untagged
@@ -1757,10 +1761,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59fa82caa13bb614baba05e5515f32b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleTrigger
-  _obstacleActions:
-  - {fileID: 980420539335335043}
-  _maxTriggerCount: 1
   _playerTag: Player
+  _disableColliderAfterSuccessfulActivation: 1
+  _controllers:
+  - {fileID: 5486140497624517471}
+--- !u!114 &5486140497624517471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2392952763375654199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
+  _executionMode: 0
+  _performers:
+  - _performer: {fileID: 8440437232769335608}
+    _actions:
+    - rid: 1000000000000000003
+  references:
+    version: 2
+    RefIds:
+    - rid: 1000000000000000003
+      type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _targetPoints:
+        - {fileID: 2162086279727303957}
+        _moveSpeed: 20
 --- !u!1 &2475896288839293079
 GameObject:
   m_ObjectHideFlags: 0
@@ -2573,6 +2603,7 @@ GameObject:
   - component: {fileID: 8412925427057112279}
   - component: {fileID: 3563166610901904141}
   - component: {fileID: 566955173892036378}
+  - component: {fileID: 4955123354846165594}
   m_Layer: 0
   m_Name: SpikeActionTrigger (1)
   m_TagString: Untagged
@@ -2653,10 +2684,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59fa82caa13bb614baba05e5515f32b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleTrigger
-  _obstacleActions:
-  - {fileID: 761519865803408903}
-  _maxTriggerCount: 1
   _playerTag: Player
+  _disableColliderAfterSuccessfulActivation: 1
+  _controllers:
+  - {fileID: 4955123354846165594}
+--- !u!114 &4955123354846165594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3645204836595770930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
+  _executionMode: 0
+  _performers:
+  - _performer: {fileID: 7028049889127507448}
+    _actions:
+    - rid: 1000000000000000004
+  references:
+    version: 2
+    RefIds:
+    - rid: 1000000000000000004
+      type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _targetPoints:
+        - {fileID: 3946015108213825370}
+        _moveSpeed: 15
 --- !u!1 &3678313141747063921
 GameObject:
   m_ObjectHideFlags: 0
@@ -3114,7 +3171,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3434752183188186203}
   - component: {fileID: 5274637122520147917}
-  - component: {fileID: 4373340488200834801}
   - component: {fileID: 1900297160108700219}
   m_Layer: 9
   m_Name: spikes_2 (1)
@@ -3197,21 +3253,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &4373340488200834801
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3849676283647527565}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22d4b16768b37e34fb35b1936cb562ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.MovingSpikeAction
-  _targetPoints:
-  - {fileID: 3332897516344511736}
-  _moveSpeed: 10
 --- !u!61 &1900297160108700219
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3683,6 +3724,7 @@ GameObject:
   - component: {fileID: 3511812345287062683}
   - component: {fileID: 996581624664654656}
   - component: {fileID: 5515572213780993234}
+  - component: {fileID: 5123528565932492691}
   m_Layer: 0
   m_Name: SpikeActionTrigger
   m_TagString: Untagged
@@ -3763,10 +3805,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59fa82caa13bb614baba05e5515f32b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleTrigger
-  _obstacleActions:
-  - {fileID: 4373340488200834801}
-  _maxTriggerCount: 1
   _playerTag: Player
+  _disableColliderAfterSuccessfulActivation: 1
+  _controllers:
+  - {fileID: 5123528565932492691}
+--- !u!114 &5123528565932492691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4157208951998467291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
+  _executionMode: 0
+  _performers:
+  - _performer: {fileID: 3849676283647527565}
+    _actions:
+    - rid: 1000000000000000005
+  references:
+    version: 2
+    RefIds:
+    - rid: 1000000000000000005
+      type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _targetPoints:
+        - {fileID: 3332897516344511736}
+        _moveSpeed: 10
 --- !u!1 &4513234294021689958
 GameObject:
   m_ObjectHideFlags: 0
@@ -3778,6 +3846,7 @@ GameObject:
   - component: {fileID: 6478742521241995533}
   - component: {fileID: 7386226413206494813}
   - component: {fileID: 7264345778779377417}
+  - component: {fileID: 5722233234044218313}
   m_Layer: 0
   m_Name: FakePlatfromTrigger
   m_TagString: Untagged
@@ -3858,10 +3927,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59fa82caa13bb614baba05e5515f32b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleTrigger
-  _obstacleActions:
-  - {fileID: 5588295804052541456}
-  _maxTriggerCount: 1
   _playerTag: Player
+  _disableColliderAfterSuccessfulActivation: 1
+  _controllers:
+  - {fileID: 5722233234044218313}
+--- !u!114 &5722233234044218313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4513234294021689958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
+  _executionMode: 0
+  _performers:
+  - _performer: {fileID: 720577133339870014}
+    _actions:
+    - rid: 1000000000000000006
+    - rid: 1000000000000000007
+  references:
+    version: 2
+    RefIds:
+    - rid: 1000000000000000006
+      type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _targetPoints:
+        - {fileID: 5899127446176854715}
+        _moveSpeed: 15
+    - rid: 1000000000000000007
+      type: {class: WaitAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _durationSeconds: 1
 --- !u!1 &4516095613880216132
 GameObject:
   m_ObjectHideFlags: 0
@@ -5961,7 +6061,6 @@ GameObject:
   - component: {fileID: 1518049753213124737}
   - component: {fileID: 3865541650945532869}
   - component: {fileID: 3857874352151663920}
-  - component: {fileID: 1217085763035735839}
   m_Layer: 8
   m_Name: Visual
   m_TagString: Untagged
@@ -6089,23 +6188,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1217085763035735839
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6807486807109621815}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 096844c3f668b7d4780c9a696c3c3bbd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.MovingPlatformAction
-  _targetPoints:
-  - {fileID: 6318982944430004916}
-  _moveSpeed: 10
-  _waitAtTargetSeconds: 1
-  _shouldReturn: 1
 --- !u!1 &6816938833953972473
 GameObject:
   m_ObjectHideFlags: 0
@@ -6654,7 +6736,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8926510430781469700}
-  - component: {fileID: 761519865803408903}
   m_Layer: 0
   m_Name: movingSpike
   m_TagString: Untagged
@@ -6679,21 +6760,6 @@ Transform:
   - {fileID: 8381320145018901944}
   m_Father: {fileID: 3960108074234347066}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &761519865803408903
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7028049889127507448}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22d4b16768b37e34fb35b1936cb562ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.MovingSpikeAction
-  _targetPoints:
-  - {fileID: 3946015108213825370}
-  _moveSpeed: 15
 --- !u!1 &7182999362731183111
 GameObject:
   m_ObjectHideFlags: 0
@@ -27084,6 +27150,7 @@ GameObject:
   - component: {fileID: 2400657416796304389}
   - component: {fileID: 3056752771443853970}
   - component: {fileID: 7144075027919681246}
+  - component: {fileID: 4901336822913317347}
   m_Layer: 0
   m_Name: SpikeActionTrigger (1)
   m_TagString: Untagged
@@ -27164,10 +27231,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59fa82caa13bb614baba05e5515f32b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleTrigger
-  _obstacleActions:
-  - {fileID: 4114441753575000899}
-  _maxTriggerCount: 1
   _playerTag: Player
+  _disableColliderAfterSuccessfulActivation: 1
+  _controllers:
+  - {fileID: 4901336822913317347}
+--- !u!114 &4901336822913317347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7996677563415528680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
+  _executionMode: 0
+  _performers:
+  - _performer: {fileID: 675703203190659393}
+    _actions:
+    - rid: 1000000000000000008
+  references:
+    version: 2
+    RefIds:
+    - rid: 1000000000000000008
+      type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _targetPoints:
+        - {fileID: 8853697758302586691}
+        _moveSpeed: 15
 --- !u!1 &8090399816624995930
 GameObject:
   m_ObjectHideFlags: 0
@@ -27488,7 +27581,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5585998908946404139}
-  - component: {fileID: 980420539335335043}
   m_Layer: 0
   m_Name: MoveableSpikes
   m_TagString: Untagged
@@ -27513,21 +27605,6 @@ Transform:
   - {fileID: 8516234731061482078}
   m_Father: {fileID: 7802721232511684000}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &980420539335335043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8440437232769335608}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22d4b16768b37e34fb35b1936cb562ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.MovingSpikeAction
-  _targetPoints:
-  - {fileID: 2162086279727303957}
-  _moveSpeed: 20
 --- !u!1 &8524792719704170828
 GameObject:
   m_ObjectHideFlags: 0

@@ -14412,11 +14412,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
   _executionMode: 1
-  _obstacleActions:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  _performers: []
 --- !u!1 &5053976807960332478
 GameObject:
   m_ObjectHideFlags: 0

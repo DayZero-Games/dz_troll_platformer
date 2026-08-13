@@ -142,13 +142,48 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
   _executionMode: 0
-  _obstacleActions:
-  - {fileID: 5440124922443297938}
-  - {fileID: 1693803045481819813}
-  - {fileID: 9151475723599033913}
-  - {fileID: 1693803045481819813}
-  - {fileID: 5440124922443297938}
-  - {fileID: 64953765726051236}
+  _performers:
+  - _performer: {fileID: 5294306565772062519}
+    _actions:
+    - rid: 1000000000000000000
+    - rid: 1000000000000000001
+    - rid: 1000000000000000002
+    - rid: 1000000000000000003
+    - rid: 1000000000000000004
+    - rid: 1000000000000000005
+  references:
+    version: 2
+    RefIds:
+    - rid: 1000000000000000000
+      type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _targetPoints:
+        - {fileID: 6021850390012088021}
+        _moveSpeed: 2
+    - rid: 1000000000000000001
+      type: {class: WaitAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _durationSeconds: 1
+    - rid: 1000000000000000002
+      type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _targetPoints:
+        - {fileID: 3865753717137312031}
+        _moveSpeed: 2
+    - rid: 1000000000000000003
+      type: {class: WaitAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _durationSeconds: 1
+    - rid: 1000000000000000004
+      type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _targetPoints:
+        - {fileID: 6021850390012088021}
+        _moveSpeed: 2
+    - rid: 1000000000000000005
+      type: {class: ReturnBackAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _moveSpeed: 2
 --- !u!1 &645824230269969043
 GameObject:
   m_ObjectHideFlags: 0
@@ -16776,13 +16811,48 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
   _executionMode: 0
-  _obstacleActions:
-  - {fileID: 9082152182784088765}
-  - {fileID: 3651379901562507620}
-  - {fileID: 1751370992402405541}
-  - {fileID: 3651379901562507620}
-  - {fileID: 9082152182784088765}
-  - {fileID: 2312705220307004723}
+  _performers:
+  - _performer: {fileID: 5502300862765470758}
+    _actions:
+    - rid: 1000000000000000006
+    - rid: 1000000000000000007
+    - rid: 1000000000000000008
+    - rid: 1000000000000000009
+    - rid: 1000000000000000010
+    - rid: 1000000000000000011
+  references:
+    version: 2
+    RefIds:
+    - rid: 1000000000000000006
+      type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _targetPoints:
+        - {fileID: 7464395897799674998}
+        _moveSpeed: 2
+    - rid: 1000000000000000007
+      type: {class: WaitAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _durationSeconds: 1
+    - rid: 1000000000000000008
+      type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _targetPoints:
+        - {fileID: 1291478673384914376}
+        _moveSpeed: 2
+    - rid: 1000000000000000009
+      type: {class: WaitAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _durationSeconds: 1
+    - rid: 1000000000000000010
+      type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _targetPoints:
+        - {fileID: 7464395897799674998}
+        _moveSpeed: 2
+    - rid: 1000000000000000011
+      type: {class: ReturnBackAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _moveSpeed: 2
 --- !u!1 &3314358795435371444
 GameObject:
   m_ObjectHideFlags: 0
@@ -17086,9 +17156,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3203344476195564022}
-  - component: {fileID: 7900629171987502304}
-  - component: {fileID: 6832816124361865083}
-  - component: {fileID: 1796788370945010783}
   m_Layer: 0
   m_Name: Spikes
   m_TagString: Untagged
@@ -17115,48 +17182,6 @@ Transform:
   - {fileID: 2334685107814778872}
   m_Father: {fileID: 699818659044412771}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7900629171987502304
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4668501252623289491}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df7fafedef4a48c782036747b0318e0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.MoveToPointAction
-  _targetPoints:
-  - {fileID: 7231384270247580601}
-  _moveSpeed: 10
-  _startDelaySeconds: 1
---- !u!114 &6832816124361865083
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4668501252623289491}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b8a0c3bf1ba47449e74cfa17fbad702, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.WaitAction
-  _durationSeconds: 3
---- !u!114 &1796788370945010783
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4668501252623289491}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b85cf721f904f7bbc5dbcc74c280e30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ReturnBackAction
-  _moveSpeed: 10
 --- !u!1 &4672618510593315365
 GameObject:
   m_ObjectHideFlags: 0
@@ -17202,13 +17227,46 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
   _executionMode: 0
-  _obstacleActions:
-  - {fileID: 7900629171987502304}
-  - {fileID: 6832816124361865083}
-  - {fileID: 1796788370945010783}
-  - {fileID: 7900629171987502304}
-  - {fileID: 6832816124361865083}
-  - {fileID: 1796788370945010783}
+  _performers:
+  - _performer: {fileID: 4668501252623289491}
+    _actions:
+    - rid: 1000000000000000012
+    - rid: 1000000000000000013
+    - rid: 1000000000000000014
+    - rid: 1000000000000000015
+    - rid: 1000000000000000016
+    - rid: 1000000000000000017
+  references:
+    version: 2
+    RefIds:
+    - rid: 1000000000000000012
+      type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _targetPoints:
+        - {fileID: 7231384270247580601}
+        _moveSpeed: 10
+    - rid: 1000000000000000013
+      type: {class: WaitAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _durationSeconds: 3
+    - rid: 1000000000000000014
+      type: {class: ReturnBackAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _moveSpeed: 10
+    - rid: 1000000000000000015
+      type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _targetPoints:
+        - {fileID: 7231384270247580601}
+        _moveSpeed: 10
+    - rid: 1000000000000000016
+      type: {class: WaitAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _durationSeconds: 3
+    - rid: 1000000000000000017
+      type: {class: ReturnBackAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _moveSpeed: 10
 --- !u!1 &5118494485185277991
 GameObject:
   m_ObjectHideFlags: 0
@@ -17251,10 +17309,6 @@ GameObject:
   - component: {fileID: 6320413157509770109}
   - component: {fileID: 2293581623078994319}
   - component: {fileID: 8204205236862428340}
-  - component: {fileID: 5440124922443297938}
-  - component: {fileID: 1693803045481819813}
-  - component: {fileID: 9151475723599033913}
-  - component: {fileID: 64953765726051236}
   m_Layer: 8
   m_Name: Platform
   m_TagString: Untagged
@@ -17382,64 +17436,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 3, y: 1}
   m_EdgeRadius: 0
---- !u!114 &5440124922443297938
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5294306565772062519}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df7fafedef4a48c782036747b0318e0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.MoveToPointAction
-  _targetPoints:
-  - {fileID: 6021850390012088021}
-  _moveSpeed: 2
-  _startDelaySeconds: 0
---- !u!114 &1693803045481819813
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5294306565772062519}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b8a0c3bf1ba47449e74cfa17fbad702, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.WaitAction
-  _durationSeconds: 1
---- !u!114 &9151475723599033913
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5294306565772062519}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df7fafedef4a48c782036747b0318e0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.MoveToPointAction
-  _targetPoints:
-  - {fileID: 3865753717137312031}
-  _moveSpeed: 2
-  _startDelaySeconds: 0
---- !u!114 &64953765726051236
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5294306565772062519}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b85cf721f904f7bbc5dbcc74c280e30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ReturnBackAction
-  _moveSpeed: 2
 --- !u!1 &5502300862765470758
 GameObject:
   m_ObjectHideFlags: 0
@@ -17451,10 +17447,6 @@ GameObject:
   - component: {fileID: 7386906094549229673}
   - component: {fileID: 3962364530162323542}
   - component: {fileID: 605766929625702812}
-  - component: {fileID: 9082152182784088765}
-  - component: {fileID: 3651379901562507620}
-  - component: {fileID: 1751370992402405541}
-  - component: {fileID: 2312705220307004723}
   m_Layer: 8
   m_Name: Platform
   m_TagString: Untagged
@@ -17582,64 +17574,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 3, y: 1}
   m_EdgeRadius: 0
---- !u!114 &9082152182784088765
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5502300862765470758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df7fafedef4a48c782036747b0318e0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.MoveToPointAction
-  _targetPoints:
-  - {fileID: 7464395897799674998}
-  _moveSpeed: 2
-  _startDelaySeconds: 0
---- !u!114 &3651379901562507620
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5502300862765470758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b8a0c3bf1ba47449e74cfa17fbad702, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.WaitAction
-  _durationSeconds: 1
---- !u!114 &1751370992402405541
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5502300862765470758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df7fafedef4a48c782036747b0318e0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.MoveToPointAction
-  _targetPoints:
-  - {fileID: 1291478673384914376}
-  _moveSpeed: 2
-  _startDelaySeconds: 0
---- !u!114 &2312705220307004723
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5502300862765470758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b85cf721f904f7bbc5dbcc74c280e30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ReturnBackAction
-  _moveSpeed: 2
 --- !u!1 &5592307452235557271
 GameObject:
   m_ObjectHideFlags: 0
@@ -17685,10 +17619,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
   _executionMode: 0
-  _obstacleActions:
-  - {fileID: 5113440142289635524}
-  - {fileID: 5163871024919577238}
-  - {fileID: 4429065898665806726}
+  _performers:
+  - _performer: {fileID: 6574445806376644142}
+    _actions:
+    - rid: 1000000000000000018
+    - rid: 1000000000000000019
+    - rid: 1000000000000000020
+  references:
+    version: 2
+    RefIds:
+    - rid: 1000000000000000018
+      type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _targetPoints:
+        - {fileID: 7436117034944316105}
+        _moveSpeed: 2
+    - rid: 1000000000000000019
+      type: {class: WaitAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _durationSeconds: 4
+    - rid: 1000000000000000020
+      type: {class: DisableObjectAction, ns: DZ.Features, asm: DZ.Features}
+      data: 
 --- !u!1 &5867176084169903758
 GameObject:
   m_ObjectHideFlags: 0
@@ -17890,9 +17842,6 @@ GameObject:
   - component: {fileID: 3250390604858922671}
   - component: {fileID: 1482209761403409102}
   - component: {fileID: 3986333082867364858}
-  - component: {fileID: 5113440142289635524}
-  - component: {fileID: 5163871024919577238}
-  - component: {fileID: 4429065898665806726}
   m_Layer: 8
   m_Name: Platform
   m_TagString: Untagged
@@ -18020,47 +17969,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 3, y: 1}
   m_EdgeRadius: 0
---- !u!114 &5113440142289635524
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6574445806376644142}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df7fafedef4a48c782036747b0318e0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.MoveToPointAction
-  _targetPoints:
-  - {fileID: 7436117034944316105}
-  _moveSpeed: 2
-  _startDelaySeconds: 0
---- !u!114 &5163871024919577238
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6574445806376644142}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b8a0c3bf1ba47449e74cfa17fbad702, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.WaitAction
-  _durationSeconds: 4
---- !u!114 &4429065898665806726
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6574445806376644142}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5bc7a9aacc9479d962ffb8da1829762, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.DisableObjectAction
 --- !u!1 &6614411083642156931
 GameObject:
   m_ObjectHideFlags: 0
