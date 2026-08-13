@@ -1128,7 +1128,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df7fafedef4a48c782036747b0318e0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.MoveToPointAction
-  _targetPoint: {fileID: 3424211202881120148}
+  _targetPoints:
+  - {fileID: 3424211202881120148}
   _moveSpeed: 20
   _startDelaySeconds: 0
 --- !u!114 &8064675214839526499
@@ -1330,7 +1331,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df7fafedef4a48c782036747b0318e0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.MoveToPointAction
-  _targetPoint: {fileID: 3882098284249984565}
+  _targetPoints:
+  - {fileID: 3882098284249984565}
   _moveSpeed: 20
   _startDelaySeconds: 0
 --- !u!114 &8033629782731065767
@@ -1403,7 +1405,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df7fafedef4a48c782036747b0318e0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.MoveToPointAction
-  _targetPoint: {fileID: 6473596818935145739}
+  _targetPoints:
+  - {fileID: 6473596818935145739}
   _moveSpeed: 5
   _startDelaySeconds: 0
 --- !u!114 &2103727009632248213
@@ -1418,7 +1421,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df7fafedef4a48c782036747b0318e0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.MoveToPointAction
-  _targetPoint: {fileID: 6128700201232703947}
+  _targetPoints:
+  - {fileID: 6128700201232703947}
   _moveSpeed: 1
   _startDelaySeconds: 0
 --- !u!1 &7780877946039794729

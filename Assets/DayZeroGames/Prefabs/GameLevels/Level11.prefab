@@ -17127,7 +17127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df7fafedef4a48c782036747b0318e0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.MoveToPointAction
-  _targetPoint: {fileID: 7231384270247580601}
+  _targetPoints:
+  - {fileID: 7231384270247580601}
   _moveSpeed: 10
   _startDelaySeconds: 1
 --- !u!114 &6832816124361865083
@@ -17393,7 +17394,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df7fafedef4a48c782036747b0318e0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.MoveToPointAction
-  _targetPoint: {fileID: 6021850390012088021}
+  _targetPoints:
+  - {fileID: 6021850390012088021}
   _moveSpeed: 2
   _startDelaySeconds: 0
 --- !u!114 &1693803045481819813
@@ -17421,7 +17423,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df7fafedef4a48c782036747b0318e0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.MoveToPointAction
-  _targetPoint: {fileID: 3865753717137312031}
+  _targetPoints:
+  - {fileID: 3865753717137312031}
   _moveSpeed: 2
   _startDelaySeconds: 0
 --- !u!114 &64953765726051236
@@ -17591,7 +17594,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df7fafedef4a48c782036747b0318e0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.MoveToPointAction
-  _targetPoint: {fileID: 7464395897799674998}
+  _targetPoints:
+  - {fileID: 7464395897799674998}
   _moveSpeed: 2
   _startDelaySeconds: 0
 --- !u!114 &3651379901562507620
@@ -17619,7 +17623,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df7fafedef4a48c782036747b0318e0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.MoveToPointAction
-  _targetPoint: {fileID: 1291478673384914376}
+  _targetPoints:
+  - {fileID: 1291478673384914376}
   _moveSpeed: 2
   _startDelaySeconds: 0
 --- !u!114 &2312705220307004723
@@ -18027,7 +18032,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df7fafedef4a48c782036747b0318e0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.MoveToPointAction
-  _targetPoint: {fileID: 7436117034944316105}
+  _targetPoints:
+  - {fileID: 7436117034944316105}
   _moveSpeed: 2
   _startDelaySeconds: 0
 --- !u!114 &5163871024919577238

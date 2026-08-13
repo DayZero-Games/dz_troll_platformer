@@ -15334,6 +15334,37 @@ TilemapRenderer:
   m_SortOrder: 0
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
+--- !u!1 &6343743741853540929
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9177503662044332176}
+  m_Layer: 6
+  m_Name: Target (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9177503662044332176
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6343743741853540929}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -17.9, y: -27, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 391168684590699918}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6981172178524845610
 GameObject:
   m_ObjectHideFlags: 0
@@ -15461,10 +15492,42 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 0.3579917
       objectReference: {fileID: 0}
+    - target: {fileID: 3044586945166930893, guid: be7943d937bc7d04382cc75604ffa859, type: 3}
+      propertyPath: _targetPoints.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3044586945166930893, guid: be7943d937bc7d04382cc75604ffa859, type: 3}
+      propertyPath: '_targetPoints.Array.data[1]'
+      value: 
+      objectReference: {fileID: 9177503662044332176}
     - target: {fileID: 4926250550723583208, guid: be7943d937bc7d04382cc75604ffa859, type: 3}
       propertyPath: m_Name
       value: FakePlatformCol16
       objectReference: {fileID: 0}
+    - target: {fileID: 6178445575820121662, guid: be7943d937bc7d04382cc75604ffa859, type: 3}
+      propertyPath: _actionGroups.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6178445575820121662, guid: be7943d937bc7d04382cc75604ffa859, type: 3}
+      propertyPath: _obstacleActions.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6178445575820121662, guid: be7943d937bc7d04382cc75604ffa859, type: 3}
+      propertyPath: _actionGroups.Array.data[0]._performer
+      value: 
+      objectReference: {fileID: 7173124280711255865}
+    - target: {fileID: 6178445575820121662, guid: be7943d937bc7d04382cc75604ffa859, type: 3}
+      propertyPath: _actionGroups.Array.data[0]._actions.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6178445575820121662, guid: be7943d937bc7d04382cc75604ffa859, type: 3}
+      propertyPath: '_actionGroups.Array.data[0]._actions.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2585679686443845460}
+    - target: {fileID: 6178445575820121662, guid: be7943d937bc7d04382cc75604ffa859, type: 3}
+      propertyPath: '_actionGroups.Array.data[0]._actions.Array.data[1]'
+      value: 
+      objectReference: {fileID: 5711940393065665397}
     - target: {fileID: 8765441889652598583, guid: be7943d937bc7d04382cc75604ffa859, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -15507,14 +15570,71 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 922977971442262295, guid: be7943d937bc7d04382cc75604ffa859, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 9177503662044332176}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9130253328709620938, guid: be7943d937bc7d04382cc75604ffa859, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4415122760813007705}
   m_SourcePrefab: {fileID: 100100000, guid: be7943d937bc7d04382cc75604ffa859, type: 3}
+--- !u!4 &391168684590699918 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 922977971442262295, guid: be7943d937bc7d04382cc75604ffa859, type: 3}
+  m_PrefabInstance: {fileID: 694300136693216409}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2585679686443845460 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3044586945166930893, guid: be7943d937bc7d04382cc75604ffa859, type: 3}
+  m_PrefabInstance: {fileID: 694300136693216409}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7173124280711255865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df7fafedef4a48c782036747b0318e0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.MoveToPointAction
+--- !u!114 &5711940393065665397 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5108847576450918380, guid: be7943d937bc7d04382cc75604ffa859, type: 3}
+  m_PrefabInstance: {fileID: 694300136693216409}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7173124280711255865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5bc7a9aacc9479d962ffb8da1829762, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.DisableObjectAction
+--- !u!1 &7173124280711255865 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7651238415347524512, guid: be7943d937bc7d04382cc75604ffa859, type: 3}
+  m_PrefabInstance: {fileID: 694300136693216409}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8072628384049976238 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8765441889652598583, guid: be7943d937bc7d04382cc75604ffa859, type: 3}
   m_PrefabInstance: {fileID: 694300136693216409}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8581480775793909843 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9130253328709620938, guid: be7943d937bc7d04382cc75604ffa859, type: 3}
+  m_PrefabInstance: {fileID: 694300136693216409}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4415122760813007705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8581480775793909843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
+  _executionMode: 0
+  _obstacleActions: []
 --- !u!1001 &4893293078834751513
 PrefabInstance:
   m_ObjectHideFlags: 0

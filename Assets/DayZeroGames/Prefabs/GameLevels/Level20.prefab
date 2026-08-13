@@ -406,7 +406,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22d4b16768b37e34fb35b1936cb562ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.MovingSpikeAction
-  _targetPoint: {fileID: 8853697758302586691}
+  _targetPoints:
+  - {fileID: 8853697758302586691}
   _moveSpeed: 15
 --- !u!61 &4617154241626898292
 BoxCollider2D:
@@ -502,7 +503,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 096844c3f668b7d4780c9a696c3c3bbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.MovingPlatformAction
-  _targetPoint: {fileID: 5899127446176854715}
+  _targetPoints:
+  - {fileID: 5899127446176854715}
   _moveSpeed: 15
   _waitAtTargetSeconds: 1
   _shouldReturn: 0
@@ -3207,7 +3209,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22d4b16768b37e34fb35b1936cb562ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.MovingSpikeAction
-  _targetPoint: {fileID: 3332897516344511736}
+  _targetPoints:
+  - {fileID: 3332897516344511736}
   _moveSpeed: 10
 --- !u!61 &1900297160108700219
 BoxCollider2D:
@@ -6098,7 +6101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 096844c3f668b7d4780c9a696c3c3bbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.MovingPlatformAction
-  _targetPoint: {fileID: 6318982944430004916}
+  _targetPoints:
+  - {fileID: 6318982944430004916}
   _moveSpeed: 10
   _waitAtTargetSeconds: 1
   _shouldReturn: 1
@@ -6687,7 +6691,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22d4b16768b37e34fb35b1936cb562ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.MovingSpikeAction
-  _targetPoint: {fileID: 3946015108213825370}
+  _targetPoints:
+  - {fileID: 3946015108213825370}
   _moveSpeed: 15
 --- !u!1 &7182999362731183111
 GameObject:
@@ -27520,7 +27525,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22d4b16768b37e34fb35b1936cb562ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.MovingSpikeAction
-  _targetPoint: {fileID: 2162086279727303957}
+  _targetPoints:
+  - {fileID: 2162086279727303957}
   _moveSpeed: 20
 --- !u!1 &8524792719704170828
 GameObject:

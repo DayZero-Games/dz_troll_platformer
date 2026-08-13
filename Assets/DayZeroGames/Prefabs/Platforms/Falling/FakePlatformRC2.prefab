@@ -139,7 +139,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df7fafedef4a48c782036747b0318e0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.MoveToPointAction
-  _targetPoint: {fileID: 8165527921826274197}
+  _targetPoints:
+  - {fileID: 8165527921826274197}
   _moveSpeed: 20
   _startDelaySeconds: 0
 --- !u!114 &3548712204397267042

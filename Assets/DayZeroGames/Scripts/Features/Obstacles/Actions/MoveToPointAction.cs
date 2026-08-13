@@ -9,34 +9,49 @@ namespace DZ.Features
     {
         private const float ArrivalDistance = 0.001f;
 
-        [Tooltip("Empty GameObject placed where this object should end up.")]
-        [SerializeField] private Transform _targetPoint;
+        [Tooltip("Empty GameObjects to travel through, in order. The object stops at the last one.")]
+        [SerializeField] private Transform[] _targetPoints;
 
         [SerializeField, Min(0.01f)] private float _moveSpeed = 10f;
         [SerializeField, Min(0f)] private float _startDelaySeconds;
 
         private void Awake()
         {
-            if (_targetPoint == null)
+            if (_targetPoints == null || _targetPoints.Length == 0)
             {
-                Debug.LogError($"{name}: no target point assigned.", this);
+                Debug.LogError($"{name}: no target points assigned.", this);
                 return;
             }
 
-            if (_targetPoint.IsChildOf(transform))
+            foreach (var targetPoint in _targetPoints)
             {
-                Debug.LogError($"{name}: target point is a child of this action object.", this);
+                if (targetPoint == null)
+                {
+                    Debug.LogError($"{name}: a target point is missing.", this);
+                    continue;
+                }
+
+                if (targetPoint.IsChildOf(transform))
+                {
+                    Debug.LogError(
+                        $"{name}: target point '{targetPoint.name}' is a child of this action object.", this);
+                }
             }
         }
 
         public override async UniTask ExecuteActionAsync(CancellationToken cancellation = default)
         {
-            if (_targetPoint == null) return;
+            if (_targetPoints == null || _targetPoints.Length == 0) return;
 
             if (_startDelaySeconds > 0f)
                 await UniTask.Delay(TimeSpan.FromSeconds(_startDelaySeconds), cancellationToken: cancellation);
 
-            await MoveToAsync(WorldToAttachedParentLocal(_targetPoint.position), cancellation);
+            foreach (var targetPoint in _targetPoints)
+            {
+                if (targetPoint == null) continue;
+                
+                await MoveToAsync(WorldToAttachedParentLocal(targetPoint.position), cancellation);
+            }
         }
 
         private Vector3 WorldToAttachedParentLocal(Vector3 worldPosition)
@@ -66,11 +81,19 @@ namespace DZ.Features
 #if UNITY_EDITOR
         private void OnDrawGizmosSelected()
         {
-            if (_targetPoint == null) return;
+            if (_targetPoints == null || _targetPoints.Length == 0) return;
 
             Gizmos.color = Color.cyan;
-            Gizmos.DrawLine(transform.position, _targetPoint.position);
-            Gizmos.DrawWireCube(_targetPoint.position, transform.lossyScale);
+            var legStart = transform.position;
+
+            foreach (var targetPoint in _targetPoints)
+            {
+                if (targetPoint == null) continue;
+
+                Gizmos.DrawLine(legStart, targetPoint.position);
+                Gizmos.DrawWireCube(targetPoint.position, transform.lossyScale);
+                legStart = targetPoint.position;
+            }
         }
 #endif
     }

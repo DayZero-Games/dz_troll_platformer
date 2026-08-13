@@ -507,7 +507,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df7fafedef4a48c782036747b0318e0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.MoveToPointAction
-  _targetPoint: {fileID: 4588218227830921794}
+  _targetPoints:
+  - {fileID: 4588218227830921794}
   _moveSpeed: 15
   _startDelaySeconds: 0
 --- !u!1 &3112374260916303302
@@ -770,7 +771,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df7fafedef4a48c782036747b0318e0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.MoveToPointAction
-  _targetPoint: {fileID: 2615062500479555539}
+  _targetPoints:
+  - {fileID: 2615062500479555539}
   _moveSpeed: 10
   _startDelaySeconds: 0
 --- !u!1 &4853134893509637939

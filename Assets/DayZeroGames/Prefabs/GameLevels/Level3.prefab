@@ -22613,7 +22613,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df7fafedef4a48c782036747b0318e0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.MoveToPointAction
-  _targetPoint: {fileID: 3392554118823207127}
+  _targetPoints:
+  - {fileID: 3392554118823207127}
   _moveSpeed: 10
   _startDelaySeconds: 0
 --- !u!114 &2815584475645532989
@@ -22641,7 +22642,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df7fafedef4a48c782036747b0318e0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.MoveToPointAction
-  _targetPoint: {fileID: 6715874589500091913}
+  _targetPoints:
+  - {fileID: 6715874589500091913}
   _moveSpeed: 10
   _startDelaySeconds: 0
 --- !u!114 &3274455759967472874
