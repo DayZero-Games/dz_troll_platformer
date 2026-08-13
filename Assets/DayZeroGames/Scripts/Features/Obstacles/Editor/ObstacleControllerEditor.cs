@@ -198,18 +198,6 @@ namespace DZ.Features.EditorTools
             _addMessageType = MessageType.None;
         }
 
-        private HashSet<int> BuildLinkedActionIds()
-        {
-            var linked = new HashSet<int>();
-            for (var i = 0; i < _actionsProperty.arraySize; i++)
-            {
-                var action = _actionsProperty.GetArrayElementAtIndex(i).objectReferenceValue;
-                if (action != null) linked.Add(action.GetInstanceID());
-            }
-
-            return linked;
-        }
-
         private PerformerGroup FindGroupFor(GameObject performer)
         {
             foreach (var group in _groups)
@@ -390,7 +378,7 @@ namespace DZ.Features.EditorTools
 
         // ── the action dropdown ─────────────────────────────────────────────────────────────────
 
-        // Lists the action components already on the performer, one link at a time.
+        // Lists the action components on the performer. Picking the same component again repeats it.
         private void ShowPerformerActionsMenu(Rect buttonRect, GameObject performer)
         {
             var menu = new GenericMenu();
@@ -410,18 +398,11 @@ namespace DZ.Features.EditorTools
                 return;
             }
 
-            var alreadyLinked = BuildLinkedActionIds();
             var usedLabels = new HashSet<string>();
 
             foreach (var action in actions)
             {
                 var label = MakeUniqueLabel(action.Describe(), usedLabels);
-
-                if (alreadyLinked.Contains(action.GetInstanceID()))
-                {
-                    menu.AddDisabledItem(new GUIContent($"{label}  (already added)"), true);
-                    continue;
-                }
 
                 var actionToLink = action;
                 menu.AddItem(new GUIContent(label), false, () => LinkAction(actionToLink));
