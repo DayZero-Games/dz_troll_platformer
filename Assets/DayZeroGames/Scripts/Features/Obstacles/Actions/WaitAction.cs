@@ -14,5 +14,10 @@ namespace DZ.Features
             if (_durationSeconds <= 0f) return UniTask.CompletedTask;
             return UniTask.Delay(TimeSpan.FromSeconds(_durationSeconds), cancellationToken: cancellation);
         }
+
+#if UNITY_EDITOR
+        public override string Describe() =>
+            _durationSeconds <= 0f ? "⚠ Wait → 0s (no-op)" : $"Wait → {_durationSeconds:0.##}s";
+#endif
     }
 }

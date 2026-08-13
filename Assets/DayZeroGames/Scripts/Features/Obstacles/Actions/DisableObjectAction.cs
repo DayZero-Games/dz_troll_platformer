@@ -12,5 +12,9 @@ namespace DZ.Features
             gameObject.SetActive(false);
             return UniTask.CompletedTask;
         }
+
+#if UNITY_EDITOR
+        public override string Describe() => "Disable → self";
+#endif
     }
 }

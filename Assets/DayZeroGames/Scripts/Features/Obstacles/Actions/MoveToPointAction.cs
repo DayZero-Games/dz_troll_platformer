@@ -79,6 +79,36 @@ namespace DZ.Features
         }
 
 #if UNITY_EDITOR
+        public override string Describe()
+        {
+            if (_targetPoints == null || _targetPoints.Length == 0) return "⚠ MoveTo → no points";
+
+            var delaySuffix = _startDelaySeconds > 0f ? $" · +{_startDelaySeconds:0.##}s delay" : string.Empty;
+            var route = DescribeRoute(out var hasMissingPoint);
+            var warningPrefix = hasMissingPoint ? "⚠ " : string.Empty;
+
+            return $"{warningPrefix}MoveTo → {route} @ {_moveSpeed:0.##}{delaySuffix}";
+        }
+
+        private string DescribeRoute(out bool hasMissingPoint)
+        {
+            hasMissingPoint = false;
+            foreach (var targetPoint in _targetPoints)
+            {
+                if (targetPoint == null) hasMissingPoint = true;
+            }
+
+            var firstName = NameOf(_targetPoints[0]);
+            if (_targetPoints.Length == 1) return firstName;
+
+            var lastName = NameOf(_targetPoints[^1]);
+            return _targetPoints.Length == 2
+                ? $"{firstName} → {lastName}"
+                : $"{firstName} ⋯ {lastName} ({_targetPoints.Length} pts)";
+        }
+
+        private static string NameOf(Transform targetPoint) => targetPoint != null ? targetPoint.name : "missing";
+
         private void OnDrawGizmosSelected()
         {
             if (_targetPoints == null || _targetPoints.Length == 0) return;

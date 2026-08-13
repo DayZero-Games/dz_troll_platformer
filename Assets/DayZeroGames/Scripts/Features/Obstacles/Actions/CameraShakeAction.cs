@@ -39,5 +39,11 @@ namespace DZ.Features
         }
 
         private ShakeSettings ShakeSettings => _shakeConfig != null ? _shakeConfig.Bump : _fallbackShake;
+
+#if UNITY_EDITOR
+        public override string Describe() => _shakeConfig != null
+            ? $"Shake → {_shakeConfig.name}"
+            : $"Shake → fallback {_fallbackShake.duration:0.##}s";
+#endif
     }
 }

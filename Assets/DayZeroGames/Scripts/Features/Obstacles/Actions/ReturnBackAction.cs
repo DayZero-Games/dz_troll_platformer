@@ -39,5 +39,9 @@ namespace DZ.Features
 
             transform.localPosition = localDestination;
         }
+
+#if UNITY_EDITOR
+        public override string Describe() => $"ReturnTo → start @ {_moveSpeed:0.##}";
+#endif
     }
 }
