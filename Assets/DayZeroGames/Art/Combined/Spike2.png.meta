@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2eb336de5f3c7b8488b50f46d0b7870f
+guid: ec6555835b42b9e469fc58610341f5d5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5889757295916282876
-    second: FakePlatform1_0
+      213: 7302401067398474362
+    second: Spike2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FakePlatform1_0
+      name: Spike2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 208
+        width: 18
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cf3fa5c2e0f9cb150800000000000000
-      internalID: 5889757295916282876
+      spriteID: a7a28bdb417575560800000000000000
+      internalID: 7302401067398474362
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      FakePlatform1_0: 5889757295916282876
+      Spike2_0: 7302401067398474362
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
