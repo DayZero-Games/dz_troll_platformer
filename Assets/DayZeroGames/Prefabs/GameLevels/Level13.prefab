@@ -1400,7 +1400,7 @@ MonoBehaviour:
     - rid: 3064963748607819965
       type: {class: WaitAction, ns: DZ.Features, asm: DZ.Features}
       data:
-        _durationSeconds: 1
+        _durationSeconds: 2.5
 --- !u!1 &4189996646643202598
 GameObject:
   m_ObjectHideFlags: 0
