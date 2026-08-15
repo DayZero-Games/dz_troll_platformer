@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd535b012953d56499f54f55fbe9af5f, type: 3}
   m_Name: AdsSettings
   m_EditorClassIdentifier: DZ.Core::DZ.Core.AdsSettingsSo
-  isTestMode: 1
+  isTestMode: 0
   androidBannerId: ca-app-pub-1025159441369051/8101608998
   androidInterstitialId: ca-app-pub-1025159441369051/7259300618
   androidRewardedId: 

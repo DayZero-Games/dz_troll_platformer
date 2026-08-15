@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ac313ee779e8804ba18d6eaf9ae37d4, type: 3}
   m_Name: AnalyticsSettingsSo
   m_EditorClassIdentifier: DZ.Core::DZ.Core.AnalyticsSettingsSo
-  isDebugLoggingEnabled: 1
+  isDebugLoggingEnabled: 0
   isCollectionEnabled: 1

@@ -13,24 +13,30 @@ namespace DZ.Features
         private readonly ISceneLoader _sceneLoader;
         private readonly IAdService _adService;
         private readonly IAudioService _audioService;
+        private readonly ISignalBus _signalBus;
         private readonly CancellationTokenSource _cts = new CancellationTokenSource();
         public GameplayController(
             GameplayView gameplayView,
             ISceneLoader sceneLoader,
             IAdService adService,
-            IAudioService audioService)
+            IAudioService audioService,
+            ISignalBus signalBus)
         {
             _gameplayView = gameplayView;
             _sceneLoader = sceneLoader;
             _adService = adService;
             _audioService = audioService;
+            _signalBus = signalBus;
         }
 
         public void Start()
         {
+            _signalBus.Subscribe<GameCompletedSignal>(OnGameCompleted);
             _adService.ShowBanner();
             _gameplayView.BackButton.onClick.AddListener(OnBackClicked);
         }
+
+        private void OnGameCompleted(GameCompletedSignal signal) => LoadMainMenuAsync().Forget();
 
         private void OnBackClicked()
         {

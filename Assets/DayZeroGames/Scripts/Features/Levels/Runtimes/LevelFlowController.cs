@@ -75,11 +75,25 @@ namespace DZ.Features
 
             if (_deathCount % 5 == 0 && _adService.IsInterstitialReady())
             {
-                _adService.ShowInterstitial(() => RetryLevelAsync().Forget());
+                HandleDeathWithAdAsync().Forget();
             }
             else
             {
                 RetryLevelAsync().Forget();
+            }
+        }
+
+        private async UniTaskVoid HandleDeathWithAdAsync()
+        {
+            try
+            {
+                // Wait a short time to let the player process the death before the ad pops up
+                await UniTask.Delay(TimeSpan.FromSeconds(1f), cancellationToken: _cts.Token);
+                _adService.ShowInterstitial(() => RetryLevelAsync().Forget());
+            }
+            catch (OperationCanceledException)
+            {
+                // Ignore if cancelled
             }
         }
         private void OnNextLevelRequested(RequestNextLevelSignal signal) => AdvanceLevelAsync().Forget();
@@ -180,6 +194,7 @@ namespace DZ.Features
             try
             {
                 await _fader.FadeToBlackAsync(_cts.Token);
+                
             }
             catch (OperationCanceledException)
             {
