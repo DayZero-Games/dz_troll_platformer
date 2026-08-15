@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using DZ.Core;
@@ -20,6 +21,7 @@ namespace DZ.Features
         private readonly ILevelSelection _levelSelection;
         private readonly Transform _levelRoot;
         private readonly IAdService _adService;
+        private readonly IAnalyticsService _analyticsService;
 
         private readonly CancellationTokenSource _cts = new CancellationTokenSource();
 
@@ -28,6 +30,7 @@ namespace DZ.Features
         private int _currentLvlIndex = -1;
         private bool _isTransitioning;
         private int _deathCount = 0;
+        private int _deathsThisLevel = 0;
 
         public LevelFlowController(
             IScreenFader fader,
@@ -37,7 +40,8 @@ namespace DZ.Features
             LevelCatalogSo levelCatalogSo,
             ILevelSelection levelSelection,
             Transform levelRoot,
-            IAdService adService)
+            IAdService adService,
+            IAnalyticsService analyticsService)
         {
             _fader = fader;
             _signalBus = signalBus;
@@ -47,6 +51,7 @@ namespace DZ.Features
             _levelSelection = levelSelection;
             _levelRoot = levelRoot;
             _adService = adService;
+            _analyticsService = analyticsService;
         }
 
         public async UniTask StartAsync(CancellationToken cancellation = new CancellationToken())
@@ -65,6 +70,9 @@ namespace DZ.Features
         private void OnPlayerDied(PlayerDiedSignal signal)
         {
             _deathCount++;
+            _deathsThisLevel++;
+            _analyticsService.LogEvent("player_died", "level_number", _currentLvlIndex+1);
+
             if (_deathCount % 5 == 0 && _adService.IsInterstitialReady())
             {
                 _adService.ShowInterstitial(() => RetryLevelAsync().Forget());
@@ -76,7 +84,7 @@ namespace DZ.Features
         }
         private void OnNextLevelRequested(RequestNextLevelSignal signal) => AdvanceLevelAsync().Forget();
 
-        private async UniTask LoadLevelAsync(int index, CancellationToken cancellation)
+        private async UniTask LoadLevelAsync(int index, CancellationToken cancellation, bool isRetry = false)
         {
             if (!_levelCatalogSo.HasLevel(index))
             {
@@ -116,6 +124,12 @@ namespace DZ.Features
                 _currentLvlIndex = index;
                 _signalBus.Publish(new LevelReadySignal(index));
 
+                if (!isRetry)
+                {
+                    _deathsThisLevel = 0;
+                    _analyticsService.LogEvent("level_started", "level_number", index+1);
+                }
+
                 await _fader.FadeFromBlackAsync(cancellation);
 
                 _playerController.UnlockPlayer();
@@ -142,6 +156,12 @@ namespace DZ.Features
         {
             _signalBus.Publish(new LevelCompletedSignal(_currentLvlIndex));
             
+            var parameters = new Dictionary<string, object>
+            {
+                { "level_number", _currentLvlIndex+1 },
+                { "death_count", _deathsThisLevel }
+            };
+            _analyticsService.LogEvent("level_completed", parameters);
 
             var nextLevel = _currentLvlIndex + 1;
             if (!_levelCatalogSo.HasLevel(nextLevel))
@@ -167,11 +187,12 @@ namespace DZ.Features
             }
 
             _signalBus.Publish(new GameCompletedSignal());
+            _analyticsService.LogEvent("game_completed");
         }
 
         private async UniTaskVoid RetryLevelAsync()
         {
-            await LoadLevelAsync(_currentLvlIndex, _cts.Token);
+            await LoadLevelAsync(_currentLvlIndex, _cts.Token, true);
         }
 
         public void Dispose()
