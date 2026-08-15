@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2956124514983999584}
   m_Layer: 0
-  m_Name: ReturningPlatform (4)
+  m_Name: FallingPlatform4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1393,7 +1393,7 @@ MonoBehaviour:
       data:
         _targetPoints:
         - {fileID: 3312402046843876377}
-        _moveSpeed: 2
+        _moveSpeed: 1
     - rid: 3064963748607819963
       type: {class: DisableObjectAction, ns: DZ.Features, asm: DZ.Features}
       data: 
@@ -18773,7 +18773,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8036043734680902147}
   m_Layer: 0
-  m_Name: ReturningPlatform (3)
+  m_Name: FallingPlatform3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19525,7 +19525,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7878738740701393138}
   m_Layer: 0
-  m_Name: ReturningPlatform (1)
+  m_Name: FallingPlatform1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19746,7 +19746,7 @@ MonoBehaviour:
       data:
         _targetPoints:
         - {fileID: 6430009668629878626}
-        _moveSpeed: 5
+        _moveSpeed: 1
     - rid: 3064963748607819964
       type: {class: WaitAction, ns: DZ.Features, asm: DZ.Features}
       data:
@@ -19761,7 +19761,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6309995882159764554}
   m_Layer: 0
-  m_Name: ReturningPlatform (2)
+  m_Name: FallingPlatform2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20074,7 +20074,7 @@ MonoBehaviour:
       data:
         _targetPoints:
         - {fileID: 9207790495181607557}
-        _moveSpeed: 5
+        _moveSpeed: 10
     - rid: 1000000000000000012
       type: {class: DisableObjectAction, ns: DZ.Features, asm: DZ.Features}
       data: 
@@ -20141,7 +20141,7 @@ MonoBehaviour:
       data:
         _targetPoints:
         - {fileID: 8661978223416231941}
-        _moveSpeed: 5
+        _moveSpeed: 10
     - rid: 1000000000000000014
       type: {class: DisableObjectAction, ns: DZ.Features, asm: DZ.Features}
       data: 
@@ -20562,7 +20562,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5252878508528104252}
   m_Layer: 0
-  m_Name: ReturningPlatform
+  m_Name: FallingPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
