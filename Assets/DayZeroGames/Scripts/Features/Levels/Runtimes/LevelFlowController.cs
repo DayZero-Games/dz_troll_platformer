@@ -19,6 +19,7 @@ namespace DZ.Features
         private readonly LevelCatalogSo _levelCatalogSo;
         private readonly ILevelSelection _levelSelection;
         private readonly Transform _levelRoot;
+        private readonly IAdService _adService;
 
         private readonly CancellationTokenSource _cts = new CancellationTokenSource();
 
@@ -26,6 +27,7 @@ namespace DZ.Features
         private LevelContext _currentLvlContext;
         private int _currentLvlIndex = -1;
         private bool _isTransitioning;
+        private int _deathCount = 0;
 
         public LevelFlowController(
             IScreenFader fader,
@@ -34,7 +36,8 @@ namespace DZ.Features
             PlayerController playerController,
             LevelCatalogSo levelCatalogSo,
             ILevelSelection levelSelection,
-            Transform levelRoot)
+            Transform levelRoot,
+            IAdService adService)
         {
             _fader = fader;
             _signalBus = signalBus;
@@ -43,6 +46,7 @@ namespace DZ.Features
             _levelCatalogSo = levelCatalogSo;
             _levelSelection = levelSelection;
             _levelRoot = levelRoot;
+            _adService = adService;
         }
 
         public async UniTask StartAsync(CancellationToken cancellation = new CancellationToken())
@@ -58,7 +62,18 @@ namespace DZ.Features
             await LoadLevelAsync(startIndex, _cts.Token);
         }
 
-        private void OnPlayerDied(PlayerDiedSignal signal) => RetryLevelAsync().Forget();
+        private void OnPlayerDied(PlayerDiedSignal signal)
+        {
+            _deathCount++;
+            if (_deathCount % 5 == 0 && _adService.IsInterstitialReady())
+            {
+                _adService.ShowInterstitial(() => RetryLevelAsync().Forget());
+            }
+            else
+            {
+                RetryLevelAsync().Forget();
+            }
+        }
         private void OnNextLevelRequested(RequestNextLevelSignal signal) => AdvanceLevelAsync().Forget();
 
         private async UniTask LoadLevelAsync(int index, CancellationToken cancellation)

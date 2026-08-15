@@ -18,6 +18,7 @@ namespace DZ.Features
         private readonly ILevelSelection _levelSelection;
         private readonly ILevelProgress _levelProgress;
         private readonly ISceneLoader _sceneLoader;
+        private readonly IAudioService _audioService;
 
         private readonly List<LevelButtonView> _levelButtons = new List<LevelButtonView>();
         private readonly CancellationTokenSource _cts = new CancellationTokenSource();
@@ -30,7 +31,8 @@ namespace DZ.Features
             LevelCatalogSo levelCatalog,
             ILevelSelection levelSelection,
             ILevelProgress levelProgress,
-            ISceneLoader sceneLoader)
+            ISceneLoader sceneLoader,
+            IAudioService audioService)
         {
             _router = router;
             _view = view;
@@ -38,6 +40,7 @@ namespace DZ.Features
             _levelSelection = levelSelection;
             _levelProgress = levelProgress;
             _sceneLoader = sceneLoader;
+            _audioService = audioService;
         }
 
         public void Start()
@@ -72,7 +75,11 @@ namespace DZ.Features
         
         private bool IsUnlocked(int levelIndex) => _levelProgress.IsUnlocked(levelIndex);
 
-        private void OnBackClicked() => _router.ShowMainPanelAsync();
+        private void OnBackClicked()
+        {
+            _audioService.PlaySfx(AudioId.UIButtonPressed);
+            _router.ShowMainPanelAsync();
+        }
 
         private void OnLevelClicked(int levelIndex)
         {
@@ -86,7 +93,7 @@ namespace DZ.Features
 
             _isLoading = true;
 
-            
+            _audioService.PlaySfx(AudioId.UIButtonPressed);
             _levelSelection.SelectLevel(levelIndex);
             LoadGameplayAsync().Forget();
         }

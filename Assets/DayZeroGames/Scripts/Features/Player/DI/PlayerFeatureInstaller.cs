@@ -10,7 +10,7 @@ namespace DZ.Features
         [SerializeField] private PlayerController playerController;
         public override void Register(IContainerBuilder containerBuilder)
         {
-            containerBuilder.RegisterComponent(playerController);
+            containerBuilder.RegisterComponentInNewPrefab(playerController, Lifetime.Scoped);
         }
     }
 }

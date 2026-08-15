@@ -8,6 +8,7 @@ namespace DZ.Core.Contracts
 		None,
 		BackgroundMusic,
 		Death,
-		ExitDoorReached
+		ExitDoorReached,
+		UIButtonPressed
 	}
 }

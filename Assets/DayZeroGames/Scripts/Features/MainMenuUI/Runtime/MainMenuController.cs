@@ -27,6 +27,7 @@ namespace DZ.Features
 
         public void Start()
         {
+            _adService.ShowBanner();
             _view.PlayButton.onClick.AddListener(OnPlayClicked);
             _view.MusicButton.onClick.AddListener(ToggleMusic);
             _view.SfxButton.onClick.AddListener(ToggleSfx);
@@ -35,13 +36,18 @@ namespace DZ.Features
             _view.SetSfxIcon(_audioService.SfxEnabled);
 
             _screenFader.FadeFromBlackAsync(_cts.Token).Forget();
-           // _adService.ShowBanner();
         }
 
-        private void OnPlayClicked() => _router.ShowLevelSelectionAsync(_cts.Token);
+        private void OnPlayClicked()
+        {
+            _audioService.PlaySfx(AudioId.UIButtonPressed);
+            _router.ShowLevelSelectionAsync(_cts.Token);
+        }
+
 
         private void ToggleMusic()
         {
+            _audioService.PlaySfx(AudioId.UIButtonPressed);
             var _musicEnabled = !_audioService.MusicEnabled;
             _audioService.SetMusicEnabled(_musicEnabled);
             _view.SetMusicIcon(_musicEnabled);
@@ -49,9 +55,13 @@ namespace DZ.Features
 
         private void ToggleSfx()
         {
+            //I have player sfx twice here intentionally to get sound while toggle sfx on and off.
+            _audioService.PlaySfx(AudioId.UIButtonPressed);
             var _sfxEnabled = !_audioService.SfxEnabled;
             _audioService.SetSfxEnabled(_sfxEnabled);
-            _view.SetSfxIcon(_sfxEnabled);       }
+            _audioService.PlaySfx(AudioId.UIButtonPressed);
+            _view.SetSfxIcon(_sfxEnabled);
+        }
 
         public void Dispose()
         {
