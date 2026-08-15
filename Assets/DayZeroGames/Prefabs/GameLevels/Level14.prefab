@@ -1020,7 +1020,7 @@ GameObject:
   - component: {fileID: 7696201285340029923}
   m_Layer: 0
   m_Name: Spike4
-  m_TagString: Untagged
+  m_TagString: Obstacles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -1391,7 +1391,7 @@ GameObject:
   - component: {fileID: 5634989270656456581}
   m_Layer: 0
   m_Name: Spike4
-  m_TagString: Untagged
+  m_TagString: Obstacles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -3269,7 +3269,7 @@ MonoBehaviour:
       data:
         _targetPoints:
         - {fileID: 8853697758302586691}
-        _moveSpeed: 15
+        _moveSpeed: 20
 --- !u!1 &7582691593545743922
 GameObject:
   m_ObjectHideFlags: 0
@@ -23738,7 +23738,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4439218131953620963, guid: a1d6cb39097003b4e8da7d692d3dd3ed, type: 3}
       propertyPath: managedReferences[3064963748607819968]._moveSpeed
-      value: 15
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5861693542388681884, guid: a1d6cb39097003b4e8da7d692d3dd3ed, type: 3}
       propertyPath: m_Name
