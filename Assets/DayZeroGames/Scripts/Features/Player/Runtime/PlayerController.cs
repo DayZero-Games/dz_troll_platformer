@@ -137,6 +137,7 @@ namespace DZ.Features
 
         public void Die()
         {
+            this.transform.SetParent(null);
             _isDead = true;
         }
 
@@ -147,7 +148,20 @@ namespace DZ.Features
             {
                 _playerStateMachine.ChangeState(DeadState);
             }
+            else if (other.gameObject.CompareTag("FallingGround"))
+            {
+                this.transform.SetParent(other.transform);
+            }
         }
+
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            if (other.gameObject.CompareTag("FallingGround") && this.gameObject.activeInHierarchy)
+            {
+                this.transform.SetParent(null);
+            }
+        }
+
 
         public void TeleportTo(Vector3 position)
         {

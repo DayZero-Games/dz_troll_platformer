@@ -15,7 +15,10 @@ namespace DZ.Features
             cancellation.ThrowIfCancellationRequested();
 
             if (context.Performer != null)
+            {
                 context.Performer.SetActive(false);
+            }
+                
 
             return UniTask.CompletedTask;
         }

@@ -163,7 +163,7 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 8072763141290307729}
   groundCheckPos: {fileID: 2805941211758845142}
   checkRadius: 0.08
-  _groundCheckSize: {x: 0.4, y: 0.08}
+  _groundCheckSize: {x: 0.38, y: 0.08}
   groundLayer:
     serializedVersion: 2
     m_Bits: 320

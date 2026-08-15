@@ -9,13 +9,10 @@ EditorBuildSettings:
     path: Assets/DayZeroGames/Scenes/Bootstrap.unity
     guid: 0fb6bd22daf9c6845bf96ce8fc2d270d
   - enabled: 1
-    path: Assets/DayZeroGames/Scenes/Gameplay.unity
-    guid: 3ac9c15cfbd0f564b9070ef1afba2de8
-  - enabled: 1
     path: Assets/DayZeroGames/Scenes/MainMenu.unity
     guid: c392c91d5c68c81468a9b7293f660742
   - enabled: 1
-    path: Assets/DayZeroGames/Scenes/Sandbox.unity
+    path: Assets/DayZeroGames/Scenes/Gameplay.unity
     guid: 8c5ce0d13363bd140bc8fdda420ac69b
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: aa63b481422ce9348bf3308adfed5535, type: 3}

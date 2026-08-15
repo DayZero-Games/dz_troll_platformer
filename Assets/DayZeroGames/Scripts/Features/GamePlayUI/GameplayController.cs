@@ -42,7 +42,7 @@ namespace DZ.Features
         {
             try
             {
-                await _sceneLoader.SwitchSceneAsync(SceneId.Sandbox, SceneId.MainMenu,_cts.Token);
+                await _sceneLoader.SwitchSceneAsync(SceneId.Gameplay, SceneId.MainMenu,_cts.Token);
             }
             catch (OperationCanceledException)
             {
