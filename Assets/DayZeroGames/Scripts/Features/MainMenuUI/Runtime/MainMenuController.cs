@@ -49,6 +49,7 @@ namespace DZ.Features
             _audioService.PlaySfx(AudioId.UIButtonPressed);
             var _musicEnabled = !_audioService.MusicEnabled;
             _audioService.SetMusicEnabled(_musicEnabled);
+           // _audioService.StopMusic();
             _view.SetMusicIcon(_musicEnabled);
         }
 

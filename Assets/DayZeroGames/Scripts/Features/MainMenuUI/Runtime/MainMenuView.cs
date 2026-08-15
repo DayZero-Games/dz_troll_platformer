@@ -25,8 +25,6 @@ namespace DZ.Features
 
         private async UniTask CrossFadeAsync(CanvasGroup from, CanvasGroup to, CancellationToken cancellation)
         {
-            
-            
             from.interactable = false;
             from.blocksRaycasts = false;
             to.interactable = false;

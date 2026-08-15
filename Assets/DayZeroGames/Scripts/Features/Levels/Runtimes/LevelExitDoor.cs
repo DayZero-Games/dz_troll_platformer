@@ -39,7 +39,11 @@ namespace DZ.Features
         {
             if (_isRunning || !other.CompareTag(_playerTag)) return;
             if (!other.TryGetComponent(out PlayerController player)) return;
-            RunExitSequenceAsync(player, this.GetCancellationTokenOnDestroy()).Forget();
+
+            if (!player.IsDead)
+            {
+                RunExitSequenceAsync(player, this.GetCancellationTokenOnDestroy()).Forget();
+            }
         }
 
         private async UniTaskVoid RunExitSequenceAsync(PlayerController player, CancellationToken ct)
@@ -48,8 +52,6 @@ namespace DZ.Features
 
             try
             {
-                
-                
                 player.LockPlayer();
                 _signalBus.Publish(new LevelExitReachedSignal());
                 _audioService.PlaySfx(AudioId.ExitDoorReached);

@@ -44,6 +44,9 @@ namespace DZ.Features
 		public void PlayMusic(AudioId audioId)
 		{
 			if (!_audioLibrary.TryGet(audioId, out var audioEntry)) return;
+			
+			if (_currentMusic == audioId && musicSource.clip == audioEntry.clip) return;
+
 			_currentMusic = audioId;
 			if (!MusicEnabled) return;
 
@@ -59,8 +62,22 @@ namespace DZ.Features
 		{
 			MusicEnabled = enabled;
 			_playerPrefsSaveService.SaveBool(SaveKeys.MusicEnabled, enabled);
-			if (enabled) PlayMusic(_currentMusic);
-			else StopMusic();
+			
+			if (enabled)
+			{
+				if (musicSource.clip != null)
+				{
+					musicSource.UnPause();
+				}
+				else
+				{
+					PlayMusic(_currentMusic);
+				}
+			}
+			else
+			{
+				musicSource.Pause();
+			}
 		}
 
 		public void SetSfxEnabled(bool enabled)
