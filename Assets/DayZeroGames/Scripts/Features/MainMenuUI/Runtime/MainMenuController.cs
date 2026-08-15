@@ -27,15 +27,14 @@ namespace DZ.Features
 
         public void Start()
         {
-            _adService.ShowBanner();
+            _screenFader.FadeFromBlackAsync(_cts.Token).Forget();
             _view.PlayButton.onClick.AddListener(OnPlayClicked);
             _view.MusicButton.onClick.AddListener(ToggleMusic);
             _view.SfxButton.onClick.AddListener(ToggleSfx);
 
             _view.SetMusicIcon(_audioService.MusicEnabled);
             _view.SetSfxIcon(_audioService.SfxEnabled);
-
-            _screenFader.FadeFromBlackAsync(_cts.Token).Forget();
+            _adService.ShowBanner();
         }
 
         private void OnPlayClicked()

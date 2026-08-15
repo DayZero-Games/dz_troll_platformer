@@ -28,12 +28,6 @@ namespace DZ.Core
                     FirebaseAnalytics.SetAnalyticsCollectionEnabled(_analyticsSettings.isCollectionEnabled);
                     _isInitialized = true;
 
-
-                    if (_analyticsSettings.isDebugLoggingEnabled)
-                    {
-                        Debug.Log("Firebase Analytics initialized successfully.");
-                    }
-                    
                     lock (_pendingEvents)
                     {
                         while (_pendingEvents.Count > 0)
@@ -145,10 +139,6 @@ namespace DZ.Core
 
         private void LogDebug(string message)
         {
-            if (_analyticsSettings.isDebugLoggingEnabled)
-            {
-                Debug.Log($"[Analytics] {message}");
-            }
         }
         public void Dispose()
         {

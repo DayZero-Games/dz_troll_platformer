@@ -26,7 +26,6 @@ namespace DZ.Core
         {
             MobileAds.Initialize(initStatus =>
             {
-                Debug.Log("AdMob Initialized.");
                 LoadRewarded();
                 LoadInterstitial();
             });

@@ -189,7 +189,6 @@ namespace DZ.Features
 
         private async UniTask CompleteGameAsync()
         {
-            Debug.Log($"All {_levelCatalogSo.Count} levels complete.");
 
             try
             {

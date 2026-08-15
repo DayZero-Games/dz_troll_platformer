@@ -35,7 +35,7 @@ namespace DZ.Features
 
 			if (!_audioLibrary.TryGet(audioId, out var audioEntry))
 			{
-				Debug.Log($"{audioId} not found");
+				Debug.LogWarning($"{audioId} not found");
 				return;
 			}
 			sfxSource.PlayOneShot(audioEntry.clip, audioEntry.volume);

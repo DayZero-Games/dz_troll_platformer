@@ -209,8 +209,6 @@ namespace DZ.Tools
             foreach (string warning in result.Warnings)
                 Debug.LogWarning($"Sprite Combiner: {warning}", parent);
 
-            Debug.Log($"Sprite Combiner: combined {result.SourceCount} sprites into " +
-                      $"{result.AssetPath} ({result.Width}x{result.Height}).", result.Sprite);
             EditorGUIUtility.PingObject(result.Sprite);
         }
     }

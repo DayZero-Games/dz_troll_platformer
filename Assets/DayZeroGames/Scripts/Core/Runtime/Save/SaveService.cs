@@ -11,7 +11,6 @@ namespace DZ.Core
         {
             string json = JsonUtility.ToJson(gameData);
             File.WriteAllText(gameSavePath, json);
-            Debug.Log("Game saved");
         }
 
         public GameSaveData LoadGame()
