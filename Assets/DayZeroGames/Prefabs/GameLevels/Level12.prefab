@@ -17107,8 +17107,7 @@ Transform:
   - {fileID: 6381114380066357722}
   - {fileID: 7126606253249141776}
   - {fileID: 134462019082970731}
-  - {fileID: 7339296588029062175}
-  - {fileID: 2727589272903654497}
+  - {fileID: 8550872148990298091}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8102397863443833154
@@ -17148,7 +17147,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1284926616181346216}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -17156,7 +17155,7 @@ Transform:
   - {fileID: 2798131336485601423}
   - {fileID: 2247339958558479760}
   - {fileID: 607420888194739548}
-  m_Father: {fileID: 1930460195160433730}
+  m_Father: {fileID: 8550872148990298091}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1503004894871526781
 GameObject:
@@ -17396,6 +17395,39 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 3, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &3719196812155930387
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8550872148990298091}
+  m_Layer: 0
+  m_Name: Spikes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8550872148990298091
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3719196812155930387}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7339296588029062175}
+  - {fileID: 2727589272903654497}
+  m_Father: {fileID: 1930460195160433730}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3971446096221464755
 GameObject:
   m_ObjectHideFlags: 0
@@ -18416,7 +18448,7 @@ Transform:
   - {fileID: 9151073587486472526}
   - {fileID: 5354860356798469202}
   - {fileID: 6941986269382846406}
-  m_Father: {fileID: 1930460195160433730}
+  m_Father: {fileID: 8550872148990298091}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5672008436147512535
 GameObject:

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2956124514983999584}
   m_Layer: 0
-  m_Name: ReturningPlatform (4)
+  m_Name: FallingPlatform4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 1816975491868155008}
   - component: {fileID: 5629510322172923759}
   - component: {fileID: 7212574123191236012}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -929,7 +929,7 @@ GameObject:
   - component: {fileID: 226439359285282635}
   - component: {fileID: 847491863281588600}
   - component: {fileID: 2639505006376356753}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1393,14 +1393,14 @@ MonoBehaviour:
       data:
         _targetPoints:
         - {fileID: 3312402046843876377}
-        _moveSpeed: 2
+        _moveSpeed: 1
     - rid: 3064963748607819963
       type: {class: DisableObjectAction, ns: DZ.Features, asm: DZ.Features}
       data: 
     - rid: 3064963748607819965
       type: {class: WaitAction, ns: DZ.Features, asm: DZ.Features}
       data:
-        _durationSeconds: 1
+        _durationSeconds: 2.5
 --- !u!1 &4189996646643202598
 GameObject:
   m_ObjectHideFlags: 0
@@ -18773,7 +18773,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8036043734680902147}
   m_Layer: 0
-  m_Name: ReturningPlatform (3)
+  m_Name: FallingPlatform3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18848,7 +18848,7 @@ GameObject:
   - component: {fileID: 1952074386179686436}
   - component: {fileID: 2313670087321717082}
   - component: {fileID: 17188717951074575}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19206,10 +19206,9 @@ GameObject:
   - component: {fileID: 4284348605214081495}
   - component: {fileID: 2528359635502395717}
   - component: {fileID: 4749684105454588436}
-  - component: {fileID: 6584562258461374456}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Platform
-  m_TagString: FallingGround
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19319,52 +19318,6 @@ BoxCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0.9375, y: 0.4375, z: 0.875, w: 0.5}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 1}
-    newSize: {x: 3, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 2, y: 1}
-  m_EdgeRadius: 0
---- !u!61 &6584562258461374456
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5994990094279576963}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -19572,7 +19525,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7878738740701393138}
   m_Layer: 0
-  m_Name: ReturningPlatform (1)
+  m_Name: FallingPlatform1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19793,7 +19746,7 @@ MonoBehaviour:
       data:
         _targetPoints:
         - {fileID: 6430009668629878626}
-        _moveSpeed: 5
+        _moveSpeed: 1
     - rid: 3064963748607819964
       type: {class: WaitAction, ns: DZ.Features, asm: DZ.Features}
       data:
@@ -19808,7 +19761,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6309995882159764554}
   m_Layer: 0
-  m_Name: ReturningPlatform (2)
+  m_Name: FallingPlatform2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19844,7 +19797,7 @@ GameObject:
   - component: {fileID: 690721790644841092}
   - component: {fileID: 4264381037564240316}
   - component: {fileID: 7214984005456774771}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20112,6 +20065,7 @@ MonoBehaviour:
     _actions:
     - rid: 3064963748607819933
     - rid: 1000000000000000011
+    - rid: 1000000000000000012
   references:
     version: 2
     RefIds:
@@ -20120,7 +20074,10 @@ MonoBehaviour:
       data:
         _targetPoints:
         - {fileID: 9207790495181607557}
-        _moveSpeed: 5
+        _moveSpeed: 10
+    - rid: 1000000000000000012
+      type: {class: DisableObjectAction, ns: DZ.Features, asm: DZ.Features}
+      data: 
     - rid: 3064963748607819933
       type: {class: WaitAction, ns: DZ.Features, asm: DZ.Features}
       data:
@@ -20184,7 +20141,7 @@ MonoBehaviour:
       data:
         _targetPoints:
         - {fileID: 8661978223416231941}
-        _moveSpeed: 5
+        _moveSpeed: 10
     - rid: 1000000000000000014
       type: {class: DisableObjectAction, ns: DZ.Features, asm: DZ.Features}
       data: 
@@ -20605,7 +20562,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5252878508528104252}
   m_Layer: 0
-  m_Name: ReturningPlatform
+  m_Name: FallingPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
