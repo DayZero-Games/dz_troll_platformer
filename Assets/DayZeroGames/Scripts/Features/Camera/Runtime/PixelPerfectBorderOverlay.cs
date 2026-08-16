@@ -15,7 +15,8 @@ namespace DZ.Features
         private const int Top = 3;
 
         [SerializeField] private PixelPerfectCamera pixelPerfectCamera;
-        [SerializeField] private Color borderColor = new(0.3764706f, 0.2196078f, 0.3529412f, 1f);
+        [SerializeField] private Sprite borderSprite;
+        [SerializeField] private Color borderColor = new Color32(255, 255, 255, 255);
         [SerializeField, Range(-32768, 32767)] private int sortingOrder = -100;
 
         private readonly Image[] _bars = new Image[4];
@@ -110,6 +111,7 @@ namespace DZ.Features
         private void SetBar(int index, Vector2 anchorMin, Vector2 anchorMax, bool isVisible)
         {
             var image = _bars[index];
+            image.sprite = borderSprite;
             image.color = borderColor;
 
             var rectTransform = image.rectTransform;
