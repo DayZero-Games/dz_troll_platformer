@@ -1,0 +1,4 @@
+# WorkManager creates its Room database implementation by reflection during
+# AndroidX Startup. Preserve generated Room database classes and their
+# constructors when R8 minification is enabled (Unity 6.3 / AGP 9 workaround).
+-keep class * extends androidx.room.RoomDatabase { *; }
