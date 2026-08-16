@@ -18,6 +18,7 @@ namespace DZ.Features
 		
 		
 		private AudioId _currentMusic = AudioId.None;
+		private bool _musicPausedForAd;
 
 		public bool MusicEnabled { get; private set; } = true;
 		public bool SfxEnabled { get; private set; } = true;
@@ -41,10 +42,10 @@ namespace DZ.Features
 			sfxSource.PlayOneShot(audioEntry.clip, audioEntry.volume);
 		}
 
-		public void PlayMusic(AudioId audioId)
+public void PlayMusic(AudioId audioId)
 		{
 			if (!_audioLibrary.TryGet(audioId, out var audioEntry)) return;
-			
+
 			if (_currentMusic == audioId && musicSource.clip == audioEntry.clip) return;
 
 			_currentMusic = audioId;
@@ -54,17 +55,46 @@ namespace DZ.Features
 			musicSource.clip = audioEntry.clip;
 			musicSource.volume = audioEntry.volume;
 			musicSource.Play();
+
+			if (_musicPausedForAd) musicSource.Pause();
 		}
 
-		public void StopMusic() => musicSource.Stop();
+public void StopMusic()
+		{
+			musicSource.Stop();
+			_musicPausedForAd = false;
+		}
 
-		public void SetMusicEnabled(bool enabled)
+public void PauseMusicForAd()
+		{
+			if (!MusicEnabled || !musicSource.isPlaying) return;
+
+			musicSource.Pause();
+			_musicPausedForAd = true;
+		}
+
+		public void ResumeMusicAfterAd()
+		{
+			if (!_musicPausedForAd) return;
+
+			_musicPausedForAd = false;
+
+			if (MusicEnabled && musicSource.clip != null)
+			{
+				musicSource.UnPause();
+			}
+		}
+
+
+public void SetMusicEnabled(bool enabled)
 		{
 			MusicEnabled = enabled;
 			_playerPrefsSaveService.SaveBool(SaveKeys.MusicEnabled, enabled);
-			
+
 			if (enabled)
 			{
+				if (_musicPausedForAd) return;
+
 				if (musicSource.clip != null)
 				{
 					musicSource.UnPause();

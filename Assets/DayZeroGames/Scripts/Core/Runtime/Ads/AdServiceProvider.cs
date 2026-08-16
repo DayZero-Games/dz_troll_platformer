@@ -1,4 +1,5 @@
 using System;
+using DZ.Core.Contracts;
 using GoogleMobileAds.Api;
 using UnityEngine;
 using VContainer.Unity;
@@ -8,6 +9,7 @@ namespace DZ.Core
     public class AdServiceProvider : IAdService, IInitializable, IDisposable
     {
         private readonly AdsSettingsSo _adsSettings;
+        private readonly IAudioService _audioService;
         private BannerView _bannerView;
         private InterstitialAd _interstitialAd;
         private RewardedAd _rewardedAd;
@@ -15,9 +17,10 @@ namespace DZ.Core
         private Action _onInterstitialClosed;
         private Action<bool> _onRewardProcessed;
 
-        public AdServiceProvider(AdsSettingsSo adsSettings)
+        public AdServiceProvider(AdsSettingsSo adsSettings, IAudioService audioService)
         {
             _adsSettings = adsSettings;
+            _audioService = audioService;
         }
 
         void IInitializable.Initialize() => Initialize();
@@ -72,12 +75,21 @@ namespace DZ.Core
                     if (error != null || ad == null) return;
 
                     _interstitialAd = ad;
-                    _interstitialAd.OnAdFullScreenContentClosed += () =>
-                    {
-                        _onInterstitialClosed?.Invoke();
-                        LoadInterstitial();
-                    };
+                    _interstitialAd.OnAdFullScreenContentOpened += _audioService.PauseMusicForAd;
+                    _interstitialAd.OnAdFullScreenContentClosed += CompleteInterstitial;
+                    _interstitialAd.OnAdFullScreenContentFailed += _ => CompleteInterstitial();
                 });
+        }
+
+        private void CompleteInterstitial()
+        {
+            _audioService.ResumeMusicAfterAd();
+
+            var onClosed = _onInterstitialClosed;
+            _onInterstitialClosed = null;
+            onClosed?.Invoke();
+
+            LoadInterstitial();
         }
 
         public bool IsInterstitialReady() => _interstitialAd != null && _interstitialAd.CanShowAd();
@@ -113,8 +125,16 @@ namespace DZ.Core
                     if (error != null || ad == null) return;
 
                     _rewardedAd = ad;
-                    _rewardedAd.OnAdFullScreenContentClosed += LoadRewarded;
+                    _rewardedAd.OnAdFullScreenContentOpened += _audioService.PauseMusicForAd;
+                    _rewardedAd.OnAdFullScreenContentClosed += CompleteRewarded;
+                    _rewardedAd.OnAdFullScreenContentFailed += _ => CompleteRewarded();
                 });
+        }
+
+        private void CompleteRewarded()
+        {
+            _audioService.ResumeMusicAfterAd();
+            LoadRewarded();
         }
 
         public bool IsRewardedReady() => _rewardedAd != null && _rewardedAd.CanShowAd();

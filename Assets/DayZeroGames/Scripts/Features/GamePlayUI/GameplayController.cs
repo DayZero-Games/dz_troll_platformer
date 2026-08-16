@@ -36,7 +36,7 @@ namespace DZ.Features
             _gameplayView.BackButton.onClick.AddListener(OnBackClicked);
         }
 
-        private void OnGameCompleted(GameCompletedSignal signal) => _sceneLoader.SwitchSceneAsync(SceneId.Gameplay,SceneId.MainMenu,_cts.Token);
+        private void OnGameCompleted(GameCompletedSignal signal) => LoadMainMenuAsync().Forget();
 
         private void OnBackClicked()
         {
@@ -58,6 +58,7 @@ namespace DZ.Features
 
         public void Dispose()
         {
+            _signalBus.Unsubscribe<GameCompletedSignal>(OnGameCompleted);
             _gameplayView.BackButton.onClick.RemoveListener(OnBackClicked);
             _cts.Cancel();
         }

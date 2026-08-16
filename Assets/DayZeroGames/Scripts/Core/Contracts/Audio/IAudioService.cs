@@ -5,6 +5,8 @@ namespace DZ.Core.Contracts
       void PlaySfx(AudioId audioId);
       void PlayMusic(AudioId audioId);
       void StopMusic();
+      void PauseMusicForAd();
+      void ResumeMusicAfterAd();
 
       bool MusicEnabled { get;}
       bool SfxEnabled { get;}
