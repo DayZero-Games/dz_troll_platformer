@@ -39,6 +39,7 @@ namespace DZ.Core.Runtime
 			
 			builder.RegisterEntryPoint<BootstrapEntryPoint>().WithParameter(_startScene);
 			builder.RegisterEntryPoint<LevelProgressService>();
+			builder.RegisterEntryPoint<InAppUpdateService>();
 		}
 	}
 }
