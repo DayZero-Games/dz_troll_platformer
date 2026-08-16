@@ -21,6 +21,7 @@ namespace DZ.Features
 
         private readonly Image[] _bars = new Image[4];
         private Vector2Int _lastScreenSize;
+        private PixelPerfectCamera.CropFrame _lastCropFrame;
 
         private void Awake()
         {
@@ -29,15 +30,17 @@ namespace DZ.Features
             RefreshLayout();
         }
 
-        private void OnEnable()
+private void OnEnable()
         {
             _lastScreenSize = Vector2Int.zero;
+            _lastCropFrame = (PixelPerfectCamera.CropFrame)(-1);
         }
 
-        private void Update()
+private void Update()
         {
             var screenSize = new Vector2Int(Screen.width, Screen.height);
-            if (screenSize == _lastScreenSize) return;
+            var cropFrame = pixelPerfectCamera.cropFrame;
+            if (screenSize == _lastScreenSize && cropFrame == _lastCropFrame) return;
 
             RefreshLayout();
         }
@@ -71,41 +74,47 @@ namespace DZ.Features
             _bars[index] = image;
         }
 
-        private void RefreshLayout()
+private void RefreshLayout()
         {
             _lastScreenSize = new Vector2Int(Screen.width, Screen.height);
-
-            if (pixelPerfectCamera.cropFrame != PixelPerfectCamera.CropFrame.StretchFill)
-            {
-                SetBar(Left, Vector2.zero, Vector2.zero, false);
-                SetBar(Right, Vector2.zero, Vector2.zero, false);
-                SetBar(Bottom, Vector2.zero, Vector2.zero, false);
-                SetBar(Top, Vector2.zero, Vector2.zero, false);
-                return;
-            }
+            _lastCropFrame = pixelPerfectCamera.cropFrame;
 
             var referenceAspect = (float)pixelPerfectCamera.refResolutionX / pixelPerfectCamera.refResolutionY;
             var screenAspect = (float)Screen.width / Screen.height;
 
-            if (screenAspect > referenceAspect)
+            switch (_lastCropFrame)
             {
-                var contentWidth = referenceAspect / screenAspect;
-                var borderWidth = (1f - contentWidth) * 0.5f;
+                case PixelPerfectCamera.CropFrame.None:
+                    SetBorders(1f, 1f);
+                    return;
 
-                SetBar(Left, Vector2.zero, new Vector2(borderWidth, 1f), true);
-                SetBar(Right, new Vector2(1f - borderWidth, 0f), Vector2.one, true);
-                SetBar(Bottom, Vector2.zero, Vector2.zero, false);
-                SetBar(Top, Vector2.zero, Vector2.zero, false);
-                return;
+                case PixelPerfectCamera.CropFrame.Pillarbox:
+                    SetBorders(Mathf.Min(1f, referenceAspect / screenAspect), 1f);
+                    return;
+
+                case PixelPerfectCamera.CropFrame.Letterbox:
+                    SetBorders(1f, Mathf.Min(1f, screenAspect / referenceAspect));
+                    return;
+
+                case PixelPerfectCamera.CropFrame.Windowbox:
+                    var pixelRatio = Mathf.Max(1, Mathf.FloorToInt(Mathf.Min(
+                        (float)Screen.width / pixelPerfectCamera.refResolutionX,
+                        (float)Screen.height / pixelPerfectCamera.refResolutionY)));
+                    SetBorders(
+                        (float)(pixelPerfectCamera.refResolutionX * pixelRatio) / Screen.width,
+                        (float)(pixelPerfectCamera.refResolutionY * pixelRatio) / Screen.height);
+                    return;
+
+                case PixelPerfectCamera.CropFrame.StretchFill:
+                    if (screenAspect > referenceAspect)
+                    {
+                        SetBorders(referenceAspect / screenAspect, 1f);
+                        return;
+                    }
+
+                    SetBorders(1f, screenAspect / referenceAspect);
+                    return;
             }
-
-            var contentHeight = screenAspect / referenceAspect;
-            var borderHeight = (1f - contentHeight) * 0.5f;
-
-            SetBar(Left, Vector2.zero, Vector2.zero, false);
-            SetBar(Right, Vector2.zero, Vector2.zero, false);
-            SetBar(Bottom, Vector2.zero, new Vector2(1f, borderHeight), true);
-            SetBar(Top, new Vector2(0f, 1f - borderHeight), Vector2.one, true);
         }
 
         private void SetBar(int index, Vector2 anchorMin, Vector2 anchorMax, bool isVisible)
@@ -122,5 +131,20 @@ namespace DZ.Features
 
             image.gameObject.SetActive(isVisible);
         }
-    }
+    
+
+private void SetBorders(float contentWidth, float contentHeight)
+        {
+            contentWidth = Mathf.Clamp01(contentWidth);
+            contentHeight = Mathf.Clamp01(contentHeight);
+
+            var horizontalBorder = (1f - contentWidth) * 0.5f;
+            var verticalBorder = (1f - contentHeight) * 0.5f;
+
+            SetBar(Left, Vector2.zero, new Vector2(horizontalBorder, 1f), horizontalBorder > 0f);
+            SetBar(Right, new Vector2(1f - horizontalBorder, 0f), Vector2.one, horizontalBorder > 0f);
+            SetBar(Bottom, new Vector2(horizontalBorder, 0f), new Vector2(1f - horizontalBorder, verticalBorder), verticalBorder > 0f);
+            SetBar(Top, new Vector2(horizontalBorder, 1f - verticalBorder), new Vector2(1f - horizontalBorder, 1f), verticalBorder > 0f);
+        }
+}
 }
