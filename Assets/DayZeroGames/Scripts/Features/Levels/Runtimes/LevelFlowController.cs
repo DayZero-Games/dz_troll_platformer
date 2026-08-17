@@ -31,6 +31,7 @@ namespace DZ.Features
         private bool _isTransitioning;
         private int _deathCount = 0;
         private int _deathsThisLevel = 0;
+        private int _deathsUntilNextAd;
 
         public LevelFlowController(
             IScreenFader fader,
@@ -52,7 +53,12 @@ namespace DZ.Features
             _levelRoot = levelRoot;
             _adService = adService;
             _analyticsService = analyticsService;
+
+            _deathsUntilNextAd = RollDeathsUntilNextAd();
         }
+
+        private static int RollDeathsUntilNextAd() =>
+            UnityEngine.Random.Range(7, 10 + 1);
 
         public async UniTask StartAsync(CancellationToken cancellation = new CancellationToken())
         {
@@ -73,8 +79,10 @@ namespace DZ.Features
             _deathsThisLevel++;
             _analyticsService.LogEvent("player_died", "level_number", _currentLvlIndex+1);
 
-            if (_deathCount % 5 == 0 && _adService.IsInterstitialReady())
+            if (_deathCount >= _deathsUntilNextAd && _adService.IsInterstitialReady())
             {
+                _deathCount = 0;
+                _deathsUntilNextAd = RollDeathsUntilNextAd();
                 HandleDeathWithAdAsync().Forget();
             }
             else
