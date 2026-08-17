@@ -12,6 +12,7 @@
     <package>com.google.firebase:firebase-analytics-unity:13.14.0</package>
     <package>com.google.firebase:firebase-app-unity:13.14.0</package>
     <package>com.google.firebase:firebase-common:22.1.0</package>
+    <package>org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.10</package>
   </packages>
   <files>
     <file>Assets/GeneratedLocalRepo/Firebase/m2repository/com/google/firebase/firebase-analytics-unity/13.14.0/firebase-analytics-unity-13.14.0.aar</file>

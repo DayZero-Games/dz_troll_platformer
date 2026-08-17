@@ -18,6 +18,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics-unity:13.14.0' // Assets/Firebase/Editor/AnalyticsDependencies.xml:21
     implementation 'com.google.firebase:firebase-app-unity:13.14.0' // Assets/Firebase/Editor/AppDependencies.xml:25
     implementation 'com.google.firebase:firebase-common:22.1.0' // Assets/Firebase/Editor/AppDependencies.xml:16
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.10' // Assets/Smartlook/SmartlookAnalytics/Editor/SmartLookDependencies.xml:3
 // Android Resolver Dependencies End
 **DEPS**}
 
