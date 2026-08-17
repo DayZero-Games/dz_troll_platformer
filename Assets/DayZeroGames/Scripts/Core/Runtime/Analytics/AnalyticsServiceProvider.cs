@@ -6,12 +6,14 @@ namespace DZ.Core
     using System.Collections.Generic;
     using Firebase;
     using Firebase.Analytics;
+    using Firebase.Extensions;
     using UnityEngine;
     using VContainer.Unity;
     public class AnalyticsServiceProvider : IAnalyticsService, IInitializable, IDisposable
     {
         private readonly AnalyticsSettingsSo _analyticsSettings;
         private bool _isInitialized;
+        private bool _isInitializing;
         private readonly Queue<Action> _pendingEvents = new Queue<Action>();
         public AnalyticsServiceProvider(AnalyticsSettingsSo settings)
         {
@@ -19,28 +21,38 @@ namespace DZ.Core
         }
         public void Initialize()
         {
-            FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task =>
-            {
-                var dependencyStatus = task.Result;
-                if (dependencyStatus == DependencyStatus.Available)
-                {
-                    FirebaseApp app = FirebaseApp.DefaultInstance;
-                    FirebaseAnalytics.SetAnalyticsCollectionEnabled(_analyticsSettings.isCollectionEnabled);
-                    _isInitialized = true;
+            if (_isInitialized || _isInitializing) return;
+            _isInitializing = true;
 
-                    lock (_pendingEvents)
-                    {
-                        while (_pendingEvents.Count > 0)
-                        {
-                            var action = _pendingEvents.Dequeue();
-                            action?.Invoke();
-                        }
-                    }
+            FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(task =>
+            {
+                _isInitializing = false;
+
+                if (task.IsFaulted || task.IsCanceled)
+                {
+                    Debug.LogError($"Firebase dependency check failed: {task.Exception}");
+                    return;
                 }
-                else
+
+                var dependencyStatus = task.Result;
+                if (dependencyStatus != DependencyStatus.Available)
                 {
                     Debug.LogError($"Could not resolve all Firebase dependencies:{dependencyStatus}");
+                    return;
+                }
 
+                FirebaseApp app = FirebaseApp.DefaultInstance;
+                FirebaseAnalytics.SetAnalyticsCollectionEnabled(_analyticsSettings.isCollectionEnabled);
+                _isInitialized = true;
+                LogDebug($"Firebase Analytics ready (collection enabled: {_analyticsSettings.isCollectionEnabled})");
+
+                lock (_pendingEvents)
+                {
+                    while (_pendingEvents.Count > 0)
+                    {
+                        var action = _pendingEvents.Dequeue();
+                        action?.Invoke();
+                    }
                 }
             });
         }
@@ -139,6 +151,8 @@ namespace DZ.Core
 
         private void LogDebug(string message)
         {
+            if (_analyticsSettings != null && _analyticsSettings.isDebugLoggingEnabled)
+                Debug.Log($"[Analytics] {message}");
         }
         public void Dispose()
         {
