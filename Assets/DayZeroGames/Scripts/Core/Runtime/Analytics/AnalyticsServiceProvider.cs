@@ -7,18 +7,20 @@ namespace DZ.Core
     using Firebase;
     using Firebase.Analytics;
     using Firebase.Extensions;
-    using UnityEngine;
     using VContainer.Unity;
+
     public class AnalyticsServiceProvider : IAnalyticsService, IInitializable, IDisposable
     {
         private readonly AnalyticsSettingsSo _analyticsSettings;
         private bool _isInitialized;
         private bool _isInitializing;
         private readonly Queue<Action> _pendingEvents = new Queue<Action>();
+
         public AnalyticsServiceProvider(AnalyticsSettingsSo settings)
         {
             _analyticsSettings = settings;
         }
+
         public void Initialize()
         {
             if (_isInitialized || _isInitializing) return;
@@ -31,6 +33,7 @@ namespace DZ.Core
                 if (task.IsFaulted || task.IsCanceled)
                 {
                     Debug.LogError($"Firebase dependency check failed: {task.Exception}");
+                    ClearPendingEvents();
                     return;
                 }
 
@@ -38,10 +41,10 @@ namespace DZ.Core
                 if (dependencyStatus != DependencyStatus.Available)
                 {
                     Debug.LogError($"Could not resolve all Firebase dependencies:{dependencyStatus}");
+                    ClearPendingEvents();
                     return;
                 }
 
-                FirebaseApp app = FirebaseApp.DefaultInstance;
                 FirebaseAnalytics.SetAnalyticsCollectionEnabled(_analyticsSettings.isCollectionEnabled);
                 _isInitialized = true;
                 LogDebug($"Firebase Analytics ready (collection enabled: {_analyticsSettings.isCollectionEnabled})");
@@ -56,7 +59,9 @@ namespace DZ.Core
                 }
             });
         }
+
         void IInitializable.Initialize() => Initialize();
+
         public void LogEvent(string eventName)
         {
             ExecuteOrQueue(() =>
@@ -65,6 +70,7 @@ namespace DZ.Core
                 LogDebug($"Event Logged: {eventName}");
             });
         }
+
         public void LogEvent(string eventName, string parameterName, string parameterValue)
         {
             ExecuteOrQueue(() =>
@@ -73,6 +79,7 @@ namespace DZ.Core
                 LogDebug($"Event Logged: {eventName} | {parameterName} = {parameterValue}");
             });
         }
+
         public void LogEvent(string eventName, string parameterName, long parameterValue)
         {
             ExecuteOrQueue(() =>
@@ -81,6 +88,7 @@ namespace DZ.Core
                 LogDebug($"Event Logged: {eventName} | {parameterName} = {parameterValue}");
             });
         }
+
         public void LogEvent(string eventName, string parameterName, double parameterValue)
         {
             ExecuteOrQueue(() =>
@@ -89,8 +97,8 @@ namespace DZ.Core
                 LogDebug($"Event Logged: {eventName} | {parameterName} = {parameterValue}");
             });
         }
-        public void LogEvent(string eventName, Dictionary<string, object> parameters)
 
+        public void LogEvent(string eventName, Dictionary<string, object> parameters)
         {
             ExecuteOrQueue(() =>
             {
@@ -99,6 +107,7 @@ namespace DZ.Core
                     FirebaseAnalytics.LogEvent(eventName);
                     return;
                 }
+
                 List<Parameter> firebaseParameters = new List<Parameter>();
                 foreach (var kvp in parameters)
                 {
@@ -111,13 +120,14 @@ namespace DZ.Core
                     else if (kvp.Value is float fVal)
                         firebaseParameters.Add(new Parameter(kvp.Key, (double)fVal));
                     else
-                        firebaseParameters.Add(new Parameter(kvp.Key, kvp.Value?.ToString() ??
-            string.Empty));
+                        firebaseParameters.Add(new Parameter(kvp.Key, kvp.Value?.ToString() ?? string.Empty));
                 }
+
                 FirebaseAnalytics.LogEvent(eventName, firebaseParameters.ToArray());
                 LogDebug($"Event Logged: {eventName} with {parameters.Count} parameters.");
             });
         }
+
         public void SetUserId(string userId)
         {
             ExecuteOrQueue(() =>
@@ -126,6 +136,7 @@ namespace DZ.Core
                 LogDebug($"User ID set: {userId}");
             });
         }
+
         public void SetUserProperty(string propertyName, string propertyValue)
         {
             ExecuteOrQueue(() =>
@@ -134,6 +145,7 @@ namespace DZ.Core
                 LogDebug($"User Property set: {propertyName} = {propertyValue}");
             });
         }
+
         private void ExecuteOrQueue(Action action)
         {
             if (_isInitialized)
@@ -149,15 +161,22 @@ namespace DZ.Core
             }
         }
 
+        private void ClearPendingEvents()
+        {
+            lock (_pendingEvents)
+            {
+                _pendingEvents.Clear();
+            }
+        }
+
         private void LogDebug(string message)
         {
             if (_analyticsSettings != null && _analyticsSettings.isDebugLoggingEnabled)
                 Debug.Log($"[Analytics] {message}");
         }
+
         public void Dispose()
         {
-            
         }
     }
-
 }
