@@ -38,7 +38,7 @@ namespace DZ.Core.Runtime
 
         /// <summary>
         /// Awaits an <see cref="AppUpdateRequest"/> (CustomYieldInstruction) as a UniTask.
-        /// The request tracks the entire flexible-update download lifecycle.
+        /// The request tracks the entire immediate-update download and install lifecycle.
         /// </summary>
         public static UniTask ToUniTask(
             this AppUpdateRequest request,

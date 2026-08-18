@@ -75,7 +75,7 @@ namespace DZ.Core
                     if (error != null || ad == null) return;
 
                     _interstitialAd = ad;
-                    _interstitialAd.OnAdFullScreenContentOpened += _audioService.PauseMusicForAd;
+                    _interstitialAd.OnAdFullScreenContentOpened += _audioService.PauseMusicForOverlay;
                     _interstitialAd.OnAdFullScreenContentClosed += CompleteInterstitial;
                     _interstitialAd.OnAdFullScreenContentFailed += _ => CompleteInterstitial();
                 });
@@ -83,7 +83,7 @@ namespace DZ.Core
 
         private void CompleteInterstitial()
         {
-            _audioService.ResumeMusicAfterAd();
+            _audioService.ResumeMusicAfterOverlay();
 
             var onClosed = _onInterstitialClosed;
             _onInterstitialClosed = null;
@@ -125,7 +125,7 @@ namespace DZ.Core
                     if (error != null || ad == null) return;
 
                     _rewardedAd = ad;
-                    _rewardedAd.OnAdFullScreenContentOpened += _audioService.PauseMusicForAd;
+                    _rewardedAd.OnAdFullScreenContentOpened += _audioService.PauseMusicForOverlay;
                     _rewardedAd.OnAdFullScreenContentClosed += CompleteRewarded;
                     _rewardedAd.OnAdFullScreenContentFailed += _ => CompleteRewarded();
                 });
@@ -133,7 +133,7 @@ namespace DZ.Core
 
         private void CompleteRewarded()
         {
-            _audioService.ResumeMusicAfterAd();
+            _audioService.ResumeMusicAfterOverlay();
             LoadRewarded();
         }
 

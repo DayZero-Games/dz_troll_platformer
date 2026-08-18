@@ -14,11 +14,9 @@ namespace DZ.Features
 		[Header("AudioSources")]
 		[SerializeField] private AudioSource musicSource;
 		[SerializeField] private AudioSource sfxSource;
-
-		
 		
 		private AudioId _currentMusic = AudioId.None;
-		private bool _musicPausedForAd;
+		private bool _musicPausedForOverlay;
 
 		public bool MusicEnabled { get; private set; } = true;
 		public bool SfxEnabled { get; private set; } = true;
@@ -56,28 +54,28 @@ public void PlayMusic(AudioId audioId)
 			musicSource.volume = audioEntry.volume;
 			musicSource.Play();
 
-			if (_musicPausedForAd) musicSource.Pause();
+			if (_musicPausedForOverlay) musicSource.Pause();
 		}
 
 public void StopMusic()
 		{
 			musicSource.Stop();
-			_musicPausedForAd = false;
+			_musicPausedForOverlay = false;
 		}
 
-public void PauseMusicForAd()
+public void PauseMusicForOverlay()
 		{
 			if (!MusicEnabled || !musicSource.isPlaying) return;
 
 			musicSource.Pause();
-			_musicPausedForAd = true;
+			_musicPausedForOverlay = true;
 		}
 
-		public void ResumeMusicAfterAd()
+		public void ResumeMusicAfterOverlay()
 		{
-			if (!_musicPausedForAd) return;
+			if (!_musicPausedForOverlay) return;
 
-			_musicPausedForAd = false;
+			_musicPausedForOverlay = false;
 
 			if (MusicEnabled && musicSource.clip != null)
 			{
@@ -93,7 +91,7 @@ public void SetMusicEnabled(bool enabled)
 
 			if (enabled)
 			{
-				if (_musicPausedForAd) return;
+				if (_musicPausedForOverlay) return;
 
 				if (musicSource.clip != null)
 				{
