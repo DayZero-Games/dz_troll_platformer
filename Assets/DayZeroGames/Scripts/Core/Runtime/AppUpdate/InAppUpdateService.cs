@@ -1,7 +1,6 @@
 using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
-using DZ.Core.Contracts;
 using UnityEngine;
 using VContainer.Unity;
 
@@ -14,15 +13,6 @@ namespace DZ.Core.Runtime
 {
     public sealed class InAppUpdateService : IAsyncStartable
     {
-#if UNITY_ANDROID && !UNITY_EDITOR
-        private readonly IAudioService _audioService;
-
-        public InAppUpdateService(IAudioService audioService)
-        {
-            _audioService = audioService;
-        }
-#endif
-
         public async UniTask StartAsync(CancellationToken cancellation = default)
         {
 #if UNITY_ANDROID && !UNITY_EDITOR
@@ -92,17 +82,10 @@ namespace DZ.Core.Runtime
             // ── 3. Start the immediate update ────────────────────────────────
             // Play takes over with a blocking full-screen UI, downloads, installs and
             // restarts the app itself — there is no CompleteUpdate() step for this flow.
-            // Play's UI is a separate Android activity and the player is configured with
-            // Run In Background — without this the music keeps playing underneath it.
             Debug.Log("[InAppUpdate] Starting immediate (full-screen) update...");
-            _audioService.PauseMusicForOverlay();
 
             var updateRequest = appUpdateManager.StartUpdate(appUpdateInfo, immediateOptions);
             await updateRequest.ToUniTask(cancellation);
-
-            // A successful immediate update restarts the app, so reaching this line means the
-            // update did not land — resume music so the player isn't left in silence.
-            _audioService.ResumeMusicAfterOverlay();
 
             if (updateRequest.Error != AppUpdateErrorCode.NoError)
             {
