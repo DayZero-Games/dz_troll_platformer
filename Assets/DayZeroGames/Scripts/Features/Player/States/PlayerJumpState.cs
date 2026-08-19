@@ -6,6 +6,7 @@ namespace DZ.Features
     {
         private bool _hasLeftGround;
         private bool _isFalling;
+        private bool _jumpOnEnter;
 
         public PlayerJumpState(PlayerContext ctx) : base(ctx)
         {
@@ -17,10 +18,27 @@ namespace DZ.Features
             _hasLeftGround = false;
             _isFalling = false;
             inputReader.OnJumpPerformed += HandleAirJump;
-            HandlePlayerJump();
-            playerAnimationController.PlayJumpUpAnimation();
+
+            if (_jumpOnEnter)
+            {
+                HandlePlayerJump();
+                playerAnimationController.PlayJumpUpAnimation();
+            }
+            else
+            {
+                _isFalling = true;
+                playerAnimationController.PlayJumpDownAnimation();
+            }
+
+            _jumpOnEnter = false;
             
         }
+
+        public void JumpOnEnter()
+        {
+            _jumpOnEnter = true;
+        }
+
         public override void Update()
         {
             UpdateAnimation();
