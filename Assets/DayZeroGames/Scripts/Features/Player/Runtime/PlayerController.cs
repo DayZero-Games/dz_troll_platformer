@@ -32,6 +32,13 @@ namespace DZ.Features
         private bool _isGrounded;
         private bool _isDead;
 
+        // Per-level rules, pushed in by the level flow on every load. Runtime only -
+        // playerConfig stays the shared baseline and is never written to.
+        private float _baseGravityScale = 1f;
+        private int _maxAirJumps;
+        private float _jumpForceMultiplier = 1f;
+        private int _airJumpsUsed;
+
         [Header("Player States")]
         private PlayerStateMachine _playerStateMachine;
         private PlayerIdleState _idleState;
@@ -55,6 +62,7 @@ namespace DZ.Features
         {
             _playerRb = GetComponent<Rigidbody2D>();
             playerAnimationController ??= GetComponent<PlayerAnimationController>();
+            _baseGravityScale = _playerRb.gravityScale;
 
             
             
@@ -102,6 +110,7 @@ namespace DZ.Features
         {
             
             _isGrounded = Physics2D.OverlapBox(groundCheckPos.position, _groundCheckSize, 0f, groundLayer);
+            if (_isGrounded) _airJumpsUsed = 0;
         }
 
         private void FlipPlayer(float moveInput)
@@ -122,11 +131,26 @@ namespace DZ.Features
         {
             _playerRb.linearVelocityX = 0;
         }
+        
+        /// (0 = none, 1 = double jump, negative = unlimited)
+        public bool CanJump() => _isGrounded || _maxAirJumps < 0 || _airJumpsUsed < _maxAirJumps;
 
-        public void Jump()
+        public bool Jump()
         {
-            if (!_isGrounded) return;
-            _playerRb.linearVelocityY = playerConfig.jumpForce;
+            if (!CanJump()) return false;
+            if (!_isGrounded) _airJumpsUsed++;
+            _playerRb.linearVelocityY = playerConfig.jumpForce * _jumpForceMultiplier;
+            return true;
+        }
+
+        /// level Rules applied to player so that levels cannot inherit the previous level's physics.
+        public void ApplyRules(LevelRules rules)
+        {
+            rules ??= LevelRules.Default;
+            _playerRb.gravityScale = _baseGravityScale * rules.GravityScale;
+            _maxAirJumps = rules.MaxAirJumps;
+            _jumpForceMultiplier = rules.JumpForceMultiplier;
+            _airJumpsUsed = 0;
         }
 
         public void ApplyFallMultiplier()
@@ -172,6 +196,7 @@ namespace DZ.Features
 
             Physics2D.SyncTransforms();
             _isDead = false;
+            _airJumpsUsed = 0;
 
             RestoreSpriteAlpha();
         }

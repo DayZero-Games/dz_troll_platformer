@@ -16,6 +16,7 @@ namespace DZ.Features
            
             _hasLeftGround = false;
             _isFalling = false;
+            inputReader.OnJumpPerformed += HandleAirJump;
             HandlePlayerJump();
             playerAnimationController.PlayJumpUpAnimation();
             
@@ -43,7 +44,7 @@ namespace DZ.Features
         }
         public override void Exit()
         {
-           
+            inputReader.OnJumpPerformed -= HandleAirJump;
         }
 
         private void CheckForStateChange()
@@ -63,6 +64,18 @@ namespace DZ.Features
         private void HandlePlayerJump()
         {
             playerController.Jump();
+        }
+
+        /// <summary>
+        /// A jump pressed while already airborne. Deliberately does not change state - we are
+        /// already in the jump state - it just re-fires the impulse if the level's air-jump
+        /// budget allows, and rewinds the fall animation so the next descent plays correctly.
+        /// </summary>
+        private void HandleAirJump()
+        {
+            if (!playerController.Jump()) return;
+            _isFalling = false;
+            playerAnimationController.PlayJumpUpAnimation();
         }
 
     }

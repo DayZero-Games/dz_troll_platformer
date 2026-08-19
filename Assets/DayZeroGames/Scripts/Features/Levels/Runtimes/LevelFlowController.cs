@@ -132,9 +132,11 @@ namespace DZ.Features
 
                 var definition = _levelCatalogSo.GetLevel(index);
 
-                // Set explicitly on every load (never toggled) so a normal level following
-                // an inverted one does not inherit the reversed controls.
-                _inputReader.SetInverted(definition.InvertControls);
+                // Applied wholesale on every load (never toggled) so a level can never
+                // inherit the previous level's rules.
+                var rules = definition.Rules;
+                _inputReader.SetInverted(rules.InvertControls);
+                _playerController.ApplyRules(rules);
 
                 _currentLevel = _objectResolver.Instantiate(definition.LevelPrefab, _levelRoot);
                 _currentLvlContext = _currentLevel.GetComponent<LevelContext>();
@@ -228,6 +230,7 @@ namespace DZ.Features
         public void Dispose()
         {
             _inputReader.SetInverted(false);
+            if (_playerController != null) _playerController.ApplyRules(LevelRules.Default);
             _signalBus.Unsubscribe<RequestNextLevelSignal>(OnNextLevelRequested);
             _signalBus.Unsubscribe<PlayerDiedSignal>(OnPlayerDied);
             _cts.Cancel();

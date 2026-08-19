@@ -8,12 +8,11 @@ namespace DZ.Core
         [SerializeField] private string _id;
         [SerializeField] private GameObject _levelPrefab;
 
-        [Tooltip("Reverses horizontal input: pressing left moves the player right.")]
-        [SerializeField] private bool _invertControls;
+        [SerializeField] private LevelRules _rules = new LevelRules();
 
         public string Id => _id;
         public GameObject LevelPrefab => _levelPrefab;
-        public bool InvertControls => _invertControls;
+        public LevelRules Rules => _rules ??= new LevelRules();
     }
 
 
