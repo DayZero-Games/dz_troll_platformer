@@ -19868,9 +19868,36 @@ MonoBehaviour:
     _actions:
     - rid: 7298937825450524775
     - rid: 7298937825450524777
+    - rid: 5756869595479670889
   references:
     version: 2
     RefIds:
+    - rid: 5756869595479670889
+      type: {class: LoopAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _actions:
+        - rid: 5756869595479670899
+        - rid: 5756869595479670900
+        - rid: 5756869595479670901
+        - rid: 5756869595479670902
+        _iterations: 0
+    - rid: 5756869595479670899
+      type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _targetPoints: []
+        _moveSpeed: 10
+    - rid: 5756869595479670900
+      type: {class: WaitAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _durationSeconds: 1
+    - rid: 5756869595479670901
+      type: {class: ReturnBackAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _moveSpeed: 10
+    - rid: 5756869595479670902
+      type: {class: WaitAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _durationSeconds: 1
     - rid: 7298937825450524775
       type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
       data:
