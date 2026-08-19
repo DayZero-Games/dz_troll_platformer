@@ -19,6 +19,7 @@ namespace DZ.Features
         private readonly PlayerController _playerController;
         private readonly LevelCatalogSo _levelCatalogSo;
         private readonly ILevelSelection _levelSelection;
+        private readonly IInputReader _inputReader;
         private readonly Transform _levelRoot;
         private readonly IAdService _adService;
         private readonly IAnalyticsService _analyticsService;
@@ -31,6 +32,7 @@ namespace DZ.Features
         private bool _isTransitioning;
         private int _deathCount = 0;
         private int _deathsThisLevel = 0;
+        private int _deathsUntilNextAd;
 
         public LevelFlowController(
             IScreenFader fader,
@@ -39,6 +41,7 @@ namespace DZ.Features
             PlayerController playerController,
             LevelCatalogSo levelCatalogSo,
             ILevelSelection levelSelection,
+            IInputReader inputReader,
             Transform levelRoot,
             IAdService adService,
             IAnalyticsService analyticsService)
@@ -49,10 +52,16 @@ namespace DZ.Features
             _playerController = playerController;
             _levelCatalogSo = levelCatalogSo;
             _levelSelection = levelSelection;
+            _inputReader = inputReader;
             _levelRoot = levelRoot;
             _adService = adService;
             _analyticsService = analyticsService;
+
+            _deathsUntilNextAd = RollDeathsUntilNextAd();
         }
+
+        private static int RollDeathsUntilNextAd() =>
+            UnityEngine.Random.Range(7, 10 + 1);
 
         public async UniTask StartAsync(CancellationToken cancellation = new CancellationToken())
         {
@@ -73,8 +82,10 @@ namespace DZ.Features
             _deathsThisLevel++;
             _analyticsService.LogEvent("player_died", "level_number", _currentLvlIndex+1);
 
-            if (_deathCount % 5 == 0 && _adService.IsInterstitialReady())
+            if (_deathCount >= _deathsUntilNextAd && _adService.IsInterstitialReady())
             {
+                _deathCount = 0;
+                _deathsUntilNextAd = RollDeathsUntilNextAd();
                 HandleDeathWithAdAsync().Forget();
             }
             else
@@ -120,6 +131,13 @@ namespace DZ.Features
                 UnloadCurrentLevel();
 
                 var definition = _levelCatalogSo.GetLevel(index);
+
+                // Applied wholesale on every load (never toggled) so a level can never
+                // inherit the previous level's rules.
+                var rules = definition.Rules;
+                _inputReader.SetInverted(rules.InvertControls);
+                _playerController.ApplyRules(rules);
+
                 _currentLevel = _objectResolver.Instantiate(definition.LevelPrefab, _levelRoot);
                 _currentLvlContext = _currentLevel.GetComponent<LevelContext>();
 
@@ -211,6 +229,8 @@ namespace DZ.Features
 
         public void Dispose()
         {
+            _inputReader.SetInverted(false);
+            if (_playerController != null) _playerController.ApplyRules(LevelRules.Default);
             _signalBus.Unsubscribe<RequestNextLevelSignal>(OnNextLevelRequested);
             _signalBus.Unsubscribe<PlayerDiedSignal>(OnPlayerDied);
             _cts.Cancel();

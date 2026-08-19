@@ -1,5 +1,4 @@
 using System;
-using DZ.Core.Contracts;
 using GoogleMobileAds.Api;
 using UnityEngine;
 using VContainer.Unity;
@@ -9,7 +8,6 @@ namespace DZ.Core
     public class AdServiceProvider : IAdService, IInitializable, IDisposable
     {
         private readonly AdsSettingsSo _adsSettings;
-        private readonly IAudioService _audioService;
         private BannerView _bannerView;
         private InterstitialAd _interstitialAd;
         private RewardedAd _rewardedAd;
@@ -17,10 +15,9 @@ namespace DZ.Core
         private Action _onInterstitialClosed;
         private Action<bool> _onRewardProcessed;
 
-        public AdServiceProvider(AdsSettingsSo adsSettings, IAudioService audioService)
+        public AdServiceProvider(AdsSettingsSo adsSettings)
         {
             _adsSettings = adsSettings;
-            _audioService = audioService;
         }
 
         void IInitializable.Initialize() => Initialize();
@@ -75,7 +72,6 @@ namespace DZ.Core
                     if (error != null || ad == null) return;
 
                     _interstitialAd = ad;
-                    _interstitialAd.OnAdFullScreenContentOpened += _audioService.PauseMusicForAd;
                     _interstitialAd.OnAdFullScreenContentClosed += CompleteInterstitial;
                     _interstitialAd.OnAdFullScreenContentFailed += _ => CompleteInterstitial();
                 });
@@ -83,8 +79,6 @@ namespace DZ.Core
 
         private void CompleteInterstitial()
         {
-            _audioService.ResumeMusicAfterAd();
-
             var onClosed = _onInterstitialClosed;
             _onInterstitialClosed = null;
             onClosed?.Invoke();
@@ -125,7 +119,6 @@ namespace DZ.Core
                     if (error != null || ad == null) return;
 
                     _rewardedAd = ad;
-                    _rewardedAd.OnAdFullScreenContentOpened += _audioService.PauseMusicForAd;
                     _rewardedAd.OnAdFullScreenContentClosed += CompleteRewarded;
                     _rewardedAd.OnAdFullScreenContentFailed += _ => CompleteRewarded();
                 });
@@ -133,7 +126,6 @@ namespace DZ.Core
 
         private void CompleteRewarded()
         {
-            _audioService.ResumeMusicAfterAd();
             LoadRewarded();
         }
 

@@ -35,10 +35,12 @@ namespace DZ.Core.Runtime
 			builder.Register<ILevelSelection, LevelSelection>(Lifetime.Singleton);
 			builder.Register<IPlayerPrefsSaveService, PlayerPrefsSaveService>(Lifetime.Singleton);
 			builder.Register<AdServiceProvider>(Lifetime.Singleton).AsImplementedInterfaces();
-			builder.Register<IAnalyticsService, AnalyticsServiceProvider>(Lifetime.Singleton);
+			builder.Register<AnalyticsServiceProvider>(Lifetime.Singleton).AsImplementedInterfaces();
+			builder.Register<SmartlookServiceProvider>(Lifetime.Singleton).AsImplementedInterfaces();
 			
 			builder.RegisterEntryPoint<BootstrapEntryPoint>().WithParameter(_startScene);
 			builder.RegisterEntryPoint<LevelProgressService>();
+			builder.RegisterEntryPoint<InAppUpdateService>();
 		}
 	}
 }
