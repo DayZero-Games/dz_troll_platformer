@@ -4,6 +4,7 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using DZ.Core.Contracts;
 using UnityEngine;
+using UnityEngine.Serialization;
 using VContainer;
 using VContainer.Unity;
 
@@ -18,6 +19,7 @@ namespace DZ.Features
         }
 
         [SerializeField] private ActionExecutionMode _executionMode = ActionExecutionMode.Sequential;
+        [SerializeField, FormerlySerializedAs("autoStart")] private bool _autoStart;
         [SerializeField] private List<ObstaclePerformerActions> _performers = new();
 
         private ICameraShaker _cameraShaker;
@@ -39,6 +41,12 @@ namespace DZ.Features
 
             if (!HasConfiguredActions())
                 Debug.LogWarning($"{name}: no obstacle actions assigned.", this);
+        }
+
+        private void Start()
+        {
+            if (_autoStart)
+                TryActivate();
         }
 
         public bool TryActivate(CancellationToken cancellation = default)

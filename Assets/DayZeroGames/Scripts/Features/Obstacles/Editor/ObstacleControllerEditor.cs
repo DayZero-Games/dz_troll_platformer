@@ -11,6 +11,7 @@ namespace DZ.Features.EditorTools
     {
         private const string PerformersFieldName = "_performers";
         private const string ExecutionModeFieldName = "_executionMode";
+        private const string AutoStartFieldName = "_autoStart";
         private const float ElementPadding = 4f;
         private const float GroupContentLeftOffset = 12f;
         private const float ActionListLeftOffset = 10f;
@@ -28,6 +29,7 @@ namespace DZ.Features.EditorTools
 
         private SerializedProperty _performersProperty;
         private SerializedProperty _executionModeProperty;
+        private SerializedProperty _autoStartProperty;
         private ReorderableList _groupList;
         private GameObject _pendingPerformer;
         private int _groupPendingRemoval = -1;
@@ -43,6 +45,7 @@ namespace DZ.Features.EditorTools
         {
             _performersProperty = serializedObject.FindProperty(PerformersFieldName);
             _executionModeProperty = serializedObject.FindProperty(ExecutionModeFieldName);
+            _autoStartProperty = serializedObject.FindProperty(AutoStartFieldName);
 
             _pendingPerformer = null;
             _groupPendingRemoval = -1;
@@ -59,9 +62,12 @@ namespace DZ.Features.EditorTools
 
             DrawScriptField();
 
+            if (_autoStartProperty != null)
+                EditorGUILayout.PropertyField(_autoStartProperty);
+            
             if (_executionModeProperty != null)
                 EditorGUILayout.PropertyField(_executionModeProperty);
-
+            
             DrawAddPerformerRow();
 
             EditorGUILayout.HelpBox(
