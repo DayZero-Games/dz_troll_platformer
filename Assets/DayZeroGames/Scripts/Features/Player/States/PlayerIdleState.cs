@@ -35,6 +35,7 @@ namespace DZ.Features
 		{
 			if (playerController.IsGrounded)
 			{
+				playerController.JumpState.JumpOnEnter();
 				playerStateMachine.ChangeState(playerController.JumpState);
 			}
 		}
