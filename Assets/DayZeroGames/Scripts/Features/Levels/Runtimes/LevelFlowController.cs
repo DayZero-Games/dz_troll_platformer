@@ -19,6 +19,7 @@ namespace DZ.Features
         private readonly PlayerController _playerController;
         private readonly LevelCatalogSo _levelCatalogSo;
         private readonly ILevelSelection _levelSelection;
+        private readonly IInputReader _inputReader;
         private readonly Transform _levelRoot;
         private readonly IAdService _adService;
         private readonly IAnalyticsService _analyticsService;
@@ -40,6 +41,7 @@ namespace DZ.Features
             PlayerController playerController,
             LevelCatalogSo levelCatalogSo,
             ILevelSelection levelSelection,
+            IInputReader inputReader,
             Transform levelRoot,
             IAdService adService,
             IAnalyticsService analyticsService)
@@ -50,6 +52,7 @@ namespace DZ.Features
             _playerController = playerController;
             _levelCatalogSo = levelCatalogSo;
             _levelSelection = levelSelection;
+            _inputReader = inputReader;
             _levelRoot = levelRoot;
             _adService = adService;
             _analyticsService = analyticsService;
@@ -128,6 +131,11 @@ namespace DZ.Features
                 UnloadCurrentLevel();
 
                 var definition = _levelCatalogSo.GetLevel(index);
+
+                // Set explicitly on every load (never toggled) so a normal level following
+                // an inverted one does not inherit the reversed controls.
+                _inputReader.SetInverted(definition.InvertControls);
+
                 _currentLevel = _objectResolver.Instantiate(definition.LevelPrefab, _levelRoot);
                 _currentLvlContext = _currentLevel.GetComponent<LevelContext>();
 
@@ -219,6 +227,7 @@ namespace DZ.Features
 
         public void Dispose()
         {
+            _inputReader.SetInverted(false);
             _signalBus.Unsubscribe<RequestNextLevelSignal>(OnNextLevelRequested);
             _signalBus.Unsubscribe<PlayerDiedSignal>(OnPlayerDied);
             _cts.Cancel();

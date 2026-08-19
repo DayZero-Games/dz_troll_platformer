@@ -15,6 +15,7 @@ MonoBehaviour:
   _levels:
   - _id: Lvl_1
     _levelPrefab: {fileID: 6981172178524845610, guid: e9f53b1ced177384d8a7826708b16bcc, type: 3}
+    _invertControls: 1
   - _id: Lvl_2
     _levelPrefab: {fileID: 6675257277896442661, guid: 958fbfeb68e8259448c479ee2af4af1a, type: 3}
   - _id: Lvl_3
