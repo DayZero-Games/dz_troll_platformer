@@ -18,7 +18,7 @@ namespace DZ.Features
             _lastPosition = transform.position;
         }
 
-        private void LateUpdate()
+        private void Update()
         {
             var currentPosition = transform.position;
             var movement = currentPosition - _lastPosition;
