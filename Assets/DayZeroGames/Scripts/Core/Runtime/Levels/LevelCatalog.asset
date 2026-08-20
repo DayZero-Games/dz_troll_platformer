@@ -153,3 +153,10 @@ MonoBehaviour:
       _gravityScale: 1
       _maxAirJumps: 0
       _jumpForceMultiplier: 1
+  - _id: Lvl_21
+    _levelPrefab: {fileID: 7242533119080912681, guid: f01d329665daee847ae643856cafaefd, type: 3}
+    _rules:
+      _invertControls: 0
+      _gravityScale: 1
+      _maxAirJumps: 0
+      _jumpForceMultiplier: 1
