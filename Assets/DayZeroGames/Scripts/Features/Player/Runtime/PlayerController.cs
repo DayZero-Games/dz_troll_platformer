@@ -9,7 +9,7 @@ namespace DZ.Features
 {
     [RequireComponent(typeof(Rigidbody2D))]
     [RequireComponent(typeof(PlayerAnimationController))]
-    public class PlayerController : MonoBehaviour, IPlayerController
+    public class PlayerController : MonoBehaviour, IPlayerController, ILevelAvatar
     {
         [Inject] private readonly IInputReader _inputReader;
         [Inject] private readonly IAudioService _audioService;
@@ -105,6 +105,15 @@ namespace DZ.Features
         public void LockPlayer() => _playerStateMachine.ChangeState(_lockedState);
 
         public void UnlockPlayer() => _playerStateMachine.ChangeState(_idleState);
+        Transform ILevelAvatar.Transform => transform;
+        void ILevelAvatar.Lock() => LockPlayer();
+        void ILevelAvatar.Unlock() => UnlockPlayer();
+        
+        public void Kill()
+        {
+            if (_isDead || _playerStateMachine == null) return;
+            _playerStateMachine.ChangeState(_deadState);
+        }
 
         private void UpdateGroundCheck()
         {

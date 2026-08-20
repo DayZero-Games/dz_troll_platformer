@@ -67,6 +67,7 @@ namespace DZ.Features
         {
             _signalBus.Subscribe<RequestNextLevelSignal>(OnNextLevelRequested);
             _signalBus.Subscribe<PlayerDiedSignal>(OnPlayerDied);
+            _signalBus.Subscribe<LevelExitReachedSignal>(OnLevelExitReached);
 
             _playerController.LockPlayer();
 
@@ -78,6 +79,8 @@ namespace DZ.Features
 
         private void OnPlayerDied(PlayerDiedSignal signal)
         {
+            LockPuppetIfAny();
+
             _deathCount++;
             _deathsThisLevel++;
             _analyticsService.LogEvent("player_died", "level_number", _currentLvlIndex+1);
@@ -107,6 +110,20 @@ namespace DZ.Features
                 // Ignore if cancelled
             }
         }
+        /// <summary>
+        /// The exit door only locks the avatar that actually touched it, which is not enough in a
+        /// puppet level: if the door reaches the frozen player instead of the puppet, the puppet
+        /// would stay live and keep taking input all the way through the walk-in and fade.
+        /// </summary>
+        private void OnLevelExitReached(LevelExitReachedSignal signal) => LockPuppetIfAny();
+
+        /// Whoever is being controlled, the level is over for them - freeze the puppet too.
+        /// Safe to call on an already-locked puppet.
+        private void LockPuppetIfAny()
+        {
+            if (_currentLvlContext != null && _currentLvlContext.HasPuppet) _currentLvlContext.Puppet.Lock();
+        }
+
         private void OnNextLevelRequested(RequestNextLevelSignal signal) => AdvanceLevelAsync().Forget();
 
         private async UniTask LoadLevelAsync(int index, CancellationToken cancellation, bool isRetry = false)
@@ -149,7 +166,11 @@ namespace DZ.Features
 
                 _playerController.TeleportTo(_currentLvlContext.SpawnPoint.position);
 
-                
+                // A puppet level drives one of the level's own objects instead of the player,
+                // so the same physics rules have to reach it. It spawns locked with the level.
+                if (_currentLvlContext.HasPuppet) _currentLvlContext.Puppet.ApplyRules(rules);
+
+
                 await UniTask.NextFrame(cancellation);
 
 
@@ -164,7 +185,10 @@ namespace DZ.Features
 
                 await _fader.FadeFromBlackAsync(cancellation);
 
-                _playerController.UnlockPlayer();
+                // In a puppet level the player stays frozen at the spawn point and the
+                // puppet takes the input for the whole level.
+                if (_currentLvlContext.HasPuppet) _currentLvlContext.Puppet.Unlock();
+                else _playerController.UnlockPlayer();
             }
             catch (OperationCanceledException)
             {
@@ -233,6 +257,7 @@ namespace DZ.Features
             if (_playerController != null) _playerController.ApplyRules(LevelRules.Default);
             _signalBus.Unsubscribe<RequestNextLevelSignal>(OnNextLevelRequested);
             _signalBus.Unsubscribe<PlayerDiedSignal>(OnPlayerDied);
+            _signalBus.Unsubscribe<LevelExitReachedSignal>(OnLevelExitReached);
             _cts.Cancel();
             _cts.Dispose();
         }
