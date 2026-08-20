@@ -19055,7 +19055,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 2
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 8382717070696663976, guid: a9a973395697bb7499dfc6e3eed53780, type: 3}
+  m_Sprite: {fileID: 46976545100722538, guid: 9e087428bdb40b94bbdb6d47d3303483, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -19098,7 +19098,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 658fbbda5acaf7e46910ac1e904e8225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.SawRotator
-  _rotationSpeed: 360
+  _rotationSpeed: 1800
 --- !u!1 &3329825921474123748
 GameObject:
   m_ObjectHideFlags: 0
