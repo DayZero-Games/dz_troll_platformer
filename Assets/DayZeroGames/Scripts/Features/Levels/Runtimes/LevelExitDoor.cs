@@ -38,29 +38,31 @@ namespace DZ.Features
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (_isRunning || !other.CompareTag(_playerTag)) return;
-            if (!other.TryGetComponent(out PlayerController player)) return;
 
-            if (!player.IsDead)
+            // Whoever the level is being played as: the player, or its puppet stand-in.
+            if (!other.TryGetComponent(out ILevelAvatar avatar)) return;
+
+            if (!avatar.IsDead)
             {
-                RunExitSequenceAsync(player, this.GetCancellationTokenOnDestroy()).Forget();
+                RunExitSequenceAsync(avatar, this.GetCancellationTokenOnDestroy()).Forget();
             }
         }
 
-        private async UniTaskVoid RunExitSequenceAsync(PlayerController player, CancellationToken ct)
+        private async UniTaskVoid RunExitSequenceAsync(ILevelAvatar avatar, CancellationToken ct)
         {
             _isRunning = true;
 
             try
             {
-                player.LockPlayer();
+                avatar.Lock();
                 _signalBus.Publish(new LevelExitReachedSignal());
                 _audioService.PlaySfx(AudioId.ExitDoorReached);
-                
-                await Tween.Position(player.transform, _playerExitAnchor.position,
+
+                await Tween.Position(avatar.Transform, _playerExitAnchor.position,
                         _walkInDuration, Ease.OutQuad)
                     .ToUniTask().AttachExternalCancellation(ct);
-                
-                await Tween.Alpha(player.SpriteRenderer, 0f,
+
+                await Tween.Alpha(avatar.SpriteRenderer, 0f,
                         _playerFadeDuration, Ease.InQuad)
                     .ToUniTask().AttachExternalCancellation(ct);
                 

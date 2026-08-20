@@ -1874,9 +1874,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0.08949097
+    x: 0
     y: 0
-    width: 0.82101804
+    width: 1
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -2274,8 +2274,8 @@ CanvasRenderer:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 1789969636}
   - {fileID: 199182229}
+  - {fileID: 1789969636}
   - {fileID: 1825668991}
   - {fileID: 1505015588}
   - {fileID: 1555224291}
