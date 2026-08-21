@@ -8455,6 +8455,7 @@ MonoBehaviour:
     - rid: 3064963912114372608
     - rid: 3064963912114372609
     - rid: 3064963912114372610
+    - rid: 3064963912114372611
     - rid: 3064963912114372612
   references:
     version: 2
@@ -8474,6 +8475,11 @@ MonoBehaviour:
       data:
         _targetPoints:
         - {fileID: 3349011664602056914}
+        _moveSpeed: 10
+    - rid: 3064963912114372611
+      type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _targetPoints:
         - {fileID: 315208858089215057}
         _moveSpeed: 10
     - rid: 3064963912114372612
@@ -8490,7 +8496,6 @@ GameObject:
   - component: {fileID: 8553683818655624990}
   - component: {fileID: 2282031637780353341}
   - component: {fileID: 4624375486795666245}
-  - component: {fileID: 3181094654085651171}
   m_Layer: 0
   m_Name: sawblade0_0
   m_TagString: Obstacles
@@ -8602,25 +8607,12 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5625
---- !u!114 &3181094654085651171
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4681638955483554047}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 658fbbda5acaf7e46910ac1e904e8225, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.SawRotator
-  _rotationSpeed: 1500
 --- !u!1 &5099128005536295005
 GameObject:
   m_ObjectHideFlags: 0
@@ -8646,7 +8638,7 @@ Transform:
   m_GameObject: {fileID: 5099128005536295005}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12, y: -1, z: 0}
+  m_LocalPosition: {x: -10, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8677,7 +8669,7 @@ Transform:
   m_GameObject: {fileID: 5107275876233223292}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5, y: -4, z: 0}
+  m_LocalPosition: {x: 5, y: -4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8714,7 +8706,7 @@ Transform:
   m_GameObject: {fileID: 6038758838032576457}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12, y: 1, z: 0}
+  m_LocalPosition: {x: -10, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8778,7 +8770,7 @@ Transform:
   m_GameObject: {fileID: 7948689933789174813}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.61, y: 2, z: 0}
+  m_LocalPosition: {x: -5, y: 2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9354,7 +9346,7 @@ GameObject:
   - component: {fileID: 2739949568108980498}
   - component: {fileID: 6324336764338146839}
   m_Layer: 0
-  m_Name: Level22
+  m_Name: Level30
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
