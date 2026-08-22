@@ -22,6 +22,8 @@ namespace DZ.Features
         public GameObject Target => _target;
         public List<LevelAction> Actions => _actions ??= new List<LevelAction>();
         public bool HasActions => _actions != null && _actions.Count > 0;
+        public bool RequiresTarget => HasActionRequiringTarget();
+        public bool IsMissingRequiredTarget => _target == null && RequiresTarget;
 
         public void CacheInitialState()
         {
@@ -55,6 +57,33 @@ namespace DZ.Features
                 if (action != null)
                     await action.ExecuteActionAsync(context, cancellation);
             }
+        }
+
+        public string DescribeTargetRequiredActions()
+        {
+            if (_actions == null) return string.Empty;
+
+            var actionNames = new List<string>();
+            foreach (var action in _actions)
+            {
+                if (action == null || !action.RequiresTarget) continue;
+                actionNames.Add(action.GetType().Name);
+            }
+
+            return string.Join(", ", actionNames);
+        }
+
+        private bool HasActionRequiringTarget()
+        {
+            if (_actions == null) return false;
+
+            foreach (var action in _actions)
+            {
+                if (action != null && action.RequiresTarget)
+                    return true;
+            }
+
+            return false;
         }
     }
 }

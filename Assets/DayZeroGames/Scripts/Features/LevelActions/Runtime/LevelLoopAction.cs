@@ -15,6 +15,22 @@ namespace DZ.Features
         [Tooltip("How many times to run the body. 0 = forever.")]
         [SerializeField, Min(0)] private int _iterations;
 
+        public override bool RequiresTarget
+        {
+            get
+            {
+                if (_actions == null) return false;
+
+                foreach (var action in _actions)
+                {
+                    if (action != null && action.RequiresTarget)
+                        return true;
+                }
+
+                return false;
+            }
+        }
+
         public override async UniTask ExecuteActionAsync(
             LevelActionContext context,
             CancellationToken cancellation = default)

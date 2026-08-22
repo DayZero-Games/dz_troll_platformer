@@ -1,5 +1,5 @@
 {
-    "name": "DZ.Features.Obstacles.Editor",
+    "name": "DZ.Features.LevelActions.Editor",
     "rootNamespace": "DZ.Features.EditorTools",
     "references": [
         "GUID:4a6be784e2fac4c40973e8e9ea346097",

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEditorInternal;
@@ -17,6 +18,7 @@ namespace DZ.Features.EditorTools
         private const float GroupContentLeftOffset = 12f;
         private const float ActionListLeftOffset = 10f;
         private const float DismissButtonWidth = 22f;
+        private const float MissingTargetWarningHeight = 42f;
 
         private static readonly GUIContent RemoveGroupLabel = new(
             "x",
@@ -139,10 +141,15 @@ namespace DZ.Features.EditorTools
             if (index < 0 || index >= _groupsProperty.arraySize) return LineHeight;
 
             var groupProperty = _groupsProperty.GetArrayElementAtIndex(index);
+            var targetProperty = groupProperty.FindPropertyRelative(LevelActionGroup.TargetFieldName);
             var actionsProperty = groupProperty.FindPropertyRelative(LevelActionGroup.ActionsFieldName);
             var actionList = GetActionList(actionsProperty);
+            var height = ElementPadding + LineHeight + Spacing;
 
-            return ElementPadding + LineHeight + Spacing + actionList.GetHeight() + ElementPadding;
+            if (HasMissingRequiredTarget(targetProperty, actionsProperty, out _))
+                height += MissingTargetWarningHeight + Spacing;
+
+            return height + actionList.GetHeight() + ElementPadding;
         }
 
         private void DrawGroupElement(Rect rect, int index, bool isActive, bool isFocused)
@@ -162,9 +169,22 @@ namespace DZ.Features.EditorTools
 
             var dismissRect = new Rect(rect.xMax - DismissButtonWidth, y, DismissButtonWidth, LineHeight);
             if (GUI.Button(dismissRect, RemoveGroupLabel))
+            {
                 _groupPendingRemoval = index;
+                return;
+            }
 
             y += LineHeight + Spacing;
+            if (HasMissingRequiredTarget(targetProperty, actionsProperty, out var requiredActionNames))
+            {
+                var warningRect = new Rect(contentX, y, contentWidth, MissingTargetWarningHeight);
+                EditorGUI.HelpBox(
+                    warningRect,
+                    $"Assign a Target. Required by: {requiredActionNames}.",
+                    MessageType.Warning);
+                y += MissingTargetWarningHeight + Spacing;
+            }
+
             var actionList = GetActionList(actionsProperty);
             actionList.DoList(new Rect(
                 contentX + ActionListLeftOffset,
@@ -185,9 +205,67 @@ namespace DZ.Features.EditorTools
                 return actionList;
             }
 
-            actionList = LevelActionListUI.CreateActionList(actionsProperty, "Actions");
+            actionList = LevelActionListUI.CreateActionList(
+                actionsProperty,
+                "Actions",
+                () =>
+                {
+                    _actionListsByPath.Clear();
+                    Repaint();
+                });
             _actionListsByPath[propertyPath] = actionList;
             return actionList;
+        }
+
+        private static bool HasMissingRequiredTarget(
+            SerializedProperty targetProperty,
+            SerializedProperty actionsProperty,
+            out string requiredActionNames)
+        {
+            requiredActionNames = string.Empty;
+
+            if (targetProperty == null ||
+                targetProperty.objectReferenceValue != null ||
+                actionsProperty == null)
+            {
+                return false;
+            }
+
+            var names = new List<string>();
+            for (var i = 0; i < actionsProperty.arraySize; i++)
+            {
+                LevelAction action;
+                try
+                {
+                    var actionProperty = actionsProperty.GetArrayElementAtIndex(i);
+                    action = actionProperty.managedReferenceValue as LevelAction;
+                }
+                catch (ObjectDisposedException)
+                {
+                    return false;
+                }
+
+                if (action == null || !action.RequiresTarget) continue;
+
+                names.Add(MakeActionName(action));
+            }
+
+            requiredActionNames = string.Join(", ", names);
+            return names.Count > 0;
+        }
+
+        private static string MakeActionName(LevelAction action)
+        {
+            var name = action.GetType().Name;
+
+            if (name.EndsWith("GameplayAction", StringComparison.Ordinal))
+                name = name.Substring(0, name.Length - "GameplayAction".Length);
+            else if (name.EndsWith("LevelAction", StringComparison.Ordinal))
+                name = name.Substring(0, name.Length - "LevelAction".Length);
+            else if (name.EndsWith("Action", StringComparison.Ordinal))
+                name = name.Substring(0, name.Length - "Action".Length);
+
+            return ObjectNames.NicifyVariableName(name);
         }
     }
 }

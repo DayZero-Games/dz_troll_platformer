@@ -43,6 +43,8 @@ namespace DZ.Features
     [Serializable]
     public abstract class LevelAction
     {
+        public virtual bool RequiresTarget => false;
+
         public abstract UniTask ExecuteActionAsync(
             LevelActionContext context,
             CancellationToken cancellation = default);

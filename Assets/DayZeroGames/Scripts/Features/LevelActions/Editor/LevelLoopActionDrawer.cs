@@ -80,7 +80,10 @@ namespace DZ.Features.EditorTools
                 return list;
             }
 
-            list = LevelActionListUI.CreateActionList(actionsProperty, "Actions");
+            list = LevelActionListUI.CreateActionList(
+                actionsProperty,
+                "Actions",
+                () => _listsByPath.Clear());
             _listsByPath[propertyPath] = list;
             return list;
         }

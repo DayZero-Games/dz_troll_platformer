@@ -37,6 +37,8 @@ namespace DZ.Features
 
             if (!HasConfiguredActions())
                 Debug.LogWarning($"{name}: no level actions assigned.", this);
+
+            WarnAboutMissingRequiredTargets();
         }
 
         private void Start()
@@ -101,6 +103,22 @@ namespace DZ.Features
             }
 
             return false;
+        }
+
+        private void WarnAboutMissingRequiredTargets()
+        {
+            if (_groups == null) return;
+
+            for (var i = 0; i < _groups.Count; i++)
+            {
+                var group = _groups[i];
+                if (group == null || !group.IsMissingRequiredTarget) continue;
+
+                var actionNames = group.DescribeTargetRequiredActions();
+                Debug.LogWarning(
+                    $"{name}: action group {i + 1} has target-required action(s) with no Target assigned: {actionNames}.",
+                    this);
+            }
         }
 
         private async UniTask ExecuteSequentiallyAsync(CancellationToken cancellation)

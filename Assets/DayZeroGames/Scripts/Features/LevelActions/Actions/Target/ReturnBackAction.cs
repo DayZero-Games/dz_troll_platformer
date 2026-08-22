@@ -12,6 +12,8 @@ namespace DZ.Features
 
         [SerializeField, Min(0.01f)] private float _moveSpeed = 10f;
 
+        public override bool RequiresTarget => true;
+
         public override async UniTask ExecuteActionAsync(
             LevelActionContext context,
             CancellationToken cancellation = default)

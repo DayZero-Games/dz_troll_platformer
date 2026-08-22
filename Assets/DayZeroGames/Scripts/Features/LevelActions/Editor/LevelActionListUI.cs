@@ -33,28 +33,33 @@ namespace DZ.Features.EditorTools
 
         private static List<Type> _actionTypes;
 
-        public static ReorderableList CreateActionList(SerializedProperty actionsProperty, string header)
+        public static ReorderableList CreateActionList(
+            SerializedProperty actionsProperty,
+            string header,
+            Action onStructureChanged = null)
         {
-            ReorderableList list = null;
-            list = new ReorderableList(actionsProperty.serializedObject, actionsProperty, true, true, true, true);
+            var serializedObject = actionsProperty.serializedObject;
+            var actionsPath = actionsProperty.propertyPath;
+            var list = new ReorderableList(serializedObject, actionsProperty, true, true, true, true);
 
             list.drawHeaderCallback = rect => EditorGUI.LabelField(rect, header);
-            list.elementHeightCallback = index => GetActionHeight(list.serializedProperty, index);
-            list.drawElementCallback = (rect, index, _, _) => DrawActionElement(list.serializedProperty, rect, index);
+            list.elementHeightCallback = index =>
+                GetActionHeight(FindActionsProperty(serializedObject, actionsPath), index);
+            list.drawElementCallback = (rect, index, _, _) =>
+                DrawActionElement(FindActionsProperty(serializedObject, actionsPath), rect, index);
             list.onAddDropdownCallback = (buttonRect, _) =>
             {
-                var serializedObject = list.serializedProperty.serializedObject;
-                var actionsPath = list.serializedProperty.propertyPath;
-                ShowAddMenu(buttonRect, typeToAdd => AppendAction(serializedObject, actionsPath, typeToAdd));
+                ShowAddMenu(buttonRect, typeToAdd =>
+                    AppendAction(serializedObject, actionsPath, typeToAdd, onStructureChanged));
             };
-            list.onReorderCallback = _ => list.serializedProperty.serializedObject.ApplyModifiedProperties();
+            list.onReorderCallback = _ =>
+            {
+                serializedObject.ApplyModifiedProperties();
+                onStructureChanged?.Invoke();
+            };
             list.onRemoveCallback = removedFrom =>
             {
-                var actions = list.serializedProperty;
-                if (removedFrom.index < 0 || removedFrom.index >= actions.arraySize) return;
-
-                actions.DeleteArrayElementAtIndex(removedFrom.index);
-                actions.serializedObject.ApplyModifiedProperties();
+                ScheduleRemoveAction(serializedObject, actionsPath, removedFrom.index, onStructureChanged);
             };
 
             return list;
@@ -62,25 +67,43 @@ namespace DZ.Features.EditorTools
 
         public static float GetActionHeight(SerializedProperty actionsProperty, int index)
         {
-            if (index < 0 || index >= actionsProperty.arraySize) return LineHeight;
+            if (actionsProperty == null || index < 0) return LineHeight;
 
-            var actionProperty = actionsProperty.GetArrayElementAtIndex(index);
-            return EditorGUI.GetPropertyHeight(actionProperty, true) + Spacing + ElementPadding;
+            try
+            {
+                if (index >= actionsProperty.arraySize) return LineHeight;
+
+                var actionProperty = actionsProperty.GetArrayElementAtIndex(index);
+                return EditorGUI.GetPropertyHeight(actionProperty, true) + Spacing + ElementPadding;
+            }
+            catch (ObjectDisposedException)
+            {
+                return LineHeight;
+            }
         }
 
         private static void DrawActionElement(SerializedProperty actionsProperty, Rect rect, int index)
         {
-            if (index < 0 || index >= actionsProperty.arraySize) return;
+            if (actionsProperty == null || index < 0) return;
 
-            var actionProperty = actionsProperty.GetArrayElementAtIndex(index);
-            var label = MakeActionInstanceLabel(actionProperty);
-            var fieldRect = new Rect(
-                rect.x + ActionFieldLeftOffset,
-                rect.y + Spacing * 0.5f,
-                rect.width - ActionFieldLeftOffset,
-                rect.height - Spacing - ElementPadding);
+            try
+            {
+                if (index >= actionsProperty.arraySize) return;
 
-            EditorGUI.PropertyField(fieldRect, actionProperty, label, true);
+                var actionProperty = actionsProperty.GetArrayElementAtIndex(index);
+                var label = MakeActionInstanceLabel(actionProperty);
+                var fieldRect = new Rect(
+                    rect.x + ActionFieldLeftOffset,
+                    rect.y + Spacing * 0.5f,
+                    rect.width - ActionFieldLeftOffset,
+                    rect.height - Spacing - ElementPadding);
+
+                EditorGUI.PropertyField(fieldRect, actionProperty, label, true);
+            }
+            catch (ObjectDisposedException)
+            {
+                InternalEditorUtility.RepaintAllViews();
+            }
         }
 
         private static void ShowAddMenu(Rect buttonRect, Action<Type> onPick)
@@ -154,13 +177,24 @@ namespace DZ.Features.EditorTools
 
         private static GUIContent MakeActionInstanceLabel(SerializedProperty actionProperty)
         {
-            if (actionProperty.managedReferenceValue is LevelAction action)
-                return new GUIContent(action.Describe());
+            try
+            {
+                if (actionProperty.managedReferenceValue is LevelAction action)
+                    return new GUIContent(action.Describe());
+            }
+            catch (ObjectDisposedException)
+            {
+                return new GUIContent("Refreshing action");
+            }
 
             return new GUIContent("Missing level action");
         }
 
-        private static void AppendAction(SerializedObject serializedObject, string actionsPropertyPath, Type actionType)
+        private static void AppendAction(
+            SerializedObject serializedObject,
+            string actionsPropertyPath,
+            Type actionType,
+            Action onStructureChanged)
         {
             serializedObject.Update();
 
@@ -175,7 +209,52 @@ namespace DZ.Features.EditorTools
             actionProperty.isExpanded = true;
 
             serializedObject.ApplyModifiedProperties();
+            onStructureChanged?.Invoke();
             InternalEditorUtility.RepaintAllViews();
+        }
+
+        private static SerializedProperty FindActionsProperty(
+            SerializedObject serializedObject,
+            string actionsPropertyPath)
+        {
+            try
+            {
+                return serializedObject?.FindProperty(actionsPropertyPath);
+            }
+            catch (ObjectDisposedException)
+            {
+                return null;
+            }
+        }
+
+        private static void ScheduleRemoveAction(
+            SerializedObject serializedObject,
+            string actionsPropertyPath,
+            int index,
+            Action onStructureChanged)
+        {
+            if (index < 0) return;
+
+            EditorApplication.delayCall += () =>
+            {
+                try
+                {
+                    if (serializedObject == null || serializedObject.targetObject == null) return;
+
+                    serializedObject.Update();
+                    var actions = FindActionsProperty(serializedObject, actionsPropertyPath);
+                    if (actions == null || index >= actions.arraySize) return;
+
+                    actions.DeleteArrayElementAtIndex(index);
+                    serializedObject.ApplyModifiedProperties();
+
+                    onStructureChanged?.Invoke();
+                    InternalEditorUtility.RepaintAllViews();
+                }
+                catch (ObjectDisposedException)
+                {
+                }
+            };
         }
 
         private static int CompareActionTypes(Type left, Type right)

@@ -8,6 +8,8 @@ namespace DZ.Features
     [Serializable]
     public class DisableObjectAction : LevelAction
     {
+        public override bool RequiresTarget => true;
+
         public override UniTask ExecuteActionAsync(
             LevelActionContext context,
             CancellationToken cancellation = default)
