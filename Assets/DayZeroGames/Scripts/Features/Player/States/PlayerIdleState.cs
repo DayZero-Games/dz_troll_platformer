@@ -33,7 +33,7 @@ namespace DZ.Features
 
 		private void HandlePlayerJump()
 		{
-			if (playerController.IsGrounded)
+			if (playerController.IsGrounded && playerController.CanJump())
 			{
 				playerController.JumpState.JumpOnEnter();
 				playerStateMachine.ChangeState(playerController.JumpState);

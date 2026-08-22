@@ -7,7 +7,7 @@ using UnityEngine;
 namespace DZ.Features
 {
     [Serializable]
-    public class CameraShakeAction : ObstacleAction
+    public class CameraShakeAction : LevelAction
     {
         [SerializeField] private CameraShakeConfigSo _shakeConfig;
 
@@ -18,14 +18,14 @@ namespace DZ.Features
             frequency: 22f);
 
         public override async UniTask ExecuteActionAsync(
-            ObstacleActionContext context,
+            LevelActionContext context,
             CancellationToken cancellation = default)
         {
             cancellation.ThrowIfCancellationRequested();
 
             if (context.CameraShaker == null)
             {
-                Debug.LogError($"{context.PerformerName}: no camera shaker available.", context.Performer);
+                Debug.LogError($"{context.TargetName}: no camera shaker available.", context.Target != null ? context.Target : context.Owner);
                 return;
             }
 

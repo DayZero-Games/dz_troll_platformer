@@ -18241,12 +18241,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 4520461605913640401}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
+  m_Script: {fileID: 11500000, guid: 4817522cddcf433a82cc497345ad714f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelActionSequenceController
   _executionMode: 0
-  _performers:
-  - _performer: {fileID: 1503004894871526781}
+  _autoStart: 0
+  _oneShot: 1
+  _groups:
+  - _target: {fileID: 1503004894871526781}
     _actions:
     - rid: 1000000000000000000
     - rid: 1000000000000000001
@@ -18373,12 +18375,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5424833381343140555}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59fa82caa13bb614baba05e5515f32b6, type: 3}
+  m_Script: {fileID: 11500000, guid: 506825c59f69498990579079d128f08a, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleTrigger
-  _playerTag: Player
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.ActionTrigger2D
+  _activatorTag: Player
   _disableColliderAfterSuccessfulActivation: 1
-  _controllers:
+  _sequenceControllers:
   - {fileID: 2518260681566293022}
 --- !u!1 &5541723766984784876
 GameObject:
@@ -18523,12 +18525,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 5978802000867678056}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
+  m_Script: {fileID: 11500000, guid: 4817522cddcf433a82cc497345ad714f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelActionSequenceController
   _executionMode: 0
-  _performers:
-  - _performer: {fileID: 682955975242495219}
+  _autoStart: 0
+  _oneShot: 1
+  _groups:
+  - _target: {fileID: 682955975242495219}
     _actions:
     - rid: 1000000000000000006
     - rid: 1000000000000000007
@@ -18682,12 +18686,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 6988108496701279929}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
+  m_Script: {fileID: 11500000, guid: 4817522cddcf433a82cc497345ad714f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelActionSequenceController
   _executionMode: 0
-  _performers:
-  - _performer: {fileID: 2595929186365895847}
+  _autoStart: 0
+  _oneShot: 1
+  _groups:
+  - _target: {fileID: 2595929186365895847}
     _actions:
     - rid: 1000000000000000009
     - rid: 1000000000000000010
@@ -18790,12 +18796,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 7665454519989978174}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
+  m_Script: {fileID: 11500000, guid: 4817522cddcf433a82cc497345ad714f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelActionSequenceController
   _executionMode: 0
-  _performers:
-  - _performer: {fileID: 8921703387951738735}
+  _autoStart: 0
+  _oneShot: 1
+  _groups:
+  - _target: {fileID: 8921703387951738735}
     _actions:
     - rid: 1000000000000000011
     - rid: 1000000000000000012
@@ -19118,12 +19126,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 9204362334226980478}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59fa82caa13bb614baba05e5515f32b6, type: 3}
+  m_Script: {fileID: 11500000, guid: 506825c59f69498990579079d128f08a, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleTrigger
-  _playerTag: Player
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.ActionTrigger2D
+  _activatorTag: Player
   _disableColliderAfterSuccessfulActivation: 0
-  _controllers:
+  _sequenceControllers:
   - {fileID: 4419410029111975457}
   - {fileID: 5281219102254827100}
 --- !u!1001 &299123888926159195

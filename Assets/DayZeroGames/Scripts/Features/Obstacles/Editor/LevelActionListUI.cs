@@ -6,12 +6,7 @@ using UnityEngine;
 
 namespace DZ.Features.EditorTools
 {
-    /// <summary>
-    /// Shared UI for an action list. Used by the ObstacleController inspector for a performer's
-    /// actions and by LoopActionDrawer for a loop body, so both get the identical reorderable
-    /// list: drag to reorder, + to add from the type menu, - to remove.
-    /// </summary>
-    internal static class ObstacleActionListUI
+    internal static class LevelActionListUI
     {
         public const float ElementPadding = 4f;
         public const float ActionFieldLeftOffset = 24f;
@@ -26,15 +21,18 @@ namespace DZ.Features.EditorTools
             { nameof(WaitAction), 2 },
             { nameof(DisableObjectAction), 3 },
             { nameof(CameraShakeAction), 4 },
-            { nameof(LoopAction), 5 }
+            { nameof(SetInvertControlsGameplayAction), 10 },
+            { nameof(SetGravityScaleGameplayAction), 11 },
+            { nameof(SetJumpRulesGameplayAction), 12 },
+            { nameof(SetJumpEnabledGameplayAction), 13 },
+            { nameof(SwitchControlGameplayAction), 14 },
+            { nameof(ApplyLevelRulesGameplayAction), 15 },
+            { nameof(RestoreCatalogRulesGameplayAction), 16 },
+            { nameof(LevelLoopAction), 30 }
         };
 
         private static List<Type> _actionTypes;
 
-        /// <summary>
-        /// Builds the reorderable action list. Callbacks read <see cref="ReorderableList.serializedProperty"/>
-        /// rather than capturing it, so a cached list stays correct after the owning array is reordered.
-        /// </summary>
         public static ReorderableList CreateActionList(SerializedProperty actionsProperty, string header)
         {
             ReorderableList list = null;
@@ -70,7 +68,7 @@ namespace DZ.Features.EditorTools
             return EditorGUI.GetPropertyHeight(actionProperty, true) + Spacing + ElementPadding;
         }
 
-        public static void DrawActionElement(SerializedProperty actionsProperty, Rect rect, int index)
+        private static void DrawActionElement(SerializedProperty actionsProperty, Rect rect, int index)
         {
             if (index < 0 || index >= actionsProperty.arraySize) return;
 
@@ -85,14 +83,14 @@ namespace DZ.Features.EditorTools
             EditorGUI.PropertyField(fieldRect, actionProperty, label, true);
         }
 
-        public static void ShowAddMenu(Rect buttonRect, Action<Type> onPick)
+        private static void ShowAddMenu(Rect buttonRect, Action<Type> onPick)
         {
             var menu = new GenericMenu();
             var actionTypes = GetActionTypes();
 
             if (actionTypes.Count == 0)
             {
-                menu.AddDisabledItem(new GUIContent("No action types found"));
+                menu.AddDisabledItem(new GUIContent("No level action types found"));
                 menu.DropDown(buttonRect);
                 return;
             }
@@ -106,12 +104,12 @@ namespace DZ.Features.EditorTools
             menu.DropDown(buttonRect);
         }
 
-        public static List<Type> GetActionTypes()
+        private static List<Type> GetActionTypes()
         {
             if (_actionTypes != null) return _actionTypes;
 
             _actionTypes = new List<Type>();
-            foreach (var type in TypeCache.GetTypesDerivedFrom<ObstacleAction>())
+            foreach (var type in TypeCache.GetTypesDerivedFrom<LevelAction>())
             {
                 if (type.IsAbstract || type.IsGenericType) continue;
                 if (type.GetConstructor(Type.EmptyTypes) == null) continue;
@@ -124,27 +122,45 @@ namespace DZ.Features.EditorTools
             return _actionTypes;
         }
 
-        public static string MakeActionTypeLabel(Type actionType)
+        private static string MakeActionTypeLabel(Type actionType)
         {
-            if (actionType.Name == nameof(DisableObjectAction))
-                return "Disable";
-
             var name = actionType.Name;
-            if (name.EndsWith("Action", StringComparison.Ordinal))
+
+            if (name == nameof(DisableObjectAction))
+                return "Target/Disable";
+            if (name == nameof(MoveToPointAction))
+                return "Target/Move To Point";
+            if (name == nameof(ReturnBackAction))
+                return "Target/Return Back";
+            if (name == nameof(CameraShakeAction))
+                return "Feedback/Camera Shake";
+            if (name == nameof(WaitAction))
+                return "Flow/Wait";
+            if (name == nameof(LevelLoopAction))
+                return "Flow/Loop";
+
+            if (name.StartsWith("Set", StringComparison.Ordinal))
+                name = name.Substring("Set".Length);
+
+            if (name.EndsWith("GameplayAction", StringComparison.Ordinal))
+                name = name.Substring(0, name.Length - "GameplayAction".Length);
+            else if (name.EndsWith("LevelAction", StringComparison.Ordinal))
+                name = name.Substring(0, name.Length - "LevelAction".Length);
+            else if (name.EndsWith("Action", StringComparison.Ordinal))
                 name = name.Substring(0, name.Length - "Action".Length);
 
-            return ObjectNames.NicifyVariableName(name);
+            return $"Gameplay/{ObjectNames.NicifyVariableName(name)}";
         }
 
-        public static GUIContent MakeActionInstanceLabel(SerializedProperty actionProperty)
+        private static GUIContent MakeActionInstanceLabel(SerializedProperty actionProperty)
         {
-            if (actionProperty.managedReferenceValue is ObstacleAction action)
+            if (actionProperty.managedReferenceValue is LevelAction action)
                 return new GUIContent(action.Describe());
 
-            return new GUIContent("Missing action");
+            return new GUIContent("Missing level action");
         }
 
-        public static void AppendAction(SerializedObject serializedObject, string actionsPropertyPath, Type actionType)
+        private static void AppendAction(SerializedObject serializedObject, string actionsPropertyPath, Type actionType)
         {
             serializedObject.Update();
 
@@ -159,8 +175,6 @@ namespace DZ.Features.EditorTools
             actionProperty.isExpanded = true;
 
             serializedObject.ApplyModifiedProperties();
-
-            // the menu callback runs outside OnGUI, so nothing would repaint on its own
             InternalEditorUtility.RepaintAllViews();
         }
 

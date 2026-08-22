@@ -6,12 +6,12 @@ using UnityEngine;
 namespace DZ.Features
 {
     [Serializable]
-    public class WaitAction : ObstacleAction
+    public class WaitAction : LevelAction
     {
         [SerializeField, Min(0f)] private float _durationSeconds = 1f;
 
         public override UniTask ExecuteActionAsync(
-            ObstacleActionContext context,
+            LevelActionContext context,
             CancellationToken cancellation = default)
         {
             if (_durationSeconds <= 0f) return UniTask.CompletedTask;

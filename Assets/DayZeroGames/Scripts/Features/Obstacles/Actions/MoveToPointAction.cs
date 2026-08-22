@@ -6,7 +6,7 @@ using UnityEngine;
 namespace DZ.Features
 {
     [Serializable]
-    public class MoveToPointAction : ObstacleAction
+    public class MoveToPointAction : LevelAction
     {
         private const float ArrivalDistance = 0.001f;
 
@@ -16,13 +16,13 @@ namespace DZ.Features
         [SerializeField, Min(0.01f)] private float _moveSpeed = 10f;
 
         public override async UniTask ExecuteActionAsync(
-            ObstacleActionContext context,
+            LevelActionContext context,
             CancellationToken cancellation = default)
         {
-            if (!context.HasPerformer) return;
+            if (!context.HasTarget) return;
             if (_targetPoints == null || _targetPoints.Length == 0)
             {
-                Debug.LogError($"{context.PerformerName}: no target points assigned.", context.Performer);
+                Debug.LogError($"{context.TargetName}: no target points assigned.", context.Target);
                 return;
             }
 
@@ -39,22 +39,22 @@ namespace DZ.Features
             }
         }
 
-        private void ValidateTargetPoints(ObstacleActionContext context)
+        private void ValidateTargetPoints(LevelActionContext context)
         {
             var performerTransform = context.Transform;
             foreach (var targetPoint in _targetPoints)
             {
                 if (targetPoint == null)
                 {
-                    Debug.LogError($"{context.PerformerName}: a target point is missing.", context.Performer);
+                    Debug.LogError($"{context.TargetName}: a target point is missing.", context.Target);
                     continue;
                 }
 
                 if (performerTransform != null && targetPoint.IsChildOf(performerTransform))
                 {
                     Debug.LogError(
-                        $"{context.PerformerName}: target point '{targetPoint.name}' is a child of the performer.",
-                        context.Performer);
+                        $"{context.TargetName}: target point '{targetPoint.name}' is a child of the action target.",
+                        context.Target);
                 }
             }
         }
@@ -101,9 +101,9 @@ namespace DZ.Features
             return $"{warningPrefix}MoveTo -> {route} @ {_moveSpeed:0.##}";
         }
 
-        public override void DrawGizmos(ObstacleActionContext context)
+        public override void DrawGizmos(LevelActionContext context)
         {
-            if (!context.HasPerformer || _targetPoints == null || _targetPoints.Length == 0) return;
+            if (!context.HasTarget || _targetPoints == null || _targetPoints.Length == 0) return;
 
             var performerTransform = context.Transform;
             if (performerTransform == null) return;

@@ -11,7 +11,7 @@ using Object = UnityEngine.Object;
 
 namespace DZ.Features
 {
-    public class LevelFlowController : IAsyncStartable, IDisposable
+    public class LevelFlowController : IAsyncStartable, IDisposable, ILevelRuntimeActions
     {
         private readonly IScreenFader _fader;
         private readonly ISignalBus _signalBus;
@@ -187,8 +187,9 @@ namespace DZ.Features
 
                 // In a puppet level the player stays frozen at the spawn point and the
                 // puppet takes the input for the whole level.
-                if (_currentLvlContext.HasPuppet) _currentLvlContext.Puppet.Unlock();
-                else _playerController.UnlockPlayer();
+                SwitchControl(_currentLvlContext.StartControllingPuppet
+                    ? LevelControlTarget.Puppet
+                    : LevelControlTarget.Player);
             }
             catch (OperationCanceledException)
             {
@@ -260,6 +261,79 @@ namespace DZ.Features
             _signalBus.Unsubscribe<LevelExitReachedSignal>(OnLevelExitReached);
             _cts.Cancel();
             _cts.Dispose();
+        }
+
+        public void SetInvertControls(bool inverted)
+        {
+            _inputReader.SetInverted(inverted);
+        }
+
+        public void SetGravityScale(float gravityScale)
+        {
+            _playerController.SetGravityScale(gravityScale);
+            if (_currentLvlContext != null && _currentLvlContext.HasPuppet)
+                _currentLvlContext.Puppet.SetGravityScale(gravityScale);
+        }
+
+        public void SetJumpRules(int maxAirJumps, float jumpForceMultiplier)
+        {
+            _playerController.SetJumpRules(maxAirJumps, jumpForceMultiplier);
+            if (_currentLvlContext != null && _currentLvlContext.HasPuppet)
+                _currentLvlContext.Puppet.SetJumpRules(maxAirJumps, jumpForceMultiplier);
+        }
+
+        public void SetJumpEnabled(bool enabled)
+        {
+            _playerController.SetJumpEnabled(enabled);
+            if (_currentLvlContext != null && _currentLvlContext.HasPuppet)
+                _currentLvlContext.Puppet.SetJumpEnabled(enabled);
+        }
+
+        public void ApplyRuntimeRules(LevelRules rules)
+        {
+            rules ??= LevelRules.Default;
+
+            SetInvertControls(rules.InvertControls);
+            _playerController.ApplyRules(rules);
+
+            if (_currentLvlContext != null && _currentLvlContext.HasPuppet)
+                _currentLvlContext.Puppet.ApplyRules(rules);
+        }
+
+        public void RestoreCatalogRules()
+        {
+            var rules = _levelCatalogSo.HasLevel(_currentLvlIndex)
+                ? _levelCatalogSo.GetLevel(_currentLvlIndex).Rules
+                : LevelRules.Default;
+
+            ApplyRuntimeRules(rules);
+        }
+
+        public bool SwitchControl(LevelControlTarget target)
+        {
+            if (_currentLvlContext == null) return false;
+
+            switch (target)
+            {
+                case LevelControlTarget.Player:
+                    LockPuppetIfAny();
+                    _playerController.UnlockPlayer();
+                    return true;
+
+                case LevelControlTarget.Puppet:
+                    if (!_currentLvlContext.HasPuppet)
+                    {
+                        Debug.LogWarning("Cannot switch control to puppet: current level has no puppet.");
+                        return false;
+                    }
+
+                    _playerController.LockPlayer();
+                    _currentLvlContext.Puppet.Unlock();
+                    return true;
+
+                default:
+                    return false;
+            }
         }
     }
 }

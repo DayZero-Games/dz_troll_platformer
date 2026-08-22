@@ -6,25 +6,22 @@ using UnityEngine;
 namespace DZ.Features
 {
     [Serializable]
-    public class DisableObjectAction : ObstacleAction
+    public class DisableObjectAction : LevelAction
     {
         public override UniTask ExecuteActionAsync(
-            ObstacleActionContext context,
+            LevelActionContext context,
             CancellationToken cancellation = default)
         {
             cancellation.ThrowIfCancellationRequested();
 
-            if (context.Performer != null)
-            {
-                context.Performer.SetActive(false);
-            }
-                
+            if (context.Target != null)
+                context.Target.SetActive(false);
 
             return UniTask.CompletedTask;
         }
 
 #if UNITY_EDITOR
-        public override string Describe() => "Disable -> performer";
+        public override string Describe() => "Disable -> target";
 #endif
     }
 }

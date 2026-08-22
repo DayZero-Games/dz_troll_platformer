@@ -6,14 +6,14 @@ using UnityEngine;
 namespace DZ.Features
 {
     [Serializable]
-    public class ReturnBackAction : ObstacleAction
+    public class ReturnBackAction : LevelAction
     {
         private const float ArrivalDistance = 0.001f;
 
         [SerializeField, Min(0.01f)] private float _moveSpeed = 10f;
 
         public override async UniTask ExecuteActionAsync(
-            ObstacleActionContext context,
+            LevelActionContext context,
             CancellationToken cancellation = default)
         {
             await MoveToAsync(context.Transform, context.InitialLocalPosition, cancellation);

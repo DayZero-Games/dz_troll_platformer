@@ -4,11 +4,11 @@ using UnityEngine;
 namespace DZ.Features
 {
     [RequireComponent(typeof(Collider2D))]
-    public class ObstacleTrigger : MonoBehaviour
+    public class ActionTrigger2D : MonoBehaviour
     {
-        [SerializeField] private string _playerTag = "Player";
+        [SerializeField] private string _activatorTag = "Player";
         [SerializeField] private bool _disableColliderAfterSuccessfulActivation = true;
-        [SerializeField] private ObstacleController[] _controllers;
+        [SerializeField] private LevelActionSequenceController[] _sequenceControllers;
 
         private Collider2D _triggerCollider;
 
@@ -17,26 +17,25 @@ namespace DZ.Features
             _triggerCollider = GetComponent<Collider2D>();
             _triggerCollider.isTrigger = true;
 
-            if ((_controllers == null || _controllers.Length == 0) &&
-                TryGetComponent(out ObstacleController controller))
+            if ((_sequenceControllers == null || _sequenceControllers.Length == 0) &&
+                TryGetComponent(out LevelActionSequenceController sequenceController))
             {
-                _controllers = new[] { controller };
+                _sequenceControllers = new[] { sequenceController };
             }
 
-            if (_controllers == null || _controllers.Length == 0)
-            {
-                Debug.LogWarning($"{name}: no obstacle controllers assigned.", this);
-            }
+            if (_sequenceControllers == null || _sequenceControllers.Length == 0)
+                Debug.LogWarning($"{name}: no level action sequence controllers assigned.", this);
         }
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (!other.CompareTag(_playerTag)) return;
-            if (_controllers == null) return;
+            if (!other.CompareTag(_activatorTag)) return;
+            if (_sequenceControllers == null) return;
 
             var activatedAnyController = false;
             var cancellation = this.GetCancellationTokenOnDestroy();
-            foreach (var controller in _controllers)
+
+            foreach (var controller in _sequenceControllers)
             {
                 if (controller == null) continue;
                 activatedAnyController |= controller.TryActivate(cancellation);

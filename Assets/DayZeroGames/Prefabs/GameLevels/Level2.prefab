@@ -17954,11 +17954,11 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1648445924644283268, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
-      propertyPath: _performers.Array.size
+      propertyPath: _groups.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1648445924644283268, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
-      propertyPath: _performers.Array.data[0]._performer
+      propertyPath: _groups.Array.data[0]._target
       value: 
       objectReference: {fileID: 5897475439678359183}
     - target: {fileID: 1648445924644283268, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
@@ -17974,19 +17974,19 @@ PrefabInstance:
       value: DZ.Features DZ.Features.WaitAction
       objectReference: {fileID: 0}
     - target: {fileID: 1648445924644283268, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
-      propertyPath: _performers.Array.data[0]._actions.Array.size
+      propertyPath: _groups.Array.data[0]._actions.Array.size
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1648445924644283268, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
-      propertyPath: '_performers.Array.data[0]._actions.Array.data[0]'
+      propertyPath: '_groups.Array.data[0]._actions.Array.data[0]'
       value: 3064963748607819853
       objectReference: {fileID: 0}
     - target: {fileID: 1648445924644283268, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
-      propertyPath: '_performers.Array.data[0]._actions.Array.data[1]'
+      propertyPath: '_groups.Array.data[0]._actions.Array.data[1]'
       value: 3064963748607819855
       objectReference: {fileID: 0}
     - target: {fileID: 1648445924644283268, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
-      propertyPath: '_performers.Array.data[0]._actions.Array.data[2]'
+      propertyPath: '_groups.Array.data[0]._actions.Array.data[2]'
       value: 3064963748607819854
       objectReference: {fileID: 0}
     - target: {fileID: 1648445924644283268, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}

@@ -81,7 +81,7 @@ GameObject:
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6746236811111315697
 Transform:
   m_ObjectHideFlags: 0
@@ -152,13 +152,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1993327970429441174}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59fa82caa13bb614baba05e5515f32b6, type: 3}
+  m_Script: {fileID: 11500000, guid: 506825c59f69498990579079d128f08a, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleTrigger
-  _playerTag: Player
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.ActionTrigger2D
+  _activatorTag: Player
   _disableColliderAfterSuccessfulActivation: 1
-  _controllers:
-  - {fileID: 4258228821316863897}
+  _sequenceControllers:
+  - {fileID: 1554666604385122639}
 --- !u!1 &2588486050390965312
 GameObject:
   m_ObjectHideFlags: 0
@@ -18933,6 +18933,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3815340097030233003}
+  - {fileID: 712060581102837915}
   - {fileID: 6746236811111315697}
   - {fileID: 1731469525001544324}
   - {fileID: 5826106003925995392}
@@ -18990,7 +18991,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1731469525001544324
 Transform:
   m_ObjectHideFlags: 0
@@ -19356,13 +19357,76 @@ MonoBehaviour:
   m_GameObject: {fileID: 4011119455516172867}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59fa82caa13bb614baba05e5515f32b6, type: 3}
+  m_Script: {fileID: 11500000, guid: 506825c59f69498990579079d128f08a, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleTrigger
-  _playerTag: Player
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.ActionTrigger2D
+  _activatorTag: Player
   _disableColliderAfterSuccessfulActivation: 1
-  _controllers:
+  _sequenceControllers:
   - {fileID: 7750433495171723808}
+--- !u!1 &4476723863762851487
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 712060581102837915}
+  - component: {fileID: 1554666604385122639}
+  m_Layer: 0
+  m_Name: GameActionsController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &712060581102837915
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4476723863762851487}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 942595324203836821}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1554666604385122639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4476723863762851487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4817522cddcf433a82cc497345ad714f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelActionSequenceController
+  _executionMode: 0
+  _autoStart: 0
+  _oneShot: 1
+  _groups:
+  - _target: {fileID: 0}
+    _actions:
+    - rid: 7298938021400805457
+    - rid: 7298938021400805460
+  references:
+    version: 2
+    RefIds:
+    - rid: 7298938021400805457
+      type: {class: SetInvertControlsGameplayAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _inverted: 1
+    - rid: 7298938021400805460
+      type: {class: SetGravityScaleGameplayAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _gravityScale: 0.35
 --- !u!1 &4892256452876767738
 GameObject:
   m_ObjectHideFlags: 0
@@ -20026,7 +20090,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3815340097030233003
 Transform:
   m_ObjectHideFlags: 0
@@ -20051,20 +20115,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 6255378430484535897}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
+  m_Script: {fileID: 11500000, guid: 4817522cddcf433a82cc497345ad714f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelActionSequenceController
   _executionMode: 0
   _autoStart: 1
-  _performers:
-  - _performer: {fileID: 3298008587771929014}
+  _oneShot: 1
+  _groups:
+  - _target: {fileID: 3298008587771929014}
     _actions:
     - rid: 7298937985107492955
   references:
     version: 2
     RefIds:
     - rid: 7298937985107492955
-      type: {class: LoopAction, ns: DZ.Features, asm: DZ.Features}
+      type: {class: LevelLoopAction, ns: DZ.Features, asm: DZ.Features}
       data:
         _actions:
         - rid: 7298937985107492956
@@ -20193,6 +20258,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelContext
   _SpawnPoint: {fileID: 1143000765956486161}
   _puppet: {fileID: 0}
+  _startControllingPuppet: 0
 --- !u!1 &7036089443171828873
 GameObject:
   m_ObjectHideFlags: 0
@@ -20440,13 +20506,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 7375974794398474450}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
+  m_Script: {fileID: 11500000, guid: 4817522cddcf433a82cc497345ad714f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelActionSequenceController
   _executionMode: 0
   _autoStart: 0
-  _performers:
-  - _performer: {fileID: 7173124280711255865}
+  _oneShot: 1
+  _groups:
+  - _target: {fileID: 7173124280711255865}
     _actions:
     - rid: 7298937825450524784
     - rid: 7298937825450524785

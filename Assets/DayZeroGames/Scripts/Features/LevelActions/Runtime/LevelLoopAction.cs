@@ -6,24 +6,17 @@ using UnityEngine;
 
 namespace DZ.Features
 {
-    /// <summary>
-    /// Replays a body of actions. Compose the round trip explicitly - typically
-    /// MoveTo -> Wait -> ReturnBack -> Wait - rather than looping a single action.
-    /// </summary>
     [Serializable]
-    public class LoopAction : ObstacleAction
+    public class LevelLoopAction : LevelAction
     {
         [Tooltip("Actions replayed in order on every iteration.")]
-        [SerializeReference] private List<ObstacleAction> _actions = new();
+        [SerializeReference] private List<LevelAction> _actions = new();
 
-        [Tooltip("How many times to run the body. 0 = forever.\n\n" +
-                 "An endless loop never returns, so any action placed after it in the SAME performer's list " +
-                 "will never run. Give a looping obstacle its own performer entry and set the controller's " +
-                 "Execution Mode to Parallel so other performers keep going.")]
+        [Tooltip("How many times to run the body. 0 = forever.")]
         [SerializeField, Min(0)] private int _iterations;
 
         public override async UniTask ExecuteActionAsync(
-            ObstacleActionContext context,
+            LevelActionContext context,
             CancellationToken cancellation = default)
         {
             if (_actions == null || _actions.Count == 0) return;
@@ -36,9 +29,6 @@ namespace DZ.Features
                     await action.ExecuteActionAsync(context, cancellation);
                 }
 
-                // A body that can complete without yielding - a 0s Wait, or a MoveTo whose performer is
-                // already at its target - would otherwise spin forever inside a single frame and hang
-                // the editor. This also gives an endless loop a cancellation point every iteration.
                 await UniTask.Yield(PlayerLoopTiming.Update, cancellation);
             }
         }
@@ -54,7 +44,7 @@ namespace DZ.Features
                 : $"Loop {times} -> {count} action{(count == 1 ? string.Empty : "s")}";
         }
 
-        public override void DrawGizmos(ObstacleActionContext context)
+        public override void DrawGizmos(LevelActionContext context)
         {
             if (_actions == null) return;
 
