@@ -8,7 +8,11 @@ namespace DZ.Features
     [Serializable]
     public sealed class LevelPuppetSlot
     {
+        public const string IdFieldName = "_id";
         public const string PuppetFieldName = "_puppet";
+
+        [Tooltip("Unique ID used by level actions. Defaults to the puppet GameObject name.")]
+        [SerializeField] private string _id;
 
         [SerializeField] private PuppetController _puppet;
 
@@ -16,14 +20,17 @@ namespace DZ.Features
         {
         }
 
-        public LevelPuppetSlot(PuppetController puppet)
+        public LevelPuppetSlot(string id, PuppetController puppet)
         {
+            _id = id;
             _puppet = puppet;
         }
 
-        public string Id => _puppet != null ? _puppet.gameObject.name : string.Empty;
+        public string Id => _id;
         public PuppetController Puppet => _puppet;
         public bool IsValid => _puppet != null;
+
+        internal void SetId(string id) => _id = id;
     }
 
     public sealed class LevelContext : MonoBehaviour
@@ -35,7 +42,7 @@ namespace DZ.Features
 
         [SerializeField] private Transform _SpawnPoint;
 
-        [Tooltip("Puppets available to this level. Each puppet GameObject name must be unique.")]
+        [Tooltip("Puppets available to this level. IDs default to GameObject names and must be unique.")]
         [SerializeField] private List<LevelPuppetSlot> _puppets = new();
 
         [SerializeField] private LevelControlTarget _startControlTarget = LevelControlTarget.Player;
@@ -57,10 +64,10 @@ namespace DZ.Features
 
             if(_SpawnPoint == null) Debug.LogError($"{name}: no spawn point assigned",this);
 
-            if (TryGetDuplicatePuppetName(out var duplicateName))
+            if (TryGetDuplicatePuppetId(out var duplicateId))
             {
                 Debug.LogError(
-                    $"{name}: multiple puppets use the GameObject name '{duplicateName}'. Puppet names must be unique.",
+                    $"{name}: multiple puppets use the ID '{duplicateId}'. Puppet IDs must be unique.",
                     this);
             }
 
@@ -104,6 +111,7 @@ namespace DZ.Features
             _puppets ??= new List<LevelPuppetSlot>();
 
             MigrateLegacyPuppet();
+            EnsureDefaultPuppetIds();
             EnsureStartPuppetId();
         }
 
@@ -114,8 +122,12 @@ namespace DZ.Features
             var slot = FindPuppetSlot(_puppet);
             if (slot == null)
             {
-                slot = new LevelPuppetSlot(_puppet);
+                slot = new LevelPuppetSlot(_puppet.gameObject.name, _puppet);
                 _puppets.Add(slot);
+            }
+            else if (string.IsNullOrWhiteSpace(slot.Id))
+            {
+                slot.SetId(_puppet.gameObject.name);
             }
 
             if (_startControllingPuppet)
@@ -126,6 +138,18 @@ namespace DZ.Features
 
             _puppet = null;
             _startControllingPuppet = false;
+        }
+
+        private void EnsureDefaultPuppetIds()
+        {
+            foreach (var slot in _puppets)
+            {
+                if (slot == null || slot.Puppet == null) continue;
+
+                slot.SetId(string.IsNullOrWhiteSpace(slot.Id)
+                    ? slot.Puppet.gameObject.name
+                    : slot.Id.Trim());
+            }
         }
 
         private void EnsureStartPuppetId()
@@ -178,20 +202,20 @@ namespace DZ.Features
             return null;
         }
 
-        private bool TryGetDuplicatePuppetName(out string duplicateName)
+        private bool TryGetDuplicatePuppetId(out string duplicateId)
         {
-            var names = new HashSet<string>(StringComparer.Ordinal);
-            foreach (var puppet in GetPuppets())
+            var ids = new HashSet<string>(StringComparer.Ordinal);
+            foreach (var slot in _puppets)
             {
-                var puppetName = puppet.gameObject.name;
-                if (!names.Add(puppetName))
+                if (slot == null || !slot.IsValid || string.IsNullOrWhiteSpace(slot.Id)) continue;
+                if (!ids.Add(slot.Id))
                 {
-                    duplicateName = puppetName;
+                    duplicateId = slot.Id;
                     return true;
                 }
             }
 
-            duplicateName = null;
+            duplicateId = null;
             return false;
         }
 

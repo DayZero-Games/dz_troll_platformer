@@ -28,10 +28,11 @@ namespace DZ.Features.EditorTools
 
             EditorGUILayout.PropertyField(_spawnPointProperty);
             EditorGUILayout.PropertyField(_puppetsProperty, new GUIContent("Puppets"), true);
-            if (TryGetDuplicatePuppetName(_puppetsProperty, out var duplicateName))
+            AssignDefaultPuppetIds(_puppetsProperty);
+            if (TryGetDuplicatePuppetId(_puppetsProperty, out var duplicateId))
             {
                 EditorGUILayout.HelpBox(
-                    $"Multiple puppets are named '{duplicateName}'. Rename their GameObjects so every puppet name is unique.",
+                    $"Multiple puppets use the ID '{duplicateId}'. Give every puppet a unique ID.",
                     MessageType.Error);
             }
 
@@ -100,42 +101,63 @@ namespace DZ.Features.EditorTools
             for (var i = 0; i < puppetsProperty.arraySize; i++)
             {
                 var slotProperty = puppetsProperty.GetArrayElementAtIndex(i);
+                var idProperty = slotProperty.FindPropertyRelative(LevelPuppetSlot.IdFieldName);
                 var puppetProperty = slotProperty.FindPropertyRelative(LevelPuppetSlot.PuppetFieldName);
                 var puppet = puppetProperty.objectReferenceValue as PuppetController;
 
                 if (puppet == null) continue;
 
-                var puppetName = puppet.gameObject.name;
-                options.Add(new ControlOption(false, puppetName, puppetName));
+                var id = string.IsNullOrWhiteSpace(idProperty.stringValue)
+                    ? puppet.gameObject.name
+                    : idProperty.stringValue;
+                var label = id == puppet.gameObject.name ? id : $"{id} ({puppet.gameObject.name})";
+                options.Add(new ControlOption(false, id, label));
             }
 
             return options;
         }
 
-        private static bool TryGetDuplicatePuppetName(
-            SerializedProperty puppetsProperty,
-            out string duplicateName)
+        private static void AssignDefaultPuppetIds(SerializedProperty puppetsProperty)
         {
-            var names = new HashSet<string>();
+            if (puppetsProperty == null || !puppetsProperty.isArray) return;
+
+            for (var i = 0; i < puppetsProperty.arraySize; i++)
+            {
+                var slotProperty = puppetsProperty.GetArrayElementAtIndex(i);
+                var idProperty = slotProperty.FindPropertyRelative(LevelPuppetSlot.IdFieldName);
+                var puppetProperty = slotProperty.FindPropertyRelative(LevelPuppetSlot.PuppetFieldName);
+                var puppet = puppetProperty.objectReferenceValue as PuppetController;
+
+                if (puppet != null && string.IsNullOrWhiteSpace(idProperty.stringValue))
+                    idProperty.stringValue = puppet.gameObject.name;
+            }
+        }
+
+        private static bool TryGetDuplicatePuppetId(
+            SerializedProperty puppetsProperty,
+            out string duplicateId)
+        {
+            var ids = new HashSet<string>();
             if (puppetsProperty != null && puppetsProperty.isArray)
             {
                 for (var i = 0; i < puppetsProperty.arraySize; i++)
                 {
                     var slotProperty = puppetsProperty.GetArrayElementAtIndex(i);
+                    var idProperty = slotProperty.FindPropertyRelative(LevelPuppetSlot.IdFieldName);
                     var puppetProperty = slotProperty.FindPropertyRelative(LevelPuppetSlot.PuppetFieldName);
                     var puppet = puppetProperty.objectReferenceValue as PuppetController;
                     if (puppet == null) continue;
 
-                    var puppetName = puppet.gameObject.name;
-                    if (!names.Add(puppetName))
+                    var id = idProperty.stringValue;
+                    if (!string.IsNullOrWhiteSpace(id) && !ids.Add(id))
                     {
-                        duplicateName = puppetName;
+                        duplicateId = id;
                         return true;
                     }
                 }
             }
 
-            duplicateName = null;
+            duplicateId = null;
             return false;
         }
 

@@ -101,8 +101,13 @@ namespace DZ.Features.EditorTools
             {
                 if (slot == null || !slot.IsValid) continue;
 
-                var puppetName = slot.Puppet.gameObject.name;
-                options.Add(new ControlOption(false, puppetName, puppetName));
+                var id = string.IsNullOrWhiteSpace(slot.Id)
+                    ? slot.Puppet.gameObject.name
+                    : slot.Id;
+                var label = id == slot.Puppet.gameObject.name
+                    ? id
+                    : $"{id} ({slot.Puppet.gameObject.name})";
+                options.Add(new ControlOption(false, id, label));
             }
 
             return options;

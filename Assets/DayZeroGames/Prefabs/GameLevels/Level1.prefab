@@ -21163,8 +21163,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelContext
   _SpawnPoint: {fileID: 1143000765956486161}
   _puppets:
-  - _puppet: {fileID: 2458704741948301780}
-  - _puppet: {fileID: 7121667618258790730}
+  - _id: Door
+    _puppet: {fileID: 2458704741948301780}
+  - _id: Spike
+    _puppet: {fileID: 7121667618258790730}
   _startControlTarget: 0
   _startPuppetId: 
   _puppet: {fileID: 0}
