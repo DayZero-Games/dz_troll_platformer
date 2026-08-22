@@ -45,7 +45,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4053737604642523306}
   - component: {fileID: 8745972554426240461}
-  - component: {fileID: 1095800857040978246}
+  - component: {fileID: 5104396967473155644}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
@@ -114,7 +114,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.43039036, y: 4.497174}
   m_EdgeRadius: 0
---- !u!114 &1095800857040978246
+--- !u!114 &5104396967473155644
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -123,13 +123,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2710527922033090195}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59fa82caa13bb614baba05e5515f32b6, type: 3}
+  m_Script: {fileID: 11500000, guid: 506825c59f69498990579079d128f08a, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleTrigger
-  _playerTag: Player
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.ActionTrigger2D
+  _activatorTag: Player
   _disableColliderAfterSuccessfulActivation: 1
-  _controllers:
-  - {fileID: 6159485505468029861}
+  _sequenceControllers:
+  - {fileID: 3948806153788878031}
 --- !u!1 &3416962362532779285
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,7 +308,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5095583986388414907}
-  - component: {fileID: 6159485505468029861}
+  - component: {fileID: 3948806153788878031}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -331,7 +331,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5045179637177155774}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6159485505468029861
+--- !u!114 &3948806153788878031
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -340,19 +340,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 6641614657586246575}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
+  m_Script: {fileID: 11500000, guid: 4817522cddcf433a82cc497345ad714f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelActionSequenceController
   _executionMode: 0
   _autoStart: 0
-  _performers:
-  - _performer: {fileID: 6510884606798658478}
+  _groups:
+  - _target: {fileID: 6510884606798658478}
     _actions:
-    - rid: 3064963915466932298
+    - rid: 3064963936603340931
   references:
     version: 2
     RefIds:
-    - rid: 3064963915466932298
+    - rid: 3064963936603340931
       type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
       data:
         _targetPoints:

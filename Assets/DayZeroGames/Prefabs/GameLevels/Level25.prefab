@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 268004278743217946}
   - component: {fileID: 5696323693844763315}
-  - component: {fileID: 6564961859557715097}
+  - component: {fileID: 657623465212644281}
   m_Layer: 0
   m_Name: Trigger
   m_TagString: Untagged
@@ -110,7 +110,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.5994203, y: 4.067564}
   m_EdgeRadius: 0
---- !u!114 &6564961859557715097
+--- !u!114 &657623465212644281
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -119,13 +119,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 512852141112125952}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59fa82caa13bb614baba05e5515f32b6, type: 3}
+  m_Script: {fileID: 11500000, guid: 506825c59f69498990579079d128f08a, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleTrigger
-  _playerTag: Player
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.ActionTrigger2D
+  _activatorTag: Player
   _disableColliderAfterSuccessfulActivation: 1
-  _controllers:
-  - {fileID: 2566893916025209388}
+  _sequenceControllers:
+  - {fileID: 2671666444763317812}
 --- !u!1 &662933775332170881
 GameObject:
   m_ObjectHideFlags: 0
@@ -8507,7 +8507,7 @@ GameObject:
   - component: {fileID: 6974434180522817825}
   - component: {fileID: 3210753013631771740}
   m_Layer: 0
-  m_Name: SawFaller
+  m_Name: SawThrower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8633,7 +8633,7 @@ GameObject:
   - component: {fileID: 5455234044566100685}
   - component: {fileID: 2024079602846699649}
   m_Layer: 0
-  m_Name: sawblade0_0
+  m_Name: sawblade1
   m_TagString: Obstacles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8647,12 +8647,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1842674240451944517}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5013438096246183570}
+  m_Father: {fileID: 5104391374311986894}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2966367274913095353
 SpriteRenderer:
@@ -8771,7 +8771,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2535184465251813548}
-  - component: {fileID: 7632730222916852633}
+  - component: {fileID: 2363242845356008368}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -8794,7 +8794,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5104391374311986894}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7632730222916852633
+--- !u!114 &2363242845356008368
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8803,60 +8803,93 @@ MonoBehaviour:
   m_GameObject: {fileID: 3300693707123072391}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
+  m_Script: {fileID: 11500000, guid: 4817522cddcf433a82cc497345ad714f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
-  _executionMode: 0
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelActionSequenceController
+  _executionMode: 1
   _autoStart: 1
-  _performers:
-  - _performer: {fileID: 4681638955483554047}
+  _groups:
+  - _target: {fileID: 4681638955483554047}
     _actions:
-    - rid: 3064963912114372710
+    - rid: 3064963936603340917
+  - _target: {fileID: 1842674240451944517}
+    _actions:
+    - rid: 3064963936603340923
   references:
     version: 2
     RefIds:
-    - rid: 3064963912114372710
-      type: {class: LoopAction, ns: DZ.Features, asm: DZ.Features}
+    - rid: 3064963936603340917
+      type: {class: LevelLoopAction, ns: DZ.Features, asm: DZ.Features}
       data:
         _actions:
-        - rid: 3064963912114372717
-        - rid: 3064963912114372711
-        - rid: 3064963912114372712
-        - rid: 3064963912114372713
-        - rid: 3064963912114372714
-        - rid: 3064963912114372715
+        - rid: 3064963936603340918
+        - rid: 3064963936603340919
+        - rid: 3064963936603340920
+        - rid: 3064963936603340921
+        - rid: 3064963936603340922
         _iterations: 0
-    - rid: 3064963912114372711
+    - rid: 3064963936603340918
+      type: {class: WaitAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _durationSeconds: 0.5
+    - rid: 3064963936603340919
       type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
       data:
         _targetPoints:
         - {fileID: 395089089139613843}
-        _moveSpeed: 15
-    - rid: 3064963912114372712
+        _moveSpeed: 10
+    - rid: 3064963936603340920
       type: {class: WaitAction, ns: DZ.Features, asm: DZ.Features}
       data:
-        _durationSeconds: 0.5
-    - rid: 3064963912114372713
+        _durationSeconds: 0.2
+    - rid: 3064963936603340921
       type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
       data:
         _targetPoints:
         - {fileID: 3349011664602056914}
-        _moveSpeed: 15
-    - rid: 3064963912114372714
+        - {fileID: 315208858089215057}
+        - {fileID: 4443272789798877517}
+        _moveSpeed: 10
+    - rid: 3064963936603340922
+      type: {class: ReturnBackAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _moveSpeed: 10
+    - rid: 3064963936603340923
+      type: {class: LevelLoopAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _actions:
+        - rid: 3064963936603340925
+        - rid: 3064963936603340924
+        - rid: 3064963936603340926
+        - rid: 3064963936603340927
+        - rid: 3064963936603340928
+        _iterations: 0
+    - rid: 3064963936603340924
       type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
       data:
         _targetPoints:
-        - {fileID: 315208858089215057}
-        - {fileID: 4443272789798877517}
-        _moveSpeed: 20
-    - rid: 3064963912114372715
-      type: {class: ReturnBackAction, ns: DZ.Features, asm: DZ.Features}
-      data:
-        _moveSpeed: 20
-    - rid: 3064963912114372717
+        - {fileID: 395089089139613843}
+        _moveSpeed: 10
+    - rid: 3064963936603340925
       type: {class: WaitAction, ns: DZ.Features, asm: DZ.Features}
       data:
-        _durationSeconds: 0.5
+        _durationSeconds: 1.5
+    - rid: 3064963936603340926
+      type: {class: WaitAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _durationSeconds: 0.2
+    - rid: 3064963936603340927
+      type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _targetPoints:
+        - {fileID: 3349011664602056914}
+        - {fileID: 315208858089215057}
+        - {fileID: 4443272789798877517}
+        _moveSpeed: 10
+    - rid: 3064963936603340928
+      type: {class: ReturnBackAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _moveSpeed: 10
 --- !u!1 &3427857150438205806
 GameObject:
   m_ObjectHideFlags: 0
@@ -8999,74 +9032,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.SawRotator
   _rotationSpeed: 1500
---- !u!1 &3791604473924272832
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5013438096246183570}
-  m_Layer: 0
-  m_Name: MovingSawBlade (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5013438096246183570
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3791604473924272832}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6, y: 6, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 3301447644848657546}
-  - {fileID: 5578746827580993306}
-  - {fileID: 6077121236830106370}
-  - {fileID: 5930881875955725644}
-  - {fileID: 4985352126648140900}
-  - {fileID: 5476900357643181275}
-  m_Father: {fileID: 2739949568108980498}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &3854473896221870194
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5930881875955725644}
-  m_Layer: 0
-  m_Name: Target (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5930881875955725644
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3854473896221870194}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -22, y: -9, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5013438096246183570}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4098260522188303761
 GameObject:
   m_ObjectHideFlags: 0
@@ -9428,7 +9393,7 @@ GameObject:
   - component: {fileID: 4624375486795666245}
   - component: {fileID: 4540833633629214973}
   m_Layer: 0
-  m_Name: sawblade0_0
+  m_Name: sawblade
   m_TagString: Obstacles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9588,37 +9553,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5104391374311986894}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &5061483142385991988
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4985352126648140900}
-  m_Layer: 0
-  m_Name: Target (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4985352126648140900
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5061483142385991988}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -22, y: 2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5013438096246183570}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5099128005536295005
 GameObject:
   m_ObjectHideFlags: 0
@@ -9680,6 +9614,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8553683818655624990}
+  - {fileID: 3301447644848657546}
   - {fileID: 2535184465251813548}
   - {fileID: 395089089139613843}
   - {fileID: 3349011664602056914}
@@ -9687,132 +9622,6 @@ Transform:
   - {fileID: 4443272789798877517}
   m_Father: {fileID: 2739949568108980498}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &5445200591140521841
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5476900357643181275}
-  m_Layer: 0
-  m_Name: Target (3)
-  m_TagString: Untagged
-  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5476900357643181275
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5445200591140521841}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5013438096246183570}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &5765005717607804504
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5578746827580993306}
-  - component: {fileID: 9099094058371264872}
-  m_Layer: 0
-  m_Name: Controller
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5578746827580993306
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5765005717607804504}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5013438096246183570}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &9099094058371264872
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5765005717607804504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
-  _executionMode: 0
-  _autoStart: 1
-  _performers:
-  - _performer: {fileID: 1842674240451944517}
-    _actions:
-    - rid: 3064963912114372710
-  references:
-    version: 2
-    RefIds:
-    - rid: 3064963912114372710
-      type: {class: LoopAction, ns: DZ.Features, asm: DZ.Features}
-      data:
-        _actions:
-        - rid: 3064963912114372716
-        - rid: 3064963912114372711
-        - rid: 3064963912114372712
-        - rid: 3064963912114372713
-        - rid: 3064963912114372714
-        - rid: 3064963912114372715
-        _iterations: 0
-    - rid: 3064963912114372711
-      type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
-      data:
-        _targetPoints:
-        - {fileID: 6077121236830106370}
-        _moveSpeed: 15
-    - rid: 3064963912114372712
-      type: {class: WaitAction, ns: DZ.Features, asm: DZ.Features}
-      data:
-        _durationSeconds: 0.5
-    - rid: 3064963912114372713
-      type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
-      data:
-        _targetPoints:
-        - {fileID: 5930881875955725644}
-        _moveSpeed: 15
-    - rid: 3064963912114372714
-      type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
-      data:
-        _targetPoints:
-        - {fileID: 4985352126648140900}
-        - {fileID: 5476900357643181275}
-        _moveSpeed: 20
-    - rid: 3064963912114372715
-      type: {class: ReturnBackAction, ns: DZ.Features, asm: DZ.Features}
-      data:
-        _moveSpeed: 20
-    - rid: 3064963912114372716
-      type: {class: WaitAction, ns: DZ.Features, asm: DZ.Features}
-      data:
-        _durationSeconds: 1.5
 --- !u!1 &6038758838032576457
 GameObject:
   m_ObjectHideFlags: 0
@@ -9844,37 +9653,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5104391374311986894}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &6334339146493138876
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6077121236830106370}
-  m_Layer: 0
-  m_Name: Target
-  m_TagString: Untagged
-  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6077121236830106370
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6334339146493138876}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -9, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5013438096246183570}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6496703888611150300
 GameObject:
   m_ObjectHideFlags: 0
@@ -9884,7 +9662,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5571936830926154923}
-  - component: {fileID: 2566893916025209388}
+  - component: {fileID: 2671666444763317812}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -9907,7 +9685,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2063525093286145793}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2566893916025209388
+--- !u!114 &2671666444763317812
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9916,81 +9694,99 @@ MonoBehaviour:
   m_GameObject: {fileID: 6496703888611150300}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
+  m_Script: {fileID: 11500000, guid: 4817522cddcf433a82cc497345ad714f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelActionSequenceController
   _executionMode: 1
   _autoStart: 0
-  _performers:
-  - _performer: {fileID: 3427857150438205806}
+  _groups:
+  - _target: {fileID: 3427857150438205806}
     _actions:
-    - rid: 3064963912114372728
-    - rid: 3064963912114372718
-    - rid: 3064963912114372726
-  - _performer: {fileID: 4098260522188303761}
+    - rid: 3064963936603340905
+    - rid: 3064963936603340908
+    - rid: 3064963936603340911
+    - rid: 3064963936603340912
+  - _target: {fileID: 4098260522188303761}
     _actions:
-    - rid: 3064963912114372722
-    - rid: 3064963912114372719
-    - rid: 3064963912114372724
-  - _performer: {fileID: 4523544653515174891}
+    - rid: 3064963936603340906
+    - rid: 3064963936603340909
+    - rid: 3064963936603340913
+    - rid: 3064963936603340914
+  - _target: {fileID: 4523544653515174891}
     _actions:
-    - rid: 3064963912114372723
-    - rid: 3064963912114372720
-    - rid: 3064963912114372725
-  - _performer: {fileID: 8889240407774110894}
+    - rid: 3064963936603340907
+    - rid: 3064963936603340910
+    - rid: 3064963936603340915
+    - rid: 3064963936603340916
+  - _target: {fileID: 8889240407774110894}
     _actions:
-    - rid: 3064963912114372727
+    - rid: 3064963936603340948
   references:
     version: 2
     RefIds:
-    - rid: 3064963912114372718
+    - rid: 3064963936603340905
       type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
       data:
         _targetPoints:
         - {fileID: 4596496397592884969}
-        - {fileID: 9168267207647678147}
         _moveSpeed: 10
-    - rid: 3064963912114372719
+    - rid: 3064963936603340906
       type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
       data:
         _targetPoints:
         - {fileID: 4596496397592884969}
-        - {fileID: 9168267207647678147}
         _moveSpeed: 10
-    - rid: 3064963912114372720
+    - rid: 3064963936603340907
       type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
       data:
         _targetPoints:
         - {fileID: 4596496397592884969}
-        - {fileID: 9168267207647678147}
         _moveSpeed: 10
-    - rid: 3064963912114372722
+    - rid: 3064963936603340908
       type: {class: WaitAction, ns: DZ.Features, asm: DZ.Features}
       data:
-        _durationSeconds: 0.4
-    - rid: 3064963912114372723
+        _durationSeconds: 0.2
+    - rid: 3064963936603340909
       type: {class: WaitAction, ns: DZ.Features, asm: DZ.Features}
       data:
         _durationSeconds: 0.6
-    - rid: 3064963912114372724
+    - rid: 3064963936603340910
+      type: {class: WaitAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _durationSeconds: 1
+    - rid: 3064963936603340911
+      type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _targetPoints:
+        - {fileID: 9168267207647678147}
+        _moveSpeed: 10
+    - rid: 3064963936603340912
       type: {class: DisableObjectAction, ns: DZ.Features, asm: DZ.Features}
       data: 
-    - rid: 3064963912114372725
+    - rid: 3064963936603340913
+      type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _targetPoints:
+        - {fileID: 9168267207647678147}
+        _moveSpeed: 10
+    - rid: 3064963936603340914
       type: {class: DisableObjectAction, ns: DZ.Features, asm: DZ.Features}
       data: 
-    - rid: 3064963912114372726
+    - rid: 3064963936603340915
+      type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _targetPoints:
+        - {fileID: 9168267207647678147}
+        _moveSpeed: 10
+    - rid: 3064963936603340916
       type: {class: DisableObjectAction, ns: DZ.Features, asm: DZ.Features}
       data: 
-    - rid: 3064963912114372727
+    - rid: 3064963936603340948
       type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
       data:
         _targetPoints:
         - {fileID: 3511993674898368686}
         _moveSpeed: 10
-    - rid: 3064963912114372728
-      type: {class: WaitAction, ns: DZ.Features, asm: DZ.Features}
-      data:
-        _durationSeconds: 0.2
 --- !u!1 &6735977763294639616
 GameObject:
   m_ObjectHideFlags: 0
@@ -10024,9 +9820,9 @@ Transform:
   - {fileID: 7799944267642937449}
   - {fileID: 2359481063656740133}
   - {fileID: 5571936830926154923}
+  - {fileID: 268004278743217946}
   - {fileID: 4596496397592884969}
   - {fileID: 9168267207647678147}
-  - {fileID: 268004278743217946}
   m_Father: {fileID: 2739949568108980498}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7272146285047124881
@@ -10590,10 +10386,9 @@ Transform:
   - {fileID: 1381084081336458723}
   - {fileID: 8585368808026967158}
   - {fileID: 5104391374311986894}
-  - {fileID: 5013438096246183570}
-  - {fileID: 7359340454328932349}
   - {fileID: 2063525093286145793}
   - {fileID: 6974434180522817825}
+  - {fileID: 7359340454328932349}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6324336764338146839
@@ -10609,7 +10404,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelContext
   _SpawnPoint: {fileID: 6341754937908440808}
+  _puppets: []
+  _startControlTarget: 0
+  _startPuppetId: 
   _puppet: {fileID: 0}
+  _startControllingPuppet: 1
 --- !u!1 &8889240407774110894
 GameObject:
   m_ObjectHideFlags: 0

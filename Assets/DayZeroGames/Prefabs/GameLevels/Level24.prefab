@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 190713442966998874}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2, y: 0, z: 0}
+  m_LocalPosition: {x: -2, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -87,7 +87,7 @@ Transform:
   m_GameObject: {fileID: 495164315007796825}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11, y: 0, z: 0}
+  m_LocalPosition: {x: 11, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9139,7 +9139,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelContext
   _SpawnPoint: {fileID: 6341754937908440808}
+  _puppets: []
+  _startControlTarget: 0
+  _startPuppetId: 
   _puppet: {fileID: 0}
+  _startControllingPuppet: 1
 --- !u!1001 &2266703680918609745
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9264,7 +9268,9 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4142008095428177760, guid: 55989f45feda5774dab0460120b0faec, type: 3}
+    - {fileID: 4067039855881211416, guid: 55989f45feda5774dab0460120b0faec, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 1603784156355895863, guid: 55989f45feda5774dab0460120b0faec, type: 3}
@@ -9273,7 +9279,13 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1603784156355895863, guid: 55989f45feda5774dab0460120b0faec, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5704150731065201669}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9032482147048434046, guid: 55989f45feda5774dab0460120b0faec, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2569235218106094750}
+    - targetCorrespondingSourceObject: {fileID: 4528601118383220964, guid: 55989f45feda5774dab0460120b0faec, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 140256847171076006}
   m_SourcePrefab: {fileID: 100100000, guid: 55989f45feda5774dab0460120b0faec, type: 3}
 --- !u!1 &649639284879783892 stripped
 GameObject:
@@ -9285,11 +9297,85 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1603784156355895863, guid: 55989f45feda5774dab0460120b0faec, type: 3}
   m_PrefabInstance: {fileID: 2266703680918609745}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1088691291427048279 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1184231245495358470, guid: 55989f45feda5774dab0460120b0faec, type: 3}
+  m_PrefabInstance: {fileID: 2266703680918609745}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2426349776725505973 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4528601118383220964, guid: 55989f45feda5774dab0460120b0faec, type: 3}
+  m_PrefabInstance: {fileID: 2266703680918609745}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &140256847171076006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2426349776725505973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 506825c59f69498990579079d128f08a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.ActionTrigger2D
+  _activatorTag: Player
+  _disableColliderAfterSuccessfulActivation: 1
+  _sequenceControllers:
+  - {fileID: 2569235218106094750}
 --- !u!4 &5375301567029496635 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6191352959656105066, guid: 55989f45feda5774dab0460120b0faec, type: 3}
   m_PrefabInstance: {fileID: 2266703680918609745}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7074346139496511023 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9032482147048434046, guid: 55989f45feda5774dab0460120b0faec, type: 3}
+  m_PrefabInstance: {fileID: 2266703680918609745}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2569235218106094750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7074346139496511023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4817522cddcf433a82cc497345ad714f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelActionSequenceController
+  _executionMode: 0
+  _autoStart: 0
+  _groups:
+  - _target: {fileID: 1088691291427048279}
+    _actions:
+    - rid: 3064963936603340889
+    - rid: 3064963936603340890
+    - rid: 3064963936603340891
+    - rid: 3064963936603340892
+  references:
+    version: 2
+    RefIds:
+    - rid: 3064963936603340889
+      type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _targetPoints:
+        - {fileID: 6625682699858576531}
+        _moveSpeed: 15
+    - rid: 3064963936603340890
+      type: {class: WaitAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _durationSeconds: 1.5
+    - rid: 3064963936603340891
+      type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _targetPoints:
+        - {fileID: 5704150731065201669}
+        _moveSpeed: 15
+    - rid: 3064963936603340892
+      type: {class: DisableObjectAction, ns: DZ.Features, asm: DZ.Features}
+      data: 
 --- !u!1001 &2615310363946352092
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9440,17 +9526,66 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -0.47
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4142008095428177760, guid: 55989f45feda5774dab0460120b0faec, type: 3}
+    - {fileID: 4067039855881211416, guid: 55989f45feda5774dab0460120b0faec, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 1603784156355895863, guid: 55989f45feda5774dab0460120b0faec, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7744946654341793788}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9032482147048434046, guid: 55989f45feda5774dab0460120b0faec, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6358839915143115226}
+    - targetCorrespondingSourceObject: {fileID: 4528601118383220964, guid: 55989f45feda5774dab0460120b0faec, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6150335647566554144}
   m_SourcePrefab: {fileID: 100100000, guid: 55989f45feda5774dab0460120b0faec, type: 3}
 --- !u!4 &2301095660254035926 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6191352959656105066, guid: 55989f45feda5774dab0460120b0faec, type: 3}
+  m_PrefabInstance: {fileID: 5333169025851583420}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3988758053974360770 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9032482147048434046, guid: 55989f45feda5774dab0460120b0faec, type: 3}
+  m_PrefabInstance: {fileID: 5333169025851583420}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6358839915143115226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3988758053974360770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4817522cddcf433a82cc497345ad714f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelActionSequenceController
+  _executionMode: 0
+  _autoStart: 0
+  _groups:
+  - _target: {fileID: 6515588198852509626}
+    _actions:
+    - rid: 3064963936603340886
+    - rid: 3064963936603340887
+  references:
+    version: 2
+    RefIds:
+    - rid: 3064963936603340886
+      type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _targetPoints:
+        - {fileID: 7744946654341793788}
+        _moveSpeed: 15
+    - rid: 3064963936603340887
+      type: {class: DisableObjectAction, ns: DZ.Features, asm: DZ.Features}
+      data: 
+--- !u!1 &6515588198852509626 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1184231245495358470, guid: 55989f45feda5774dab0460120b0faec, type: 3}
   m_PrefabInstance: {fileID: 5333169025851583420}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &6648141842976197003 stripped
@@ -9463,6 +9598,27 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1618773044331587717, guid: 55989f45feda5774dab0460120b0faec, type: 3}
   m_PrefabInstance: {fileID: 5333169025851583420}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8420581489943823192 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4528601118383220964, guid: 55989f45feda5774dab0460120b0faec, type: 3}
+  m_PrefabInstance: {fileID: 5333169025851583420}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6150335647566554144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8420581489943823192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 506825c59f69498990579079d128f08a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.ActionTrigger2D
+  _activatorTag: Player
+  _disableColliderAfterSuccessfulActivation: 1
+  _sequenceControllers:
+  - {fileID: 6358839915143115226}
 --- !u!1001 &5708899476433210558
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9547,19 +9703,63 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4142008095428177760, guid: 55989f45feda5774dab0460120b0faec, type: 3}
+    - {fileID: 4067039855881211416, guid: 55989f45feda5774dab0460120b0faec, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 1603784156355895863, guid: 55989f45feda5774dab0460120b0faec, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3638931205743461986}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9032482147048434046, guid: 55989f45feda5774dab0460120b0faec, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2404029002742490622}
+    - targetCorrespondingSourceObject: {fileID: 4528601118383220964, guid: 55989f45feda5774dab0460120b0faec, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1910475045910151830}
   m_SourcePrefab: {fileID: 100100000, guid: 55989f45feda5774dab0460120b0faec, type: 3}
 --- !u!4 &1933750016609523924 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6191352959656105066, guid: 55989f45feda5774dab0460120b0faec, type: 3}
   m_PrefabInstance: {fileID: 5708899476433210558}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3630965058669258176 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9032482147048434046, guid: 55989f45feda5774dab0460120b0faec, type: 3}
+  m_PrefabInstance: {fileID: 5708899476433210558}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2404029002742490622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3630965058669258176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4817522cddcf433a82cc497345ad714f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelActionSequenceController
+  _executionMode: 0
+  _autoStart: 0
+  _groups:
+  - _target: {fileID: 6869442817410488504}
+    _actions:
+    - rid: 3064963936603340885
+    - rid: 3064963936603340888
+  references:
+    version: 2
+    RefIds:
+    - rid: 3064963936603340885
+      type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _targetPoints:
+        - {fileID: 3638931205743461986}
+        _moveSpeed: 15
+    - rid: 3064963936603340888
+      type: {class: DisableObjectAction, ns: DZ.Features, asm: DZ.Features}
+      data: 
 --- !u!1 &6434830582981305403 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1618773044331587717, guid: 55989f45feda5774dab0460120b0faec, type: 3}
@@ -9570,6 +9770,32 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1603784156355895863, guid: 55989f45feda5774dab0460120b0faec, type: 3}
   m_PrefabInstance: {fileID: 5708899476433210558}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6869442817410488504 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1184231245495358470, guid: 55989f45feda5774dab0460120b0faec, type: 3}
+  m_PrefabInstance: {fileID: 5708899476433210558}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8206340731680072794 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4528601118383220964, guid: 55989f45feda5774dab0460120b0faec, type: 3}
+  m_PrefabInstance: {fileID: 5708899476433210558}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1910475045910151830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8206340731680072794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 506825c59f69498990579079d128f08a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.ActionTrigger2D
+  _activatorTag: Player
+  _disableColliderAfterSuccessfulActivation: 1
+  _sequenceControllers:
+  - {fileID: 2404029002742490622}
 --- !u!1001 &5807314583015208185
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9746,16 +9972,123 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -0.48
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4142008095428177760, guid: 55989f45feda5774dab0460120b0faec, type: 3}
+    - {fileID: 4067039855881211416, guid: 55989f45feda5774dab0460120b0faec, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9032482147048434046, guid: 55989f45feda5774dab0460120b0faec, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 25119708800386703}
+    - targetCorrespondingSourceObject: {fileID: 4528601118383220964, guid: 55989f45feda5774dab0460120b0faec, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4176589303918211160}
   m_SourcePrefab: {fileID: 100100000, guid: 55989f45feda5774dab0460120b0faec, type: 3}
+--- !u!4 &395089089139613843 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6191352959656105066, guid: 55989f45feda5774dab0460120b0faec, type: 3}
+  m_PrefabInstance: {fileID: 5807314583015208185}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3300693707123072391 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9032482147048434046, guid: 55989f45feda5774dab0460120b0faec, type: 3}
+  m_PrefabInstance: {fileID: 5807314583015208185}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &25119708800386703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3300693707123072391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4817522cddcf433a82cc497345ad714f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelActionSequenceController
+  _executionMode: 0
+  _autoStart: 0
+  _groups:
+  - _target: {fileID: 4681638955483554047}
+    _actions:
+    - rid: 3064963936603340880
+  - _target: {fileID: 6869442817410488504}
+    _actions:
+    - rid: 3064963936603340881
+  - _target: {fileID: 6515588198852509626}
+    _actions:
+    - rid: 3064963936603340882
+  - _target: {fileID: 1088691291427048279}
+    _actions:
+    - rid: 3064963936603340883
+  - _target: {fileID: 4846250693186063499}
+    _actions:
+    - rid: 3064963936603340884
+  references:
+    version: 2
+    RefIds:
+    - rid: 3064963936603340880
+      type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _targetPoints:
+        - {fileID: 395089089139613843}
+        _moveSpeed: 10
+    - rid: 3064963936603340881
+      type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _targetPoints:
+        - {fileID: 1933750016609523924}
+        _moveSpeed: 10
+    - rid: 3064963936603340882
+      type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _targetPoints:
+        - {fileID: 2301095660254035926}
+        _moveSpeed: 10
+    - rid: 3064963936603340883
+      type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _targetPoints:
+        - {fileID: 5375301567029496635}
+        _moveSpeed: 10
+    - rid: 3064963936603340884
+      type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _targetPoints:
+        - {fileID: 487076957451603175}
+        _moveSpeed: 10
+--- !u!1 &4681638955483554047 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1184231245495358470, guid: 55989f45feda5774dab0460120b0faec, type: 3}
+  m_PrefabInstance: {fileID: 5807314583015208185}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5104391374311986894 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1603784156355895863, guid: 55989f45feda5774dab0460120b0faec, type: 3}
   m_PrefabInstance: {fileID: 5807314583015208185}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7948689933789174813 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4528601118383220964, guid: 55989f45feda5774dab0460120b0faec, type: 3}
+  m_PrefabInstance: {fileID: 5807314583015208185}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4176589303918211160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7948689933789174813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 506825c59f69498990579079d128f08a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.ActionTrigger2D
+  _activatorTag: Player
+  _disableColliderAfterSuccessfulActivation: 1
+  _sequenceControllers:
+  - {fileID: 25119708800386703}
 --- !u!1001 &5920078716517935995
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9890,17 +10223,62 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4142008095428177760, guid: 55989f45feda5774dab0460120b0faec, type: 3}
+    - {fileID: 4067039855881211416, guid: 55989f45feda5774dab0460120b0faec, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 1603784156355895863, guid: 55989f45feda5774dab0460120b0faec, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6061671889530410983}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9032482147048434046, guid: 55989f45feda5774dab0460120b0faec, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2145506863571972066}
+    - targetCorrespondingSourceObject: {fileID: 4528601118383220964, guid: 55989f45feda5774dab0460120b0faec, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1290740749590275019}
   m_SourcePrefab: {fileID: 100100000, guid: 55989f45feda5774dab0460120b0faec, type: 3}
 --- !u!4 &487076957451603175 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6191352959656105066, guid: 55989f45feda5774dab0460120b0faec, type: 3}
+  m_PrefabInstance: {fileID: 5993846210588563597}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3348349319464022515 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9032482147048434046, guid: 55989f45feda5774dab0460120b0faec, type: 3}
+  m_PrefabInstance: {fileID: 5993846210588563597}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2145506863571972066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3348349319464022515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4817522cddcf433a82cc497345ad714f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelActionSequenceController
+  _executionMode: 0
+  _autoStart: 0
+  _groups:
+  - _target: {fileID: 4846250693186063499}
+    _actions:
+    - rid: 3064963936603340893
+  references:
+    version: 2
+    RefIds:
+    - rid: 3064963936603340893
+      type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _targetPoints:
+        - {fileID: 6061671889530410983}
+        _moveSpeed: 15
+--- !u!1 &4846250693186063499 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1184231245495358470, guid: 55989f45feda5774dab0460120b0faec, type: 3}
   m_PrefabInstance: {fileID: 5993846210588563597}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &4997133971380727816 stripped
@@ -9913,3 +10291,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1603784156355895863, guid: 55989f45feda5774dab0460120b0faec, type: 3}
   m_PrefabInstance: {fileID: 5993846210588563597}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7923724992214790249 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4528601118383220964, guid: 55989f45feda5774dab0460120b0faec, type: 3}
+  m_PrefabInstance: {fileID: 5993846210588563597}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1290740749590275019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7923724992214790249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 506825c59f69498990579079d128f08a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.ActionTrigger2D
+  _activatorTag: Player
+  _disableColliderAfterSuccessfulActivation: 1
+  _sequenceControllers:
+  - {fileID: 2145506863571972066}

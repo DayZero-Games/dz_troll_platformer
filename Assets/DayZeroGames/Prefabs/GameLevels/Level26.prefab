@@ -17,7 +17,7 @@ GameObject:
   m_TagString: Obstacles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3511812868666575360
 Transform:
@@ -32,7 +32,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3401443484560327081}
+  m_Father: {fileID: 2058948524983463587}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5214088249457403967
 SpriteRenderer:
@@ -5913,17 +5913,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 541928831863349668}
-  - {fileID: 3630524138122020402}
-  - {fileID: 1579541783439023539}
-  - {fileID: 6813236558663832866}
-  - {fileID: 2388962320776556735}
-  - {fileID: 4365090641704162192}
-  - {fileID: 4452892623438382901}
-  - {fileID: 1445417127696627589}
-  - {fileID: 2673628418551731856}
-  - {fileID: 8105533305211956334}
-  - {fileID: 3511812868666575360}
+  - {fileID: 2058948524983463587}
   - {fileID: 7108430543549885832}
   - {fileID: 2034057890172729083}
   m_Father: {fileID: 2739949568108980498}
@@ -5945,7 +5935,7 @@ GameObject:
   m_TagString: Obstacles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1579541783439023539
 Transform:
@@ -5960,7 +5950,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3401443484560327081}
+  m_Father: {fileID: 2058948524983463587}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7240653923262360597
 SpriteRenderer:
@@ -6180,6 +6170,48 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2034057890172729083}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2361007121337460368
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2058948524983463587}
+  m_Layer: 0
+  m_Name: StaticSaws
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2058948524983463587
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2361007121337460368}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 541928831863349668}
+  - {fileID: 3630524138122020402}
+  - {fileID: 1579541783439023539}
+  - {fileID: 6813236558663832866}
+  - {fileID: 2388962320776556735}
+  - {fileID: 4365090641704162192}
+  - {fileID: 4452892623438382901}
+  - {fileID: 1445417127696627589}
+  - {fileID: 2673628418551731856}
+  - {fileID: 8105533305211956334}
+  - {fileID: 3511812868666575360}
+  m_Father: {fileID: 3401443484560327081}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2921590350581072531
 GameObject:
   m_ObjectHideFlags: 0
@@ -6197,7 +6229,7 @@ GameObject:
   m_TagString: Obstacles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2673628418551731856
 Transform:
@@ -6212,7 +6244,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3401443484560327081}
+  m_Father: {fileID: 2058948524983463587}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7044266290296346863
 SpriteRenderer:
@@ -6339,7 +6371,7 @@ GameObject:
   m_TagString: Obstacles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &8105533305211956334
 Transform:
@@ -6354,7 +6386,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3401443484560327081}
+  m_Father: {fileID: 2058948524983463587}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4927927149310468849
 SpriteRenderer:
@@ -6473,7 +6505,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7364278512769838045}
-  - component: {fileID: 2947930257803969052}
+  - component: {fileID: 558891841128978387}
   m_Layer: 0
   m_Name: Controller (1)
   m_TagString: Untagged
@@ -6496,7 +6528,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2034057890172729083}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2947930257803969052
+--- !u!114 &558891841128978387
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6505,53 +6537,47 @@ MonoBehaviour:
   m_GameObject: {fileID: 3546230035459903445}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
+  m_Script: {fileID: 11500000, guid: 4817522cddcf433a82cc497345ad714f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelActionSequenceController
   _executionMode: 1
   _autoStart: 0
-  _performers:
-  - _performer: {fileID: 1879296156367192266}
+  _groups:
+  - _target: {fileID: 1879296156367192266}
     _actions:
-    - rid: 3064963912114372608
-    - rid: 3064963915466932301
-    - rid: 3064963915466932303
-  - _performer: {fileID: 7480470261716113736}
+    - rid: 3064963936603340934
+    - rid: 3064963936603340938
+  - _target: {fileID: 7480470261716113736}
     _actions:
-    - rid: 3064963915466932300
-    - rid: 3064963915466932302
-    - rid: 3064963915466932304
+    - rid: 3064963936603340935
+    - rid: 3064963936603340936
+    - rid: 3064963936603340937
   references:
     version: 2
     RefIds:
-    - rid: 3064963912114372608
+    - rid: 3064963936603340934
       type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
       data:
         _targetPoints:
         - {fileID: 7843718250710801237}
+        - {fileID: 9194972115031064233}
         _moveSpeed: 15
-    - rid: 3064963915466932300
+    - rid: 3064963936603340935
       type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
       data:
         _targetPoints:
         - {fileID: 8711831005465321310}
         _moveSpeed: 15
-    - rid: 3064963915466932301
+    - rid: 3064963936603340936
       type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
       data:
         _targetPoints:
         - {fileID: 9194972115031064233}
         _moveSpeed: 10
-    - rid: 3064963915466932302
-      type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
-      data:
-        _targetPoints:
-        - {fileID: 9194972115031064233}
-        _moveSpeed: 5
-    - rid: 3064963915466932303
+    - rid: 3064963936603340937
       type: {class: DisableObjectAction, ns: DZ.Features, asm: DZ.Features}
       data: 
-    - rid: 3064963915466932304
+    - rid: 3064963936603340938
       type: {class: DisableObjectAction, ns: DZ.Features, asm: DZ.Features}
       data: 
 --- !u!1 &4483691734733151635
@@ -6602,7 +6628,7 @@ GameObject:
   m_TagString: Obstacles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4452892623438382901
 Transform:
@@ -6617,7 +6643,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3401443484560327081}
+  m_Father: {fileID: 2058948524983463587}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &378266049877404887
 SpriteRenderer:
@@ -6737,7 +6763,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5209765064356780096}
   - component: {fileID: 3384430606310922358}
-  - component: {fileID: 6201583996701072019}
+  - component: {fileID: 6824470906528303162}
   m_Layer: 0
   m_Name: Trigger (1)
   m_TagString: Untagged
@@ -6806,7 +6832,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.27433825, y: 19.99849}
   m_EdgeRadius: 0
---- !u!114 &6201583996701072019
+--- !u!114 &6824470906528303162
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6815,13 +6841,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6262262004076952086}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59fa82caa13bb614baba05e5515f32b6, type: 3}
+  m_Script: {fileID: 11500000, guid: 506825c59f69498990579079d128f08a, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleTrigger
-  _playerTag: Player
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.ActionTrigger2D
+  _activatorTag: Player
   _disableColliderAfterSuccessfulActivation: 1
-  _controllers:
-  - {fileID: 2947930257803969052}
+  _sequenceControllers:
+  - {fileID: 558891841128978387}
 --- !u!1 &6464740698918761830
 GameObject:
   m_ObjectHideFlags: 0
@@ -6839,7 +6865,7 @@ GameObject:
   m_TagString: Obstacles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3630524138122020402
 Transform:
@@ -6854,7 +6880,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3401443484560327081}
+  m_Father: {fileID: 2058948524983463587}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &149112932277907274
 SpriteRenderer:
@@ -7219,7 +7245,7 @@ GameObject:
   m_TagString: Obstacles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &6813236558663832866
 Transform:
@@ -7234,7 +7260,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3401443484560327081}
+  m_Father: {fileID: 2058948524983463587}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8623642757754086524
 SpriteRenderer:
@@ -7361,7 +7387,7 @@ GameObject:
   m_TagString: Obstacles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &541928831863349668
 Transform:
@@ -7376,7 +7402,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3401443484560327081}
+  m_Father: {fileID: 2058948524983463587}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1377627716232598896
 SpriteRenderer:
@@ -8170,7 +8196,7 @@ GameObject:
   m_TagString: Obstacles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1445417127696627589
 Transform:
@@ -8185,7 +8211,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3401443484560327081}
+  m_Father: {fileID: 2058948524983463587}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7124916308943663887
 SpriteRenderer:
@@ -8344,7 +8370,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelContext
   _SpawnPoint: {fileID: 6341754937908440808}
+  _puppets: []
+  _startControlTarget: 0
+  _startPuppetId: 
   _puppet: {fileID: 0}
+  _startControllingPuppet: 1
 --- !u!1 &8497069352756556587
 GameObject:
   m_ObjectHideFlags: 0
@@ -8362,7 +8392,7 @@ GameObject:
   m_TagString: Obstacles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2388962320776556735
 Transform:
@@ -8377,7 +8407,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3401443484560327081}
+  m_Father: {fileID: 2058948524983463587}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7481298201924697641
 SpriteRenderer:
@@ -8504,7 +8534,7 @@ GameObject:
   m_TagString: Obstacles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4365090641704162192
 Transform:
@@ -8519,7 +8549,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 3401443484560327081}
+  m_Father: {fileID: 2058948524983463587}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6174153146747541779
 SpriteRenderer:
@@ -8681,6 +8711,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: MovingSawBlade (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1700900043292813106, guid: 55989f45feda5774dab0460120b0faec, type: 3}
+      propertyPath: _executionMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1700900043292813106, guid: 55989f45feda5774dab0460120b0faec, type: 3}
+      propertyPath: _groups.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1700900043292813106, guid: 55989f45feda5774dab0460120b0faec, type: 3}
+      propertyPath: _groups.Array.data[1]._target
+      value: 
+      objectReference: {fileID: 7480470261716113736}
+    - target: {fileID: 1700900043292813106, guid: 55989f45feda5774dab0460120b0faec, type: 3}
+      propertyPath: 'managedReferences[3064963936603340933]'
+      value: DZ.Features DZ.Features.MoveToPointAction
+      objectReference: {fileID: 0}
+    - target: {fileID: 1700900043292813106, guid: 55989f45feda5774dab0460120b0faec, type: 3}
+      propertyPath: _groups.Array.data[1]._actions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1700900043292813106, guid: 55989f45feda5774dab0460120b0faec, type: 3}
+      propertyPath: '_groups.Array.data[1]._actions.Array.data[0]'
+      value: 3064963936603340933
+      objectReference: {fileID: 0}
+    - target: {fileID: 1700900043292813106, guid: 55989f45feda5774dab0460120b0faec, type: 3}
+      propertyPath: managedReferences[3064963936603340932]._moveSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1700900043292813106, guid: 55989f45feda5774dab0460120b0faec, type: 3}
+      propertyPath: managedReferences[3064963936603340933]._moveSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1700900043292813106, guid: 55989f45feda5774dab0460120b0faec, type: 3}
+      propertyPath: managedReferences[3064963936603340933]._targetPoints.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1700900043292813106, guid: 55989f45feda5774dab0460120b0faec, type: 3}
+      propertyPath: 'managedReferences[3064963936603340933]._targetPoints.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2062361623020589545}
     - target: {fileID: 2748167489055136743, guid: 55989f45feda5774dab0460120b0faec, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.18
@@ -8765,7 +8835,9 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -7
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4142008095428177760, guid: 55989f45feda5774dab0460120b0faec, type: 3}
+    - {fileID: 4067039855881211416, guid: 55989f45feda5774dab0460120b0faec, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 1603784156355895863, guid: 55989f45feda5774dab0460120b0faec, type: 3}
@@ -8857,7 +8929,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6159485505468029861, guid: 6dbc5aaec7c20a040afabe9c2641b250, type: 3}
+    - {fileID: 1095800857040978246, guid: 6dbc5aaec7c20a040afabe9c2641b250, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -9043,6 +9117,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MovingSawBlade
       objectReference: {fileID: 0}
+    - target: {fileID: 1700900043292813106, guid: 55989f45feda5774dab0460120b0faec, type: 3}
+      propertyPath: managedReferences[3064963936603340932]._moveSpeed
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 4142008095428177760, guid: 55989f45feda5774dab0460120b0faec, type: 3}
       propertyPath: _performers.Array.size
       value: 1
@@ -9083,7 +9161,9 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4142008095428177760, guid: 55989f45feda5774dab0460120b0faec, type: 3}
+    - {fileID: 4067039855881211416, guid: 55989f45feda5774dab0460120b0faec, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -9153,7 +9233,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6159485505468029861, guid: 6dbc5aaec7c20a040afabe9c2641b250, type: 3}
+    - {fileID: 1095800857040978246, guid: 6dbc5aaec7c20a040afabe9c2641b250, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -9223,13 +9305,65 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6159485505468029861, guid: 6dbc5aaec7c20a040afabe9c2641b250, type: 3}
+    - {fileID: 1095800857040978246, guid: 6dbc5aaec7c20a040afabe9c2641b250, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6641614657586246575, guid: 6dbc5aaec7c20a040afabe9c2641b250, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6467321367667797536}
+    - targetCorrespondingSourceObject: {fileID: 2710527922033090195, guid: 6dbc5aaec7c20a040afabe9c2641b250, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 204570120732288425}
   m_SourcePrefab: {fileID: 100100000, guid: 6dbc5aaec7c20a040afabe9c2641b250, type: 3}
+--- !u!1 &2526184150725224885 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6641614657586246575, guid: 6dbc5aaec7c20a040afabe9c2641b250, type: 3}
+  m_PrefabInstance: {fileID: 9161744746958707226}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6467321367667797536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2526184150725224885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4817522cddcf433a82cc497345ad714f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelActionSequenceController
+  _executionMode: 0
+  _autoStart: 0
+  _groups: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!4 &4116600569055730340 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5045179637177155774, guid: 6dbc5aaec7c20a040afabe9c2641b250, type: 3}
   m_PrefabInstance: {fileID: 9161744746958707226}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6537173350367167625 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2710527922033090195, guid: 6dbc5aaec7c20a040afabe9c2641b250, type: 3}
+  m_PrefabInstance: {fileID: 9161744746958707226}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &204570120732288425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6537173350367167625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 506825c59f69498990579079d128f08a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.ActionTrigger2D
+  _activatorTag: Player
+  _disableColliderAfterSuccessfulActivation: 1
+  _sequenceControllers:
+  - {fileID: 6467321367667797536}
