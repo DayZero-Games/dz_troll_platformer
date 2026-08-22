@@ -17,6 +17,6 @@ namespace DZ.Core.Contracts
         void SetJumpEnabled(bool enabled);
         void ApplyRuntimeRules(LevelRules rules);
         void RestoreCatalogRules();
-        bool SwitchControl(LevelControlTarget target);
+        bool SwitchControl(LevelControlTarget target, string puppetId = null);
     }
 }

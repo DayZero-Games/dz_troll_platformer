@@ -79,7 +79,7 @@ namespace DZ.Features
 
         private void OnPlayerDied(PlayerDiedSignal signal)
         {
-            LockPuppetIfAny();
+            LockAllPuppets();
 
             _deathCount++;
             _deathsThisLevel++;
@@ -115,13 +115,16 @@ namespace DZ.Features
         /// puppet level: if the door reaches the frozen player instead of the puppet, the puppet
         /// would stay live and keep taking input all the way through the walk-in and fade.
         /// </summary>
-        private void OnLevelExitReached(LevelExitReachedSignal signal) => LockPuppetIfAny();
+        private void OnLevelExitReached(LevelExitReachedSignal signal) => LockAllPuppets();
 
         /// Whoever is being controlled, the level is over for them - freeze the puppet too.
         /// Safe to call on an already-locked puppet.
-        private void LockPuppetIfAny()
+        private void LockAllPuppets()
         {
-            if (_currentLvlContext != null && _currentLvlContext.HasPuppet) _currentLvlContext.Puppet.Lock();
+            if (_currentLvlContext == null) return;
+
+            foreach (var puppet in _currentLvlContext.GetPuppets())
+                puppet.Lock();
         }
 
         private void OnNextLevelRequested(RequestNextLevelSignal signal) => AdvanceLevelAsync().Forget();
@@ -168,7 +171,7 @@ namespace DZ.Features
 
                 // A puppet level drives one of the level's own objects instead of the player,
                 // so the same physics rules have to reach it. It spawns locked with the level.
-                if (_currentLvlContext.HasPuppet) _currentLvlContext.Puppet.ApplyRules(rules);
+                ApplyRulesToPuppets(rules);
 
 
                 await UniTask.NextFrame(cancellation);
@@ -187,9 +190,9 @@ namespace DZ.Features
 
                 // In a puppet level the player stays frozen at the spawn point and the
                 // puppet takes the input for the whole level.
-                SwitchControl(_currentLvlContext.StartControllingPuppet
-                    ? LevelControlTarget.Puppet
-                    : LevelControlTarget.Player);
+                SwitchControl(
+                    _currentLvlContext.StartControlTarget,
+                    _currentLvlContext.StartPuppetId);
             }
             catch (OperationCanceledException)
             {
@@ -278,22 +281,28 @@ namespace DZ.Features
         public void SetGravityScale(float gravityScale)
         {
             _playerController.SetGravityScale(gravityScale);
-            if (_currentLvlContext != null && _currentLvlContext.HasPuppet)
-                _currentLvlContext.Puppet.SetGravityScale(gravityScale);
+            if (_currentLvlContext == null) return;
+
+            foreach (var puppet in _currentLvlContext.GetPuppets())
+                puppet.SetGravityScale(gravityScale);
         }
 
         public void SetJumpRules(int maxAirJumps, float jumpForceMultiplier)
         {
             _playerController.SetJumpRules(maxAirJumps, jumpForceMultiplier);
-            if (_currentLvlContext != null && _currentLvlContext.HasPuppet)
-                _currentLvlContext.Puppet.SetJumpRules(maxAirJumps, jumpForceMultiplier);
+            if (_currentLvlContext == null) return;
+
+            foreach (var puppet in _currentLvlContext.GetPuppets())
+                puppet.SetJumpRules(maxAirJumps, jumpForceMultiplier);
         }
 
         public void SetJumpEnabled(bool enabled)
         {
             _playerController.SetJumpEnabled(enabled);
-            if (_currentLvlContext != null && _currentLvlContext.HasPuppet)
-                _currentLvlContext.Puppet.SetJumpEnabled(enabled);
+            if (_currentLvlContext == null) return;
+
+            foreach (var puppet in _currentLvlContext.GetPuppets())
+                puppet.SetJumpEnabled(enabled);
         }
 
         public void ApplyRuntimeRules(LevelRules rules)
@@ -303,8 +312,7 @@ namespace DZ.Features
             SetInvertControls(rules.InvertControls);
             _playerController.ApplyRules(rules);
 
-            if (_currentLvlContext != null && _currentLvlContext.HasPuppet)
-                _currentLvlContext.Puppet.ApplyRules(rules);
+            ApplyRulesToPuppets(rules);
         }
 
         public void RestoreCatalogRules()
@@ -316,31 +324,44 @@ namespace DZ.Features
             ApplyRuntimeRules(rules);
         }
 
-        public bool SwitchControl(LevelControlTarget target)
+        public bool SwitchControl(LevelControlTarget target, string puppetId = null)
         {
             if (_currentLvlContext == null) return false;
 
             switch (target)
             {
                 case LevelControlTarget.Player:
-                    LockPuppetIfAny();
+                    LockAllPuppets();
                     _playerController.UnlockPlayer();
                     return true;
 
                 case LevelControlTarget.Puppet:
-                    if (!_currentLvlContext.HasPuppet)
+                    if (!_currentLvlContext.TryGetPuppet(puppetId, out var puppet))
                     {
-                        Debug.LogWarning("Cannot switch control to puppet: current level has no puppet.");
+                        var puppetDescription = string.IsNullOrWhiteSpace(puppetId)
+                            ? "the first puppet"
+                            : $"puppet '{puppetId}'";
+
+                        Debug.LogWarning($"Cannot switch control to {puppetDescription}: current level has no matching puppet.");
                         return false;
                     }
 
                     _playerController.LockPlayer();
-                    _currentLvlContext.Puppet.Unlock();
+                    LockAllPuppets();
+                    puppet.Unlock();
                     return true;
 
                 default:
                     return false;
             }
+        }
+
+        private void ApplyRulesToPuppets(LevelRules rules)
+        {
+            if (_currentLvlContext == null) return;
+
+            foreach (var puppet in _currentLvlContext.GetPuppets())
+                puppet.ApplyRules(rules);
         }
     }
 }
