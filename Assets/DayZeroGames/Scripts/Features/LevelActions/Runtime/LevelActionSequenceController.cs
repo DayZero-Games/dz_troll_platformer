@@ -13,7 +13,6 @@ namespace DZ.Features
     {
         [SerializeField] private LevelActionExecutionMode _executionMode = LevelActionExecutionMode.Sequential;
         [SerializeField] private bool _autoStart;
-        [SerializeField] private bool _oneShot = true;
         [SerializeField] private List<LevelActionGroup> _groups = new();
 
         private ICameraShaker _cameraShaker;
@@ -49,7 +48,7 @@ namespace DZ.Features
 
         public bool TryActivate(CancellationToken cancellation = default)
         {
-            if (_isRunning || (_oneShot && _hasActivated) || !HasConfiguredActions()) return false;
+            if (_isRunning || _hasActivated || !HasConfiguredActions()) return false;
 
             _hasActivated = true;
             var linkedCancellation = CancellationTokenSource.CreateLinkedTokenSource(
