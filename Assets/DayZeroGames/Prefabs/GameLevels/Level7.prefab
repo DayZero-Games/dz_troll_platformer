@@ -17954,10 +17954,6 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5704904905959466055, guid: 51a55fe9f9032114696d1f17bfc026d5, type: 3}
-      propertyPath: _obstacleActions.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5704904905959466055, guid: 51a55fe9f9032114696d1f17bfc026d5, type: 3}
       propertyPath: 'managedReferences[3064963748607819929]'
       value: DZ.Features DZ.Features.ReturnBackAction
       objectReference: {fileID: 0}
@@ -17974,23 +17970,23 @@ PrefabInstance:
       value: DZ.Features DZ.Features.WaitAction
       objectReference: {fileID: 0}
     - target: {fileID: 5704904905959466055, guid: 51a55fe9f9032114696d1f17bfc026d5, type: 3}
-      propertyPath: _performers.Array.data[0]._actions.Array.size
+      propertyPath: _groups.Array.data[0]._actions.Array.size
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5704904905959466055, guid: 51a55fe9f9032114696d1f17bfc026d5, type: 3}
-      propertyPath: '_performers.Array.data[0]._actions.Array.data[2]'
+      propertyPath: '_groups.Array.data[0]._actions.Array.data[2]'
       value: 3064963748607819932
       objectReference: {fileID: 0}
     - target: {fileID: 5704904905959466055, guid: 51a55fe9f9032114696d1f17bfc026d5, type: 3}
-      propertyPath: '_performers.Array.data[0]._actions.Array.data[3]'
+      propertyPath: '_groups.Array.data[0]._actions.Array.data[3]'
       value: 3064963748607819929
       objectReference: {fileID: 0}
     - target: {fileID: 5704904905959466055, guid: 51a55fe9f9032114696d1f17bfc026d5, type: 3}
-      propertyPath: '_performers.Array.data[0]._actions.Array.data[4]'
+      propertyPath: '_groups.Array.data[0]._actions.Array.data[4]'
       value: 3064963748607819930
       objectReference: {fileID: 0}
     - target: {fileID: 5704904905959466055, guid: 51a55fe9f9032114696d1f17bfc026d5, type: 3}
-      propertyPath: '_performers.Array.data[0]._actions.Array.data[5]'
+      propertyPath: '_groups.Array.data[0]._actions.Array.data[5]'
       value: 3064963748607819931
       objectReference: {fileID: 0}
     - target: {fileID: 5704904905959466055, guid: 51a55fe9f9032114696d1f17bfc026d5, type: 3}
@@ -18213,7 +18209,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8227963596633212468, guid: 51a55fe9f9032114696d1f17bfc026d5, type: 3}
-      propertyPath: _controllers.Array.size
+      propertyPath: _sequenceControllers.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8814963600252337566, guid: 51a55fe9f9032114696d1f17bfc026d5, type: 3}
@@ -18420,27 +18416,19 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1648445924644283268, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
-      propertyPath: _performers.Array.size
+      propertyPath: _groups.Array.size
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1648445924644283268, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
-      propertyPath: '_obstacleActions.Array.data[1]'
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1648445924644283268, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
-      propertyPath: '_obstacleActions.Array.data[2]'
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1648445924644283268, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
-      propertyPath: _performers.Array.data[1]._performer
+      propertyPath: _groups.Array.data[1]._target
       value: 
       objectReference: {fileID: 4107060705675703683}
     - target: {fileID: 1648445924644283268, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
-      propertyPath: _performers.Array.data[2]._performer
+      propertyPath: _groups.Array.data[2]._target
       value: 
       objectReference: {fileID: 3196292146675422180}
     - target: {fileID: 1648445924644283268, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
-      propertyPath: _performers.Array.data[3]._performer
+      propertyPath: _groups.Array.data[3]._target
       value: 
       objectReference: {fileID: 5046916030891238462}
     - target: {fileID: 1648445924644283268, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
@@ -18472,51 +18460,51 @@ PrefabInstance:
       value: DZ.Features DZ.Features.WaitAction
       objectReference: {fileID: 0}
     - target: {fileID: 1648445924644283268, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
-      propertyPath: _performers.Array.data[0]._actions.Array.size
+      propertyPath: _groups.Array.data[0]._actions.Array.size
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1648445924644283268, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
-      propertyPath: _performers.Array.data[1]._actions.Array.size
+      propertyPath: _groups.Array.data[1]._actions.Array.size
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1648445924644283268, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
-      propertyPath: _performers.Array.data[2]._actions.Array.size
+      propertyPath: _groups.Array.data[2]._actions.Array.size
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1648445924644283268, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
-      propertyPath: _performers.Array.data[3]._actions.Array.size
+      propertyPath: _groups.Array.data[3]._actions.Array.size
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1648445924644283268, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
-      propertyPath: '_performers.Array.data[0]._actions.Array.data[1]'
+      propertyPath: '_groups.Array.data[0]._actions.Array.data[1]'
       value: 3064963748607819919
       objectReference: {fileID: 0}
     - target: {fileID: 1648445924644283268, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
-      propertyPath: '_performers.Array.data[0]._actions.Array.data[2]'
+      propertyPath: '_groups.Array.data[0]._actions.Array.data[2]'
       value: 3064963748607819919
       objectReference: {fileID: 0}
     - target: {fileID: 1648445924644283268, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
-      propertyPath: '_performers.Array.data[1]._actions.Array.data[0]'
+      propertyPath: '_groups.Array.data[1]._actions.Array.data[0]'
       value: 3064963748607819926
       objectReference: {fileID: 0}
     - target: {fileID: 1648445924644283268, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
-      propertyPath: '_performers.Array.data[1]._actions.Array.data[1]'
+      propertyPath: '_groups.Array.data[1]._actions.Array.data[1]'
       value: 3064963748607819920
       objectReference: {fileID: 0}
     - target: {fileID: 1648445924644283268, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
-      propertyPath: '_performers.Array.data[2]._actions.Array.data[0]'
+      propertyPath: '_groups.Array.data[2]._actions.Array.data[0]'
       value: 3064963748607819927
       objectReference: {fileID: 0}
     - target: {fileID: 1648445924644283268, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
-      propertyPath: '_performers.Array.data[2]._actions.Array.data[1]'
+      propertyPath: '_groups.Array.data[2]._actions.Array.data[1]'
       value: 3064963748607819921
       objectReference: {fileID: 0}
     - target: {fileID: 1648445924644283268, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
-      propertyPath: '_performers.Array.data[3]._actions.Array.data[0]'
+      propertyPath: '_groups.Array.data[3]._actions.Array.data[0]'
       value: 3064963748607819928
       objectReference: {fileID: 0}
     - target: {fileID: 1648445924644283268, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
-      propertyPath: '_performers.Array.data[3]._actions.Array.data[1]'
+      propertyPath: '_groups.Array.data[3]._actions.Array.data[1]'
       value: 3064963748607819922
       objectReference: {fileID: 0}
     - target: {fileID: 1648445924644283268, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
@@ -18608,7 +18596,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8586572622080967000, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
-      propertyPath: _controllers.Array.size
+      propertyPath: _sequenceControllers.Array.size
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
@@ -18649,10 +18637,6 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5704904905959466055, guid: 51a55fe9f9032114696d1f17bfc026d5, type: 3}
-      propertyPath: _obstacleActions.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5704904905959466055, guid: 51a55fe9f9032114696d1f17bfc026d5, type: 3}
       propertyPath: 'managedReferences[3064963748607819929]'
       value: DZ.Features DZ.Features.ReturnBackAction
       objectReference: {fileID: 0}
@@ -18669,23 +18653,23 @@ PrefabInstance:
       value: DZ.Features DZ.Features.WaitAction
       objectReference: {fileID: 0}
     - target: {fileID: 5704904905959466055, guid: 51a55fe9f9032114696d1f17bfc026d5, type: 3}
-      propertyPath: _performers.Array.data[0]._actions.Array.size
+      propertyPath: _groups.Array.data[0]._actions.Array.size
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5704904905959466055, guid: 51a55fe9f9032114696d1f17bfc026d5, type: 3}
-      propertyPath: '_performers.Array.data[0]._actions.Array.data[2]'
+      propertyPath: '_groups.Array.data[0]._actions.Array.data[2]'
       value: 3064963748607819932
       objectReference: {fileID: 0}
     - target: {fileID: 5704904905959466055, guid: 51a55fe9f9032114696d1f17bfc026d5, type: 3}
-      propertyPath: '_performers.Array.data[0]._actions.Array.data[3]'
+      propertyPath: '_groups.Array.data[0]._actions.Array.data[3]'
       value: 3064963748607819929
       objectReference: {fileID: 0}
     - target: {fileID: 5704904905959466055, guid: 51a55fe9f9032114696d1f17bfc026d5, type: 3}
-      propertyPath: '_performers.Array.data[0]._actions.Array.data[4]'
+      propertyPath: '_groups.Array.data[0]._actions.Array.data[4]'
       value: 3064963748607819930
       objectReference: {fileID: 0}
     - target: {fileID: 5704904905959466055, guid: 51a55fe9f9032114696d1f17bfc026d5, type: 3}
-      propertyPath: '_performers.Array.data[0]._actions.Array.data[5]'
+      propertyPath: '_groups.Array.data[0]._actions.Array.data[5]'
       value: 3064963748607819931
       objectReference: {fileID: 0}
     - target: {fileID: 5704904905959466055, guid: 51a55fe9f9032114696d1f17bfc026d5, type: 3}
@@ -18930,10 +18914,6 @@ PrefabInstance:
       value: 5.08
       objectReference: {fileID: 0}
     - target: {fileID: 1648445924644283268, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
-      propertyPath: _obstacleActions.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1648445924644283268, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
       propertyPath: 'managedReferences[3064963748607819923]'
       value: DZ.Features DZ.Features.WaitAction
       objectReference: {fileID: 0}
@@ -18942,19 +18922,19 @@ PrefabInstance:
       value: DZ.Features DZ.Features.ReturnBackAction
       objectReference: {fileID: 0}
     - target: {fileID: 1648445924644283268, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
-      propertyPath: _performers.Array.data[0]._actions.Array.size
+      propertyPath: _groups.Array.data[0]._actions.Array.size
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1648445924644283268, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
-      propertyPath: '_performers.Array.data[0]._actions.Array.data[1]'
+      propertyPath: '_groups.Array.data[0]._actions.Array.data[1]'
       value: 3064963748607819923
       objectReference: {fileID: 0}
     - target: {fileID: 1648445924644283268, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
-      propertyPath: '_performers.Array.data[0]._actions.Array.data[2]'
+      propertyPath: '_groups.Array.data[0]._actions.Array.data[2]'
       value: 3064963748607819924
       objectReference: {fileID: 0}
     - target: {fileID: 1648445924644283268, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
-      propertyPath: '_performers.Array.data[0]._actions.Array.data[3]'
+      propertyPath: '_groups.Array.data[0]._actions.Array.data[3]'
       value: 3064963748607819924
       objectReference: {fileID: 0}
     - target: {fileID: 1648445924644283268, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
@@ -18994,11 +18974,11 @@ PrefabInstance:
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8586572622080967000, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
-      propertyPath: _controllers.Array.size
+      propertyPath: _sequenceControllers.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8586572622080967000, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
-      propertyPath: '_controllers.Array.data[0]'
+      propertyPath: '_sequenceControllers.Array.data[0]'
       value: 
       objectReference: {fileID: 5900121374629930769}
     m_RemovedComponents: []
@@ -19024,9 +19004,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
+  m_Script: {fileID: 11500000, guid: 4817522cddcf433a82cc497345ad714f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelActionSequenceController
 --- !u!1001 &5381928292188031711
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19074,14 +19054,6 @@ PrefabInstance:
     - target: {fileID: 811746247305622366, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1648445924644283268, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
-      propertyPath: '_obstacleActions.Array.data[1]'
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1648445924644283268, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
-      propertyPath: '_obstacleActions.Array.data[2]'
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1648445924644283268, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
       propertyPath: managedReferences[3064963748607819918]._targetPoints.Array.size

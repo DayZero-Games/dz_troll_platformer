@@ -554,12 +554,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1769365502544980103}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59fa82caa13bb614baba05e5515f32b6, type: 3}
+  m_Script: {fileID: 11500000, guid: 506825c59f69498990579079d128f08a, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleTrigger
-  _playerTag: Player
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.ActionTrigger2D
+  _activatorTag: Player
   _disableColliderAfterSuccessfulActivation: 1
-  _controllers:
+  _sequenceControllers:
   - {fileID: 4448997388831293010}
 --- !u!1 &1786169849231306928
 GameObject:
@@ -602,12 +602,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1786169849231306928}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
+  m_Script: {fileID: 11500000, guid: 4817522cddcf433a82cc497345ad714f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelActionSequenceController
   _executionMode: 1
-  _performers:
-  - _performer: {fileID: 7531008869368625359}
+  _autoStart: 0
+  _oneShot: 1
+  _groups:
+  - _target: {fileID: 7531008869368625359}
     _actions:
     - rid: 3064963748607819859
     - rid: 3064963748607819864
@@ -16773,12 +16775,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3892118925614382889}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59fa82caa13bb614baba05e5515f32b6, type: 3}
+  m_Script: {fileID: 11500000, guid: 506825c59f69498990579079d128f08a, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleTrigger
-  _playerTag: Player
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.ActionTrigger2D
+  _activatorTag: Player
   _disableColliderAfterSuccessfulActivation: 1
-  _controllers:
+  _sequenceControllers:
   - {fileID: 6174814787931381071}
 --- !u!1 &4023449053706155557
 GameObject:
@@ -17058,12 +17060,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 5104769059419789952}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
+  m_Script: {fileID: 11500000, guid: 4817522cddcf433a82cc497345ad714f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelActionSequenceController
   _executionMode: 1
-  _performers:
-  - _performer: {fileID: 8445602978124748481}
+  _autoStart: 0
+  _oneShot: 1
+  _groups:
+  - _target: {fileID: 8445602978124748481}
     _actions:
     - rid: 3064963748607819859
     - rid: 3064963748607819864
@@ -17182,20 +17186,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 5417496717150387147}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
+  m_Script: {fileID: 11500000, guid: 4817522cddcf433a82cc497345ad714f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelActionSequenceController
   _executionMode: 1
-  _performers:
-  - _performer: {fileID: 7479043550096041924}
+  _autoStart: 0
+  _oneShot: 1
+  _groups:
+  - _target: {fileID: 7479043550096041924}
     _actions:
     - rid: 3064963748607819857
     - rid: 3064963748607819858
-  - _performer: {fileID: 46484383078498404}
+  - _target: {fileID: 46484383078498404}
     _actions:
     - rid: 3064963803691089994
     - rid: 3064963803691089996
-  - _performer: {fileID: 4038426183597568002}
+  - _target: {fileID: 4038426183597568002}
     _actions:
     - rid: 3064963803691089995
     - rid: 3064963803691089997
@@ -17317,12 +17323,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5553874802790641689}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59fa82caa13bb614baba05e5515f32b6, type: 3}
+  m_Script: {fileID: 11500000, guid: 506825c59f69498990579079d128f08a, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleTrigger
-  _playerTag: Player
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.ActionTrigger2D
+  _activatorTag: Player
   _disableColliderAfterSuccessfulActivation: 1
-  _controllers:
+  _sequenceControllers:
   - {fileID: 6187674031367325380}
 --- !u!1 &5717366171544388840
 GameObject:
@@ -17365,12 +17371,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 5717366171544388840}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
+  m_Script: {fileID: 11500000, guid: 4817522cddcf433a82cc497345ad714f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelActionSequenceController
   _executionMode: 1
-  _performers:
-  - _performer: {fileID: 3103442830488936600}
+  _autoStart: 0
+  _oneShot: 1
+  _groups:
+  - _target: {fileID: 3103442830488936600}
     _actions:
     - rid: 3064963748607819859
     - rid: 3064963748607819864
@@ -17474,12 +17482,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5858597394767002056}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59fa82caa13bb614baba05e5515f32b6, type: 3}
+  m_Script: {fileID: 11500000, guid: 506825c59f69498990579079d128f08a, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleTrigger
-  _playerTag: Player
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.ActionTrigger2D
+  _activatorTag: Player
   _disableColliderAfterSuccessfulActivation: 1
-  _controllers:
+  _sequenceControllers:
   - {fileID: 7145011223483593905}
 --- !u!1 &5930804824875124651
 GameObject:
@@ -17737,12 +17745,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7061793005300200570}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59fa82caa13bb614baba05e5515f32b6, type: 3}
+  m_Script: {fileID: 11500000, guid: 506825c59f69498990579079d128f08a, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleTrigger
-  _playerTag: Player
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.ActionTrigger2D
+  _activatorTag: Player
   _disableColliderAfterSuccessfulActivation: 1
-  _controllers:
+  _sequenceControllers:
   - {fileID: 4405699258244195868}
 --- !u!1 &7479043550096041924
 GameObject:
@@ -18281,12 +18289,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 8954831800421774904}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
+  m_Script: {fileID: 11500000, guid: 4817522cddcf433a82cc497345ad714f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelActionSequenceController
   _executionMode: 1
-  _performers:
-  - _performer: {fileID: 1116235510117016083}
+  _autoStart: 0
+  _oneShot: 1
+  _groups:
+  - _target: {fileID: 1116235510117016083}
     _actions:
     - rid: 3064963748607819859
     - rid: 3064963748607819864

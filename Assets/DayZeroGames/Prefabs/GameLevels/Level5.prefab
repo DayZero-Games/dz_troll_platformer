@@ -13847,12 +13847,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4638114828703495354}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59fa82caa13bb614baba05e5515f32b6, type: 3}
+  m_Script: {fileID: 11500000, guid: 506825c59f69498990579079d128f08a, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleTrigger
-  _playerTag: Player
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.ActionTrigger2D
+  _activatorTag: Player
   _disableColliderAfterSuccessfulActivation: 1
-  _controllers:
+  _sequenceControllers:
   - {fileID: 3309193528727495323}
 --- !u!1 &5316146001101634563
 GameObject:
@@ -13895,12 +13895,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 5316146001101634563}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
+  m_Script: {fileID: 11500000, guid: 4817522cddcf433a82cc497345ad714f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelActionSequenceController
   _executionMode: 0
-  _performers:
-  - _performer: {fileID: 4615576678225863229}
+  _autoStart: 0
+  _oneShot: 1
+  _groups:
+  - _target: {fileID: 4615576678225863229}
     _actions:
     - rid: 3064963762814976077
     - rid: 3064963762814976078
@@ -14766,7 +14768,7 @@ PrefabInstance:
       value: DZ.Features DZ.Features.MoveToPointAction
       objectReference: {fileID: 0}
     - target: {fileID: 4224683383608546272, guid: 52d390c0b5152ec4aa98ba093a8576c6, type: 3}
-      propertyPath: '_performers.Array.data[0]._actions.Array.data[1]'
+      propertyPath: '_groups.Array.data[0]._actions.Array.data[1]'
       value: 3064963748607819902
       objectReference: {fileID: 0}
     - target: {fileID: 4224683383608546272, guid: 52d390c0b5152ec4aa98ba093a8576c6, type: 3}
@@ -15023,11 +15025,11 @@ PrefabInstance:
     m_TransformParent: {fileID: 1918148520661955383}
     m_Modifications:
     - target: {fileID: 290433092257193879, guid: 677d2ad380248fa4ba2b45ee085eba7a, type: 3}
-      propertyPath: _performers.Array.size
+      propertyPath: _groups.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 290433092257193879, guid: 677d2ad380248fa4ba2b45ee085eba7a, type: 3}
-      propertyPath: _performers.Array.data[1]._performer
+      propertyPath: _groups.Array.data[1]._target
       value: 
       objectReference: {fileID: 4615576678225863229}
     - target: {fileID: 290433092257193879, guid: 677d2ad380248fa4ba2b45ee085eba7a, type: 3}
@@ -15047,23 +15049,23 @@ PrefabInstance:
       value: DZ.Features DZ.Features.WaitAction
       objectReference: {fileID: 0}
     - target: {fileID: 290433092257193879, guid: 677d2ad380248fa4ba2b45ee085eba7a, type: 3}
-      propertyPath: _performers.Array.data[1]._actions.Array.size
+      propertyPath: _groups.Array.data[1]._actions.Array.size
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 290433092257193879, guid: 677d2ad380248fa4ba2b45ee085eba7a, type: 3}
-      propertyPath: '_performers.Array.data[0]._actions.Array.data[1]'
+      propertyPath: '_groups.Array.data[0]._actions.Array.data[1]'
       value: 3064963748607819899
       objectReference: {fileID: 0}
     - target: {fileID: 290433092257193879, guid: 677d2ad380248fa4ba2b45ee085eba7a, type: 3}
-      propertyPath: '_performers.Array.data[1]._actions.Array.data[0]'
+      propertyPath: '_groups.Array.data[1]._actions.Array.data[0]'
       value: 3064963748607819935
       objectReference: {fileID: 0}
     - target: {fileID: 290433092257193879, guid: 677d2ad380248fa4ba2b45ee085eba7a, type: 3}
-      propertyPath: '_performers.Array.data[1]._actions.Array.data[1]'
+      propertyPath: '_groups.Array.data[1]._actions.Array.data[1]'
       value: 3064963748607819900
       objectReference: {fileID: 0}
     - target: {fileID: 290433092257193879, guid: 677d2ad380248fa4ba2b45ee085eba7a, type: 3}
-      propertyPath: '_performers.Array.data[1]._actions.Array.data[2]'
+      propertyPath: '_groups.Array.data[1]._actions.Array.data[2]'
       value: 3064963748607819901
       objectReference: {fileID: 0}
     - target: {fileID: 290433092257193879, guid: 677d2ad380248fa4ba2b45ee085eba7a, type: 3}

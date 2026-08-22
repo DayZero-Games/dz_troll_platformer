@@ -41,12 +41,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 322056729143135615}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
+  m_Script: {fileID: 11500000, guid: 4817522cddcf433a82cc497345ad714f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelActionSequenceController
   _executionMode: 1
-  _performers:
-  - _performer: {fileID: 5294306565772062519}
+  _autoStart: 0
+  _oneShot: 1
+  _groups:
+  - _target: {fileID: 5294306565772062519}
     _actions:
     - rid: 1000000000000000000
     - rid: 1000000000000000001
@@ -54,12 +56,12 @@ MonoBehaviour:
     - rid: 1000000000000000003
     - rid: 1000000000000000004
     - rid: 1000000000000000005
-  - _performer: {fileID: 6574445806376644142}
+  - _target: {fileID: 6574445806376644142}
     _actions:
     - rid: 3064963748607819939
     - rid: 3064963748607819940
     - rid: 3064963748607819941
-  - _performer: {fileID: 5502300862765470758}
+  - _target: {fileID: 5502300862765470758}
     _actions:
     - rid: 3064963748607819942
     - rid: 3064963748607819943
@@ -16755,12 +16757,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 4389766381540302975}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
+  m_Script: {fileID: 11500000, guid: 4817522cddcf433a82cc497345ad714f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelActionSequenceController
   _executionMode: 0
-  _performers:
-  - _performer: {fileID: 4668501252623289491}
+  _autoStart: 0
+  _oneShot: 1
+  _groups:
+  - _target: {fileID: 4668501252623289491}
     _actions:
     - rid: 3064963777409581133
   references:
@@ -17324,12 +17328,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5971342185432041968}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59fa82caa13bb614baba05e5515f32b6, type: 3}
+  m_Script: {fileID: 11500000, guid: 506825c59f69498990579079d128f08a, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleTrigger
-  _playerTag: Player
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.ActionTrigger2D
+  _activatorTag: Player
   _disableColliderAfterSuccessfulActivation: 1
-  _controllers:
+  _sequenceControllers:
   - {fileID: 8610695029901920851}
 --- !u!1 &6314032580644807608
 GameObject:
@@ -18589,12 +18593,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8035167737448386379}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59fa82caa13bb614baba05e5515f32b6, type: 3}
+  m_Script: {fileID: 11500000, guid: 506825c59f69498990579079d128f08a, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleTrigger
-  _playerTag: Player
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.ActionTrigger2D
+  _activatorTag: Player
   _disableColliderAfterSuccessfulActivation: 0
-  _controllers:
+  _sequenceControllers:
   - {fileID: 3010038603300703323}
 --- !u!1 &8452265683673612344
 GameObject:
@@ -18905,19 +18909,19 @@ PrefabInstance:
       value: DZ.Features DZ.Features.DisableObjectAction
       objectReference: {fileID: 0}
     - target: {fileID: 2958639602198345923, guid: f42631476ad81ae4eb651635cfd567b3, type: 3}
-      propertyPath: _performers.Array.data[0]._actions.Array.size
+      propertyPath: _groups.Array.data[0]._actions.Array.size
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2958639602198345923, guid: f42631476ad81ae4eb651635cfd567b3, type: 3}
-      propertyPath: '_performers.Array.data[0]._actions.Array.data[1]'
+      propertyPath: '_groups.Array.data[0]._actions.Array.data[1]'
       value: 3064963748607819936
       objectReference: {fileID: 0}
     - target: {fileID: 2958639602198345923, guid: f42631476ad81ae4eb651635cfd567b3, type: 3}
-      propertyPath: '_performers.Array.data[0]._actions.Array.data[2]'
+      propertyPath: '_groups.Array.data[0]._actions.Array.data[2]'
       value: 3064963748607819937
       objectReference: {fileID: 0}
     - target: {fileID: 2958639602198345923, guid: f42631476ad81ae4eb651635cfd567b3, type: 3}
-      propertyPath: '_performers.Array.data[0]._actions.Array.data[3]'
+      propertyPath: '_groups.Array.data[0]._actions.Array.data[3]'
       value: 3064963748607819938
       objectReference: {fileID: 0}
     - target: {fileID: 2958639602198345923, guid: f42631476ad81ae4eb651635cfd567b3, type: 3}
@@ -19368,11 +19372,11 @@ PrefabInstance:
       value: 1.7
       objectReference: {fileID: 0}
     - target: {fileID: 4799591887078300339, guid: 7c863a3ef8f817545b0d6f7aa4e094db, type: 3}
-      propertyPath: _controllers.Array.size
+      propertyPath: _sequenceControllers.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4799591887078300339, guid: 7c863a3ef8f817545b0d6f7aa4e094db, type: 3}
-      propertyPath: '_controllers.Array.data[0]'
+      propertyPath: '_sequenceControllers.Array.data[0]'
       value: 
       objectReference: {fileID: 7007124502953944604}
     - target: {fileID: 6712542412519522438, guid: 7c863a3ef8f817545b0d6f7aa4e094db, type: 3}
@@ -19439,9 +19443,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
+  m_Script: {fileID: 11500000, guid: 4817522cddcf433a82cc497345ad714f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelActionSequenceController
 --- !u!1001 &9002627268908575207
 PrefabInstance:
   m_ObjectHideFlags: 0

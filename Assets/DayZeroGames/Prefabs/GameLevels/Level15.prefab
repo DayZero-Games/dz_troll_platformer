@@ -16892,12 +16892,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4624187162308574063}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59fa82caa13bb614baba05e5515f32b6, type: 3}
+  m_Script: {fileID: 11500000, guid: 506825c59f69498990579079d128f08a, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleTrigger
-  _playerTag: Player
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.ActionTrigger2D
+  _activatorTag: Player
   _disableColliderAfterSuccessfulActivation: 1
-  _controllers:
+  _sequenceControllers:
   - {fileID: 5362931394630810187}
 --- !u!1 &6299432144501992341
 GameObject:
@@ -17286,15 +17286,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 7541902888953868607}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
+  m_Script: {fileID: 11500000, guid: 4817522cddcf433a82cc497345ad714f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelActionSequenceController
   _executionMode: 0
-  _performers:
-  - _performer: {fileID: 6299432144501992341}
+  _autoStart: 0
+  _oneShot: 1
+  _groups:
+  - _target: {fileID: 6299432144501992341}
     _actions:
     - rid: 3064963748607819966
-  - _performer: {fileID: 3167695153546638853}
+  - _target: {fileID: 3167695153546638853}
     _actions:
     - rid: 3064963748607819967
   references:
@@ -17701,7 +17703,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4439218131953620963, guid: a1d6cb39097003b4e8da7d692d3dd3ed, type: 3}
-      propertyPath: _performers.Array.data[0]._actions.Array.size
+      propertyPath: _groups.Array.data[0]._actions.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5861693542388681884, guid: a1d6cb39097003b4e8da7d692d3dd3ed, type: 3}
@@ -17803,7 +17805,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4439218131953620963, guid: a1d6cb39097003b4e8da7d692d3dd3ed, type: 3}
-      propertyPath: _performers.Array.data[0]._actions.Array.size
+      propertyPath: _groups.Array.data[0]._actions.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5861693542388681884, guid: a1d6cb39097003b4e8da7d692d3dd3ed, type: 3}
@@ -18442,7 +18444,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8268043863019849978, guid: 6dabff2a8631d1f40ade49d06cd42dad, type: 3}
-      propertyPath: _performers.Array.data[0]._actions.Array.size
+      propertyPath: _groups.Array.data[0]._actions.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8268043863019849978, guid: 6dabff2a8631d1f40ade49d06cd42dad, type: 3}
@@ -18500,7 +18502,7 @@ PrefabInstance:
       value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 4439218131953620963, guid: a1d6cb39097003b4e8da7d692d3dd3ed, type: 3}
-      propertyPath: _performers.Array.data[0]._actions.Array.size
+      propertyPath: _groups.Array.data[0]._actions.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5861693542388681884, guid: a1d6cb39097003b4e8da7d692d3dd3ed, type: 3}
@@ -18696,7 +18698,7 @@ PrefabInstance:
       value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 4439218131953620963, guid: a1d6cb39097003b4e8da7d692d3dd3ed, type: 3}
-      propertyPath: _performers.Array.data[0]._actions.Array.size
+      propertyPath: _groups.Array.data[0]._actions.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5861693542388681884, guid: a1d6cb39097003b4e8da7d692d3dd3ed, type: 3}
@@ -18798,7 +18800,7 @@ PrefabInstance:
       value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 4439218131953620963, guid: a1d6cb39097003b4e8da7d692d3dd3ed, type: 3}
-      propertyPath: _performers.Array.data[0]._actions.Array.size
+      propertyPath: _groups.Array.data[0]._actions.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5861693542388681884, guid: a1d6cb39097003b4e8da7d692d3dd3ed, type: 3}
@@ -18966,7 +18968,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4439218131953620963, guid: a1d6cb39097003b4e8da7d692d3dd3ed, type: 3}
-      propertyPath: _performers.Array.data[0]._actions.Array.size
+      propertyPath: _groups.Array.data[0]._actions.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5861693542388681884, guid: a1d6cb39097003b4e8da7d692d3dd3ed, type: 3}
@@ -19076,7 +19078,7 @@ PrefabInstance:
       value: 1.52
       objectReference: {fileID: 0}
     - target: {fileID: 4439218131953620963, guid: a1d6cb39097003b4e8da7d692d3dd3ed, type: 3}
-      propertyPath: _performers.Array.data[0]._actions.Array.size
+      propertyPath: _groups.Array.data[0]._actions.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5861693542388681884, guid: a1d6cb39097003b4e8da7d692d3dd3ed, type: 3}
@@ -19166,7 +19168,7 @@ PrefabInstance:
       value: 1.52
       objectReference: {fileID: 0}
     - target: {fileID: 4439218131953620963, guid: a1d6cb39097003b4e8da7d692d3dd3ed, type: 3}
-      propertyPath: _performers.Array.data[0]._actions.Array.size
+      propertyPath: _groups.Array.data[0]._actions.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5861693542388681884, guid: a1d6cb39097003b4e8da7d692d3dd3ed, type: 3}
@@ -19268,7 +19270,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4439218131953620963, guid: a1d6cb39097003b4e8da7d692d3dd3ed, type: 3}
-      propertyPath: _performers.Array.data[0]._actions.Array.size
+      propertyPath: _groups.Array.data[0]._actions.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5861693542388681884, guid: a1d6cb39097003b4e8da7d692d3dd3ed, type: 3}

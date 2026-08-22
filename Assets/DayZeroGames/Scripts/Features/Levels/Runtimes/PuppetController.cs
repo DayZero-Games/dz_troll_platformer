@@ -56,6 +56,7 @@ namespace DZ.Features
         private int _maxAirJumps;
         private float _jumpForceMultiplier = 1f;
         private int _airJumpsUsed;
+        private bool _jumpEnabled = true;
 
         public Transform Transform => transform;
         public SpriteRenderer SpriteRenderer => _spriteRenderer;
@@ -185,7 +186,10 @@ namespace DZ.Features
         }
 
         /// (0 = none, 1 = double jump, negative = unlimited)
-        private bool CanJump() => _isGrounded || _maxAirJumps < 0 || _airJumpsUsed < _maxAirJumps;
+        private bool CanJump() =>
+            _jumpEnabled &&
+            _jumpForceMultiplier > 0f &&
+            (_isGrounded || _maxAirJumps < 0 || _airJumpsUsed < _maxAirJumps);
 
         private void ApplyFallMultiplier()
         {
@@ -198,10 +202,27 @@ namespace DZ.Features
         public void ApplyRules(LevelRules rules)
         {
             rules ??= LevelRules.Default;
-            _rb.gravityScale = _baseGravityScale * rules.GravityScale;
-            _maxAirJumps = rules.MaxAirJumps;
-            _jumpForceMultiplier = rules.JumpForceMultiplier;
+            SetGravityScale(rules.GravityScale);
+            SetJumpRules(rules.MaxAirJumps, rules.JumpForceMultiplier);
+            SetJumpEnabled(rules.JumpForceMultiplier > 0f);
+        }
+
+        public void SetGravityScale(float gravityScale)
+        {
+            _rb.gravityScale = _baseGravityScale * gravityScale;
+        }
+
+        public void SetJumpRules(int maxAirJumps, float jumpForceMultiplier)
+        {
+            _maxAirJumps = maxAirJumps;
+            _jumpForceMultiplier = jumpForceMultiplier;
             _airJumpsUsed = 0;
+        }
+
+        public void SetJumpEnabled(bool enabled)
+        {
+            _jumpEnabled = enabled;
+            if (!enabled) _airJumpsUsed = 0;
         }
 
         #endregion

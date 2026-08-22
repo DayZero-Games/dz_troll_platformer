@@ -1,0 +1,19 @@
+{
+    "name": "DZ.Features.Levels.Editor",
+    "rootNamespace": "DZ.Features.EditorTools",
+    "references": [
+        "GUID:4a6be784e2fac4c40973e8e9ea346097",
+        "GUID:116da2a2d92ccbf429289295182cebe5"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

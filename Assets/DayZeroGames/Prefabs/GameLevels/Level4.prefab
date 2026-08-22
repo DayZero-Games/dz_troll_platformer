@@ -179,12 +179,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 69304495694222073}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
+  m_Script: {fileID: 11500000, guid: 4817522cddcf433a82cc497345ad714f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelActionSequenceController
   _executionMode: 1
-  _performers:
-  - _performer: {fileID: 2183269147228006749}
+  _autoStart: 0
+  _oneShot: 1
+  _groups:
+  - _target: {fileID: 2183269147228006749}
     _actions:
     - rid: 3064963748607819857
     - rid: 3064963748607819858
@@ -272,12 +274,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 796068244244787445}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
+  m_Script: {fileID: 11500000, guid: 4817522cddcf433a82cc497345ad714f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelActionSequenceController
   _executionMode: 1
-  _performers:
-  - _performer: {fileID: 8116476090916014699}
+  _autoStart: 0
+  _oneShot: 1
+  _groups:
+  - _target: {fileID: 8116476090916014699}
     _actions:
     - rid: 3064963748607819857
     - rid: 3064963748607819858
@@ -334,12 +338,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000820624169609000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
+  m_Script: {fileID: 11500000, guid: 4817522cddcf433a82cc497345ad714f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelActionSequenceController
   _executionMode: 1
-  _performers:
-  - _performer: {fileID: 1681396461561530377}
+  _autoStart: 0
+  _oneShot: 1
+  _groups:
+  - _target: {fileID: 1681396461561530377}
     _actions:
     - rid: 3064963748607819857
     - rid: 3064963748607819858
@@ -396,12 +402,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1069346741814162160}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
+  m_Script: {fileID: 11500000, guid: 4817522cddcf433a82cc497345ad714f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelActionSequenceController
   _executionMode: 1
-  _performers:
-  - _performer: {fileID: 8145220437453978208}
+  _autoStart: 0
+  _oneShot: 1
+  _groups:
+  - _target: {fileID: 8145220437453978208}
     _actions:
     - rid: 3064963748607819857
     - rid: 3064963748607819858
@@ -458,12 +466,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1097185811327567498}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
+  m_Script: {fileID: 11500000, guid: 4817522cddcf433a82cc497345ad714f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelActionSequenceController
   _executionMode: 1
-  _performers:
-  - _performer: {fileID: 6829803829498889416}
+  _autoStart: 0
+  _oneShot: 1
+  _groups:
+  - _target: {fileID: 6829803829498889416}
     _actions:
     - rid: 3064963748607819857
     - rid: 3064963748607819858
@@ -960,12 +970,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 2692334995208205322}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
+  m_Script: {fileID: 11500000, guid: 4817522cddcf433a82cc497345ad714f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelActionSequenceController
   _executionMode: 1
-  _performers:
-  - _performer: {fileID: 5186230876388521252}
+  _autoStart: 0
+  _oneShot: 1
+  _groups:
+  - _target: {fileID: 5186230876388521252}
     _actions:
     - rid: 3064963748607819857
     - rid: 3064963748607819858
@@ -15425,61 +15437,63 @@ MonoBehaviour:
   m_GameObject: {fileID: 4701103907180259184}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
+  m_Script: {fileID: 11500000, guid: 4817522cddcf433a82cc497345ad714f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelActionSequenceController
   _executionMode: 1
-  _performers:
-  - _performer: {fileID: 8078964007887644295}
+  _autoStart: 0
+  _oneShot: 1
+  _groups:
+  - _target: {fileID: 8078964007887644295}
     _actions:
     - rid: 3064963748607819859
     - rid: 3064963748607819864
-  - _performer: {fileID: 66717342309394898}
+  - _target: {fileID: 66717342309394898}
     _actions:
     - rid: 3064963748607819860
     - rid: 3064963748607819861
     - rid: 3064963748607819865
-  - _performer: {fileID: 5186230876388521252}
+  - _target: {fileID: 5186230876388521252}
     _actions:
     - rid: 3064963748607819862
     - rid: 3064963748607819863
     - rid: 3064963748607819866
-  - _performer: {fileID: 6829803829498889416}
+  - _target: {fileID: 6829803829498889416}
     _actions:
     - rid: 3064963748607819867
     - rid: 3064963748607819868
     - rid: 3064963748607819869
-  - _performer: {fileID: 2934261831798627556}
+  - _target: {fileID: 2934261831798627556}
     _actions:
     - rid: 3064963748607819870
     - rid: 3064963748607819871
     - rid: 3064963748607819872
-  - _performer: {fileID: 3469448954855697367}
+  - _target: {fileID: 3469448954855697367}
     _actions:
     - rid: 3064963748607819873
     - rid: 3064963748607819874
     - rid: 3064963748607819875
-  - _performer: {fileID: 4674430478354676787}
+  - _target: {fileID: 4674430478354676787}
     _actions:
     - rid: 3064963748607819876
     - rid: 3064963748607819877
     - rid: 3064963748607819878
-  - _performer: {fileID: 8116476090916014699}
+  - _target: {fileID: 8116476090916014699}
     _actions:
     - rid: 3064963748607819879
     - rid: 3064963748607819880
     - rid: 3064963748607819881
-  - _performer: {fileID: 2183269147228006749}
+  - _target: {fileID: 2183269147228006749}
     _actions:
     - rid: 3064963748607819882
     - rid: 3064963748607819883
     - rid: 3064963748607819884
-  - _performer: {fileID: 1681396461561530377}
+  - _target: {fileID: 1681396461561530377}
     _actions:
     - rid: 3064963748607819885
     - rid: 3064963748607819886
     - rid: 3064963748607819887
-  - _performer: {fileID: 8145220437453978208}
+  - _target: {fileID: 8145220437453978208}
     _actions:
     - rid: 3064963748607819888
     - rid: 3064963748607819889
@@ -15732,12 +15746,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 4910747578202048532}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
+  m_Script: {fileID: 11500000, guid: 4817522cddcf433a82cc497345ad714f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelActionSequenceController
   _executionMode: 1
-  _performers:
-  - _performer: {fileID: 2934261831798627556}
+  _autoStart: 0
+  _oneShot: 1
+  _groups:
+  - _target: {fileID: 2934261831798627556}
     _actions:
     - rid: 3064963748607819857
     - rid: 3064963748607819858
@@ -17073,12 +17089,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7785010400872296344}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59fa82caa13bb614baba05e5515f32b6, type: 3}
+  m_Script: {fileID: 11500000, guid: 506825c59f69498990579079d128f08a, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleTrigger
-  _playerTag: Player
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.ActionTrigger2D
+  _activatorTag: Player
   _disableColliderAfterSuccessfulActivation: 1
-  _controllers:
+  _sequenceControllers:
   - {fileID: 8122545518972247648}
 --- !u!1 &7901355137864141596
 GameObject:
@@ -17155,12 +17171,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 7988047752190872633}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
+  m_Script: {fileID: 11500000, guid: 4817522cddcf433a82cc497345ad714f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelActionSequenceController
   _executionMode: 1
-  _performers:
-  - _performer: {fileID: 66717342309394898}
+  _autoStart: 0
+  _oneShot: 1
+  _groups:
+  - _target: {fileID: 66717342309394898}
     _actions:
     - rid: 3064963748607819857
     - rid: 3064963748607819858
@@ -17217,12 +17235,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 8071671606583071403}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
+  m_Script: {fileID: 11500000, guid: 4817522cddcf433a82cc497345ad714f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelActionSequenceController
   _executionMode: 1
-  _performers:
-  - _performer: {fileID: 3469448954855697367}
+  _autoStart: 0
+  _oneShot: 1
+  _groups:
+  - _target: {fileID: 3469448954855697367}
     _actions:
     - rid: 3064963748607819857
     - rid: 3064963748607819858
@@ -17724,12 +17744,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 9220999614497988996}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51233cd7a01e45168c6986589c22ac3a, type: 3}
+  m_Script: {fileID: 11500000, guid: 4817522cddcf433a82cc497345ad714f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.ObstacleController
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelActionSequenceController
   _executionMode: 1
-  _performers:
-  - _performer: {fileID: 4674430478354676787}
+  _autoStart: 0
+  _oneShot: 1
+  _groups:
+  - _target: {fileID: 4674430478354676787}
     _actions:
     - rid: 3064963748607819857
     - rid: 3064963748607819858
