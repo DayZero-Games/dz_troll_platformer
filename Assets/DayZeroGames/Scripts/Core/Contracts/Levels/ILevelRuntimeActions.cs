@@ -11,6 +11,7 @@ namespace DZ.Core.Contracts
     public interface ILevelRuntimeActions
     {
         void SetInvertControls(bool inverted);
+        bool FlipInvertControls();
         void SetGravityScale(float gravityScale);
         void SetJumpRules(int maxAirJumps, float jumpForceMultiplier);
         void SetJumpEnabled(bool enabled);

@@ -19416,17 +19416,24 @@ MonoBehaviour:
     _actions:
     - rid: 7298938021400805457
     - rid: 7298938021400805460
+    - rid: 7298938021400805496
   references:
     version: 2
     RefIds:
     - rid: 7298938021400805457
       type: {class: SetInvertControlsGameplayAction, ns: DZ.Features, asm: DZ.Features}
       data:
-        _inverted: 1
+        _mode: 0
+        _inverted: 0
     - rid: 7298938021400805460
       type: {class: SetGravityScaleGameplayAction, ns: DZ.Features, asm: DZ.Features}
       data:
         _gravityScale: 0.35
+    - rid: 7298938021400805496
+      type: {class: SwitchControlGameplayAction, ns: DZ.Features, asm: DZ.Features}
+      data:
+        _mode: 0
+        _target: 1
 --- !u!1 &4892256452876767738
 GameObject:
   m_ObjectHideFlags: 0

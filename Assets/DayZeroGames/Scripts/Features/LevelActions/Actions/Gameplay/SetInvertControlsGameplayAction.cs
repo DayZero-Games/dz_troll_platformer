@@ -8,8 +8,6 @@ namespace DZ.Features
     [Serializable]
     public class SetInvertControlsGameplayAction : LevelAction
     {
-        [SerializeField] private bool _inverted = true;
-
         public override UniTask ExecuteActionAsync(
             LevelActionContext context,
             CancellationToken cancellation = default)
@@ -23,14 +21,12 @@ namespace DZ.Features
                 return UniTask.CompletedTask;
             }
 
-            runtimeActions.SetInvertControls(_inverted);
+            runtimeActions.FlipInvertControls();
             return UniTask.CompletedTask;
         }
 
 #if UNITY_EDITOR
-        public override string Describe() => _inverted
-            ? "Invert Controls -> on"
-            : "Invert Controls -> off";
+        public override string Describe() => "Invert Controls -> flip";
 #endif
     }
 }

@@ -268,6 +268,13 @@ namespace DZ.Features
             _inputReader.SetInverted(inverted);
         }
 
+        public bool FlipInvertControls()
+        {
+            var inverted = !_inputReader.IsInverted;
+            SetInvertControls(inverted);
+            return inverted;
+        }
+
         public void SetGravityScale(float gravityScale)
         {
             _playerController.SetGravityScale(gravityScale);
