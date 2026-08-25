@@ -193,22 +193,22 @@ MonoBehaviour:
     _rules:
       _invertControls: 0
       _gravityScale: 1
-      _maxAirJumps: 100
+      _maxAirJumps: -1
       _jumpForceMultiplier: 0.6
   - _id: Lvl_27
     _levelPrefab: {fileID: 8301321145210601062, guid: dad947e219f1cb74690b470f103e80a4, type: 3}
     _rules:
       _invertControls: 0
       _gravityScale: 1
-      _maxAirJumps: 0
-      _jumpForceMultiplier: 1
+      _maxAirJumps: -1
+      _jumpForceMultiplier: 0.6
   - _id: Lvl_28
     _levelPrefab: {fileID: 8301321145210601062, guid: 92d77d409a0ec9f40aa55451b54f293f, type: 3}
     _rules:
       _invertControls: 0
       _gravityScale: 1
-      _maxAirJumps: 0
-      _jumpForceMultiplier: 1
+      _maxAirJumps: -1
+      _jumpForceMultiplier: 0.6
   - _id: Lvl_29
     _levelPrefab: {fileID: 8301321145210601062, guid: d22f58ad5095d37469cb9484f9c9a558, type: 3}
     _rules:
