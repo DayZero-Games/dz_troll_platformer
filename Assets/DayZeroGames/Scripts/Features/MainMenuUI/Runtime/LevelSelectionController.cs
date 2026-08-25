@@ -70,6 +70,16 @@ namespace DZ.Features
 
                 _levelButtons.Add(button);
             }
+
+            FocusHighestUnlockedLevel();
+        }
+
+        private void FocusHighestUnlockedLevel()
+        {
+            if (_levelCatalog.Count == 0) return;
+
+            var index = Mathf.Clamp(_levelProgress.HighestUnlockedIndex, 0, _levelCatalog.Count - 1);
+            _view.FocusLevel(index);
         }
 
         
