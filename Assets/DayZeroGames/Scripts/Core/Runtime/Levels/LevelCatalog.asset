@@ -189,51 +189,72 @@ MonoBehaviour:
       _maxAirJumps: 0
       _jumpForceMultiplier: 1
   - _id: Lvl_26
-    _levelPrefab: {fileID: 8301321145210601062, guid: bb300081db7eac149b3c40e3f2712613, type: 3}
+    _levelPrefab: {fileID: 8351780955997379371, guid: 7c7e238236c84f34eb4762d2969e10ce, type: 3}
     _rules:
       _invertControls: 0
       _gravityScale: 1
       _maxAirJumps: -1
       _jumpForceMultiplier: 0.6
   - _id: Lvl_27
-    _levelPrefab: {fileID: 8301321145210601062, guid: dad947e219f1cb74690b470f103e80a4, type: 3}
+    _levelPrefab: {fileID: 8351780955997379371, guid: bfc058a3966b41447a15a610ba9e8a0c, type: 3}
     _rules:
       _invertControls: 0
       _gravityScale: 1
       _maxAirJumps: -1
       _jumpForceMultiplier: 0.6
   - _id: Lvl_28
-    _levelPrefab: {fileID: 8301321145210601062, guid: 92d77d409a0ec9f40aa55451b54f293f, type: 3}
+    _levelPrefab: {fileID: 8301321145210601062, guid: dad947e219f1cb74690b470f103e80a4, type: 3}
     _rules:
       _invertControls: 0
       _gravityScale: 1
       _maxAirJumps: -1
       _jumpForceMultiplier: 0.6
   - _id: Lvl_29
+    _levelPrefab: {fileID: 8301321145210601062, guid: 92d77d409a0ec9f40aa55451b54f293f, type: 3}
+    _rules:
+      _invertControls: 0
+      _gravityScale: 1
+      _maxAirJumps: -1
+      _jumpForceMultiplier: 0.6
+  - _id: Lvl_30
+    _levelPrefab: {fileID: 8301321145210601062, guid: bb300081db7eac149b3c40e3f2712613, type: 3}
+    _rules:
+      _invertControls: 0
+      _gravityScale: 1
+      _maxAirJumps: -1
+      _jumpForceMultiplier: 0.6
+  - _id: Lvl_31
+    _levelPrefab: {fileID: 8301321145210601062, guid: 5e9f682bb838235419e4ac41f522478b, type: 3}
+    _rules:
+      _invertControls: 1
+      _gravityScale: 1
+      _maxAirJumps: 0
+      _jumpForceMultiplier: 1
+  - _id: Lvl_32
     _levelPrefab: {fileID: 8301321145210601062, guid: d22f58ad5095d37469cb9484f9c9a558, type: 3}
     _rules:
       _invertControls: 1
       _gravityScale: 1
       _maxAirJumps: 0
       _jumpForceMultiplier: 1
-  - _id: Lvl_30
+  - _id: Lvl_33
     _levelPrefab: {fileID: 8301321145210601062, guid: fafaf04d54e984942a0de2d72df705b8, type: 3}
     _rules:
       _invertControls: 1
       _gravityScale: 1
       _maxAirJumps: 0
       _jumpForceMultiplier: 1
-  - _id: Lvl_31
-    _levelPrefab: {fileID: 8301321145210601062, guid: 5e9f682bb838235419e4ac41f522478b, type: 3}
+  - _id: Lvl_34
+    _levelPrefab: {fileID: 6395374116730359081, guid: 4bba4cde0c09e264fafd237ed390e1f5, type: 3}
     _rules:
-      _invertControls: 0
+      _invertControls: 1
       _gravityScale: 1
       _maxAirJumps: 0
       _jumpForceMultiplier: 1
-  - _id: Lvl_32
+  - _id: Lvl_35
     _levelPrefab: {fileID: 8301321145210601062, guid: fb5d93bdfa3ad034f88f7ba7f8f8adc3, type: 3}
     _rules:
-      _invertControls: 0
+      _invertControls: 1
       _gravityScale: 1
       _maxAirJumps: 0
       _jumpForceMultiplier: 1
