@@ -212,14 +212,14 @@ MonoBehaviour:
   - _id: Lvl_29
     _levelPrefab: {fileID: 8301321145210601062, guid: d22f58ad5095d37469cb9484f9c9a558, type: 3}
     _rules:
-      _invertControls: 0
+      _invertControls: 1
       _gravityScale: 1
       _maxAirJumps: 0
       _jumpForceMultiplier: 1
   - _id: Lvl_30
     _levelPrefab: {fileID: 8301321145210601062, guid: fafaf04d54e984942a0de2d72df705b8, type: 3}
     _rules:
-      _invertControls: 0
+      _invertControls: 1
       _gravityScale: 1
       _maxAirJumps: 0
       _jumpForceMultiplier: 1
