@@ -2062,7 +2062,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 733883213}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -3484,7 +3484,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.00051317713}
+  m_AnchoredPosition: {x: 0, y: -0.0005187988}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1440339659
@@ -3580,6 +3580,7 @@ MonoBehaviour:
   _gridRoot: {fileID: 1440339658}
   _levelButtonPrefab: {fileID: 6054407705472502505, guid: 6b3b03034bbcad94fbecce07193ad86a, type: 3}
   _backButton: {fileID: 1154538815}
+  _scrollRect: {fileID: 2100489865}
 --- !u!225 &1450105612
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -7798,7 +7799,7 @@ RectTransform:
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -17, y: 0}
-  m_Pivot: {x: 0, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1896934309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7832,9 +7833,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3c1ed74aa0c2dbf40a83b4360c2b04c3, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
+  m_Sprite: {fileID: 0}
+  m_Type: 1
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -8053,8 +8054,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6.5551, y: -59}
-  m_SizeDelta: {x: 1050.5, y: 423.3062}
+  m_AnchoredPosition: {x: -2.3051, y: -59}
+  m_SizeDelta: {x: 1042, y: 423.3062}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2100489865
 MonoBehaviour:
