@@ -314,3 +314,52 @@ MonoBehaviour:
       _gravityScale: 1
       _maxAirJumps: 0
       _jumpForceMultiplier: 1
+  - _id: Lvl_44
+    _levelPrefab: {fileID: 298622263666902555, guid: 285b04b20837f254b85fe478ea22ae9b, type: 3}
+    _rules:
+      _invertControls: 0
+      _gravityScale: 1
+      _maxAirJumps: 0
+      _jumpForceMultiplier: 1
+  - _id: Lvl_45
+    _levelPrefab: {fileID: 2413895719828516771, guid: 48f07fec44f9a734d83def8427338540, type: 3}
+    _rules:
+      _invertControls: 0
+      _gravityScale: 1
+      _maxAirJumps: 0
+      _jumpForceMultiplier: 1
+  - _id: Lvl_46
+    _levelPrefab: {fileID: 1352921557646568405, guid: da54bedc39b53b8418c1c14d43825ad7, type: 3}
+    _rules:
+      _invertControls: 0
+      _gravityScale: 1
+      _maxAirJumps: 1
+      _jumpForceMultiplier: 1
+  - _id: Lvl_47
+    _levelPrefab: {fileID: 3881034654044841879, guid: 68ffe8f89d8b90e48b81fd10a4bc73ea, type: 3}
+    _rules:
+      _invertControls: 0
+      _gravityScale: 1
+      _maxAirJumps: 0
+      _jumpForceMultiplier: 1
+  - _id: Lvl_48
+    _levelPrefab: {fileID: 7900115755866062282, guid: 95b1647cee499884ea8d03d05589285a, type: 3}
+    _rules:
+      _invertControls: 0
+      _gravityScale: 1
+      _maxAirJumps: 0
+      _jumpForceMultiplier: 1
+  - _id: Lvl_49
+    _levelPrefab: {fileID: 315832339968021996, guid: 33f4f00266670d1459946b5640e44eb8, type: 3}
+    _rules:
+      _invertControls: 0
+      _gravityScale: 1
+      _maxAirJumps: 0
+      _jumpForceMultiplier: 1
+  - _id: Lvl_50
+    _levelPrefab: {fileID: 2691126577888094359, guid: 521cae4b3caddea4f91e09ee9576e0dc, type: 3}
+    _rules:
+      _invertControls: 0
+      _gravityScale: 1
+      _maxAirJumps: 0
+      _jumpForceMultiplier: 1
