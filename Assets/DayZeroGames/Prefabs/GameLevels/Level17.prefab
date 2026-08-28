@@ -8000,6 +8000,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelContext
   _SpawnPoint: {fileID: 8615487296797228778}
+  _puppets: []
+  _startControlTarget: 0
+  _startPuppetId: 
+  _puppet: {fileID: 0}
+  _startControllingPuppet: 1
 --- !u!1001 &1097928801372079540
 PrefabInstance:
   m_ObjectHideFlags: 0
