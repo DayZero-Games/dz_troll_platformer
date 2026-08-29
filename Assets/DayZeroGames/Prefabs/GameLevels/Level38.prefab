@@ -6993,6 +6993,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1505957472638723303}
     m_Modifications:
+    - target: {fileID: 2958639602198345923, guid: f42631476ad81ae4eb651635cfd567b3, type: 3}
+      propertyPath: managedReferences[3064963748607819915]._targetPoints.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2958639602198345923, guid: f42631476ad81ae4eb651635cfd567b3, type: 3}
+      propertyPath: 'managedReferences[3064963748607819915]._targetPoints.Array.data[0]'
+      value: 
+      objectReference: {fileID: 7672428429784026799}
     - target: {fileID: 3529182596434783457, guid: f42631476ad81ae4eb651635cfd567b3, type: 3}
       propertyPath: m_LocalScale.y
       value: 1
@@ -7117,6 +7125,11 @@ PrefabInstance:
 --- !u!4 &6556028130004906432 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6760052676903787021, guid: f42631476ad81ae4eb651635cfd567b3, type: 3}
+  m_PrefabInstance: {fileID: 516569042760133581}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7672428429784026799 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7877580589225534818, guid: f42631476ad81ae4eb651635cfd567b3, type: 3}
   m_PrefabInstance: {fileID: 516569042760133581}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &946311624352231405

@@ -8875,7 +8875,7 @@ MonoBehaviour:
     - rid: 3064963748607819969
       type: {class: WaitAction, ns: DZ.Features, asm: DZ.Features}
       data:
-        _durationSeconds: 1
+        _durationSeconds: 2
 --- !u!1 &2793007309424700905
 GameObject:
   m_ObjectHideFlags: 0
@@ -9229,7 +9229,7 @@ MonoBehaviour:
   _activatorTag: Player
   _disableColliderAfterSuccessfulActivation: 1
   _sequenceControllers:
-  - {fileID: 1933543366055834893}
+  - {fileID: 0}
 --- !u!1 &4499634480904161260
 GameObject:
   m_ObjectHideFlags: 0
@@ -9388,10 +9388,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1121734686029875820}
-  - {fileID: 7279565686117262995}
   - {fileID: 8056475993355806128}
   - {fileID: 5309818339638195514}
-  - {fileID: 4616479544162526022}
   - {fileID: 4509365195529609749}
   m_Father: {fileID: 2739949568108980498}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9520,37 +9518,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7272243159250715156}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &8151562261435057058
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4616479544162526022}
-  m_Layer: 0
-  m_Name: Target (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4616479544162526022
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8151562261435057058}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.12, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8083415725179341018}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8166131648791163691
 GameObject:
@@ -10114,10 +10081,10 @@ Transform:
   - {fileID: 8585368808026967158}
   - {fileID: 5896930834005550381}
   - {fileID: 8083415725179341018}
+  - {fileID: 4102164093656733865}
   - {fileID: 606525206492216168}
   - {fileID: 381284320384496269}
   - {fileID: 7272243159250715156}
-  - {fileID: 4102164093656733865}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6324336764338146839
@@ -10138,84 +10105,6 @@ MonoBehaviour:
   _startPuppetId: 
   _puppet: {fileID: 0}
   _startControllingPuppet: 1
---- !u!1 &8996996906764024686
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7279565686117262995}
-  - component: {fileID: 1933543366055834893}
-  m_Layer: 0
-  m_Name: Controller (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7279565686117262995
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8996996906764024686}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8083415725179341018}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1933543366055834893
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8996996906764024686}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4817522cddcf433a82cc497345ad714f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: DZ.Features::DZ.Features.LevelActionSequenceController
-  _executionMode: 0
-  _autoStart: 0
-  _groups:
-  - _target: {fileID: 1269264354186943709}
-    _actions:
-    - rid: 3064963748607819969
-    - rid: 3064963748607819968
-    - rid: 3064964027870085211
-  references:
-    version: 2
-    RefIds:
-    - rid: 3064963748607819968
-      type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
-      data:
-        _targetPoints:
-        - {fileID: 4616479544162526022}
-        _moveSpeed: 20
-    - rid: 3064963748607819969
-      type: {class: WaitAction, ns: DZ.Features, asm: DZ.Features}
-      data:
-        _durationSeconds: 3
-    - rid: 3064964027870085211
-      type: {class: LevelLoopAction, ns: DZ.Features, asm: DZ.Features}
-      data:
-        _actions:
-        - rid: 3064964027870085212
-        _iterations: 0
-    - rid: 3064964027870085212
-      type: {class: MoveToPointAction, ns: DZ.Features, asm: DZ.Features}
-      data:
-        _targetPoints:
-        - {fileID: 5309818339638195514}
-        - {fileID: 4616479544162526022}
-        _moveSpeed: 10
 --- !u!1 &9096510838092980336
 GameObject:
   m_ObjectHideFlags: 0

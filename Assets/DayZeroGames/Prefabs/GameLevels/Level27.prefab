@@ -111,7 +111,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8609401375797068627
 Transform:
   m_ObjectHideFlags: 0
@@ -4480,41 +4480,7 @@ CompositeCollider2D:
   m_GeometryType: 0
   m_GenerationType: 0
   m_EdgeRadius: 0
-  m_ColliderPaths:
-  - m_Collider: {fileID: 5616126505535357051}
-    m_ColliderPaths:
-    - - X: -120000000
-        Y: -50000000
-      - X: -160000000
-        Y: -50000000
-      - X: -160000000
-        Y: 50000000
-      - X: -150000000
-        Y: 50000000
-      - X: -150000000
-        Y: 80000000
-      - X: 160000000
-        Y: 80000000
-      - X: 160000000
-        Y: -10000000
-      - X: 130000000
-        Y: -10000000
-      - X: 130000000
-        Y: -30000000
-      - X: 160000000
-        Y: -30000000
-      - X: 160000000
-        Y: -120000000
-      - X: 210000000
-        Y: -120000000
-      - X: 210000000
-        Y: 120000000
-      - X: -210000000
-        Y: 120000000
-      - X: -210000000
-        Y: -120000000
-      - X: -120000000
-        Y: -120000000
+  m_ColliderPaths: []
   m_CompositePaths:
     m_Paths:
     - - {x: -12.00003, y: -12}
@@ -6772,7 +6738,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1603784156355895863, guid: 55989f45feda5774dab0460120b0faec, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.057
+      value: 0.012
       objectReference: {fileID: 0}
     - target: {fileID: 1603784156355895863, guid: 55989f45feda5774dab0460120b0faec, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6820,7 +6786,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6191352959656105066, guid: 55989f45feda5774dab0460120b0faec, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.481
+      value: 0.529
       objectReference: {fileID: 0}
     - target: {fileID: 6821481770387287992, guid: 55989f45feda5774dab0460120b0faec, type: 3}
       propertyPath: m_LocalPosition.x

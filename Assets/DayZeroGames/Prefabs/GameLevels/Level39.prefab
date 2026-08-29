@@ -9193,20 +9193,32 @@ PrefabInstance:
       value: DZ.Features DZ.Features.DisableObjectAction
       objectReference: {fileID: 0}
     - target: {fileID: 1739149776193224658, guid: 7c863a3ef8f817545b0d6f7aa4e094db, type: 3}
+      propertyPath: 'managedReferences[3064964098924478541]'
+      value: DZ.Features DZ.Features.WaitAction
+      objectReference: {fileID: 0}
+    - target: {fileID: 1739149776193224658, guid: 7c863a3ef8f817545b0d6f7aa4e094db, type: 3}
       propertyPath: _groups.Array.data[0]._actions.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1739149776193224658, guid: 7c863a3ef8f817545b0d6f7aa4e094db, type: 3}
       propertyPath: '_groups.Array.data[0]._actions.Array.data[1]'
-      value: 3064964044102041685
+      value: 3064964098924478541
       objectReference: {fileID: 0}
     - target: {fileID: 1739149776193224658, guid: 7c863a3ef8f817545b0d6f7aa4e094db, type: 3}
       propertyPath: '_groups.Array.data[0]._actions.Array.data[2]'
+      value: 3064964044102041685
+      objectReference: {fileID: 0}
+    - target: {fileID: 1739149776193224658, guid: 7c863a3ef8f817545b0d6f7aa4e094db, type: 3}
+      propertyPath: '_groups.Array.data[0]._actions.Array.data[3]'
       value: 3064964044102041686
       objectReference: {fileID: 0}
     - target: {fileID: 1739149776193224658, guid: 7c863a3ef8f817545b0d6f7aa4e094db, type: 3}
       propertyPath: managedReferences[3064964044102041685]._moveSpeed
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1739149776193224658, guid: 7c863a3ef8f817545b0d6f7aa4e094db, type: 3}
+      propertyPath: managedReferences[3064964098924478541]._durationSeconds
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1914097026853082346, guid: 7c863a3ef8f817545b0d6f7aa4e094db, type: 3}
       propertyPath: m_LocalRotation.w
