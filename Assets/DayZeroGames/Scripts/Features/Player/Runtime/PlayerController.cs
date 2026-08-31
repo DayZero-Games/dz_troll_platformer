@@ -20,6 +20,9 @@ namespace DZ.Features
         [SerializeField] private PlayerAnimationController playerAnimationController;
         [SerializeField] private SpriteRenderer _spriteRenderer;
 
+        [Header("Move Sound Settings")]
+        [SerializeField, Min(0.05f)] private float moveSoundInterval = 0.3f;
+
         [Header("Ground Check Sensor Settings")]
         [SerializeField]
         private Transform groundCheckPos;
@@ -31,6 +34,7 @@ namespace DZ.Features
         private bool _isFacingRight = true;
         private bool _isGrounded;
         private bool _isDead;
+        private float _nextMoveSoundTime;
 
         // Per-level rules, pushed in by the level flow on every load. Runtime only -
         // playerConfig stays the shared baseline and is never written to.
@@ -135,11 +139,27 @@ namespace DZ.Features
         public void MovePlayer(float moveInput)
         {
             _playerRb.linearVelocityX = playerConfig.speed * moveInput;
+            UpdateMoveSound(moveInput);
             FlipPlayer(moveInput);
         }
         public void StopMovingPlayer()
         {
             _playerRb.linearVelocityX = 0;
+            _nextMoveSoundTime = Time.time;
+        }
+
+        private void UpdateMoveSound(float moveInput)
+        {
+            if (!_isGrounded || Mathf.Abs(moveInput) <= 0.01f)
+            {
+                _nextMoveSoundTime = Time.time;
+                return;
+            }
+
+            if (Time.time < _nextMoveSoundTime) return;
+
+            PlayMoveSound();
+            _nextMoveSoundTime = Time.time + moveSoundInterval;
         }
         
         /// (0 = none, 1 = double jump, negative = unlimited)
@@ -202,7 +222,7 @@ namespace DZ.Features
             {
                 _playerStateMachine.ChangeState(DeadState);
             }
-            else if (other.gameObject.CompareTag("FallingGround"))
+            else if (other.gameObject.CompareTag("MovingGround"))
             {
                 this.transform.SetParent(other.transform);
             }
@@ -210,7 +230,7 @@ namespace DZ.Features
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            if (other.gameObject.CompareTag("FallingGround") && this.gameObject.activeInHierarchy)
+            if (other.gameObject.CompareTag("MovingGround") && this.gameObject.activeInHierarchy)
             {
                 this.transform.SetParent(null);
             }
@@ -240,6 +260,11 @@ namespace DZ.Features
         public void OnDestroy()
         {
             _playerStateMachine.ShutDown();
+        }
+
+        public void PlayMoveSound()
+        {
+            _audioService.PlaySfx(AudioId.Walk);
         }
 
 

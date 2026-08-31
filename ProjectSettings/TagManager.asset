@@ -5,7 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Obstacles
-  - FallingGround
+  - MovingGround
   layers:
   - Default
   - TransparentFX

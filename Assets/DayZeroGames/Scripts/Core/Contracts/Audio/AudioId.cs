@@ -7,6 +7,8 @@ namespace DZ.Core.Contracts
 	{
 		None,
 		BackgroundMusic,
+		Walk,
+		Jump,
 		Death,
 		ExitDoorReached,
 		UIButtonPressed

@@ -39,7 +39,7 @@ namespace DZ.Features
 			sfxSource.PlayOneShot(audioEntry.clip, audioEntry.volume);
 		}
 
-public void PlayMusic(AudioId audioId)
+		public void PlayMusic(AudioId audioId)
 		{
 			if (!_audioLibrary.TryGet(audioId, out var audioEntry)) return;
 

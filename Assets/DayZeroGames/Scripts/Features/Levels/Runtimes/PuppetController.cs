@@ -39,7 +39,7 @@ namespace DZ.Features
 
         [Header("Tags")]
         [SerializeField] private string _obstacleTag = "Obstacles";
-        [SerializeField] private string _fallingGroundTag = "FallingGround";
+        [SerializeField] private string _fallingGroundTag = "MovingGround";
 
         private Rigidbody2D _rb;
         private Transform _originalParent;

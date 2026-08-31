@@ -7705,7 +7705,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7416286750140242235, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
       propertyPath: m_TagString
-      value: FallingGround
+      value: MovingGround
       objectReference: {fileID: 0}
     - target: {fileID: 8802754810893482516, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
       propertyPath: m_Size.x

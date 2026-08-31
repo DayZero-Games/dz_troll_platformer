@@ -1488,7 +1488,7 @@ GameObject:
   - component: {fileID: 5063701698695627810}
   m_Layer: 8
   m_Name: Platform (2)
-  m_TagString: FallingGround
+  m_TagString: MovingGround
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1971,7 +1971,7 @@ GameObject:
   - component: {fileID: 7470634490808746647}
   m_Layer: 8
   m_Name: Platform (1)
-  m_TagString: FallingGround
+  m_TagString: MovingGround
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9579,7 +9579,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7416286750140242235, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
       propertyPath: m_TagString
-      value: FallingGround
+      value: MovingGround
       objectReference: {fileID: 0}
     - target: {fileID: 8802754810893482516, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
       propertyPath: m_Size.x

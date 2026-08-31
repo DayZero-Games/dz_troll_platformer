@@ -815,7 +815,7 @@ MonoBehaviour:
     m_Bits: 64
   _spriteRenderer: {fileID: 0}
   _obstacleTag: Obstacles
-  _fallingGroundTag: FallingGround
+  _fallingGroundTag: MovingGround
 --- !u!70 &4029177565296439813
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

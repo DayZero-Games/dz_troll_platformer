@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 1359317865011023228}
   m_Layer: 0
   m_Name: FallingPlatform (3)
-  m_TagString: FallingGround
+  m_TagString: MovingGround
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -344,7 +344,7 @@ GameObject:
   - component: {fileID: 4171871565010378506}
   m_Layer: 6
   m_Name: LastPlatform
-  m_TagString: FallingGround
+  m_TagString: MovingGround
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -622,7 +622,7 @@ GameObject:
   - component: {fileID: 4218646881962928841}
   m_Layer: 6
   m_Name: LastPlatform
-  m_TagString: FallingGround
+  m_TagString: MovingGround
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1135,7 +1135,7 @@ GameObject:
   - component: {fileID: 6719950255998894070}
   m_Layer: 6
   m_Name: FirstPlatform
-  m_TagString: FallingGround
+  m_TagString: MovingGround
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1352,7 +1352,7 @@ GameObject:
   - component: {fileID: 7486670400252092906}
   m_Layer: 6
   m_Name: FirstPlatform
-  m_TagString: FallingGround
+  m_TagString: MovingGround
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6258,7 +6258,7 @@ GameObject:
   - component: {fileID: 5301728167224926107}
   m_Layer: 0
   m_Name: FallingPlatform (1)
-  m_TagString: FallingGround
+  m_TagString: MovingGround
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6464,7 +6464,7 @@ GameObject:
   - component: {fileID: 8308185517340265723}
   m_Layer: 0
   m_Name: FallingPlatform (4)
-  m_TagString: FallingGround
+  m_TagString: MovingGround
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6478,7 +6478,7 @@ Transform:
   m_GameObject: {fileID: 6175689049540856585}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.470002, y: -6.67, z: 0}
+  m_LocalPosition: {x: 13.470002, y: -6.65, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6520,7 +6520,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.49923992, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -6530,7 +6530,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.9984798, y: 1}
   m_EdgeRadius: 0
 --- !u!1 &6318704387097472059
 GameObject:
@@ -6681,7 +6681,7 @@ GameObject:
   - component: {fileID: 8967576717769829411}
   m_Layer: 0
   m_Name: FallingPlatform (2)
-  m_TagString: FallingGround
+  m_TagString: MovingGround
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6848,7 +6848,7 @@ GameObject:
   - component: {fileID: 7548668776358919935}
   m_Layer: 6
   m_Name: LastPlatform
-  m_TagString: FallingGround
+  m_TagString: MovingGround
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7007,7 +7007,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.002097845}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -7017,7 +7017,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 1.0041957}
   m_EdgeRadius: 0
 --- !u!1 &6534796423993386405
 GameObject:
@@ -7245,7 +7245,7 @@ GameObject:
   - component: {fileID: 7974010151925859}
   m_Layer: 0
   m_Name: FallingPlatform
-  m_TagString: FallingGround
+  m_TagString: MovingGround
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7846,7 +7846,7 @@ GameObject:
   - component: {fileID: 2548142708639432908}
   m_Layer: 6
   m_Name: FirstPlatform
-  m_TagString: FallingGround
+  m_TagString: MovingGround
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8513,7 +8513,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7416286750140242235, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
       propertyPath: m_TagString
-      value: FallingGround
+      value: MovingGround
       objectReference: {fileID: 0}
     - target: {fileID: 8802754810893482516, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
       propertyPath: m_Size.x

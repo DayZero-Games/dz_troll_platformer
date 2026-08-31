@@ -8214,13 +8214,13 @@ MonoBehaviour:
   _canJump: 1
   _flipWithMoveDirection: 1
   _groundCheckPos: {fileID: 7521083912970178033}
-  _groundCheckSize: {x: 0.8, y: 0.2}
+  _groundCheckSize: {x: 1.2, y: 0.2}
   _groundLayer:
     serializedVersion: 2
     m_Bits: 64
   _spriteRenderer: {fileID: 0}
   _obstacleTag: Obstacles
-  _fallingGroundTag: FallingGround
+  _fallingGroundTag: MovingGround
 --- !u!70 &8239691282347386649
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

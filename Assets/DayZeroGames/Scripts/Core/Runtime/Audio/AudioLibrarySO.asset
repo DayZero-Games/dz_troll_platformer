@@ -16,12 +16,12 @@ MonoBehaviour:
   - audioId: 1
     clip: {fileID: 8300000, guid: 5577e14310a303c489315ac6d3f4a816, type: 3}
     volume: 1
-  - audioId: 2
+  - audioId: 4
     clip: {fileID: 8300000, guid: 80ca4773e2027024aa5386b4278b65aa, type: 3}
     volume: 1
-  - audioId: 3
+  - audioId: 5
     clip: {fileID: 8300000, guid: 64e71bbe81683a343af88be1ba12e391, type: 3}
     volume: 1
-  - audioId: 4
+  - audioId: 6
     clip: {fileID: 8300000, guid: d2b5b2cc4c05b764eb9c0b50b3d71379, type: 3}
     volume: 0.4

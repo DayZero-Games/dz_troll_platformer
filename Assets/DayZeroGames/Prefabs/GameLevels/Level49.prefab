@@ -7221,7 +7221,7 @@ GameObject:
   - component: {fileID: 4481746706913759506}
   m_Layer: 6
   m_Name: FirstPlatform
-  m_TagString: FallingGround
+  m_TagString: MovingGround
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7437,7 +7437,7 @@ GameObject:
   - component: {fileID: 6965956963666089756}
   m_Layer: 6
   m_Name: FirstPlatform
-  m_TagString: FallingGround
+  m_TagString: MovingGround
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8019,7 +8019,7 @@ GameObject:
   - component: {fileID: 5189750573623189991}
   m_Layer: 6
   m_Name: LastPlatform
-  m_TagString: FallingGround
+  m_TagString: MovingGround
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9288,7 +9288,7 @@ GameObject:
   - component: {fileID: 9081129026847925029}
   m_Layer: 6
   m_Name: LastPlatform
-  m_TagString: FallingGround
+  m_TagString: MovingGround
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
