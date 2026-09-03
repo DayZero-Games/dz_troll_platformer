@@ -1,6 +1,12 @@
 fileFormatVersion: 2
-guid: 95b1647cee499884ea8d03d05589285a
+<<<<<<<< HEAD:Assets/DayZeroGames/Prefabs/GameLevels/Level20.prefab.meta
+guid: 04f493c579f8e5c46b8ec94fc56e47e8
 PrefabImporter:
+========
+guid: 7c7801fe1b0bce649b273433d3e4d4b8
+folderAsset: yes
+DefaultImporter:
+>>>>>>>> origin/dev:Assets/DayZeroGames/Scripts/Core/Runtime/Analytics.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

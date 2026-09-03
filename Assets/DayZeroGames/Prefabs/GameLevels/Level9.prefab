@@ -76,7 +76,7 @@ MonoBehaviour:
       data:
         _targetPoints:
         - {fileID: 6021850390012088021}
-        _moveSpeed: 1
+        _moveSpeed: 2
     - rid: 1000000000000000001
       type: {class: WaitAction, ns: DZ.Features, asm: DZ.Features}
       data:
@@ -86,7 +86,7 @@ MonoBehaviour:
       data:
         _targetPoints:
         - {fileID: 3865753717137312031}
-        _moveSpeed: 1
+        _moveSpeed: 2
     - rid: 1000000000000000003
       type: {class: WaitAction, ns: DZ.Features, asm: DZ.Features}
       data:
@@ -106,7 +106,7 @@ MonoBehaviour:
       data:
         _targetPoints:
         - {fileID: 7436117034944316105}
-        _moveSpeed: 1
+        _moveSpeed: 2
     - rid: 3064963748607819940
       type: {class: WaitAction, ns: DZ.Features, asm: DZ.Features}
       data:
@@ -119,7 +119,7 @@ MonoBehaviour:
       data:
         _targetPoints:
         - {fileID: 7464395897799674998}
-        _moveSpeed: 1
+        _moveSpeed: 2
     - rid: 3064963748607819943
       type: {class: WaitAction, ns: DZ.Features, asm: DZ.Features}
       data:
@@ -129,7 +129,7 @@ MonoBehaviour:
       data:
         _targetPoints:
         - {fileID: 1291478673384914376}
-        _moveSpeed: 1
+        _moveSpeed: 2
     - rid: 3064963748607819945
       type: {class: WaitAction, ns: DZ.Features, asm: DZ.Features}
       data:

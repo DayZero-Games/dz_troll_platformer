@@ -957,7 +957,7 @@ MonoBehaviour:
       data:
         _targetPoints:
         - {fileID: 6128700201232703947}
-        _moveSpeed: 5
+        _moveSpeed: 3
 --- !u!1 &5997817079002882591
 GameObject:
   m_ObjectHideFlags: 0
