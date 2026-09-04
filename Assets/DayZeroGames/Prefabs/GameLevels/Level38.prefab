@@ -958,9 +958,9 @@ MonoBehaviour:
   _SpawnPoint: {fileID: 5389462142424632890}
   _puppets:
   - _id: DoorExit
-    _puppet: {fileID: 0}
+    _puppet: {fileID: 476108268885029645}
   _startControlTarget: 1
-  _startPuppetId: 
+  _startPuppetId: DoorExit
   _puppet: {fileID: 0}
   _startControllingPuppet: 1
 --- !u!1 &7490846071762955620
@@ -9016,6 +9016,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bf4d4ef8ade7a44bb81efa8aff154c3, type: 3}
+--- !u!114 &476108268885029645 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4864695335424988444, guid: 9bf4d4ef8ade7a44bb81efa8aff154c3, type: 3}
+  m_PrefabInstance: {fileID: 4979194827507050001}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a685dffb70f9d9948957dc7b52c62008, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.PuppetController
 --- !u!4 &7633283148498763116 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3240192340597103485, guid: 9bf4d4ef8ade7a44bb81efa8aff154c3, type: 3}

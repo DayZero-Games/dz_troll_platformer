@@ -51,9 +51,9 @@ MonoBehaviour:
   _SpawnPoint: {fileID: 6047775972700311431}
   _puppets:
   - _id: DoorExit
-    _puppet: {fileID: 0}
+    _puppet: {fileID: 8630979193379048276}
   _startControlTarget: 1
-  _startPuppetId: 
+  _startPuppetId: DoorExit
   _puppet: {fileID: 0}
   _startControllingPuppet: 1
 --- !u!1 &824527406667305412
@@ -67,7 +67,7 @@ GameObject:
   - component: {fileID: 5181107164778043283}
   - component: {fileID: 169346336837367462}
   - component: {fileID: 7768342781558185852}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,7 +206,7 @@ GameObject:
   - component: {fileID: 158278885494629247}
   - component: {fileID: 5957483537958456742}
   - component: {fileID: 2588661734016633080}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9202,6 +9202,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 1.1608399
       objectReference: {fileID: 0}
+    - target: {fileID: 7416286750140242235, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8586572622080967000, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
       propertyPath: _sequenceControllers.Array.size
       value: 1
@@ -9411,6 +9415,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3240192340597103485, guid: 9bf4d4ef8ade7a44bb81efa8aff154c3, type: 3}
   m_PrefabInstance: {fileID: 3766622799610043976}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8630979193379048276 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4864695335424988444, guid: 9bf4d4ef8ade7a44bb81efa8aff154c3, type: 3}
+  m_PrefabInstance: {fileID: 3766622799610043976}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a685dffb70f9d9948957dc7b52c62008, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.PuppetController
 --- !u!1001 &5230728348368778115
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9610,6 +9625,10 @@ PrefabInstance:
     - target: {fileID: 6446461820677599259, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.8600001
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416286750140242235, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -9933,6 +9952,10 @@ PrefabInstance:
     - target: {fileID: 6446461820677599259, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
       propertyPath: m_LocalPosition.y
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7416286750140242235, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8586572622080967000, guid: 740ebcca15afd384cb11c68c9da88261, type: 3}
       propertyPath: _sequenceControllers.Array.size

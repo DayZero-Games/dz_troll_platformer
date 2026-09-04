@@ -9404,7 +9404,7 @@ MonoBehaviour:
       data:
         _targetPoints:
         - {fileID: 7374624547047750517}
-        _moveSpeed: 15
+        _moveSpeed: 20
     - rid: 3064963936603340946
       type: {class: WaitAction, ns: DZ.Features, asm: DZ.Features}
       data:

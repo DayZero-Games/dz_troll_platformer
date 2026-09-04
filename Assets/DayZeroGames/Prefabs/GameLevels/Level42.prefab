@@ -192,9 +192,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1634896982936566495}
   - component: {fileID: 8480569956789527736}
+  - component: {fileID: 2688956061058746501}
   m_Layer: 0
   m_Name: Moving4Spike (1)
-  m_TagString: Untagged
+  m_TagString: Obstacles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -273,6 +274,52 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!61 &2688956061058746501
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 928927182154830405}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.25, y: 0.625}
+    newSize: {x: 2.25, y: 0.625}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 2.25, y: 0.625}
+  m_EdgeRadius: 0
 --- !u!1 &1282284753848890281
 GameObject:
   m_ObjectHideFlags: 0
@@ -369,9 +416,9 @@ MonoBehaviour:
   _SpawnPoint: {fileID: 6639286391975438542}
   _puppets:
   - _id: DoorExit
-    _puppet: {fileID: 0}
+    _puppet: {fileID: 1679378626980528952}
   _startControlTarget: 1
-  _startPuppetId: 
+  _startPuppetId: DoorExit
   _puppet: {fileID: 0}
   _startControllingPuppet: 1
 --- !u!1 &2669410386937782558
@@ -10393,6 +10440,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bf4d4ef8ade7a44bb81efa8aff154c3, type: 3}
+--- !u!114 &1679378626980528952 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4864695335424988444, guid: 9bf4d4ef8ade7a44bb81efa8aff154c3, type: 3}
+  m_PrefabInstance: {fileID: 6110407591564629540}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a685dffb70f9d9948957dc7b52c62008, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DZ.Features::DZ.Features.PuppetController
 --- !u!4 &8663798205579005273 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3240192340597103485, guid: 9bf4d4ef8ade7a44bb81efa8aff154c3, type: 3}
