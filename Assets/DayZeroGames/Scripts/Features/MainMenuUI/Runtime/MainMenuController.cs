@@ -13,42 +13,55 @@ namespace DZ.Features
         private readonly MainPanelView _view;
         private readonly IAudioService _audioService;
         private readonly IScreenFader _screenFader;
+        private readonly IAdService _adService;
         private readonly CancellationTokenSource _cts = new CancellationTokenSource();
 
-        public MainMenuController(MainMenuView router, MainPanelView view, IAudioService audioService, IScreenFader screenFader)
+        public MainMenuController(MainMenuView router, MainPanelView view, IAudioService audioService, IScreenFader screenFader, IAdService adService)
         {
             _router = router;
             _view = view;
             _audioService = audioService;
             _screenFader = screenFader;
+            _adService = adService;
         }
 
         public void Start()
         {
+            _screenFader.FadeFromBlackAsync(_cts.Token).Forget();
             _view.PlayButton.onClick.AddListener(OnPlayClicked);
             _view.MusicButton.onClick.AddListener(ToggleMusic);
             _view.SfxButton.onClick.AddListener(ToggleSfx);
 
             _view.SetMusicIcon(_audioService.MusicEnabled);
             _view.SetSfxIcon(_audioService.SfxEnabled);
-
-            _screenFader.FadeFromBlackAsync(_cts.Token).Forget();
+            _adService.ShowBanner();
         }
 
-        private void OnPlayClicked() => _router.ShowLevelSelectionAsync(_cts.Token);
+        private void OnPlayClicked()
+        {
+            _audioService.PlaySfx(AudioId.UIButtonPressed);
+            _router.ShowLevelSelectionAsync(_cts.Token);
+        }
+
 
         private void ToggleMusic()
         {
+            _audioService.PlaySfx(AudioId.UIButtonPressed);
             var _musicEnabled = !_audioService.MusicEnabled;
             _audioService.SetMusicEnabled(_musicEnabled);
+           // _audioService.StopMusic();
             _view.SetMusicIcon(_musicEnabled);
         }
 
         private void ToggleSfx()
         {
+            //I have player sfx twice here intentionally to get sound while toggle sfx on and off.
+            _audioService.PlaySfx(AudioId.UIButtonPressed);
             var _sfxEnabled = !_audioService.SfxEnabled;
             _audioService.SetSfxEnabled(_sfxEnabled);
-            _view.SetSfxIcon(_sfxEnabled);       }
+            _audioService.PlaySfx(AudioId.UIButtonPressed);
+            _view.SetSfxIcon(_sfxEnabled);
+        }
 
         public void Dispose()
         {

@@ -18,6 +18,7 @@ namespace DZ.Features
         private readonly ILevelSelection _levelSelection;
         private readonly ILevelProgress _levelProgress;
         private readonly ISceneLoader _sceneLoader;
+        private readonly IAudioService _audioService;
 
         private readonly List<LevelButtonView> _levelButtons = new List<LevelButtonView>();
         private readonly CancellationTokenSource _cts = new CancellationTokenSource();
@@ -30,7 +31,8 @@ namespace DZ.Features
             LevelCatalogSo levelCatalog,
             ILevelSelection levelSelection,
             ILevelProgress levelProgress,
-            ISceneLoader sceneLoader)
+            ISceneLoader sceneLoader,
+            IAudioService audioService)
         {
             _router = router;
             _view = view;
@@ -38,6 +40,7 @@ namespace DZ.Features
             _levelSelection = levelSelection;
             _levelProgress = levelProgress;
             _sceneLoader = sceneLoader;
+            _audioService = audioService;
         }
 
         public void Start()
@@ -67,12 +70,26 @@ namespace DZ.Features
 
                 _levelButtons.Add(button);
             }
+
+            FocusHighestUnlockedLevel();
         }
 
-        // Everything is open for now. Plug save data in here when progression lands.
+        private void FocusHighestUnlockedLevel()
+        {
+            if (_levelCatalog.Count == 0) return;
+
+            var index = Mathf.Clamp(_levelProgress.HighestUnlockedIndex, 0, _levelCatalog.Count - 1);
+            _view.FocusLevel(index);
+        }
+
+        
         private bool IsUnlocked(int levelIndex) => _levelProgress.IsUnlocked(levelIndex);
 
-        private void OnBackClicked() => _router.ShowMainPanelAsync();
+        private void OnBackClicked()
+        {
+            _audioService.PlaySfx(AudioId.UIButtonPressed);
+            _router.ShowMainPanelAsync();
+        }
 
         private void OnLevelClicked(int levelIndex)
         {
@@ -86,7 +103,7 @@ namespace DZ.Features
 
             _isLoading = true;
 
-            // Written before the switch starts, so the gameplay scope reads it on Awake.
+            _audioService.PlaySfx(AudioId.UIButtonPressed);
             _levelSelection.SelectLevel(levelIndex);
             LoadGameplayAsync().Forget();
         }
@@ -95,11 +112,11 @@ namespace DZ.Features
         {
             try
             {
-                await _sceneLoader.SwitchSceneAsync(SceneId.MainMenu, SceneId.Sandbox, _cts.Token);
+                await _sceneLoader.SwitchSceneAsync(SceneId.MainMenu, SceneId.Gameplay, _cts.Token);
             }
             catch (OperationCanceledException)
             {
-                // Menu scope torn down mid-switch; nothing to clean up.
+                
             }
         }
 

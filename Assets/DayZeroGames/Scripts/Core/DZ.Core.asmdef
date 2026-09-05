@@ -6,8 +6,12 @@
         "GUID:b0214a6008ed146ff8f122a6a9c2f6cc",
         "GUID:de13f8b1675b449e6a6af1cc0f7842ec",
         "GUID:f51ebe6a0ceec4240a699833d6309b23",
-        "GUID:090d70c1ebac0421985bd70fa7f561ef",
-        "GUID:80ecb87cae9c44d19824e70ea7229748"
+        "GUID:80ecb87cae9c44d19824e70ea7229748",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:60bfecf5cb232594891bc622f40d6bed",
+        "GUID:52537e7b5c9a4f64e9d1ef8878c041c3",
+        "Google.Play.AppUpdate",
+        "Google.Play.Common"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

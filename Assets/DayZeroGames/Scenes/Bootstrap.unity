@@ -160,7 +160,7 @@ AudioSource:
   m_GameObject: {fileID: 350255201}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -3441174258199680205, guid: 363ac7db4a1773d44ad70e48b3462f75, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
@@ -353,7 +353,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -651,10 +651,10 @@ AudioSource:
   m_GameObject: {fileID: 790187314}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 1132834338382692756, guid: 363ac7db4a1773d44ad70e48b3462f75, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -887,6 +887,8 @@ MonoBehaviour:
   _inputReader: {fileID: 11400000, guid: 9cc9205df8772174ba0c7121e0c80386, type: 2}
   _audioLibrary: {fileID: 11400000, guid: 1bb61c6cf667eb941a61c00492d4fe89, type: 2}
   _levelCatalog: {fileID: 11400000, guid: 5bb560d857abd67459626eecbe545fb8, type: 2}
+  _adsSettings: {fileID: 11400000, guid: 57250c6b574f84749803fe78c3154bb9, type: 2}
+  _analyticsSettings: {fileID: 11400000, guid: 16cac68358689d2449e0dda73006dbed, type: 2}
   _startScene: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

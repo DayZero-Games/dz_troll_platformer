@@ -8,8 +8,11 @@ namespace DZ.Core
         [SerializeField] private string _id;
         [SerializeField] private GameObject _levelPrefab;
 
+        [SerializeField] private LevelRules _rules = new LevelRules();
+
         public string Id => _id;
         public GameObject LevelPrefab => _levelPrefab;
+        public LevelRules Rules => _rules ??= new LevelRules();
     }
 
 

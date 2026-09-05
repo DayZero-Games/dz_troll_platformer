@@ -10,7 +10,7 @@ namespace DZ.Features
 
 		public override void Enter()
 		{
-			//Debug.Log("IdleState Enter");
+			
 			inputReader.OnJumpPerformed += HandlePlayerJump;
 			playerController.StopMovingPlayer();
 			playerAnimationController.PlayIdleAnimation();
@@ -28,20 +28,27 @@ namespace DZ.Features
 
 		private void HandlePlayerIdle()
 		{
-			// Player is idle, no movement logic needed here
+			
 		}
 
 		private void HandlePlayerJump()
 		{
-			if (playerController.IsGrounded)
+			if (playerController.IsGrounded && playerController.CanJump())
 			{
+				playerController.JumpState.JumpOnEnter();
 				playerStateMachine.ChangeState(playerController.JumpState);
 			}
 		}
 
 		private void CheckForStateChange()
 		{
-			if (Mathf.Abs(inputReader.moveInput) > 0)
+			if (!playerController.IsGrounded)
+			{
+				playerStateMachine.ChangeState(playerController.JumpState);
+				return;
+			}
+
+			if (Mathf.Abs(inputReader.moveInput) > 0.01f)
 			{
 				playerStateMachine.ChangeState(playerController.RunState);
 			}
@@ -50,7 +57,7 @@ namespace DZ.Features
 		public override void Exit()
 		{
 			inputReader.OnJumpPerformed -= HandlePlayerJump;
-			//Debug.Log("IdleState Exit");
+			
 		}
 	}
 }

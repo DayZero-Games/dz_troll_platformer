@@ -25,8 +25,6 @@ namespace DZ.Features
 
         private async UniTask CrossFadeAsync(CanvasGroup from, CanvasGroup to, CancellationToken cancellation)
         {
-            // Both panels are dead to input while the transition runs — otherwise a
-            // fast double-tap can start a second switch on top of this one.
             from.interactable = false;
             from.blocksRaycasts = false;
             to.interactable = false;

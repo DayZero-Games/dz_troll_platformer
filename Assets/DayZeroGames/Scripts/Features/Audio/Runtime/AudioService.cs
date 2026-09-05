@@ -14,9 +14,7 @@ namespace DZ.Features
 		[Header("AudioSources")]
 		[SerializeField] private AudioSource musicSource;
 		[SerializeField] private AudioSource sfxSource;
-
-		//this is just to remember what music was playing when we toggle music on/off.
-		//Useful when there are multiple music tracks. else not required.
+		
 		private AudioId _currentMusic = AudioId.None;
 
 		public bool MusicEnabled { get; private set; } = true;
@@ -35,7 +33,7 @@ namespace DZ.Features
 
 			if (!_audioLibrary.TryGet(audioId, out var audioEntry))
 			{
-				Debug.Log($"{audioId} not found");
+				Debug.LogWarning($"{audioId} not found");
 				return;
 			}
 			sfxSource.PlayOneShot(audioEntry.clip, audioEntry.volume);
@@ -44,6 +42,9 @@ namespace DZ.Features
 		public void PlayMusic(AudioId audioId)
 		{
 			if (!_audioLibrary.TryGet(audioId, out var audioEntry)) return;
+
+			if (_currentMusic == audioId && musicSource.clip == audioEntry.clip) return;
+
 			_currentMusic = audioId;
 			if (!MusicEnabled) return;
 
@@ -53,14 +54,31 @@ namespace DZ.Features
 			musicSource.Play();
 		}
 
-		public void StopMusic() => musicSource.Stop();
+public void StopMusic()
+		{
+			musicSource.Stop();
+		}
 
-		public void SetMusicEnabled(bool enabled)
+public void SetMusicEnabled(bool enabled)
 		{
 			MusicEnabled = enabled;
 			_playerPrefsSaveService.SaveBool(SaveKeys.MusicEnabled, enabled);
-			if (enabled) PlayMusic(_currentMusic);
-			else StopMusic();
+
+			if (enabled)
+			{
+				if (musicSource.clip != null)
+				{
+					musicSource.UnPause();
+				}
+				else
+				{
+					PlayMusic(_currentMusic);
+				}
+			}
+			else
+			{
+				musicSource.Pause();
+			}
 		}
 
 		public void SetSfxEnabled(bool enabled)

@@ -1,3 +1,4 @@
+using System;
 using DZ.Core;
 using DZ.Core.Contracts;
 using UnityEngine;
@@ -8,7 +9,7 @@ namespace DZ.Features
 {
     [RequireComponent(typeof(Rigidbody2D))]
     [RequireComponent(typeof(PlayerAnimationController))]
-    public class PlayerController : MonoBehaviour, IPlayerController
+    public class PlayerController : MonoBehaviour, IPlayerController, ILevelAvatar
     {
         [Inject] private readonly IInputReader _inputReader;
         [Inject] private readonly IAudioService _audioService;
@@ -18,6 +19,9 @@ namespace DZ.Features
         [SerializeField] private PlayerConfigSo playerConfig;
         [SerializeField] private PlayerAnimationController playerAnimationController;
         [SerializeField] private SpriteRenderer _spriteRenderer;
+
+        [Header("Move Sound Settings")]
+        [SerializeField, Min(0.05f)] private float moveSoundInterval = 0.3f;
 
         [Header("Ground Check Sensor Settings")]
         [SerializeField]
@@ -30,6 +34,15 @@ namespace DZ.Features
         private bool _isFacingRight = true;
         private bool _isGrounded;
         private bool _isDead;
+        private float _nextMoveSoundTime;
+
+        // Per-level rules, pushed in by the level flow on every load. Runtime only -
+        // playerConfig stays the shared baseline and is never written to.
+        private float _baseGravityScale = 1f;
+        private int _maxAirJumps;
+        private float _jumpForceMultiplier = 1f;
+        private int _airJumpsUsed;
+        private bool _jumpEnabled = true;
 
         [Header("Player States")]
         private PlayerStateMachine _playerStateMachine;
@@ -54,16 +67,17 @@ namespace DZ.Features
         {
             _playerRb = GetComponent<Rigidbody2D>();
             playerAnimationController ??= GetComponent<PlayerAnimationController>();
+            _baseGravityScale = _playerRb.gravityScale;
 
-            // Built in Awake so entry points can lock the player before our Start runs.
-            // Constructing the states touches no other component, so it is order-safe.
+            
+            
             CreatePlayerStates();
         }
 
         private void Start()
         {
-            // VContainer's LifetimeScope has execution order -5000, so LevelFlowController
-            // may already have locked us by now. Only fall back to idle if it hasn't.
+            
+            
             if (_playerStateMachine.CurrentState == null)
             {
                 _playerStateMachine.Initialize(_idleState);
@@ -96,11 +110,21 @@ namespace DZ.Features
         public void LockPlayer() => _playerStateMachine.ChangeState(_lockedState);
 
         public void UnlockPlayer() => _playerStateMachine.ChangeState(_idleState);
+        Transform ILevelAvatar.Transform => transform;
+        void ILevelAvatar.Lock() => LockPlayer();
+        void ILevelAvatar.Unlock() => UnlockPlayer();
+        
+        public void Kill()
+        {
+            if (_isDead || _playerStateMachine == null) return;
+            _playerStateMachine.ChangeState(_deadState);
+        }
 
         private void UpdateGroundCheck()
         {
-            // _isGrounded = Physics2D.OverlapCircle(groundCheckPos.position, checkRadius, groundLayer);
+            
             _isGrounded = Physics2D.OverlapBox(groundCheckPos.position, _groundCheckSize, 0f, groundLayer);
+            if (_isGrounded) _airJumpsUsed = 0;
         }
 
         private void FlipPlayer(float moveInput)
@@ -115,17 +139,68 @@ namespace DZ.Features
         public void MovePlayer(float moveInput)
         {
             _playerRb.linearVelocityX = playerConfig.speed * moveInput;
+            UpdateMoveSound(moveInput);
             FlipPlayer(moveInput);
         }
         public void StopMovingPlayer()
         {
             _playerRb.linearVelocityX = 0;
+            _nextMoveSoundTime = Time.time;
         }
 
-        public void Jump()
+        private void UpdateMoveSound(float moveInput)
         {
-            if (!_isGrounded) return;
-            _playerRb.linearVelocityY = playerConfig.jumpForce;
+            if (!_isGrounded || Mathf.Abs(moveInput) <= 0.01f)
+            {
+                _nextMoveSoundTime = Time.time;
+                return;
+            }
+
+            if (Time.time < _nextMoveSoundTime) return;
+
+            PlayMoveSound();
+            _nextMoveSoundTime = Time.time + moveSoundInterval;
+        }
+        
+        /// (0 = none, 1 = double jump, negative = unlimited)
+        public bool CanJump() =>
+            _jumpEnabled &&
+            _jumpForceMultiplier > 0f &&
+            (_isGrounded || _maxAirJumps < 0 || _airJumpsUsed < _maxAirJumps);
+
+        public bool Jump()
+        {
+            if (!CanJump()) return false;
+            if (!_isGrounded) _airJumpsUsed++;
+            _playerRb.linearVelocityY = playerConfig.jumpForce * _jumpForceMultiplier;
+            return true;
+        }
+
+        /// level Rules applied to player so that levels cannot inherit the previous level's physics.
+        public void ApplyRules(LevelRules rules)
+        {
+            rules ??= LevelRules.Default;
+            SetGravityScale(rules.GravityScale);
+            SetJumpRules(rules.MaxAirJumps, rules.JumpForceMultiplier);
+            SetJumpEnabled(rules.JumpForceMultiplier > 0f);
+        }
+
+        public void SetGravityScale(float gravityScale)
+        {
+            _playerRb.gravityScale = _baseGravityScale * gravityScale;
+        }
+
+        public void SetJumpRules(int maxAirJumps, float jumpForceMultiplier)
+        {
+            _maxAirJumps = maxAirJumps;
+            _jumpForceMultiplier = jumpForceMultiplier;
+            _airJumpsUsed = 0;
+        }
+
+        public void SetJumpEnabled(bool enabled)
+        {
+            _jumpEnabled = enabled;
+            if (!enabled) _airJumpsUsed = 0;
         }
 
         public void ApplyFallMultiplier()
@@ -136,6 +211,7 @@ namespace DZ.Features
 
         public void Die()
         {
+            this.transform.SetParent(null);
             _isDead = true;
         }
 
@@ -146,7 +222,20 @@ namespace DZ.Features
             {
                 _playerStateMachine.ChangeState(DeadState);
             }
+            else if (other.gameObject.CompareTag("MovingGround"))
+            {
+                this.transform.SetParent(other.transform);
+            }
         }
+
+        private void OnTriggerExit2D(Collider2D other)
+        {
+            if (other.gameObject.CompareTag("MovingGround") && this.gameObject.activeInHierarchy)
+            {
+                this.transform.SetParent(null);
+            }
+        }
+
 
         public void TeleportTo(Vector3 position)
         {
@@ -157,6 +246,7 @@ namespace DZ.Features
 
             Physics2D.SyncTransforms();
             _isDead = false;
+            _airJumpsUsed = 0;
 
             RestoreSpriteAlpha();
         }
@@ -167,6 +257,15 @@ namespace DZ.Features
             _spriteRenderer.color = c;
         }
 
+        public void OnDestroy()
+        {
+            _playerStateMachine.ShutDown();
+        }
+
+        public void PlayMoveSound()
+        {
+            _audioService.PlaySfx(AudioId.Walk);
+        }
 
 
         #region Gizmo
@@ -174,7 +273,7 @@ namespace DZ.Features
         {
             if (groundCheckPos == null) return;
             Gizmos.color = _isGrounded ? Color.green : Color.red;
-            //Gizmos.DrawWireSphere(groundCheckPos.position, checkRadius);
+            
             Gizmos.DrawCube(groundCheckPos.position, _groundCheckSize);
         }
         #endregion

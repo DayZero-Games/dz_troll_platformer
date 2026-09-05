@@ -14,11 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: DZ.Core.Runtime::DZ.Core.Runtime.AudioLibrarySo
   audioEntries:
   - audioId: 1
-    clip: {fileID: 8300000, guid: e155f42ffe86a4c348e6f0a22d517747, type: 3}
-    volume: 0.5
-  - audioId: 2
+    clip: {fileID: 8300000, guid: 5577e14310a303c489315ac6d3f4a816, type: 3}
+    volume: 1
+  - audioId: 4
     clip: {fileID: 8300000, guid: 80ca4773e2027024aa5386b4278b65aa, type: 3}
     volume: 1
-  - audioId: 3
-    clip: {fileID: 8300000, guid: 55936144a4e11ca4db91827c7d186b88, type: 3}
+  - audioId: 5
+    clip: {fileID: 8300000, guid: 64e71bbe81683a343af88be1ba12e391, type: 3}
     volume: 1
+  - audioId: 6
+    clip: {fileID: 8300000, guid: d2b5b2cc4c05b764eb9c0b50b3d71379, type: 3}
+    volume: 0.4

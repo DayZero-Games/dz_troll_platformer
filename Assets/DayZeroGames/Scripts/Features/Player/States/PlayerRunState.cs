@@ -10,7 +10,7 @@ namespace DZ.Features
 
 		public override void Enter()
 		{
-			//Debug.Log("RunState Enter");
+			
 			inputReader.OnJumpPerformed += HandlePlayerJump;
 			playerAnimationController.PlayRunAnimation();
 		}
@@ -27,7 +27,7 @@ namespace DZ.Features
 
 		public override void Exit()
 		{
-			//Debug.Log("RunState Exit");
+			
 			inputReader.OnJumpPerformed -= HandlePlayerJump;
 		}
 
@@ -38,8 +38,9 @@ namespace DZ.Features
 
 		private void HandlePlayerJump()
 		{
-			if (playerController.IsGrounded)
+			if (playerController.IsGrounded && playerController.CanJump())
 			{
+				playerController.JumpState.JumpOnEnter();
 				playerStateMachine.ChangeState(playerController.JumpState);
 			}
 		}

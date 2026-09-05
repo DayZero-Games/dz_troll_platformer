@@ -32,7 +32,11 @@ namespace DZ.Features
             _levelIndex = levelIndex;
             _onClicked = onClicked;
 
-            if (_label != null) _label.text = label;
+            if (_label != null)
+            {
+                _label.text = label;
+                _label.alignment = unlocked ? TextAlignmentOptions.Bottom : TextAlignmentOptions.Midline;
+            }
             if (_lockedOverlay != null) _lockedOverlay.SetActive(!unlocked);
             _button.interactable = unlocked;
         }

@@ -5,6 +5,7 @@ using DZ.Core;
 using DZ.Core.Contracts;
 using PrimeTween;
 using UnityEngine;
+using UnityEngine.Serialization;
 using VContainer;
 
 namespace DZ.Features
@@ -15,8 +16,8 @@ namespace DZ.Features
         [Inject] private readonly IAudioService _audioService;
         [Header("Refrences")] [SerializeField] private Animator _doorAnimator;
 
-        [Tooltip("Where the player lines up before fading out. Child of the door.")] [SerializeField]
-        private Transform _entryAnchor;
+        [Tooltip("Where the player lines up before fading out. Child of the door.")][SerializeField]
+        private Transform _playerExitAnchor;
 
         [SerializeField] private string _playerTag = "Player";
 
@@ -31,36 +32,40 @@ namespace DZ.Features
         private void Awake()
         {
             GetComponent<Collider2D>().isTrigger = true;
-            if (_entryAnchor == null) _entryAnchor = transform;
+            if (_playerExitAnchor == null) _playerExitAnchor = transform;
         }
 
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (_isRunning || !other.CompareTag(_playerTag)) return;
-            if (!other.TryGetComponent(out PlayerController player)) return;
-            RunExitSequenceAsync(player, this.GetCancellationTokenOnDestroy()).Forget();
+
+            // Whoever the level is being played as: the player, or its puppet stand-in.
+            if (!other.TryGetComponent(out ILevelAvatar avatar)) return;
+
+            if (!avatar.IsDead)
+            {
+                RunExitSequenceAsync(avatar, this.GetCancellationTokenOnDestroy()).Forget();
+            }
         }
 
-        private async UniTaskVoid RunExitSequenceAsync(PlayerController player, CancellationToken ct)
+        private async UniTaskVoid RunExitSequenceAsync(ILevelAvatar avatar, CancellationToken ct)
         {
             _isRunning = true;
 
             try
             {
-                // Must come first: the movement states drive linearVelocity every
-                // FixedUpdate, which would fight the position tween below.
-                player.LockPlayer();
+                avatar.Lock();
                 _signalBus.Publish(new LevelExitReachedSignal());
                 _audioService.PlaySfx(AudioId.ExitDoorReached);
-                //Bring Player To Door
-                await Tween.Position(player.transform, _entryAnchor.position,
+
+                await Tween.Position(avatar.Transform, _playerExitAnchor.position,
                         _walkInDuration, Ease.OutQuad)
                     .ToUniTask().AttachExternalCancellation(ct);
-                //Fade Player
-                await Tween.Alpha(player.SpriteRenderer, 0f,
+
+                await Tween.Alpha(avatar.SpriteRenderer, 0f,
                         _playerFadeDuration, Ease.InQuad)
                     .ToUniTask().AttachExternalCancellation(ct);
-                //Play Door Close Anim
+                
                 if (_doorAnimator != null) _doorAnimator.SetTrigger(CloseHash);
                 await UniTask.Delay(TimeSpan.FromSeconds(_doorCloseDuration), cancellationToken: ct);
                 
@@ -68,7 +73,7 @@ namespace DZ.Features
             }
             catch (OperationCanceledException)
             {
-                // level torn down mid-sequence
+                
             }
             finally
             {

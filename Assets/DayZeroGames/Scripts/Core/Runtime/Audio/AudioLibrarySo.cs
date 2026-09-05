@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace DZ.Core.Runtime
 {
-    [CreateAssetMenu(fileName = "AudioLibrarySO", menuName = "Scriptable Objects/AudioLibrarySO")]
+    [CreateAssetMenu(fileName = "AudioLibrarySO", menuName = "DayZeroGames/AudioLibrarySO")]
     public class AudioLibrarySo : ScriptableObject,IAudioLibrary
     {
         [SerializeField] public List<AudioEntry> audioEntries =new();
